@@ -1,0 +1,137 @@
+﻿[↑] Questions about Design Patterns:
+Q. Why are global and static objects evil? Can you show it with a code example?
+
+To elaborate, imagine you have a couple of objects that both use the same global variable. Assuming you're not using a source of randomness anywhere within either module, then the output of a particular method can be predicted (and therefore tested) if the state of the system is known before you execute the method.
+
+However, if a method in one of the objects triggers a side effect which changes the value of the shared global state, then you no longer know what the starting state is when you execute a method in the other object. You can now no longer predict what output you'll get when you execute the method, and therefore you can't test it.
+
+Tell me about Inversion of Control and how does it improve the design of code?
+
+The Inversion of Control (IoC) and Dependency Injection (DI) patterns are all about removing dependencies from your code.
+
+For example, say your application has a text editor component and you want to provide spell checking. Your standard code would look something like this:
+
+public class TextEditor {
+
+    private SpellChecker checker;
+
+    public TextEditor() {
+        this.checker = new SpellChecker();
+    }
+}
+
+
+https://stackoverflow.com/questions/3058/what-is-inversion-of-control
+
+Q. The Law of Demeter (the Principle of Least Knowledge) states that each unit should have only limited knowledge about other units and it should only talk to its immediate friends (sometimes stated as "Don't talk to strangers"). Would you write code violating this principle, show why it is a bad design and then fix it?
+
+In many programming languages, all returned values are objects. As others have said, not being able to use the methods of returned objects forces you to never return anything at all. You should be asking your self, "What are the responsibilities of class A, B and C?" This is why using metasyntactic variable names like A, B and C always solicit the answer "it depends" because there is no inherit responsibilities in those terms.
+
+You may want to look into Domain Driven Design, which will give you a more nuanced set of heuristics to reason about where functionality should go and who should be invoking what.
+
+Your second question concerning immutable objects speaks to the notion of a
+Value Object compared to an Entity object. in DDD, You can pass value objects around with almost no restrictions. This does not speak true for entity objects.
+
+The simplistic LOD is much better expressed in DDD as the rules for accessing Aggregates. No external objects should hold references to members of aggregates. Only a root reference should be held.
+
+DDD aside, you at least want to develop your own sets of stereotypes for your classes that are reasonable for your domain. Enforce rules about those stereotypes as you design your system.
+
+Also always remember that all of these rules are to manage complexity, not to hamstring yourself.
+
+
+
+Q. Active-Record is the design pattern that promotes objects to include functions such as Insert, Update, and Delete, and properties that correspond to the columns in some underlying database table. In your opinion and experience, which are the limits and pitfalls of the this pattern?
+
+25
+down vote
+accepted
+The main drawback is your "entities" are aware of their own persistence which leads to a lot of other bad design decisions.
+
+The other issues is that most active record toolkits basically map 1 to 1 to table fields with zero layers of indirection. This works on small scales but falls apart when you have trickier problems to solve.
+
+Well, having your objects know about their persistence means you need to do things like:
+
+easily have database connections available everywhere. This typically leads to nasty hardcoding or some sort of static connection that gets hit from everywhere.
+your objects tend to look more like SQL than objects.
+hard to do anything in the app disconnected because database is so ingrained.
+There ends up being a whole slew of other bad decisions on top of this.
+
+
+Q.Why it is often said that the introduction of null is a "Billion dollar mistake"? Would you discuss the techniques to avoid it, such as the Null Object Pattern introduced by the GOF book, or Option types?
+
+null is evil
+There is a presentation on InfoQ on this topic: Null References: The Billion Dollar Mistake by Tony Hoare
+
+Option type
+The alternative from functional programming is using an Option type, that can contain SOME value or NONE.
+
+A good article The “Option” Pattern that discuss the Option type and provide an implementation of it for Java.
+
+I have also found a bug-report for Java about this issue: Add Nice Option types to Java to prevent NullPointerExceptions. The requested feature was introduced in Java 8.
+
+Ref
+https://softwareengineering.stackexchange.com/questions/12777/are-null-references-really-a-bad-thing
+
+
+
+
+
+
+
+Q. Many state that, in Object-Oriented Programming, Composition is often a better option than Inheritance. What's you opinion?
+
+down vote
+TL;DR
+Attempting to use composition first, before attempting to use inheritance, prevents naive mistakes. Also, Class Inheritance:
+
+Is easy to misuse.
+Is less versatile than composition.
+Is less versatile than interface inheritance.
+Requires more maintenance than composition.
+Provides some good guarantees about the derived types. Consider if it is worth the points above.
+Should be used when we need to follow the Liskov substitution principle.
+Can be necesary to extend poorly designed third party systems. Blame the third party.
+Also, Java is not perfect.
+
+Ref: https://softwareengineering.stackexchange.com/questions/371707/why-the-industry-prefer-use-composition-over-inheritance
+
+
+Q. What is an Anti-corruption Layer?
+Isolate the different subsystems by placing an anti-corruption layer between them. This layer translates communications between the two systems, allowing one system to remain unchanged while the other can avoid compromising its design and technological approach.
+
+
+Q.The ability to change implementation without affecting clients is called Data Abstraction. Produce and example violating this property, then fix it.
+
+Q Write a snippet of code violating the Don't Repeat Yourself (DRY) principle. Then, fix it.
+
+it is just called duplicate code - I don't know of any more fancy names for this. The long term consequences are as you described, and worse.
+
+Of course, eliminating the duplication is the ideal option if only possible. It may take a lot of time (in a recent case in our legacy project, I had several methods duplicated across more than 20 subclasses in a class hierarchy, many of which had evolutionarily grown their own slight differences / extensions over the years. It took me about 1,5 years through successive unit test writing and refactoring to get rid of all duplications. Perseverance was worth it though).
+
+In such a case, you may still need one or more of the other options as temporary fixes, even if you decide to start moving towards eliminating the duplication. However, which of those is better depends on a lot of factors, and without more context we are just guessing.
+
+Lots of small improvements can make a big difference in the long run. You don't necessarily need the customer's explicit approval for these either - a little refactoring every time when you touch said class to fix a bug or implement a feature can go a long way over time. Just include some extra time for refactoring in your task estimates. It is just like standard maintenance to keep the software healthy in the long run.
+
+
+
+
+Q How would you deal with Dependency Hell?
+This problem is almost always caused by using unspecific version numbers in your composer.json, or relying on "dev-master" for too many requirements.  While it may work on the day you set up your project, as each project undergoes further development the chance increases that the head commit will introduce an incompatibility.
+
+The only 100% sure way to avoid this is to use specific version tags for your requirements.  By specifying exact version numbers, each time you run "composer update" you're getting the versions that you developed and tested against.
+
+If you've already gone ahead and set up your requirements using dev-master or loose versioning (e.g. "~1.0.*"), you could manually work through your composer.json to resolve the version numbers by hand.  That will take some time, but you will end up with a cleaner and more reliable set of requirements.
+
+
+Q Is goto evil? You may have heard of the famous paper "Go To Statement Considered Harmful" by Edsger Dijkstra, in which he criticized the use of the goto statement and advocated structured programming instead. The use of goto has always been controversial, so much that even Dijkstra's letter was criticized with articles such as "'GOTO Considered Harmful' Considered Harmful". What's your opinion on the use of goto?
+
+Unless you are programming in assembler, GOTO should always be treated the same way as the life vest of the airplanes: it is good to have them available, but if you need to use them it means that you are in big trouble.
+
+
+Q. Separation of Concerns is a design principle for separating a computer program into distinct areas, each of ones addressing a separate concern. There are a lot of different mechanisms for achieving Separation of Concerns (use of objects, functions, modules, or patterns such as MVC and the like). Would you discuss this topic?
+Well, like doing many things in life, it always helpful to be well organized. Models, Views and Controllers are distinctly different pieces of code that helps to provide different functions to your overall project. Because of that, they are kept separate and organized.
+
+Imagine if you were designing a program. You wouldn't put all your code into one function, would you? No, you would divide them up into separate smaller functions that solve very specific tasks. Likewise, as programmers, we're constantly looking for ways to separate and divide our large applications to smaller bits of pieces. One of these organization design patterns is MVC, where, the model (the data) exists in one section, the view (the UI) exist in one section, and the controller (logic) exists in another section.
+
+What problems does this solve? Well, just as how having separated functions solve the problems of readability, modularity, and coupling, so does MVC. Say if you wanted to change a piece of code, you can tackle it in a smaller subset that is more or less isolated from the larger piece of code. This allows you to add, modify or remove code more effeciently and logically. It also helps in testing, since similar code is sectioned into groups, you may be able to have better coverage of your tests cases. Also very important is that you end up writing a lot less code.
+

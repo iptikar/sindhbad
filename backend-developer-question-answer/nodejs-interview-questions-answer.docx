@@ -1,0 +1,128 @@
+﻿
+What are closures and how are they useful?
+A closure is the combination of a function and the lexical environment within which that function was declared.
+
+function init() {
+  var name = 'Mozilla'; // name is a local variable created by init
+  function displayName() { // displayName() is the inner function, a closure
+    alert(name); // use variable declared in the parent function    
+  }
+  displayName();    
+}
+init();
+
+
+init() creates a local variable called name and a function called displayName(). The displayName() function is an inner function that is defined inside init() and is only available within the body of the  init() function. The displayName() function has no local variables of its own. However, because inner functions have access to the variables of outer functions, displayName() can access the variable name declared in the parent function, init(). However, the same local variables in displayName() will be used if they exist.
+
+
+
+When would I use closures (retention) over classes?
+The closure pattern is more lintable than the class pattern.
+The class pattern tends to perform better than the closure pattern.
+The class pattern is more monkey-patchable than the the closure pattern.
+
+Class Patern 
+const Earth   = require('earth')
+const Society = require('society')
+// An ES6 class!
+class Bourgeoisie {
+    constructor (land, capital) {
+        this.land = land
+        this.capital = capital
+    }
+    exploitForProfit (proletariat) {
+        const labor = proletariat.employ()
+        const goods = this.capitol.produce(labor)
+        return goods.sellTo(proletariat) + this.land.rentTo(proletariat)
+    }
+}
+// Usage
+function initClassStruggle () {
+    const land = Earth.getLand()
+    const capital = Society.industrialize()
+    const bourgeoisie = new Bourgeoisie(land, capital)
+    Society.on('workday', () => {
+        bourgeoisie.exploitForProfit(Society.getProletariat())
+    })
+}
+initClassStruggle()
+
+Clousere Pattern
+const Earth       = require('earth')
+const Society     = require('society')
+// A closure.
+function Bourgeoisie (land, capital) {
+    function exploitForProfit (proletariat) {
+        const labor = proletariat.employ()
+        const goods = capitol.produce(labor)
+        return goods.sellTo(proletariat) + land.rentTo(proletariat)
+    }
+    return {
+        exploitForProfit: exploitForProfit
+    }
+}
+// Usage
+function initClassStruggle () {
+    const land = Earth.getLand()
+    const capital = Society.industrialize()
+    const bourgeoisie = Bourgeoisie(land, capital)
+    Society.on('workday', () => {
+        bourgeoisie.exploitForProfit(Society.getProletariat())
+    })
+}
+
+
+What does ‘this’ refer to? What’s the deal with ‘self’?
+In what you've shown in this particular code example, there is no reason to even have the self variable because there are no other function scopes that might need access to the original value of this.
+
+Some developers have a consistent methodology or convention to create a local variable like self and assign it the value of this just so that they have it to use, if needed, in closures. The self variable can also be minimized smaller than this because it can be renamed to a one character variable name, but this cannot be renamed.
+
+In any case, the functionality here would not be affected if self was removed and only this was used in this particular method.
+
+My own personal convention is to only define self if it is actually needed which is the same logic I use for other local variables and then I only use it inside the closure where it is needed.
+
+
+When does javascript compile? What might slow it down?
+Yes, in 2014, everyone compiles JavaScript to native code using various strategies to optimize the code. There are even standards like asm.js to allow to compile JavaScript in such a way that the resulting code is at least as fast as code written in C/C++ or Java.
+
+As always, the performance that you get in the end really depends on the optimizations and your code. Just as it's easy to write slow code in Java or C++, you can also write something that no automatic optimizer in the world can fix.
+
+
+What is a callback? What is the advantage? Cons?
+
+What’s the difference between object literal and new?
+
+Why not just assign function to properties instead of protoype for an object?
+
+How do I implement modules natively in javascript?
+
+When is angular a bad option?
+
+How do I deal with scope collisions (especially in Node)?
+
+What are some common design patterns in OO Javascript?
+
+Difference between o = Object() vs o = new Object() ?
+
+How do promises work? What are the advantages over traditonal callbacks?
+
+What are the advantage of directives? What role do they play in MVC?
+
+How do I handle scope issues in angular (especially with lots of controllers)?
+
+Explain your process for testing? Framework? Which do you prefer? Why?
+
+How is ‘require’ implemented in Node?
+
+Expalin the role of middleware in Node?
+
+What’s the difference between call and apply?
+
+
+Why would you ever use call/apply?
+
+
+What are some of the biggest limitations of javascript?
+
+
+Hope this helps. Much comes from personal experience with interviewers.

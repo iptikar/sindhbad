@@ -1,0 +1,13 @@
+Session is not removing if broweser even closes by the users therefore detect while closing the broweser and send ajax message to 
+remove the session as when user close the chat box.
+
+Only PHP Array
+(
+    [PHPSESSID] => 9jdgpimn5s38p217cs3t4fevm4
+)
+
+Otherwise old message fetches by admin and client togather.
+
+Apart from this you can update many more with new development. 
+
+Thanks.

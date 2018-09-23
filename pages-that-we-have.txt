@@ -1,0 +1,7 @@
+Pages that we have 
+http://locahost/
+http://localhost/discription.php
+http://localhost/category.php
+http://localhost/verify.php
+http://localhost/login.php
+http://localhost/account.php

@@ -1,0 +1,2 @@
+You must have installed eslint to you node application either in global mode or local
+./node_modules/.bin/eslint --fix classes-test.js

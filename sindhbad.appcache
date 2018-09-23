@@ -1,0 +1,68 @@
+CACHE MANIFEST
+# 2010-06-18:v2
+
+# Explicitly cached 'master entries'.
+CACHE:
+
+https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js
+https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css
+
+themes/sm_market2/pub/static/_cache/merged/82ea3d4de55c40269ad64bf293fadd23.min.css
+themes/sm_market2/pub/static/frontend/Sm/market/en_US/css/styles-l.min.css
+themes/sm_market2/pub/static/frontend/Sm/market/en_US/css/config_4.css
+css/custom.css
+
+
+https://fonts.googleapis.com/css?family=Open+Sans:400,600,700
+
+css/easy-responsive-tabs.css
+css/easy-responsive-tabs.css
+themes/sm_market2/pub/static/_cache/merged/1310f31907a737e23ccf73ad22bfc205.min.js
+js/jquery.twbsPagination.js
+js/easyResponsiveTabs.js
+css/xzoom.css
+  
+js/xzoom.min.js
+js/hammer.min.js
+js/foundation.min.js
+js/zoom1.js
+
+
+# Resources that require the user to be online.
+NETWORK:
+
+index.php
+category.php
+discription.php
+account.php
+cart.php
+category_id.php
+category_name.php
+footer.php
+head.php
+header.php
+head-links.php
+verification-email-template.phtml
+verify.php
+login.php
+controller/
+img/
+model/
+user-admin-14e1813e3d0cf9da1a9dafc6afadff37/
+user-buyer-14e1813e3d0cf9da1a9dafc6afadff37/
+ajax/
+checkout/
+info/
+themes/
+marketplace-theme/
+http://magento2.flytheme.net/
+
+
+# static.html will be served if main.py is inaccessible
+# offline.jpg will be served in place of all images in images/large/
+# offline.html will be served in place of all other .html files
+FALLBACK:
+
+
+
+#fuck you yes hcag you have to cached

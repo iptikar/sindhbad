@@ -1,0 +1,23 @@
+API Key 
+TZaarVFYfZA6C2kAq5NuQZZ8jIZUk77x
+ 
+ 
+API Secret 
+DSbO7joN3OR47eQR
+
+{
+            "type": "amadeusOAuth2Token",
+            "username": "bharatrose1@gmail.com",
+            "application_name": "testing",
+            "client_id": "TZaarVFYfZA6C2kAq5NuQZZ8jIZUk77x",
+            "token_type": "Bearer",
+            "access_token": "slyW4uvBT1waAn3Ohu2YEZYTihyy",
+            "expires_in": 1799,
+            "state": "approved",
+            "scope": ""
+}
+
+
+
+// IF session expire then use this token expire
+-X POST  -H "Content-Type: application/x-www-form-urlencoded"  https://test.api.amadeus.com/v1/security/oauth2/token  -d "grant_type=client_credentials&client_id=TZaarVFYfZA6C2kAq5NuQZZ8jIZUk77x&client_secret=DSbO7joN3OR47eQR"
