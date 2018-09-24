@@ -89,40 +89,395 @@ As always, the performance that you get in the end really depends on the optimiz
 
 
 What is a callback? What is the advantage? Cons?
+The main browser process is a single threaded event loop. If you execute a long-running operation within a single-threaded event loop, the process "blocks". This is bad because the process stops processing other events while waiting for your operation to complete. 'alert' is one of the few blocking browser methods: if you call alert('test'), you can no longer click links, perform ajax queries, or interact with the browser UI.
+
+In order to prevent blocking on long-running operations, the XMLHttpRequest provides an asynchronous interface. You pass it a callback to run after the operation is complete, and while it is processing it cedes control back to the main event loop instead of blocking.
+
+There's no reason to use a callback unless you want to bind something to an event handler, or your operation is potentially blocking and therefore requires an asynchronous programming interface.
+
+This is an excellent video discussing more about the event loop used in the browser, as well as on the server side in node.js.
+
+EDIT: that convoluted line from the jQuery documentation just means that the callback executes asynchronously as control is ceded back to the main event loop.
+
+parent_function(function () { console.log('Callback'); });
+parent_doesnt_block(); // <-- function appears after "parent"
+therefore_execution_continues();
+// Maybe we get 'Callback' in the console here? or maybe later...
+execution_still_continues();
+
+
 
 What’s the difference between object literal and new?
 
+99
+down vote
+accepted
+They both do the same thing (unless someone's done something unusual), other than that your second one creates an object and adds a property to it. But literal notation takes less space in the source code. It's clearly recognizable as to what is happening, so using new Object(), you are really just typing more and (in theory, if not optimized out by the JavaScript engine) doing an unnecessary function call.
+
+These
+
+person = new Object() /*You should put a semicolon here too.  
+It's not required, but it is good practice.*/ 
+-or-
+
+person = {
+    property1 : "Hello"
+};
+technically do not do the same thing. The first just creates an object. The second creates one and assigns a property. For the first one to be the same you then need a second step to create and assign the property.
+
+The "something unusual" that someone could do would be to shadow or assign to the default Object global:
+
+// Don't do this
+Object = 23;
+In that highly-unusual case, new Object will fail but {} will work.
+
+In practice, there's never a reason to use new Object rather than {} (unless you've done that very unusual thing).
+
 Why not just assign function to properties instead of protoype for an object?
+Methods that inherit via the prototype chain can be changed universally for all instances, for example:
+
+function Class () {}
+Class.prototype.calc = function (a, b) {
+    return a + b;
+}
+
+// Create 2 instances:
+var ins1 = new Class(),
+    ins2 = new Class();
+
+// Test the calc method:
+console.log(ins1.calc(1,1), ins2.calc(1,1));
+// -> 2, 2
+
+// Change the prototype method
+Class.prototype.calc = function () {
+    var args = Array.prototype.slice.apply(arguments),
+        res = 0, c;
+
+    while (c = args.shift())
+        res += c;
+
+    return res; 
+}
+
+// Test the calc method:
+console.log(ins1.calc(1,1,1), ins2.calc(1,1,1));
+// -> 3, 3
+Notice how changing the method applied to both instances? This is because ins1 and ins2 share the same calc() function. In order to do this with public methods created during construction, you'd have to assign the new method to each instance that has been created, which is an awkward task. This is because ins1 and ins2 would have their own, individually created calc() functions.
+
+Another side effect of creating methods inside the constructor is poorer performance. Each method has to be created every time the constructor function runs. Methods on the prototype chain are created once and then "inherited" by each instance. On the flip side of the coin, public methods have access to "private" variables, which isn't possible with inherited methods.
+
+As for your function Class() {} vs var Class = function () {} question, the former is "hoisted" to the top of the current scope before execution. For the latter, the variable declaration is hoisted, but not the assignment. For example:
+
+// Error, fn is called before the function is assigned!
+fn();
+var fn = function () { alert("test!"); } 
+
+// Works as expected: the fn2 declaration is hoisted above the call
+fn2();
+function fn2() { alert("test!"); }
+
 
 How do I implement modules natively in javascript?
+
+Native ES Modules in NodeJS
+To create an ES Module, just create a file with the mjs extension that includes the module code. For example:
+
+01-kettle.mjs hosted with ❤ by GitHub
+export const spout = 'the spout'
+export const handle = 'the handle'
+export const tea = 'hot tea'
+
+
+01-main.mjs hosted with ❤ by GitHub
+mport {handle, spout, tea} from './01-kettle.mjs'
+
+console.log(handle) // ==> the handle
+console.log(spout) // ==> the spout
+console.log(tea) // ==> hot tea
+
 
 When is angular a bad option?
 
 How do I deal with scope collisions (especially in Node)?
+hey do not have global scope.
+
+Route
+The route takes a handler function for each route. That route is passed the req and res objects.
+
+app.get('/my-route', myHandler);
+Handler
+Your handler receives those objects and uses them.
+
+exports.myHandler = function(req, res) {
+    res.send("Hello world");
+);
+
+Closures
+When you make a database call (or any other io bound call) you pass it a callback. The req and res objects live in that callback as a closure.
+
+exports.myHandler = function(req, res) {
+  var weekday = req.query.weekday || "today";
+  db.getWeather(weekday, function(err, result) {
+    // `res` here is a closure
+    if(err) { res.send(500,"Server Error"); return; }
+    res.send(result);
+  });
+};
+
 
 What are some common design patterns in OO Javascript?
+some people don't realize that JS is fully object oriented. You can create something that works just like a class:
+
+function Car() {
+    this.publicField = "bad";
+    var privateField = "good";
+    var self = this;
+
+    this.publicMethod = function() {
+        alert("I can access " + this.publicField + " and " + privateField);
+    }
+
+    function privateMethod() {
+        alert("I can access " + self.publicField + " and " + privateField);
+    }
+}
+you can instantiate those classes:
+
+var car = new Car();
+and it supports inheritance:
+
+function Vehicle() { /* define class */ }
+
+function Truck() { /* define class */ }
+Truck.prototype = new Vehicle();
+and can even add methods to existing classes:
+
+Array.prototype.remove = function() {
+}
+
+If you'd like to learn more about JavaScript's OO support, I highly recommend the Rhino book.
+
+
 
 Difference between o = Object() vs o = new Object() ?
 
+They both do the same thing (unless someone's done something unusual), other than that your second one creates an object and adds a property to it. But literal notation takes less space in the source code. It's clearly recognizable as to what is happening, so using new Object(), you are really just typing more and (in theory, if not optimized out by the JavaScript engine) doing an unnecessary function call.
+
+These
+
+person = new Object() /*You should put a semicolon here too.  
+It's not required, but it is good practice.*/ 
+-or-
+
+person = {
+    property1 : "Hello"
+};
+technically do not do the same thing. The first just creates an object. The second creates one and assigns a property. For the first one to be the same you then need a second step to create and assign the property.
+
+The "something unusual" that someone could do would be to shadow or assign to the default Object global:
+
+// Don't do this
+Object = 23;
+In that highly-unusual case, new Object will fail but {} will work.
+
+In practice, there's never a reason to use new Object rather than {} (unless you've done that very unusual thing).
+
+
 How do promises work? What are the advantages over traditonal callbacks?
+What is a promise?
+The core idea behind promises is that a promise represents the result of an asynchronous operation. A promise is in one of three different states:
+
+pending - The initial state of a promise.
+fulfilled - The state of a promise representing a successful operation.
+rejected - The state of a promise representing a failed operation.
+Once a promise is fulfilled or rejected, it is immutable (i.e. it can never change again).
+
+Constructing a promise
+Once all of the APIs return promises, it should be relatively rare that you need to construct one by hand. In the meantime, we need a way to polyfill existing APIs. For example:
+
+function readFile(filename, enc){
+  return new Promise(function (fulfill, reject){
+    fs.readFile(filename, enc, function (err, res){
+      if (err) reject(err);
+      else fulfill(res);
+    });
+  });
+}
+
+Awaiting a promise
+function readJSON(filename){
+  return new Promise(function (fulfill, reject){
+    readFile(filename, 'utf8').done(function (res){
+      try {
+        fulfill(JSON.parse(res));
+      } catch (ex) {
+        reject(ex);
+      }
+    }, reject);
+  });
+}
+
+
 
 What are the advantage of directives? What role do they play in MVC?
+Model-View-Controller (or MVC) is probably one of the most popular architectures for applications. As with a lot of other cool things in computer history, the MVC model was conceived at PARC for the Smalltalk language as a solution to the problem of organizing applications with graphical user interfaces. It was created for desktop applications, but since then, the idea has been adapted to other mediums including the web.
+
+We can describe the MVC architecture in simple words:
+
+Model: The part of our application that will deal with the database or any data-related functionality.
+View: Everything the user will see. Basically the pages that we’re going to send to the client.
+Controller: The logic of our site, and the glue between models and views. Here we call our models to get the data, then we put that data on our views to be sent to the users.
+
 
 How do I handle scope issues in angular (especially with lots of controllers)?
+1. Controllers Should Be Classes
+2. Keep Controllers Skinny With Services
+3. Eliminate Scope Using The 'Controller As' Syntax
+4. Eliminate Watches Using 'ng-change' And ES5 Properties
+5. Don't Use Scope To Pass Data Around
 
 Explain your process for testing? Framework? Which do you prefer? Why?
+Automation
+There are many ways you can integrate a linter in your workflow.
+
+Prettier
+Linters like standard let you keep a uniform coding style. But recently there’s another project that lets you go one step further: prettier. This pretty formatter understands the print-width. So for example this code is fine:
+
+foo(arg1, arg2, arg3, arg4);
+foo(reallyLongArg(), omgSoManyParameters(), IShouldRefactorThis(), isThereSeriouslyAnotherOne());
+
+Become like this 
+foo(
+  reallyLongArg(),
+  omgSoManyParameters(),
+  IShouldRefactorThis(),
+  isThereSeriouslyAnotherOne()
+);
+
 
 How is ‘require’ implemented in Node?
 
+http://fredkschott.com/post/2014/06/require-and-the-module-system/
+
 Expalin the role of middleware in Node?
 
+down vote
+accepted
+middleware
+
+I'm halfway through separating the concept of middleware in a new project.
+
+Middleware allows you to define a stack of actions that you should flow through. Express servers themselves are a stack of middlewares.
+
+// express
+var app = express();
+// middleware
+var stack = middleware();
+Then you can add layers to the middleware stack by calling .use
+
+// express
+app.use(express.static(..));
+// middleware
+stack.use(function(data, next) {
+  next();
+});
+A layer in the middleware stack is a function, which takes n parameters (2 for express, req & res) and a next function.
+
+Middleware expects the layer to do some computation, augment the parameters and then call next.
+
+A stack doesn't do anything unless you handle it. Express will handle the stack every time an incoming HTTP request is caught on the server. With middleware you handle the stack manually.
+
+// express, you need to do nothing
+// middleware
+stack.handle(someData);
+A more complete example :
+
+var middleware = require("../src/middleware.js");
+
+var stack = middleware(function(data, next) {
+    data.foo = data.data*2;
+    next();
+}, function(data, next) {
+    setTimeout(function() {
+        data.async = true;
+        next();
+    }, 100)
+}, function(data) {
+    console.log(data);
+});
+
+stack.handle({
+    "data": 42
+})
+
 What’s the difference between call and apply?
+The difference is that apply lets you invoke the function with arguments as an array; call requires the parameters be listed explicitly. A useful mnemonic is "A for array and C for comma."
+
+See MDN's documentation on apply and call.
+
+Pseudo syntax:
+
+theFunction.apply(valueForThis, arrayOfArgs)
+
+theFunction.call(valueForThis, arg1, arg2, ...)
+
+There is also, as of ES6, the possibility to spread the array for use with the call function, you can see the compatibilities here.
+
+Sample code:
+
+function theFunction(name, profession) {
+    console.log("My name is " + name + " and I am a " + profession +".");
+}
+theFunction("John", "fireman");
+theFunction.apply(undefined, ["Susan", "school teacher"]);
+theFunction.call(undefined, "Claude", "mathematician");
+theFunction.call(undefined, ...["Matthew", "physicist"]); // used with the spread operator
+
 
 
 Why would you ever use call/apply?
+You use call or apply when you want to pass a different this value to the function. In essence, this means that you want to execute a function as if it were a method of a particular object. The only difference between the two is that call expects parameters separated by commas, while apply expects parameters in an array.
+
+An example from Mozilla's apply page, where constructors are chained:
+
+function Product(name, price) {
+    this.name = name;
+    this.price = price;
+
+    if (price < 0)
+        throw RangeError('Cannot create product "' + name + '" with a negative price');
+    return this;
+}
+
+function Food(name, price) {
+    Product.apply(this, arguments);
+    this.category = 'food';
+}
+Food.prototype = new Product();
+
+function Toy(name, price) {
+    Product.apply(this, arguments);
+    this.category = 'toy';
+}
+Toy.prototype = new Product();
+
+var cheese = new Food('feta', 5);
+var fun = new Toy('robot', 40);
+What Product.apply(this, arguments) does is the following: The Product constructor is applied as a function within each of the Food and Toy constructors, and each of these object instances are being passed as this. Thus, each of Food and Toy now have this.name and this.category properties.
 
 
 What are some of the biggest limitations of javascript?
-
+It lacks the following important features i.e. Limitations of JavaScript:
+For security reason, JavaScript does not allow the reading or writing of files.
+This doesn’t have any multiprocessor/multi threading capabilities.
+As there is no support available, this cannot be used for networking applications.
+Cannot access web pages hosted on a different domain.
+Cannot access databases.
+Depends a lot on the browser.
+Inability to use local devices.
+JavaScript can be disabled.
+Not Search Engine Friendly.
+JavaScript cannot protect your page source or images.
 
 Hope this helps. Much comes from personal experience with interviewers.

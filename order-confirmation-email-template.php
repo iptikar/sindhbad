@@ -14,7 +14,8 @@ $postRequired  = ["firstname",
 				"taxOrvat",
 				"cartTotalAmount",
 				"orderdate",
-				'shippingcost'
+				'shippingcost',
+				"to"
 			];
 
 $keys = array_keys($_POST);

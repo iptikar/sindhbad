@@ -1,4 +1,9 @@
 <?php
+
+
+	// Require order confirmation 
+require 'OrderConfirmationEmail.php';
+	
 class MarketPlace {
 	
 	
@@ -31,6 +36,7 @@ class MarketPlace {
 	public $currency = 'AED';
 	
 	
+	
 	/* Crate method for DB Connection */
 	protected function Connection() {
 		
@@ -56,8 +62,7 @@ class MarketPlace {
 		
 		}
 
-	
-	
+
 	/* Getting all category from the json file */
 	public function GetCategoryFronJson() {
 		
@@ -4964,7 +4969,46 @@ return $get;
 					setcookie($this->CartCookiName(),'' ,time() -3600, '/', $_SERVER['SERVER_NAME'] );
 					
 					// Send confirmation order details to the user 
-					
+					$shippingInJson = $this->buyerShippingAsArray();
+					$firstname = $shippingInJson['firstname'] ?? '';
+					$lastname = $shippingInJson['lastname'] ?? '';
+					$phonenumber = $shippingInJson['mobile_no'] ?? '';
+
+					// Cart array items required 
+					$cartItems = $cart;
+					// Cart items in array 
+
+					// Tax and vad 
+					$taxOrvat = $this->getPriceFormate($this->TaxOnCart());
+					$cartTotalAmount = $this->getPriceFormate($this->CartTotleAmountWithTax());
+					$shippingcost = $this->ShippingCostApply() === true ? 20 .' AED': 'Free Sipping'; 
+
+					// Get the logged in user email address 
+					$to = $this->BuyerSession()->email;;
+
+					$orderNumber = $order_id;
+					$orderdate = date('l jS \of F Y h:i:s A');
+
+					$address = ucfirst(implode(', ', array_filter($shippingInJson)));
+
+
+					$data = [
+							
+							'firstname' =>$firstname,
+							'lastname' => $lastname,
+							'orderNumber' => $orderNumber,
+							'phonenumber' => $phonenumber,
+							'address' => $address,
+							'cartItems' => $cartItems,
+							'taxOrvat' => $taxOrvat,
+							'cartTotalAmount' => $cartTotalAmount,
+							'orderdate' => $orderdate,
+							'shippingcost' => $shippingcost,
+							'to'=> $to
+						];
+
+					$sendConfirmation = new OrderConfirmationEmail($data);
+
 					// return the content 
 					return ['orderdate' => $purchase_date, 'orderid'=> $order_id];
 					
@@ -5068,7 +5112,44 @@ return $get;
 		return 'buyershipping7522';
 	}
 	
+	// If UAE USERS
+	public function UAEUserMobileNumber(string $country, string $mobile_no): bool {
+		
+		if( $country === 'AE') {
+				
+				// Get the three digit prifix 
+				$validMobilePrifix = ['050', '052', '055', '056', '054', '058'];
+				
+				// Regression 
+				$regrex = '/[^\d-]+/';
+				
+				// $mobile number 
+				
+				$mobile_no = preg_replace($regrex, '', $mobile_no);
+				
+				// Get three three digits 
+				$firstThreeDigit = substr($mobile_no, 0, 3);
+				
+				// Check if it's in array 
+				if( !in_array ($firstThreeDigit, $validMobilePrifix)) {
+					
+						// Throw error 
+						return false;
+				}
+				
+				// Return true 
+				return true;
+				
+			}
+			
+	}
 	
+	
+	public function SendSMSTOOrderer( int $mobNumber):bool {
+		
+			
+			
+		}
 }
 
 ?>

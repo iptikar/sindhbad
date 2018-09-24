@@ -179,7 +179,13 @@ Client ID
                                  
                               </div>
                               
-                             
+                              <?php
+                              //echo "<pre>";
+                              
+                              //print_R($_POST);
+                              
+                              //echo "</pre>";
+                              ?>
                               <div class="opc-wrapper">
                                  <ol class="opc" id="checkoutSteps">
 										

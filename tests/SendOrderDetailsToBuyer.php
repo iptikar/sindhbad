@@ -7,38 +7,34 @@ $obj = new MarketPlace();
 
 
 	// Gettting the shipping details 
-	$shippingInJson = $obj->buyerShippingAsArray();
+	
 	
 // Variable required for the pages 
+
+ 	$shippingInJson = $this->buyerShippingAsArray();
 	$firstname = $shippingInJson['firstname'] ?? '';
 	$lastname = $shippingInJson['lastname'] ?? '';
-	
-	
-	$orderNumber = '565656565sdf';
 	$phonenumber = $shippingInJson['mobile_no'] ?? '';
-	
-	$address = 'Sheikh Mohammed Bin Rashed Boulevard, Downtown Dubai, 31166 - Dubai';
-	
+
 	// Cart array items required 
-	$cartItems = $_COOKIE[$obj->CartName()];
+	$cartItems = $_COOKIE[$this->CartName()];
 	// Cart items in array 
 	$cartItemsInarray = json_decode($cartItems, true);
 	
 	// Tax and vad 
-	$taxOrvat = $obj->getPriceFormate($obj->TaxOnCart());
+	$taxOrvat = $this->getPriceFormate($this->TaxOnCart());
+	$cartTotalAmount = $this->getPriceFormate($this->CartTotleAmountWithTax());
+	$shippingcost = $this->ShippingCostApply() === true ? 20 .' AED': 'Free Sipping'; 
 	
-	// Cart total amount 
-	// $obj->getPriceFormate($obj->CartTotleAmount());
-	// $obj->getPriceFormate($obj->CartTotleAmountWithTax());
-	$cartTotalAmount = $obj->getPriceFormate($obj->CartTotleAmountWithTax());
+	// Get the logged in user email address 
 	
+	$to = $this->BuyerSession()->email;;
+	
+	$orderNumber = '565656565sdf';
 	$orderdate = '2017-08-09';
 	
-	$shippingcost = $obj->ShippingCostApply() === true ? 20 .' AED': 'Free Sipping'; 
+	$address = ucfirst(implode(', ', array_filter($shippingInJson)));
 	
-	
-	
-	require '../controller/OrderConfirmationEmail.php';
 	
 	$data = ['firstname' =>$firstname,
 			'lastname' => $lastname,
@@ -49,10 +45,11 @@ $obj = new MarketPlace();
 			'taxOrvat' => $taxOrvat,
 			'cartTotalAmount' => $cartTotalAmount,
 			'orderdate' => $orderdate,
-			'shippingcost' => $shippingcost
+			'shippingcost' => $shippingcost,
+			'to'=> $to
 			];
 	
-	$obj = new OrderConfirmationEmail($data
+	$sendConfirmation = new OrderConfirmationEmail($data
 																
 								);
 	
