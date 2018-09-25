@@ -91,14 +91,11 @@
 					
 					<br/>
 					<br/>
-					
-                      <div class="page-title-wrapper">
+					<?php if($obj->IfCartExists() === true) :?>
+					<div class="page-title-wrapper">
                            <h2 class="page-title"><span class="base" data-ui-id="page-title-wrapper">Payment/ Order Review</span></h2>
                         </div>
-                       
-                       
-                     
-                     
+
                      <div class="column main">
                         <input name="form_key" type="hidden" value="1CqMG4r20wc5ViZh"> 
                         <div id="authenticationPopup" data-bind="scope:'authenticationPopup'" style="display: none;">
@@ -1549,6 +1546,16 @@ Pay by Card (On-Delivery)</label> <span>
                         </div>
                      </div>
                   </div>
+               
+					
+					<?php else: ?>
+					
+					<div class="message notice"><div>Buy something, Shopping cart is empty.  </div></div>
+                    
+					<?php endif;?>
+                      
+                     
+               
                </div>
             </div>
          </div>

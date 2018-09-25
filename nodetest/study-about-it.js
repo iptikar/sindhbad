@@ -474,3 +474,40 @@ app.use(async (err, req, res, next) => {
     if (!isOperationalError)
         next(err);
 })
+
+
+function readFile(filename, enc) {
+	
+		return new Promise(function (fullfill, reject){
+			
+				fs.readFile(filename, enc, function (err, res){
+						
+						if(err) reject (err);
+						
+						// Eles 
+						else fulfill(res);
+					
+					})
+			})
+	}
+
+
+// Awaiting a promise 
+function readJSON(filename) {
+	
+		// Return new promises 
+		return new Promise (function (fullfill, reject ) {
+			
+				// Read file 
+				readFile(filename, 'utf8').done(function (res) {
+					
+					try {
+							fullfill(JSON.parse(res));
+						} catch (ex) {
+							
+							reject (ex)
+							}
+					
+					}, reject );
+			})
+	}

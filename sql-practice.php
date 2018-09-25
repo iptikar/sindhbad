@@ -88,12 +88,7 @@ Suppliers on Products.SupplierID = Suppliers.SupplierID)
 INNER JOIN
 Categories ON Products.CategoryID = Categories.CategoryID)
 GROUP BY ProductName;
-
-
-
-        
-
-        
+   
   * 
   * */
    
@@ -218,3 +213,7 @@ SELECT *fields* FROM database1.table1
    * Write a SQL query to print ‘Fizz’ for a numeric value or ‘Buzz’ for alphabetical value for all values in that column.
    * */
    // SELECT col, case when upper(col) = lower(col) then 'Fizz' else 'Buzz' end as FizzBuzz from table;
+   
+   // SELECT col, case when upper(col) = lower(col) then 'fizz' else 'buzz' end as FizzBuzz from table;
+   
+   

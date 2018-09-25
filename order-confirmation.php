@@ -2,7 +2,7 @@
 session_start();
 ob_start();
 require('controller/controller.php');
-
+$obj = new MarketPlace();
 // Setting time to dubai
 date_default_timezone_set ('Asia/Dubai');
 // Get the object
@@ -88,7 +88,7 @@ if(isset ($_COOKIE[$obj->CartCookiName()])) {
                   <div class="row">
                      <div class="col-lg-12 col-md-12"> 
                      
-                     <?php if(isset ($_COOKIE[$obj->CartCookiName()])) :?>
+                     <?php if($obj->IfCartExists() === true) :?>
                      <div class="jumbotron center" style = "text-align:center;">
   <h1 class="display-3">Thank you for your purchase!</h1>
   <p class="lead">

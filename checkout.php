@@ -79,10 +79,16 @@ Client ID
          <?php include 'header.php'; ?>
          <main id="maincontent" class="page-main">
             <a id="contentarea" tabindex="-1"></a>
+            
+            
+            
+            
             <div class="columns col1-layout">
                <div class="container">
                   <div class="row">
-                     <div class="col-lg-12 col-md-12">
+					  <?php if($obj->IfCartExists() === true) :?>
+					  
+					  <div class="col-lg-12 col-md-12">
                         <div class="page-title-wrapper">
                            <h2 class="page-title"><span class="base" data-ui-id="page-title-wrapper">Checkout</span></h2>
                         </div>
@@ -1252,9 +1258,22 @@ Client ID
                                  <div data-role="focusable-end" tabindex="0"></div>
                               </aside>
                            </div>
-                        </div>
+                     
+					  
+					  <?php else: ?>
+					  
+					  <div class="message notice"><div>Buy something, Shopping cart is empty.  </div></div>
+                    
+					  <?php endif; ?>
+
+                      </div>
                      </div>
                   </div>
+               
+               
+               
+               
+               
                </div>
             </div>
          </main>

@@ -4966,13 +4966,14 @@ return $get;
 					//ob_get_clean();
 					
 					// Unset Cookie
-					setcookie($this->CartCookiName(),'' ,time() -3600, '/', $_SERVER['SERVER_NAME'] );
+					
 					
 					// Send confirmation order details to the user 
 					$shippingInJson = $this->buyerShippingAsArray();
 					$firstname = $shippingInJson['firstname'] ?? '';
 					$lastname = $shippingInJson['lastname'] ?? '';
 					$phonenumber = $shippingInJson['mobile_no'] ?? '';
+					$country = $shippingInJson['country'] ?? '';
 
 					// Cart array items required 
 					$cartItems = $cart;
@@ -5008,7 +5009,17 @@ return $get;
 						];
 
 					$sendConfirmation = new OrderConfirmationEmail($data);
-
+					
+					
+					// Check if user is from uae 
+					if( $this->UAEUserMobileNumber($country, $phonenumber) === true ) {
+						
+							// Send SMS to the user mobile 
+							$this->SendSMS($phonenumber, $orderNumber, $firstname);
+					}
+					 
+					setcookie($this->CartCookiName(),'' ,time() -3600, '/', $_SERVER['SERVER_NAME'] );
+					
 					// return the content 
 					return ['orderdate' => $purchase_date, 'orderid'=> $order_id];
 					
@@ -5113,7 +5124,7 @@ return $get;
 	}
 	
 	// If UAE USERS
-	public function UAEUserMobileNumber(string $country, string $mobile_no): bool {
+	public function UAEUserMobileNumber(string $country, string $mobile_no) {
 		
 		if( $country === 'AE') {
 				
@@ -5145,11 +5156,46 @@ return $get;
 	}
 	
 	
-	public function SendSMSTOOrderer( int $mobNumber):bool {
+	public function SendSMS($mob_no, $orderId, $firstname) {
+	
+		$message = urlencode("Dear $firstname your order has been confirmed. Order ID: $orderId");
 		
+		// Curl url 
+		$url = "http://mshastra.com/sendurlcomma.aspx?user=20088619&pwd=b2n6i6&senderid=ABC&mobileno=$mob_no&msgtext=$message&CountryCode=971";
+		
+		// Curl init 
+		$ch = curl_init($url);
+		
+		// Set return transfer to true 
+		curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+		
+		// Execute the curl page 
+		$curl_scraped_page = curl_exec($ch);
+		
+		// Close curl ch 
+		curl_close($ch);
+		
+		// Check if succes 
+		if(strpos($curl_scraped_page, 'Successful')) {
 			
-			
+				// Return 
+				return true;
 		}
+	
+}
+
+	// If shopping cart is set 
+	public function IfCartExists() {
+		
+		if(isset ($_COOKIE[$this->CartCookiName()]) && count(json_decode($_COOKIE[$this->CartCookiName()], true)) > 0) {
+			
+				return true ;
+			}
+		
+		// Return false 
+		return false;
+	}
+
 }
 
 ?>
