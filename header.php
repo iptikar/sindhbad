@@ -16,15 +16,28 @@
                      <div class="col-lg-6 col-md-6 header-top-links">
                         <div class="toplinks-wrapper">
                            <ul class="header links">
-                              <li class="myaccount-link"><a href="http://localhost/account" title="My Account">My Account</a></li>
+							  <li class="myaccount-link"><a href="http://localhost/account" title="My Account">My Account</a></li>
+                             
+							
+                             
+                             
                               <li class="link wishlist" data-bind="scope: 'wishlist'">
                                  <a href="#">
                                     My Wish List <!-- ko if: wishlist().counter --><span data-bind="text: wishlist().counter" class="counter qty"></span> 
                                  </a>
                               </li>
                               
-                              <li class="checkout-link"><a href="#" title="Checkout">Checkout</a></li>
+                              <li class="checkout-link"><a href="/checkout" title="Checkout">Checkout</a></li>
+                             
+                              <?php if($obj->IsUserLoggedInBuyer() === true ) :?>
+							
+							<li class="authorization"><a href="/user-buyer-14e1813e3d0cf9da1a9dafc6afadff37/logout" title="Checkout">LogOut</a></li>
+							<?php endif;?>
+                              
                               <li class="authorization-link" data-label="or"><a href="http://localhost/marketplace-theme/themes/sm_market2/argentina/customer/account/login/referer/aHR0cDovL21hZ2VudG8yLmZseXRoZW1lLm5ldC90aGVtZXMvc21fbWFya2V0Mi9hcmdlbnRpbmEvY3VzdG9tZXIvYWNjb3VudC9sb2dpbi8%2C/">Sign In</a></li>
+								
+							  
+							
                            </ul>
                         </div>
                      </div>
@@ -2830,7 +2843,7 @@
                                         <span>View cart</span>
                                        </span>
                                     </a>
-                                    <a id="top-cart-btn-checkout" type="button" class="action checkout"  title="Go to Checkout">
+                                    <a href = "/checkout" id="top-cart-btn-checkout" type="button" class="action checkout"  title="Go to Checkout">
                                        <span>Checkout</span>
                                     </a>
                                     <div ></div>

@@ -5,9 +5,11 @@ class SessionStorage
 	
 	protected $password = 'ThisIsMyFuckingLife';
   
-  public function GetUsers() {
+  public function GetUsers(array $data) {
 	  
-		return $this->username;
+		
+		
+		return json_encode($data, true);
 	  
 	  }
 

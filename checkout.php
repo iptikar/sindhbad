@@ -1,14 +1,13 @@
 <?php
-ob_start();
 session_start();
+ob_start();
 require('controller/controller.php');
 
 // Setting time to dubai
 date_default_timezone_set ('Asia/Dubai');
 // Get the object
 $obj = new MarketPlace();
-   
-   
+
    ?>
 <!doctype html>
 <html lang="en">
@@ -151,10 +150,10 @@ Client ID
                               
                               <ul class="opc-progress-bar">
                                  
-                                 <li class="opc-progress-bar-item " data-bind="css: item.isVisible() ? '_active' : ($parent.isProcessed(item) ? '_complete' : '')">
+                                 <li class="opc-progress-bar-item _active" data-bind="css: item.isVisible() ? '_active' : ($parent.isProcessed(item) ? '_complete' : '')">
                                     <span data-bind="i18n: item.title, click: $parent.navigateTo">Shipping</span>
                                  </li>
-                                 <li class="opc-progress-bar-item _active" data-bind="css: item.isVisible() ? '_active' : ($parent.isProcessed(item) ? '_complete' : '')">
+                                 <li class="opc-progress-bar-item " data-bind="css: item.isVisible() ? '_active' : ($parent.isProcessed(item) ? '_complete' : '')">
                                     <span data-bind="i18n: item.title, click: $parent.navigateTo">Review &amp; Payments</span>
                                  </li>
                                  

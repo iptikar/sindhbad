@@ -155,7 +155,7 @@
                   <ul class="checkout methods items checkout-methods-items">
                      <li class="item">  
 						 
-						<a href = "checkout.php">
+						<a href = "/checkout">
 						 <button onclick = "process_checkout();"id = "process-checkout" type="button"  title="Proceed to Checkout" class="action primary checkout"><span>Proceed to Checkout</span>
 						 </button> 
 						</a>

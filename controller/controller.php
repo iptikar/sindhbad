@@ -1571,6 +1571,7 @@ window.onclick = function(event) {
 		}
 			 
 			 
+			 /*
 			 $sql = "INSERT INTO $tableaddress(firstname, lastname,created_at) VALUES('$firstname', '$lastname', NOW())";
 		 
 		 
@@ -1580,7 +1581,7 @@ window.onclick = function(event) {
 				// Return the error 
 				 return $this->DisplySuccessMsg($mysqli->error);
 		}
-			
+			*/
 		
 			// Table address details goes here 
 			 $sql = "INSERT INTO $addressdatails(email) VALUES('$email')";
@@ -4650,7 +4651,7 @@ return $get;
 		
 		$_SESSION[$this->key1.'-username-buyer'] = $email;
 		$_SESSION[$this->key1.'-password-buyer'] = $hashed_password;
-		$_SESSION[$this->key1.'-usertype-buyer'] = 0;
+		$_SESSION[$this->key1.'-usertype-buyer'] = '0';
 		$_SESSION[$this->key1.'-time-buyer'] = time();
 		// Set the session 
 		
@@ -4795,7 +4796,7 @@ return $get;
 						
 						$status				= 	'inprocess';
 						$shipping_address   = 	$_COOKIE['buyershipping7522'];
-						$billing_address	= 	$_POST['billing-address-same-as-shipping'] ? $_COOKIE['buyershipping7522'] : '' ;
+						$billing_address	= 	$_POST['billing-address-same-as-shipping'] ?? $_COOKIE['buyershipping7522'];
 						$purchase_date		= 	date('Y-m-d H:i:s');
 						$purchase_point 	= 	'sindhbad';
 						$customer_notes 	=	json_decode($_COOKIE['buyershipping7522'], true)['shipping_note'] ?? '';
@@ -5008,7 +5009,9 @@ return $get;
 							'to'=> $to
 						];
 
-					$sendConfirmation = new OrderConfirmationEmail($data);
+					
+					// Send confirmation email
+					new OrderConfirmationEmail($data);
 					
 					
 					// Check if user is from uae 

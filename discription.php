@@ -197,7 +197,7 @@ $details = $obj->getIndividualProduct('name', 'id', 'sku');
                   <li class="item product"> <strong><?= $details['name'];?></strong>
                   
 
-<a id="yt-tobutton-fix" href="javascript:void(0)" title="Go to Top" style="display: block;" class="">Hi</a>
+
 
                    </li>
                </ul>
@@ -207,7 +207,7 @@ $details = $obj->getIndividualProduct('name', 'id', 'sku');
          <div class = "container" id = "cart-msg">
          <br/>
          
-         <button id = "button123" value =  "Get Down"></button>
+        
          <!--
 			<div class="alert alert-danger fadeIn">
   <strong>Error ! </strong>Please login as buyer.

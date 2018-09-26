@@ -4,6 +4,7 @@ session_start();
 //exit();
 //unset($_COOKIE['buyershipping7522']);
 //setcookie('buyershipping7522',$_POST['shipping-details-52'] ,time() -3600, '/', $_SERVER['SERVER_NAME'] );
+//session_destroy();
 		
 $dato = '2018-09-20 13:53:29';	
 

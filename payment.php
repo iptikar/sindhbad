@@ -30,10 +30,7 @@
 		}
    	
 	}
-	
-	
-   
-   
+
    ?>
 
 <!doctype html>
@@ -832,11 +829,6 @@
     return pathinfo($filename, PATHINFO_FILENAME);
 } 
 
-echo "<pre>";
-
-print_R($_POST);
-
-echo "</pre>";
 ?>
 						
                                  

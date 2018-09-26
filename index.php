@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 require('controller/controller.php');
 
 // Setting time to dubai
