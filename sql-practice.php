@@ -216,4 +216,36 @@ SELECT *fields* FROM database1.table1
    
    // SELECT col, case when upper(col) = lower(col) then 'fizz' else 'buzz' end as FizzBuzz from table;
    
+   /*
+    * Write a query to to get the list of users who took the a training lesson more than once in the same day, grouped by user and training lesson, each ordered from the most recent lesson date to oldest date.
+    * */
+   /*
+    * SELECT
+      u.user_id,
+      username,
+      training_id,
+      training_date,
+      count( user_training_id ) AS count
+  FROM users u JOIN training_details t ON t.user_id = u.user_id
+  GROUP BY u.user_id,
+           username,
+           training_id,
+           training_date
+  HAVING count( user_training_id ) > 1
+  ORDER BY training_date DESC;
+    * */
+    
+    
+ // What is an execution plan? When would you use it? How would you view the execution plan?
+ 
+ /*
+  * An execution plan is basically a road map that graphically or textually shows the data retrieval methods chosen by the
+  *  SQL server’s query optimizer for a stored procedure or ad hoc query. Execution plans are very useful for helping a developer understand and analyze the performance 
+  * characteristics of a query or stored procedure, 
+  * since the plan is used to execute the query or stored procedure.
+
+	In many SQL systems, a textual execution plan can be obtained using a keyword such as EXPLAIN, and visual representations 
+	* can often be obtained as well. In Microsoft SQL Server, the Query Analyzer has an option called “Show Execution Plan” 
+	* (located on the Query drop down menu). If this option is turned on, it will display query execution plans in a separate window when a query is run.
+  * */
    

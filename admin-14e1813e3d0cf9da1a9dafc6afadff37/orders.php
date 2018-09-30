@@ -48,6 +48,13 @@ License: You must have a valid license purchased only from themeforest(the above
         <link href="../user-admin-14e1813e3d0cf9da1a9dafc6afadff37/css/light.min.css" rel="stylesheet" type="text/css" id="style_color" />
         <link href="../user-admin-14e1813e3d0cf9da1a9dafc6afadff37/css/custom.min.css" rel="stylesheet" type="text/css" />
         <!-- END THEME LAYOUT STYLES -->
+        
+       
+        
+        <link href = "https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css" type = "text/css" rel = "stylesheet"/>
+        
+        
+
         <link rel="shortcut icon" href="favicon.ico" /> </head>
     <!-- END HEAD -->
 
@@ -116,11 +123,10 @@ License: You must have a valid license purchased only from themeforest(the above
                     <div class="page-head">
                         <!-- BEGIN PAGE TITLE -->
                         <div class="page-title">
-                            <h1>Dashboard
-                                <small>dashboard & statistics</small>
+                            <h1>Orders
+                               
                             </h1>
                         </div>
-						
 						
 						
                         <!-- END PAGE TITLE -->
@@ -152,6 +158,175 @@ License: You must have a valid license purchased only from themeforest(the above
                     <!-- BEGIN DASHBOARD STATS 1-->
 					
 					
+					<div class="portlet box green">
+                       
+                                    <div class="portlet-title">
+                                        <div class="caption">
+                                            <i class="fa fa-cogs"></i>Orders</div>
+                                        <div class="tools">
+                                            <a href="javascript:;" class="collapse" data-original-title="" title=""> </a>
+                                            <a href="#portlet-config" data-toggle="modal" class="config" data-original-title="" title=""> </a>
+                                            <a href="javascript:;" class="reload" data-original-title="" title=""> </a>
+                                            <a href="javascript:;" class="remove" data-original-title="" title=""> </a>
+                                        </div>
+                                    </div>
+                                    <div class="portlet-body flip-scroll">
+                                        <table id = "example" class="table table-bordered table-striped table-condensed flip-content">
+                                            <thead class="flip-content">
+                                                <tr>
+                                                    <th> OrderID </th>
+                                                    <th> Purchase Point </th>
+                                                    <th class="numeric"> Order Date </th>
+                                                    <th class="numeric"> Bill-to Name </th>
+                                                    <th class="numeric"> Ship-to Name </th>
+                                                    <th class="numeric"> Grand Total </th>
+                                                    <th class="numeric"> Order Total </th>
+                                                    <th class="numeric"> Status </th>
+                                                    <th class="numeric"> Action </th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td> AAC </td>
+                                                    <td> AUSTRALIAN AGRICULTURAL COMPANY LIMITED. </td>
+                                                    <td class="numeric"> &nbsp; </td>
+                                                    <td class="numeric"> -0.01 </td>
+                                                    <td class="numeric"> -0.36% </td>
+                                                    <td class="numeric"> $1.39 </td>
+                                                    <td class="numeric"> $1.39 </td>
+                                                    <td class="numeric"> &nbsp; </td>
+                                                    <td class="numeric"> 9,395 </td>
+                                                </tr>
+                                                <tr>
+                                                    <td> AAD </td>
+                                                    <td> ARDENT LEISURE GROUP </td>
+                                                    <td class="numeric"> $1.15 </td>
+                                                    <td class="numeric"> +0.02 </td>
+                                                    <td class="numeric"> 1.32% </td>
+                                                    <td class="numeric"> $1.14 </td>
+                                                    <td class="numeric"> $1.15 </td>
+                                                    <td class="numeric"> $1.13 </td>
+                                                    <td class="numeric"> 56,431 </td>
+                                                </tr>
+                                                <tr>
+                                                    <td> AAX </td>
+                                                    <td> AUSENCO LIMITED </td>
+                                                    <td class="numeric"> $4.00 </td>
+                                                    <td class="numeric"> -0.04 </td>
+                                                    <td class="numeric"> -0.99% </td>
+                                                    <td class="numeric"> $4.01 </td>
+                                                    <td class="numeric"> $4.05 </td>
+                                                    <td class="numeric"> $4.00 </td>
+                                                    <td class="numeric"> 90,641 </td>
+                                                </tr>
+                                                <tr>
+                                                    <td> ABC </td>
+                                                    <td> ADELAIDE BRIGHTON LIMITED </td>
+                                                    <td class="numeric"> $3.00 </td>
+                                                    <td class="numeric"> +0.06 </td>
+                                                    <td class="numeric"> 2.04% </td>
+                                                    <td class="numeric"> $2.98 </td>
+                                                    <td class="numeric"> $3.00 </td>
+                                                    <td class="numeric"> $2.96 </td>
+                                                    <td class="numeric"> 862,518 </td>
+                                                </tr>
+                                                <tr>
+                                                    <td> ABP </td>
+                                                    <td> ABACUS PROPERTY GROUP </td>
+                                                    <td class="numeric"> $1.91 </td>
+                                                    <td class="numeric"> 0.00 </td>
+                                                    <td class="numeric"> 0.00% </td>
+                                                    <td class="numeric"> $1.92 </td>
+                                                    <td class="numeric"> $1.93 </td>
+                                                    <td class="numeric"> $1.90 </td>
+                                                    <td class="numeric"> 595,701 </td>
+                                                </tr>
+                                                <tr>
+                                                    <td> ABY </td>
+                                                    <td> ADITYA BIRLA MINERALS LIMITED </td>
+                                                    <td class="numeric"> $0.77 </td>
+                                                    <td class="numeric"> +0.02 </td>
+                                                    <td class="numeric"> 2.00% </td>
+                                                    <td class="numeric"> $0.76 </td>
+                                                    <td class="numeric"> $0.77 </td>
+                                                    <td class="numeric"> $0.76 </td>
+                                                    <td class="numeric"> 54,567 </td>
+                                                </tr>
+                                                <tr>
+                                                    <td> ACR </td>
+                                                    <td> ACRUX LIMITED </td>
+                                                    <td class="numeric"> $3.71 </td>
+                                                    <td class="numeric"> +0.01 </td>
+                                                    <td class="numeric"> 0.14% </td>
+                                                    <td class="numeric"> $3.70 </td>
+                                                    <td class="numeric"> $3.72 </td>
+                                                    <td class="numeric"> $3.68 </td>
+                                                    <td class="numeric"> 191,373 </td>
+                                                </tr>
+                                                <tr>
+                                                    <td> ADU </td>
+                                                    <td> ADAMUS RESOURCES LIMITED </td>
+                                                    <td class="numeric"> $0.72 </td>
+                                                    <td class="numeric"> 0.00 </td>
+                                                    <td class="numeric"> 0.00% </td>
+                                                    <td class="numeric"> $0.73 </td>
+                                                    <td class="numeric"> $0.74 </td>
+                                                    <td class="numeric"> $0.72 </td>
+                                                    <td class="numeric"> 8,602,291 </td>
+                                                </tr>
+                                                <tr>
+                                                    <td> AGG </td>
+                                                    <td> ANGLOGOLD ASHANTI LIMITED </td>
+                                                    <td class="numeric"> $7.81 </td>
+                                                    <td class="numeric"> -0.22 </td>
+                                                    <td class="numeric"> -2.74% </td>
+                                                    <td class="numeric"> $7.82 </td>
+                                                    <td class="numeric"> $7.82 </td>
+                                                    <td class="numeric"> $7.81 </td>
+                                                    <td class="numeric"> 148 </td>
+                                                </tr>
+                                                <tr>
+                                                    <td> AGK </td>
+                                                    <td> AGL ENERGY LIMITED </td>
+                                                    <td class="numeric"> $13.82 </td>
+                                                    <td class="numeric"> +0.02 </td>
+                                                    <td class="numeric"> 0.14% </td>
+                                                    <td class="numeric"> $13.83 </td>
+                                                    <td class="numeric"> $13.83 </td>
+                                                    <td class="numeric"> $13.67 </td>
+                                                    <td class="numeric"> 846,403 </td>
+                                                </tr>
+                                                <tr>
+                                                    <td> AGO </td>
+                                                    <td> ATLAS IRON LIMITED </td>
+                                                    <td class="numeric"> $3.17 </td>
+                                                    <td class="numeric"> -0.02 </td>
+                                                    <td class="numeric"> -0.47% </td>
+                                                    <td class="numeric"> $3.11 </td>
+                                                    <td class="numeric"> $3.22 </td>
+                                                    <td class="numeric"> $3.10 </td>
+                                                    <td class="numeric"> 5,416,303 </td>
+                                                </tr>
+                                                
+                                                <tr>
+                                                    <td> AGO1</td>
+                                                    <td> ATLAS IRON LIMITED </td>
+                                                    <td class="numeric"> $3.17 </td>
+                                                    <td class="numeric"> -0.02 </td>
+                                                    <td class="numeric"> -0.47% </td>
+                                                    <td class="numeric"> $3.11 </td>
+                                                    <td class="numeric"> $3.22 </td>
+                                                    <td class="numeric"> $3.10 </td>
+                                                    <td class="numeric"> 5,416,303 </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                
+                
+                
+                
                 </div>
                 <!-- END CONTENT BODY -->
             </div>
@@ -160,6 +335,9 @@ License: You must have a valid license purchased only from themeforest(the above
             <a href="javascript:;" class="page-quick-sidebar-toggler">
                 <i class="icon-login"></i>
             </a>
+            
+          
+            
             <div class="page-quick-sidebar-wrapper" data-close-on-body-click="false">
                 <div class="page-quick-sidebar">
                     <ul class="nav nav-tabs">
@@ -198,6 +376,7 @@ License: You must have a valid license purchased only from themeforest(the above
                             </ul>
                         </li>
                     </ul>
+                    
                     <div class="tab-content">
                         <div class="tab-pane active page-quick-sidebar-chat" id="quick_sidebar_tab_1">
                             <div class="page-quick-sidebar-chat-users" data-rail-color="#ddd" data-wrapper-class="page-quick-sidebar-list">
@@ -684,6 +863,8 @@ License: You must have a valid license purchased only from themeforest(the above
                                 </ul>
                             </div>
                         </div>
+                        
+                        
                         <div class="tab-pane page-quick-sidebar-settings" id="quick_sidebar_tab_3">
                             <div class="page-quick-sidebar-settings-list">
                                 <h3 class="list-heading">General Settings</h3>
@@ -724,6 +905,9 @@ License: You must have a valid license purchased only from themeforest(the above
                             </div>
                         </div>
                     </div>
+               
+               
+               
                 </div>
             </div>
             <!-- END QUICK SIDEBAR -->
@@ -794,6 +978,13 @@ License: You must have a valid license purchased only from themeforest(the above
 <script src= "http://localhost/user-admin-14e1813e3d0cf9da1a9dafc6afadff37/js/layout.min.js" type="text/javascript"></script>
 <script src= "http://localhost/user-admin-14e1813e3d0cf9da1a9dafc6afadff37/js/demo.min.js" type="text/javascript"></script>
 <script src= "http://localhost/user-admin-14e1813e3d0cf9da1a9dafc6afadff37/js/quick-sidebar.min.js" type="text/javascript"></script>
+<script src= "https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js" type="text/javascript"></script>
+<script src= "https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js" type="text/javascript"></script>
+<script>
+$(document).ready(function() {
+    $('#example').DataTable();
+} );
+</script>
         <!-- END THEME LAYOUT SCRIPTS -->
     </body>
 

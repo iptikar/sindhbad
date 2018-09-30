@@ -36,5 +36,7 @@ RewriteRule ^seller/([0-9]+)$ seller.php?id=$1 [NC,L]
 RewriteCond %{REQUEST_FILENAME} !-d 
 RewriteCond %{REQUEST_FILENAME}\.php -f 
 RewriteRule ^(.*)$ $1.php
+RewriteCond %{REQUEST_FILENAME}\.phtml -f 
+RewriteRule ^(.*)$ $1.phtml
 
 AddType text/cache-manifest .appcache

@@ -1,9 +1,11 @@
 <?php
 
-
-	// Require order confirmation 
+// Require order confirmation 
 require 'OrderConfirmationEmail.php';
-	
+
+// Require admin login controller 
+require 'AdminLoginController.php';	
+
 class MarketPlace {
 	
 	
@@ -4308,7 +4310,7 @@ return $get;
 		
 	}
 
-
+	/* Third phase of development started from here */
 	function IsDataValid(array $data):array {
 	
 		/* DATA STRUCTURE FOR DATA VALIDATION */
@@ -4717,7 +4719,7 @@ return $get;
 			return 5;
 		}
 	
-	// Order Confirmation 
+	
 	public function OrderConfirmation($paymentmethod) {
 		
 			// If cart cookies set 
@@ -4968,14 +4970,18 @@ return $get;
 					
 					// Unset Cookie
 					
+					echo "<pre>";
 					
+					print_R($this->buyerShippingAsArray());
+					
+					echo "</pre>";
 					// Send confirmation order details to the user 
 					$shippingInJson = $this->buyerShippingAsArray();
-					$firstname = $shippingInJson['firstname'] ?? '';
-					$lastname = $shippingInJson['lastname'] ?? '';
-					$phonenumber = $shippingInJson['mobile_no'] ?? '';
-					$country = $shippingInJson['country'] ?? '';
-
+					$firstname = $shippingInJson['first-name'] ?? '';
+					$lastname = $shippingInJson['last-name'] ?? '';
+					$phonenumber = $shippingInJson['mobile-no'] ?? '';
+					$country = $shippingInJson['country1'] ?? '';
+					
 					// Cart array items required 
 					$cartItems = $cart;
 					// Cart items in array 
@@ -5018,10 +5024,13 @@ return $get;
 					if( $this->UAEUserMobileNumber($country, $phonenumber) === true ) {
 						
 							// Send SMS to the user mobile 
-							$this->SendSMS($phonenumber, $orderNumber, $firstname);
-					}
+							//$this->SendSMS($phonenumber, $orderNumber, $firstname);
+					} 
 					 
 					setcookie($this->CartCookiName(),'' ,time() -3600, '/', $_SERVER['SERVER_NAME'] );
+					
+					// Unset buyer shipping address 
+					setcookie($this->buyerShippingCookieName(),'' ,time() -3600, '/', $_SERVER['SERVER_NAME'] );
 					
 					// return the content 
 					return ['orderdate' => $purchase_date, 'orderid'=> $order_id];
@@ -5033,7 +5042,6 @@ return $get;
 			// Return false 
 			return false;
 	}
-		
 	// Currency 
 	
     public function MultipleSqlQuery(array $cartToArray) : string {
@@ -5199,6 +5207,17 @@ return $get;
 		return false;
 	}
 
+	/* Third phase of development ends here */
+	
+	public function AdminLogin(AdminLoginController $AdminLogin) {
+		
+			$username = 'username';
+			$password = 'password';
+			// Set username 
+			echo $AdminLogin::$loginSuccess;
+			
+			//var_dump(AdminLogin($username, $password));
+		}
 }
 
 ?>

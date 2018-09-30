@@ -1,5 +1,12 @@
 
+<?php 
+require '../controller/controller.php';
 
+// Create new object 
+$obj = new MarketPlace();
+
+var_dump($obj->AdminLogin(new AdminLoginController('username', 'password')));
+?>
 
 <!DOCTYPE html>
 <!-- 
@@ -50,7 +57,7 @@ License: You must have a valid license purchased only from themeforest(the above
         <link href="../user-admin-14e1813e3d0cf9da1a9dafc6afadff37/css/light.min.css" rel="stylesheet" type="text/css" id="style_color" />
         <link href="../user-admin-14e1813e3d0cf9da1a9dafc6afadff37/css/custom.min.css" rel="stylesheet" type="text/css" />
         
-       <link href = "http://keenthemes.com/preview/metronic/theme/assets/pages/css/login-4.min.css" rel="stylesheet" type="text/css" />
+       <link href = "../css/login-4-min.css" rel="stylesheet" type="text/css" />
         <!-- END THEME LAYOUT STYLES -->
         <link rel="shortcut icon" href="favicon.ico" /> </head>
     <!-- END HEAD -->
@@ -65,8 +72,8 @@ License: You must have a valid license purchased only from themeforest(the above
         <!-- BEGIN LOGIN -->
         <div class="content">
             <!-- BEGIN LOGIN FORM -->
-            <form class="login-form" action="index.html" method="post" novalidate="novalidate">
-                <h3 class="form-title">Login to your account</h3>
+            <form class="login-form"  action = "<?= basename($_SERVER['SCRIPT_NAME'], '.php');?>"method="post" novalidate="novalidate">
+                <h3 class="form-title"><center>Administrator</center></h3>
                 <div class="alert alert-danger display-hide">
                     <button class="close" data-close="alert"></button>
                     <span> Enter any username and password. </span>
