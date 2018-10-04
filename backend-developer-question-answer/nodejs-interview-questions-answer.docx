@@ -190,7 +190,7 @@ export const tea = 'hot tea'
 
 
 01-main.mjs hosted with ❤ by GitHub
-mport {handle, spout, tea} from './01-kettle.mjs'
+import {handle, spout, tea} from './01-kettle.mjs'
 
 console.log(handle) // ==> the handle
 console.log(spout) // ==> the spout

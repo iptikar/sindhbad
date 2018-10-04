@@ -1,109 +1,139 @@
-﻿It is often heard that one of the most important goals in Object-Oriented Design (and code design in general) is to have High Cohesion and Loose Coupling. What does
- it mean? Why is it that important and how is it achieved?
-Cohesion refers to the degree to which the elements of a module/class belong together, it is suggested that the related code should be close to each other, so we should strive for high cohesion and bind all related code together as close as possible. It has to do with the elements within the module/class.
-
-Coupling refers to the degree to which the different modules/classes depend on each other, it is suggested that all modules should be independent as far as possible, that's why low coupling. It has to do with the elements among different modules/classes.
-
-To visualize the whole picture will be helpful:
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8">
+	<title></title>
+	<meta name="generator" content="LibreOffice 4.2.3.3 (Linux)">
+	<meta name="created" content="0;0">
+	<meta name="changed" content="20181003;110827574444430">
+</head>
+<body lang="en-US" dir="ltr" style="background: transparent">
+<p><font face="FreeSans"><span lang="hi-IN">﻿</span></font>It is
+often heard that one of the most important goals in Object-Oriented
+Design (and code design in general) is to have High Cohesion and
+Loose Coupling. What does it mean? Why is it that important and how
+is it achieved? Cohesion refers to the degree to which the elements
+of a module/class belong together, it is suggested that the related
+code should be close to each other, so we should strive for high
+cohesion and bind all related code together as close as possible. It
+has to do with the elements within the module/class. Coupling refers
+to the degree to which the different modules/classes depend on each
+other, it is suggested that all modules should be independent as far
+as possible, that's why low coupling. It has to do with the elements
+among different moduleds/classes. To visualize the whole picture will
+be helpful:
 https://stackoverflow.com/questions/14000762/what-does-low-in-coupling-and-high-in-cohesion-mean
-
-
-
-Why does array index start with '0' in most of languages?
-This means that the index is used as an offset. The first element of the array is exactly contained in the memory location that array refers (0 elements away), so it should be denoted as array[0] . Most programming languages have been designed this way, so indexing from 0 is pretty much inherent to the language.
-
-
-How do tests and TDD influence code design?
-
-Writing the tests first requires you to really consider what do you want from the code.
-You receive fast feedback.
-TDD creates a detailed specification.
-TDD reduces time spent on rework.
-You spend less time in the debugger.
-You are able to identify the errors and problems quickly.
-TDD tells you whether your last change (or refactoring) broke previously working code.
-TDD allows the design to evolve and adapt to your changing understanding of the problem.
-TDD forces the radical simplification of the code. You will only write code in response to the requirements of the tests.
-You're forced to write small classes focused on one thing.
-TDD creates SOLID code.
-TDD supports a clean interface.
-TDD creates code that is maintainable, flexible, and easily extensible.
-The resulting unit tests are simple and act as documentation for the code. Since TDD use cases are written as tests, other programmers can view the tests as usage examples of how the code is intended to work.
-The development time to market is shorter.
-The programmer’s productivity is increased.
-Development costs are cut.
-Quality is improved.
-Bugs are reduced.
-TDD gives programmers the confidence to change the larger architecture of an application when adding new functionalities. Without the flexibility of TDD, developers frequently add new functionality by virtually bolting it to the existing application without true integration, which can cause problems down the road.
-
-
-Write a snippet of code violating the Don't Repeat Yourself (DRY) principle. Then, explain why is it a bad design, and fix it.
-Short of a full framework, what I tend to do for content (even if it contains logic) is separate it out into files and use another logical evaluation to merge them together (mangle them) and then evaluate the templating logic after that. This chunkifies your content and makes chunks sharable / reusable on common state.
-
-This way each final template buffer is a flattened tree of discrete re-usable content nuggets that you can store on disk or a database. Even something as simple as a little parser that replaces:
-
+Why does array index start with '0' in most of languages? This means
+that the index is used as an offset. The first element of the array
+is exactly contained in the memory location that array refers (0
+elements away), so it should be denoted as array[0] . Most
+programming languages have been designed this way, so indexing from 0
+is pretty much inherent to the language. How do tests and TDD
+influence code design? Writing the tests first requires you to really
+consider what do you want from the code. You receive fast feedback.
+TDD creates a detailed specification. TDD reduces time spent on
+rework. You spend less time in the debugger. You are able to identify
+the errors and problems quickly. TDD tells you whether your last
+change (or refactoring) broke previously working code. TDD allows the
+design to evolve and adapt to your changing understanding of the
+problem. TDD forces the radical simplification of the code. You will
+only write code in response to the requirements of the tests. You're
+forced to write small classes focused on one thing. TDD creates SOLID
+code. TDD supports a clean interface. TDD creates code that is
+maintainable, flexible, and easily extensible. The resulting unit
+tests are simple and act as documentation for the code. Since TDD use
+cases are written as tests, other programmers can view the tests as
+usage examples of how the code is intended to work. The development
+time to market is shorter. The programmer’s productivity is
+increased. Development costs are cut. Quality is improved. Bugs are
+reduced. TDD gives programmers the confidence to change the larger
+architecture of an application when adding new functionalities.
+Without the flexibility of TDD, developers frequently add new
+functionality by virtually bolting it to the existing application
+without true integration, which can cause problems down the road.
+Write a snippet of code violating the Don't Repeat Yourself (DRY)
+principle. Then, explain why is it a bad design, and fix it. Short of
+a full framework, what I tend to do for content (even if it contains
+logic) is separate it out into files and use another logical
+evaluation to merge them together (mangle them) and then evaluate the
+templating logic after that. This chunkifies your content and makes
+chunks sharable / reusable on common state. This way each final
+template buffer is a flattened tree of discrete re-usable content
+nuggets that you can store on disk or a database. Even something as
+simple as a little parser that replaces: 
+</p>
 <h1>{{insert:shared_page_header}}</h1>
-With shared_page_header.txt helps keep things separate. It also forces you to look at separation on concerns even in the logic that is embedded in your templates. Manageable, reusable chunks of anything (dynamic or not) are always the way to go. Your templates are just strings until evaluated, so treat them as shared components merged into a big-dirty-string(TM) and then evaluated.
-
-
-What's the difference between cohesion and coupling?
-Cohesion is the indication of the relationship within module. Coupling is the indication of the relationships between modules. ... Cohesion is a degree (quality) to which a component / module focuses on the single thing. Coupling is a degree to which a component / module is connected to the other modules.
-
-
-What is refactoring useful for?
-Reasons why Refactoring is Important: 
-
-To improve the design of software/application.
-To make software easier to understand.
-To find bugs
-To make program run faster.
-To fix existing legacy database
-To support revolutionary development
-To provide greater consistency for user.
-
-
-Are comments in code useful? Some say they should be avoided as much as possible, and hopefully made unnecessary. Do you agree?
-Writing and then maintaining comments is an expense.
-Your compiler doesn't check your comments so there is no way to determine that comments are correct.
-You are, on the other hand, guaranteed that the computer is doing exactly what your code is telling it to.
-
-
-
-What is the difference between design and architecture?
-The difference between architecture and design, architect and designer. ... Typically, the design follows the architecture phase in a (new) system development process. And while the architecture is rather "logical", the design is "physical", going down into the detail of the implementation technology.
-
-
-Why in TDD are tests written before code?
-ome good comments here, but I think that one thing is getting ignored.
-
-writing tests first drives your design. This is an important step. If you write the tests "at the same time" or "soon after" you might be missing some design benefits of doing TDD in micro steps.
-
-It feels really cheesy at first, but it's amazing to watch things unfold before your eyes into a design that you didn't think of originally. I've seen it happen.
-
-TDD is hard, and it's not for everybody. But if you already embrace unit testing, then try it out for a month and see what it does to your design and productivity.
-
-You spend less time in the debugger and more time thinking about outside-in design. Those are two gigantic pluses in my book.
-
-
-
-In your opinion, why have Object-Oriented Design dominated the market for so many years?
-Code Reuse and Recycling: Objects created for Object Oriented Programs can easily be reused in other programs.
-Encapsulation (part 1): Once an Object is created, knowledge of its implementation is not necessary for its use. In older programs, coders needed understand the details of a piece of code before using it (in this or another program).
-Encapsulation (part 2): Objects have the ability to hide certain parts of themselves from programmers. This prevents programmers from tampering with values they shouldn't. Additionally, the object controls how one interacts with it, preventing other kinds of errors. For example, a programmer (or another program) cannot set the width of a window to -400.
-Design Benefits: Large programs are very difficult to write. Object Oriented Programs force designers to go through an extensive planning phase, which makes for better designs with less flaws. In addition, once a program reaches a certain size, Object Oriented Programs are actually easier to program than non-Object Oriented ones.
-Software Maintenance: Programs are not disposable. Legacy code must be dealt with on a daily basis, either to be improved upon (for a new version of an exist piece of software) or made to work with newer computers and software. An Object Oriented Program is much easier to modify and maintain than a non-Object Oriented Program. So although a lot of work is spent before the program is written, less work is needed to maintain it over time.
-1.9k 
-
-
-What would you do to understand if your code has a bad design?
-
-326
-down vote
-accepted
-The biggest clue for me is:
-
-When you have to go back and add/modify a feature, is it difficult? Do you constantly break existing functionality when making changes?
-
-If the answer to the above is "yes" then you probably have a poor overall design.
-
-It is (for me at least) a bit difficult to judge a design until it is required to respond to change (within reason of course; some code is just bad and you can tell right away, but even that comes with experience.)
+<p>With shared_page_header.txt helps keep things separate. It also
+forces you to look at separation on concerns even in the logic that
+is embedded in your templates. Manageable, reusable chunks of
+anything (dynamic or not) are always the way to go. Your templates
+are just strings until evaluated, so treat them as shared components
+merged into a big-dirty-string(TM) and then evaluated. What's the
+difference between cohesion and coupling? Cohesion is the indication
+of the relationship within module. Coupling is the indication of the
+relationships between modules. ... Cohesion is a degree (quality) to
+which a component / module focuses on the single thing. Coupling is a
+degree to which a component / module is connected to the other
+modules. What is refactoring useful for? Reasons why Refactoring is
+Important: To improve the design of software/application. To make
+software easier to understand. To find bugs To make program run
+faster. To fix existing legacy database To support revolutionary
+development To provide greater consistency for user. Are comments in
+code useful? Some say they should be avoided as much as possible, and
+hopefully made unnecessary. Do you agree? Writing and then
+maintaining comments is an expense. Your compiler doesn't check your
+comments so there is no way to determine that comments are correct.
+You are, on the other hand, guaranteed that the computer is doing
+exactly what your code is telling it to. What is the difference
+between design and architecture? The difference between architecture
+and design, architect and designer. ... Typically, the design follows
+the architecture phase in a (new) system development process. And
+while the architecture is rather &quot;logical&quot;, the design is
+&quot;physical&quot;, going down into the detail of the
+implementation technology. Why in TDD are tests written before code?
+ome good comments here, but I think that one thing is getting
+ignored. writing tests first drives your design. This is an important
+step. If you write the tests &quot;at the same time&quot; or &quot;soon
+after&quot; you might be missing some design benefits of doing TDD in
+micro steps. It feels really cheesy at first, but it's amazing to
+watch things unfold before your eyes into a design that you didn't
+think of originally. I've seen it happen. TDD is hard, and it's not
+for everybody. But if you already embrace unit testing, then try it
+out for a month and see what it does to your design and productivity.
+You spend less time in the debugger and more time thinking about
+outside-in design. Those are two gigantic pluses in my book. In your
+opinion, why have Object-Oriented Design dominated the market for so
+many years? Code Reuse and Recycling: Objects created for Object
+Oriented Programs can easily be reused in other programs.
+Encapsulation (part 1): Once an Object is created, knowledge of its
+implementation is not necessary for its use. In older programs,
+coders needed understand the details of a piece of code before using
+it (in this or another program). Encapsulation (part 2): Objects have
+the ability to hide certain parts of themselves from programmers.
+This prevents programmers from tampering with values they shouldn't.
+Additionally, the object controls how one interacts with it,
+preventing other kinds of errors. For example, a programmer (or
+another program) cannot set the width of a window to -400. Design
+Benefits: Large programs are very difficult to write. Object Oriented
+Programs force designers to go through an extensive planning phase,
+which makes for better designs with less flaws. In addition, once a
+program reaches a certain size, Object Oriented Programs are actually
+easier to program than non-Object Oriented ones. Software
+Maintenance: Programs are not disposable. Legacy code must be dealt
+with on a daily basis, either to be improved upon (for a new version
+of an exist piece of software) or made to work with newer computers
+and software. An Object Oriented Program is much easier to modify and
+maintain than a non-Object Oriented Program. So although a lot of
+work is spent before the program is written, less work is needed to
+maintain it over time. 1.9k What would you do to understand if your
+code has a bad design? 326 down vote accepted The biggest clue for me
+is: When you have to go back and add/modify a feature, is it
+difficult? Do you constantly break existing functionality when making
+changes? If the answer to the above is &quot;yes&quot; then you
+probably have a poor overall design. It is (for me at least) a bit
+difficult to judge a design until it is required to respond to change
+(within reason of course; some code is just bad and you can tell
+right away, but even that comes with experience.) 
+</p>
+</body>
+</html>

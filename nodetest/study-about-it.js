@@ -505,7 +505,7 @@ function readJSON(filename) {
 							fullfill(JSON.parse(res));
 						} catch (ex) {
 							
-							reject (ex)
+							rejectt (ex)
 							}
 					
 					}, reject );

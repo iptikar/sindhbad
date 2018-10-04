@@ -1,5 +1,8 @@
 <?php
 
+
+
+exit();
 require 'RedBeanPHP5_1_0/rb.php';
 //turns debugging ON (recommended way)
 R::setup('mysql:host=localhost;dbname=test', 'root', 'a');

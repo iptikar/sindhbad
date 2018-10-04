@@ -6,6 +6,13 @@ require 'OrderConfirmationEmail.php';
 // Require admin login controller 
 require 'AdminLoginController.php';	
 
+// Required orders 
+require 'Orders.php';
+
+// require select store procedure 
+require 'SelectStoreProcedure.php';
+
+
 class MarketPlace {
 	
 	
@@ -38,7 +45,10 @@ class MarketPlace {
 	public $currency = 'AED';
 	
 	
-	
+	public function __construct() {
+		
+			date_default_timezone_set ('Asia/Dubai');
+	}
 	/* Crate method for DB Connection */
 	protected function Connection() {
 		
@@ -4970,11 +4980,7 @@ return $get;
 					
 					// Unset Cookie
 					
-					echo "<pre>";
 					
-					print_R($this->buyerShippingAsArray());
-					
-					echo "</pre>";
 					// Send confirmation order details to the user 
 					$shippingInJson = $this->buyerShippingAsArray();
 					$firstname = $shippingInJson['first-name'] ?? '';
@@ -5218,7 +5224,47 @@ return $get;
 			
 			//var_dump(AdminLogin($username, $password));
 		}
-}
+		
+	// Get orders 
+	public function GetOrders(){
+		
+			return Orders::GetOrders();
+	}
+	
+	// Get order by id 
+	public function GetOrderById($order_id) {
+		
+			/* Reresult data is comming like this */
+			/*
+			 * Array
+					(
+					[result] => Array
+					(
+					[0] => Array
+					(
+						[0] => Array
+							(
+								[id] => 1
+								[order_id] => 20180929DDE2
+								[purchase_point] => sindhbad
+								[purchase_date] => 2018-09-29 13:17:04
+								[currency] => AED
+								[shipping_address] => {"first-name":"bharat","last-name":"shah","country":"","city":"Abu Dhabi","AddressArea":"","country1":"AE","area":"Al Falah Street","street":"Al Falah Street","building":"","floor-no":"Al Falah Street","apartment-no":"5011","landmark":"Habibi Bank","locationtype":"home","mobile-no":"0565973854","landline-no":"","shipping-note":"Hello orld"}
+								[billing_address] => 
+								[totalamount] => 1050
+								[status] => inprocess
+								[payment] => cod
+							)
 
-?>
-  
+					)
+			 * */
+			return Orders::GetOrderById($order_id);
+	}
+	
+	
+	// Getting order items by id 
+	public function GetItemsByOrderId($order_id) {
+		
+			return Orders::getOrderItemByOrderId($order_id);
+		}
+}

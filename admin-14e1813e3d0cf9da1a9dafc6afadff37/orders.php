@@ -1,4 +1,13 @@
+<?php 
 
+	// Reqire controller 
+	require '../controller/controller.php';
+	
+	// Get the object 
+	$obj = new MarketPlace();
+	
+	
+?>
 <!DOCTYPE html>
 <!-- 
 Template Name: Metronic - Responsive Admin Dashboard Template build with Twitter Bootstrap 3.3.6
@@ -156,7 +165,7 @@ License: You must have a valid license purchased only from themeforest(the above
                     <!-- END PAGE BREADCRUMB -->
                     <!-- BEGIN PAGE BASE CONTENT -->
                     <!-- BEGIN DASHBOARD STATS 1-->
-					
+				
 					
 					<div class="portlet box green">
                        
@@ -171,13 +180,17 @@ License: You must have a valid license purchased only from themeforest(the above
                                         </div>
                                     </div>
                                     <div class="portlet-body flip-scroll">
+                                        
+                                        <?php if(isset($obj->GetOrders()['result']) && count($obj->GetOrders()['result']) > 0):?>
+                                        
+                                        
                                         <table id = "example" class="table table-bordered table-striped table-condensed flip-content">
                                             <thead class="flip-content">
                                                 <tr>
                                                     <th> OrderID </th>
-                                                    <th> Purchase Point </th>
-                                                    <th class="numeric"> Order Date </th>
-                                                    <th class="numeric"> Bill-to Name </th>
+                                                    <th width = "13%"> Purchase Point </th>
+                                                    <th class="date"> Order Date </th>
+                                                    <th class="string"> Bill-to Name </th>
                                                     <th class="numeric"> Ship-to Name </th>
                                                     <th class="numeric"> Grand Total </th>
                                                     <th class="numeric"> Order Total </th>
@@ -186,62 +199,29 @@ License: You must have a valid license purchased only from themeforest(the above
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                <tr>
-                                                    <td> AAC </td>
-                                                    <td> AUSTRALIAN AGRICULTURAL COMPANY LIMITED. </td>
-                                                    <td class="numeric"> &nbsp; </td>
-                                                    <td class="numeric"> -0.01 </td>
-                                                    <td class="numeric"> -0.36% </td>
-                                                    <td class="numeric"> $1.39 </td>
-                                                    <td class="numeric"> $1.39 </td>
-                                                    <td class="numeric"> &nbsp; </td>
-                                                    <td class="numeric"> 9,395 </td>
+											
+												<?php foreach ($obj->GetOrders()['result'][0] as $eachItem):?>
+												
+												<?php
+													 // Decoding some strings 
+													 $billing_address = json_decode($eachItem['billing_address'], true);
+													 
+													 $shipping_address = json_decode($eachItem['shipping_address'], true);
+												?>
+												<tr>
+                                                    <td><?= $eachItem['order_id']?></td>
+                                                    <td> <?= $eachItem['purchase_point']?> </td>
+                                                    <td class="date"> <?= $eachItem['purchase_date']?> </td>
+                                                    <td class="numeric"><?= ucfirst($billing_address['first-name']) ?? '';?> <?= ucfirst($billing_address['last-name']) ?? '';?></td>
+                                                    <td class="numeric"> <?= $shipping_address['first-name'] ?? '';?> <?= $shipping_address['last-name'] ?? '';?> </td>
+                                                    <td class="numeric"><?= $eachItem['currency']; ?> <?= $obj->getPriceFormate($eachItem['totalamount']); ?> </td>
+                                                    <td class="numeric"> <?= $eachItem['currency']; ?> <?= $obj->getPriceFormate($eachItem['totalamount']); ?> </td>
+                                                    <td class="numeric">  <?= $eachItem['status']; ?> </td>
+                                                    <td class="numeric"> <a href = "order-details.phtml?id=<?=$eachItem['id']?>&order_id=<?=$eachItem['order_id']?>">View</a> </td>
                                                 </tr>
-                                                <tr>
-                                                    <td> AAD </td>
-                                                    <td> ARDENT LEISURE GROUP </td>
-                                                    <td class="numeric"> $1.15 </td>
-                                                    <td class="numeric"> +0.02 </td>
-                                                    <td class="numeric"> 1.32% </td>
-                                                    <td class="numeric"> $1.14 </td>
-                                                    <td class="numeric"> $1.15 </td>
-                                                    <td class="numeric"> $1.13 </td>
-                                                    <td class="numeric"> 56,431 </td>
-                                                </tr>
-                                                <tr>
-                                                    <td> AAX </td>
-                                                    <td> AUSENCO LIMITED </td>
-                                                    <td class="numeric"> $4.00 </td>
-                                                    <td class="numeric"> -0.04 </td>
-                                                    <td class="numeric"> -0.99% </td>
-                                                    <td class="numeric"> $4.01 </td>
-                                                    <td class="numeric"> $4.05 </td>
-                                                    <td class="numeric"> $4.00 </td>
-                                                    <td class="numeric"> 90,641 </td>
-                                                </tr>
-                                                <tr>
-                                                    <td> ABC </td>
-                                                    <td> ADELAIDE BRIGHTON LIMITED </td>
-                                                    <td class="numeric"> $3.00 </td>
-                                                    <td class="numeric"> +0.06 </td>
-                                                    <td class="numeric"> 2.04% </td>
-                                                    <td class="numeric"> $2.98 </td>
-                                                    <td class="numeric"> $3.00 </td>
-                                                    <td class="numeric"> $2.96 </td>
-                                                    <td class="numeric"> 862,518 </td>
-                                                </tr>
-                                                <tr>
-                                                    <td> ABP </td>
-                                                    <td> ABACUS PROPERTY GROUP </td>
-                                                    <td class="numeric"> $1.91 </td>
-                                                    <td class="numeric"> 0.00 </td>
-                                                    <td class="numeric"> 0.00% </td>
-                                                    <td class="numeric"> $1.92 </td>
-                                                    <td class="numeric"> $1.93 </td>
-                                                    <td class="numeric"> $1.90 </td>
-                                                    <td class="numeric"> 595,701 </td>
-                                                </tr>
-                                                <tr>
+												
+												<?php endforeach;?>
+												  <tr>
                                                     <td> ABY </td>
                                                     <td> ADITYA BIRLA MINERALS LIMITED </td>
                                                     <td class="numeric"> $0.77 </td>
@@ -252,75 +232,18 @@ License: You must have a valid license purchased only from themeforest(the above
                                                     <td class="numeric"> $0.76 </td>
                                                     <td class="numeric"> 54,567 </td>
                                                 </tr>
-                                                <tr>
-                                                    <td> ACR </td>
-                                                    <td> ACRUX LIMITED </td>
-                                                    <td class="numeric"> $3.71 </td>
-                                                    <td class="numeric"> +0.01 </td>
-                                                    <td class="numeric"> 0.14% </td>
-                                                    <td class="numeric"> $3.70 </td>
-                                                    <td class="numeric"> $3.72 </td>
-                                                    <td class="numeric"> $3.68 </td>
-                                                    <td class="numeric"> 191,373 </td>
-                                                </tr>
-                                                <tr>
-                                                    <td> ADU </td>
-                                                    <td> ADAMUS RESOURCES LIMITED </td>
-                                                    <td class="numeric"> $0.72 </td>
-                                                    <td class="numeric"> 0.00 </td>
-                                                    <td class="numeric"> 0.00% </td>
-                                                    <td class="numeric"> $0.73 </td>
-                                                    <td class="numeric"> $0.74 </td>
-                                                    <td class="numeric"> $0.72 </td>
-                                                    <td class="numeric"> 8,602,291 </td>
-                                                </tr>
-                                                <tr>
-                                                    <td> AGG </td>
-                                                    <td> ANGLOGOLD ASHANTI LIMITED </td>
-                                                    <td class="numeric"> $7.81 </td>
-                                                    <td class="numeric"> -0.22 </td>
-                                                    <td class="numeric"> -2.74% </td>
-                                                    <td class="numeric"> $7.82 </td>
-                                                    <td class="numeric"> $7.82 </td>
-                                                    <td class="numeric"> $7.81 </td>
-                                                    <td class="numeric"> 148 </td>
-                                                </tr>
-                                                <tr>
-                                                    <td> AGK </td>
-                                                    <td> AGL ENERGY LIMITED </td>
-                                                    <td class="numeric"> $13.82 </td>
-                                                    <td class="numeric"> +0.02 </td>
-                                                    <td class="numeric"> 0.14% </td>
-                                                    <td class="numeric"> $13.83 </td>
-                                                    <td class="numeric"> $13.83 </td>
-                                                    <td class="numeric"> $13.67 </td>
-                                                    <td class="numeric"> 846,403 </td>
-                                                </tr>
-                                                <tr>
-                                                    <td> AGO </td>
-                                                    <td> ATLAS IRON LIMITED </td>
-                                                    <td class="numeric"> $3.17 </td>
-                                                    <td class="numeric"> -0.02 </td>
-                                                    <td class="numeric"> -0.47% </td>
-                                                    <td class="numeric"> $3.11 </td>
-                                                    <td class="numeric"> $3.22 </td>
-                                                    <td class="numeric"> $3.10 </td>
-                                                    <td class="numeric"> 5,416,303 </td>
-                                                </tr>
-                                                
-                                                <tr>
-                                                    <td> AGO1</td>
-                                                    <td> ATLAS IRON LIMITED </td>
-                                                    <td class="numeric"> $3.17 </td>
-                                                    <td class="numeric"> -0.02 </td>
-                                                    <td class="numeric"> -0.47% </td>
-                                                    <td class="numeric"> $3.11 </td>
-                                                    <td class="numeric"> $3.22 </td>
-                                                    <td class="numeric"> $3.10 </td>
-                                                    <td class="numeric"> 5,416,303 </td>
-                                                </tr>
+                                            
                                             </tbody>
                                         </table>
+                                   
+										<?php else: ?>
+										
+										<div class = "alert info">
+										<?= $obj->GetOrders()['result']; ?>
+										</div>
+										
+										<?php endif;?>
+                                   
                                     </div>
                                 </div>
                 
