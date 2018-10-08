@@ -5215,15 +5215,7 @@ return $get;
 
 	/* Third phase of development ends here */
 	
-	public function AdminLogin(AdminLoginController $AdminLogin) {
-		
-			$username = 'username';
-			$password = 'password';
-			// Set username 
-			echo $AdminLogin::$loginSuccess;
-			
-			//var_dump(AdminLogin($username, $password));
-		}
+	
 		
 	// Get orders 
 	public function GetOrders(){
@@ -5260,11 +5252,12 @@ return $get;
 			 * */
 			return Orders::GetOrderById($order_id);
 	}
-	
-	
+		
 	// Getting order items by id 
 	public function GetItemsByOrderId($order_id) {
 		
 			return Orders::getOrderItemByOrderId($order_id);
 		}
+
+	/* Third phase development ends here */
 }

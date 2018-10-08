@@ -1,5 +1,6 @@
 <?php 
-
+	
+	session_start();
 	// Reqire controller 
 	require '../controller/controller.php';
 	// Setting time to dubai
@@ -12,7 +13,11 @@
 	 * $obj->GetOrderById('order_id');
 	 * 
 	 * */
-	
+	// User must be logged in 
+	if(AdminLoginController::IsUserIsLoggedIn() !== true) {
+		
+			header('Location:http://localhost/admin-14e1813e3d0cf9da1a9dafc6afadff37/login');
+		}
 	 
 	
 	

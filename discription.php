@@ -113,7 +113,11 @@ $details = $obj->getIndividualProduct('name', 'id', 'sku');
          
         <?php include 'header.php'; ?>
          
-         
+         <?php
+         $REQUEST_SCHEME = $_SERVER['REQUEST_SCHEME'];
+         $REQUEST_URI = $_SERVER['REQUEST_URI'];
+         $SERVER_NAME = $_SERVER['SERVER_NAME'];
+         ?>
          <div class="display-popup" style="display:none;">
             <div id="newsletter-popup">
                <div class="promotional-popup">
@@ -231,6 +235,7 @@ $details = $obj->getIndividualProduct('name', 'id', 'sku');
             <a id="contentarea" tabindex="-1"></a>
             <div class="columns col2-layout">
                <div class="container">
+				    
                   <div class="row">
                      <div class="col-lg-9 col-md-9">
                         <div class="page messages">
@@ -750,7 +755,7 @@ $details = $obj->getIndividualProduct('name', 'id', 'sku');
             </div>
          </div>
         
-        
+       
          <div class="block review-add">
             <div class="block-title"><strong>Write Your Own Review</strong></div>
             <div class="block-content">

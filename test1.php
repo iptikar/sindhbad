@@ -9,6 +9,18 @@ session_start();
 //$str = urldecode('%2020180929DDE2');
 //echo $str;
 //exit();
+$x = 3;
+$y = 7;
+
+$x = dir(".");
+
+while($y = $x->read()){
+	
+		echo $y."";
+	}
+echo ($x ==1) ? "one" :($y == 2) ? "Two" : "No";
+
+exit();
 
 $mysqli = new mysqli('localhost', 'root', 'a', 'iptikar-marketplace');
 
