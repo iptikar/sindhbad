@@ -2493,6 +2493,8 @@ window.onclick = function(event) {
 	}
 	
 	
+	
+	
 	public function CountTheRecords (){
 		
 			// Get the connection 

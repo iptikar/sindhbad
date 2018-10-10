@@ -1,6 +1,6 @@
 #turn on url rewriting 
 # Turn Rewrite Engine On
-Options -Indexes
+#Options -Indexes
 RewriteEngine on
 #RewriteRule (.*) http://www.iptikar.com/ [R=301,L]
 

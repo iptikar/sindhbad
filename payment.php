@@ -88,7 +88,7 @@
 					
 					<br/>
 					<br/>
-					<?php if($obj->IfCartExists() === true) :?>
+					<?php if($obj->IfCartExists() === true && isset($_COOKIE['buyershipping7522'])):?>
 					<div class="page-title-wrapper">
                            <h2 class="page-title"><span class="base" data-ui-id="page-title-wrapper">Payment/ Order Review</span></h2>
                         </div>
@@ -1542,7 +1542,7 @@ Pay by Card (On-Delivery)</label> <span>
 					
 					<?php else: ?>
 					
-					<div class="message notice"><div>Buy something, Shopping cart is empty.  </div></div>
+					<div class="message notice"><div>Please to make the payment checkout is required.  </div></div>
                     
 					<?php endif;?>
                       

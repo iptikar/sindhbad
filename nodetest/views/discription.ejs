@@ -2930,29 +2930,35 @@
                </ul>
             </div>
          </div>
-
-         <div class = "container" id = "cart-msg">
-         <br/>
-
-         <!--
-			<div class="alert alert-danger fadeIn">
-  <strong>Error ! </strong>Please login as buyer.
-
-  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-    <span aria-hidden="true">&times;</span>
-  </button>
+		
+		<br/>
+		<br/>
+		
+		<div class = "container">
+	<div class = "row">
+	<% if ( sessionFlash && sessionFlash.message) { %>
+	
+<% if(sessionFlash.type == 'success'){  %>
 
 
+<div class="message success">
+	<strong>FLASH!</strong> <%= sessionFlash.message %>
 </div>
 
-			<div class="alert alert-success fadeIn">
-  <strong>Error ! </strong>Please login as buyer.
+<% } else {  %>
+	
+<div class="message  danger">
+	<strong>FLASH!</strong> <%= sessionFlash.message %>
 </div>
 
-        -->
+<% } %>
 
-         </div>
-
+<% } %>
+	</div>
+</div>
+						
+		
+       
          <main id="maincontent" class="page-main">
             <a id="contentarea" tabindex="-1"></a>
             <div class="columns col2-layout">
@@ -3118,30 +3124,32 @@
                                              </div>
                                           </div>
                                          
-                                         <div ng-controller="myCtrl">
                                           <div class="actions">
                                              
-                                             <input type = "hidden" value = "<%=getToken%>" id = "csrf" name = "_csrf" />
+                                    <form action = "http://localhost:8888/addtocart" method = "POST" >
+									<input type = "hidden" value = "<%= url %>" name = "durl"/>
+                                    <input type = "hidden" value = "<%=getToken%>" id = "csrf" name = "_csrf" />
 									<input type = "hidden" name = "p_mongo_id" id = "p_mongo_id" value = "<%= result._id %>" />
 									<input type = "hidden" name = "p_price" id = "p_price" value = "<%= price %>" />
-									<input type = "hidden" value = "<%= result['sku'] %>" id = "p_sku"/>
-									<input type = "hidden" value = "<%= result['product_name'] %>" id = "p_name"/>
-									<input type = "hidden" value = "<%= img_src_link %>" id = "p-image-url" />
+									<input type = "hidden" name = "sku" value = "<%= result['sku'] %>" id = "p_sku"/>
+									<input type = "hidden" name = "name" value = "<%= result['product_name'] %>" id = "p_name"/>
+									<input type = "hidden" name = "img_uri" value = "<%= img_src_link %>" id = "p-image-url" />
 
-                                             <button type="submit" title="Add to Cart" class="action primary tocart" id = "add-to-cart-btn-node" ng-click="myFunc()"><span>Add to Cart</span></button>
-											<p>The button has been clicked {{count}} times.</p>
+									<button type="submit" title="Add to Cart" class="action primary tocart" id = "add-to-cart-btn-node"><span>Add to Cart</span></button>
+								
+                                     </form>
+                                    
 
 
-                                             <div id="instant-purchase" data-bind="scope:'instant-purchase'">
-                                                <!-- ko template: getTemplate() --><!-- /ko -->
-                                             </div>
+								 <div id="instant-purchase" data-bind="scope:'instant-purchase'">
+									<!-- ko template: getTemplate() --><!-- /ko -->
+								 </div>
 
 
 
 
                                           </div>
-                                       </div>
-                                         
+                                       
                                        
                                        </div>
                                     </div>

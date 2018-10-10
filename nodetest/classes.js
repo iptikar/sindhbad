@@ -1,42 +1,29 @@
-var express = require('./server').express;
+var LoadedModules = require('./required-modules');
 
-// Express, bodyParser, app
-//var test = require('test.js')(preciousData);
-//var express = AllModes.express;
+const express = LoadedModules.express;
+const bodyParser = LoadedModules.bodyParser;
 
-var  bodyParser= require('./server').bodyParser
-, app = express();
+const kill = LoadedModules.kill;
+const csurf = LoadedModules.csurf;
+const cookieParser = LoadedModules.cookieParser;
+const session = LoadedModules.session;
+const flash = LoadedModules.flash;
+const handlebars = LoadedModules.handlebars;
+const validation = LoadedModules.validation;
+const sessionStore = LoadedModules.sessionStore;
+const crypto = LoadedModules. crypto;
+const fileUpload = LoadedModules.fileUpload;
+const nodemailer = LoadedModules.nodemailer;
+const bcrypt = LoadedModules.bcrypt;
+const validUrl = LoadedModules.validUrl;
+const fs = LoadedModules.fs;
+const randomstring = LoadedModules.randomstring;
+const compression = LoadedModules.compression;
+const routeValidator = LoadedModules.routeValidator;
+const MongoDB = LoadedModules.MongoDB;
+const MongoClient = LoadedModules.MongoClient;
+const ObjectID = LoadedModules.ObjectID;
 
-// Using CookieParser 
-var cookieParser = require('cookie-parser');
-
-// Session module 
-var session = require('express-session');
-// http://expressjs-book.com/index.html%3Fp=128.html
-// https://www.tutorialspoint.com/mongodb/mongodb_relationships.htm
-
-// Express flash for message 
-var flash = require('express-flash');
-
-var handlebars = require('express-handlebars')
-
-// Validation for any data server incounter 
-var validation    =    require("validator");
-
-// Sesssion storage 
-var sessionStore = new session.MemoryStore;
-
-// Operating System 
-var os = require('os');
-
-// To Create Crypto string 
-var crypto = require('crypto');
-
-// Express fileupload 
-const fileUpload = require('express-fileupload');
-
-// Nodemailer to send email to the client 
-var nodemailer = require('nodemailer');
 
 
 

@@ -1,0 +1,251 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8">
+	<title></title>
+	<meta name="generator" content="LibreOffice 4.2.3.3 (Linux)">
+	<meta name="created" content="0;0">
+	<meta name="changed" content="20181010;122512885967017">
+</head>
+<body lang="en-US" dir="ltr" style="background: transparent">
+<p style="margin-bottom: 0in"><font face="FreeSans"><span lang="hi-IN">﻿</span></font>1.
+Tell me the 3 worse defects of your preferred language Ans: Explain
+about the different about the code. 
+</p>
+<p style="margin-bottom: 0in"><br>
+</p>
+<p style="margin-bottom: 0in">2. Why is there a rising interest on
+Functional Programming? The rise in which decade!? It's been studied,
+used, promoted and written about in the '60s, '70s, '80s, '90s '00s,
+and now this decade. In the late 1980s it actually appeared as if it
+was poised for mainstream impact. The tools were mature, the
+techniques were well studied, many optimistic books and courses
+existed. FP was a particularly active area in the UK, notably
+Edinburgh. John Backus, inventor of Fortran, gave a famous Turing
+Award lecture in 1978 (a mere 36 years ago) clearly outlining the
+pitfalls of being locked into imperative thinking. Many of the
+practical issues of functional programming (for example, efficient
+implementation of lexical closures and gc) were solved before 1990—a
+mere quarter century ago. 3. What is a closure, and what is useful
+for? What's in common between closures and classes? Anonymous
+functions, implemented in PHP 5.3, yield objects of this type. This
+fact used to be considered an implementation detail, but it can now
+be relied upon. Starting with PHP 5.4, this class has methods that
+allow further control of the anonymous function after it has been
+created.</p>
+<p style="margin-bottom: 0in"><br>
+</p>
+<p style="margin-bottom: 0in"><br>
+</p>
+<p style="margin-bottom: 0in">function
+ProductByCategory($records,$index, $indexvalue) { // Set the variable
+$data = array_filter ( array_map(function($items) use
+(&amp;$index,&amp;$indexvalue) { // Set the index and index value
+if(isset($items[$index]) &amp;&amp; $items[$index] == $indexvalue) {
+// Return the array column return $items; } }, $records)); // Sort
+the array sort($data); // Return the that return $data; } 
+</p>
+<p style="margin-bottom: 0in"><br>
+</p>
+<p style="margin-bottom: 0in"><br>
+</p>
+<p style="margin-bottom: 0in">4. What is a closure, and what is
+useful for? What's in common between closures and classes? The
+reasons to avoid closures is overhead. Your get and set functions are
+trivially 20x slower than properties. Your closures also have a large
+memory overhead that is O(N) with the number of instances. Also note
+that these encapsulated variables have zero real benefit, they just
+infer performance penalties. var AddProperty = { constructor:
+function (v) { this._value = v; return this; }, get: function () {
+return this._value; }, set: function (v) { this._value = v; } }; var
+a = Object.create(AddProperty).constructor(1); var b =
+Object.create(AddProperty).constructor(2); Your problem is not that
+you don't have private state, it's that you're using global state.
+The easy solution is to have an object per tab (or a &quot;struct&quot;
+if you prefer) and store state in it. So all you have to do is define
+a tab var Tab = { constructor: function (...) { /* init state */ },
+doTabStuff: function () { /* some method */ }, ... } And then create
+new tabs when you need them var tab =
+Object.create(Tab).constructor(...) 5. What are generics useful for?
+Generics enable developers to create a whole family of declarations
+using a single generic declaration - for example, a generic
+collection-type declaration Collection induces a declaration for any
+entity-type T, which negates the need to implement a dedicated
+collection-type for every entity-type, reducing the need for
+boilerplate code and duplication. Working with Javascript
+applications, we have some problems to share similar code between the
+application, and in many times we create the same code for different
+applications. That pattern gives to you a power to write an
+abstraction of data, when we have one abstract class (or many
+classes) and reuse the implementations independent of your Data
+Model, passing only your types to someone classes. class Entry {
+protected $key; protected $value; public function __construct(KeyType
+$key, ValueType $value) { $this-&gt;key = $key; $this-&gt;value =
+$value; } public function getKey(): KeyType { return $this-&gt;key; }
+public function getValue(): ValueType { return $this-&gt;value; } }
+An instance of a generic class can be constructed using explicit type
+arguments: $entry = new Entry(1, 'test'); 6. What are high-order
+functions? What are they useful for? Write one, in your preferred
+language. Usage of multiple returns, closures, obfuscation, bad
+formatting, nested functions, unused variables are all present in
+your example. From what I've tested it also does not consistently
+return the same values back ( floats ). I rewrote it to demonstrate
+the intent behind the logic and it took a bit to unravel unused
+$rand_seed_fnc in the get_algorithm call and the terrible function to
+variable assignment.</p>
+<p style="margin-bottom: 0in"><br>
+</p>
+<p style="margin-bottom: 0in">&lt;?php // Data to run functions on.
+$data = array(1, 2, 3, 4, 5, 6, 7, 8, 9, 10); function get_algorithm(
+$iValue ) { // Check if value is odd or even and return a different
+value. // Replaces odd_even function. // Uses modulus % // $value =
+1, returns FALSE; // $value = 2, returns TRUE; // $value = 3, returns
+FALSE; // $value = 4, returns TRUE; if( $iValue % 2 === 0 ) { //
+Square the value if it's even. $iReturn = $iValue * $iValue; } else {
+// Square the value and divide by a random number then add 10.
+$iReturn = ( $iValue * $iValue / rand() ) + 10; } return $iReturn; }
+$results = array_map( 'get_algorithm', $data ); var_dump($results);
+?&gt; 7. Write a loop, then transform it into a recursive function,
+using only immutable structures (i.e. avoid using variables).
+Discuss. function buildTree(array $elements, $parentId = 0) { $branch
+= array(); foreach ($elements as $element) { if
+($element['parent_id'] == $parentId) { $children =
+buildTree($elements, $element['id']); if ($children) {
+$element['children'] = $children; } $branch[] = $element; } } return
+$branch; } $tree = buildTree($rows); 8. What does it mean when a
+language treats functions as first-class citizens? In computer
+science, a programming language is said to support first-class
+functions (or function literal) if it treats functions as first-class
+objects. Specifically, this means that the language supports
+constructing new functions during the execution of a program, storing
+them in data structures, passing them as arguments to other
+functions, and returning them as the values of other functions. In
+programming languages, when you are able to pass, return and assign a
+type, that type is considered to be a first class citizen [source].
+This is one reason Javascript is becoming a popular destination for
+functional programming. Since we are able to create functions that
+can accept functions as well as return functions. This allows us to
+create Higher Order Functions. Higher Order Functions are functions
+that accept a function, and/or return a function [source]. $greet =
+function($name) { printf(&quot;Hello %s\r\n&quot;, $name); };
+$greet('World'); $greet('PHP'); ) Static systems: Definition: It is a
+system in which output at any instant of time depends on input sample
+at the same time. Example: 1) y(n) = 9x(n) In this example 9 is
+constant which multiplies input x(n). But output at nth instant that
+means y(n) depends on the input at the same (nth) time instant x(n).
+So this is static system. 2) y(n) = x2(n) + 8x(n) + 17 Here also
+output at nth instant, y(n) depends on the input at nth instant. So
+this is static system. Why static systems are memory less systems?
+Answer: Observe the input output relations of static system. Output
+does not depend on delayed [x(n-k)] or advanced [x(n+k)] input
+signals. It only depends on present input (nth) input signal. If
+output depends upon delayed input signals then such signals should be
+stored in memory to calculate the output at nth instant. This is not
+required in static systems. Thus for static systems, memory is not
+required. Therefore static systems are memory less systems. b)
+Dynamic systems: Definition: It is a system in which output at any
+instant of time depends on input sample at the same time as well as
+at other times. Here other time means, other than the present time
+instant. It may be past time or future time. Note that if x(n)
+represents input signal at present instant then, 1) x(n-k); that
+means delayed input signal is called as past signal. 2) x(n+k); that
+means advanced input signal is called as future signal. There are a
+lot of different type systems: let's talk about static and dynamic
+type systems, and about strong and weak ones. You surely have an
+opinion and a preference about this topic. Would you like to share
+them, and discuss why and when would you promote one particular type
+system for developing an enterprise software? Thus in dynamic
+systems, output depends on present input as well as past or future
+inputs. Examples: 1) y(n) = x(n) + 6x(n-2) Here output at nth instant
+depends on input at nth instant, x(n) as well as (n-2)th instant
+x(n-2) is previous sample. So the system is dynamic. 2) y(n) =
+4x(n+7) + x(n) Here x(n+7) indicates advanced version of input sample
+that means it is future sample therefore this is dynamic system. Why
+dynamic system has a memory? Answer: Observe input output relations
+of dynamic system. Since output depends on past or future input
+sample; we need a memory to store such samples. Thus dynamic system
+has a memory. For continuous time (CT) systems: A continuous time
+system is static or memoryless if its output depends upon the present
+input only. What are namespaces useful for? Invent an alternative.
+Much like directories and files, namespace in PHP serves to group
+classes, functions, interfaces and constants. It provides a way of
+wrapping items from the global space and allows use of plain item
+name without causing name collision in a program. namespace my\name;
+// see &quot;Defining Namespaces&quot; section Write two functions,
+one Referentially Transparent and the other one Referentially Opaque.
+Discuss. Referential transparency An expression is said to be
+referentially transparent if you can substitute it by its output at
+any time without changing the behavior of your program. In order to
+do that for all expressions of your code base, all your functions
+have to be pure and all your variables have to be immutable. What do
+we gain from referential transparency? Once again, it helps a lot
+with reducing cognitive burden. Let's imagine we have the following
+functions and data &lt;?php // The Player implementation is
+voluntarily simple for brevity. // Obviously you would use
+immutable.php in a real project. class Player { public $hp; public
+$x; public $y; public function __construct(int $x, int $y, int $hp) {
+$this-&gt;x = $x; $this-&gt;y = $y; $this-&gt;hp = $hp; } } function
+isCloseEnough(Player $one, Player $two): boolean { return abs($one-&gt;x
+- $two-&gt;x) &lt; 2 &amp;&amp; abs($one-&gt;y - $two-&gt;y) &lt; 2;
+} function loseHitpoint(Player $p): Player { return new Player($p-&gt;x,
+$p-&gt;y, $p-&gt;hp - 1); } function hit(Player $p, Player $target):
+Player { return... Whats the Stack and what's the Heap? What's a
+Stack Overflow? he stack is the memory set aside as scratch space for
+a thread of execution. When a function is called, a block is reserved
+on the top of the stack for local variables and some bookkeeping
+data. When that function returns, the block becomes unused and can be
+used the next time a function is called. The stack is always reserved
+in a LIFO (last in first out) order; the most recently reserved block
+is always the next block to be freed. This makes it really simple to
+keep track of the stack; freeing a block from the stack is nothing
+more than adjusting one pointer. The heap is memory set aside for
+dynamic allocation. Unlike the stack, there's no enforced pattern to
+the allocation and deallocation of blocks from the heap; you can
+allocate a block at any time and free it at any time. This makes it
+much more complex to keep track of which parts of the heap are
+allocated or free at any given time; there are many custom heap
+allocators available to tune heap performance for different usage
+patterns. Each thread gets a stack, while there's typically only one
+heap for the application (although it isn't uncommon to have multiple
+heaps for different types of allocation). To answer your questions
+directly: To what extent are they controlled by the OS or language
+runtime? The OS allocates the stack for each system-level thread when
+the thread is created. Typically the OS is called by the language
+runtime to allocate the heap for the application. What is their
+scope? The stack is attached to a thread, so when the thread exits
+the stack is reclaimed. The heap is typically allocated at
+application startup by the runtime, and is reclaimed when the
+application (technically process) exits. What determines the size of
+each of them? The size of the stack is set when a thread is created.
+The size of the heap is set on application startup, but can grow as
+space is needed (the allocator requests more memory from the
+operating system). What makes one faster? The stack is faster because
+the access pattern makes it trivial to allocate and deallocate memory
+from it (a pointer/integer is simply incremented or decremented),
+while the heap has much more complex bookkeeping involved in an
+allocation or deallocation. Also, each byte in the stack tends to be
+reused very frequently which means it tends to be mapped to the
+processor's cache, making it very fast. Another performance hit for
+the heap is that the heap, being mostly a global resource, typically
+has to be multi-threading safe, i.e. each allocation and deallocation
+needs to be - typically - synchronized with &quot;all&quot; other
+heap accesses in the program. A clear demonstration: Why are
+functions called first class citizens in Javascript? They inherit
+from the Object prototype and they can be assigned key: value pairs.
+... And as mentioned, function objects can be assigned to variables,
+they can be passed around as arguments; they can even be assigned as
+the return values of other functions. Demonstrably, functions in
+JavaScript are first-class objects. Some languages, especially the
+ones that promote a Functional approach, allow a technique called
+Pattern Matching. Do you know it? How is Pattern Matching different
+from Switch clauses? Why in Java, C# and many other languages
+constructors are not part of the interface? I don't personally think
+you should put the constructor in the interface because you'd never
+create a new object by calling the constructor without being aware of
+which implementation you're using. There is a mistake in your code,
+the method in an interface cannot have an implementation, it needs to
+be just a declaration, like this interface IDataItem { public
+function saveItem($theItem); } 
+</p>
+</body>
+</html>
