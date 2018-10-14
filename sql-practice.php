@@ -240,7 +240,8 @@ SELECT *fields* FROM database1.table1
  
  /*
   * An execution plan is basically a road map that graphically or textually shows the data retrieval methods chosen by the
-  *  SQL server’s query optimizer for a stored procedure or ad hoc query. Execution plans are very useful for helping a developer understand and analyze the performance 
+  *  SQL server’s query optimizer for a stored procedure or ad hoc query. 
+  * Execution plans are very useful for helping a developer understand and analyze the performance 
   * characteristics of a query or stored procedure, 
   * since the plan is used to execute the query or stored procedure.
 

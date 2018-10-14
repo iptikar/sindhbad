@@ -2920,13 +2920,21 @@
          </script>
 
 
-
+		<% 
+			if(result !== null) {
+				
+					result = result;
+				} else {
+					
+						result = '';
+					}
+		%>
 
          <div class="breadcrumbs">
             <div class="container">
                <ul class="items">
                   <li class="item home"> <a href="http://localhost:8888/" title="Go to Home Page">Home</a> </li>
-                  <li class="item product"> <strong><%= result['product_name'] %></strong> </li>
+                  <li class="item product"> <strong><%= result !== null ? result.product_name : ''; %></strong> </li>
                </ul>
             </div>
          </div>
@@ -2996,7 +3004,7 @@
 						// Get rest of three images 
 						
 						// Primary image
-						var primary_image = images[0];
+						var primary_image = images[0]? images[0] : '';
 						
 					
 						
@@ -3080,6 +3088,7 @@
 
                                  </div>
                               </div>
+                               <form action = "http://localhost:8888/addtocart" method = "POST" >
                               <div class="product-add-form">
 
 									
@@ -3091,7 +3100,8 @@
 									
 
 
-                                    <input type="hidden" name="selected_configurable_option" value="" /><input type="hidden" name="related_product" id="related-products-field" value="" /><input name="form_key" type="hidden" value="xo2OhJMrI22hVg2o" />
+                                    <input type="hidden" name="selected_configurable_option" value="" />
+                                    <input type="hidden" name="related_product" id="related-products-field" value="" /><input name="form_key" type="hidden" value="xo2OhJMrI22hVg2o" />
                                     <div class="box-tocart">
                                        <div class="fieldset">
                                           <div class="field qty">
@@ -3126,7 +3136,26 @@
                                          
                                           <div class="actions">
                                              
-                                    <form action = "http://localhost:8888/addtocart" method = "POST" >
+                                   
+                                   <% 
+                                   
+                                   console.log(result);
+									var discount = '';
+									
+									// Check if there is any discount 
+									if(result['special-price'] !== '' ){
+										
+											if(parseInt (result['special-price']) < parseInt (result['regular-price'])) {
+												
+													// Get the discount 
+													 discount = parseInt (result['regular-price']) - parseInt (result['special-price']);
+												}
+										}
+                                   %>
+                                   
+                                   <input type = "hidden" value = "<%= discount ;%>" name = "discount"/>
+                                   
+                                   <input type = "hidden" value = "<%= result.seller_email;%>" name = "seller_email"/>
 									<input type = "hidden" value = "<%= url %>" name = "durl"/>
                                     <input type = "hidden" value = "<%=getToken%>" id = "csrf" name = "_csrf" />
 									<input type = "hidden" name = "p_mongo_id" id = "p_mongo_id" value = "<%= result._id %>" />
@@ -3137,7 +3166,7 @@
 
 									<button type="submit" title="Add to Cart" class="action primary tocart" id = "add-to-cart-btn-node"><span>Add to Cart</span></button>
 								
-                                     </form>
+                                     
                                     
 
 
@@ -3161,7 +3190,7 @@
 
                               </div>
 
-
+							</form>
                               <script>
                                  require([
                                      'jquery',

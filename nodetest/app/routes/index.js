@@ -203,6 +203,8 @@ router.get('/index1', (req, res) => {
 
 	// Deleting cookies
 	//res.clearCookie("username");
+	
+	// res.cookie('cookieName',randomNumber, { maxAge: 900000, httpOnly: true });
 
 	//req.session.userId = hash;
 
@@ -1655,6 +1657,7 @@ router.get('/discription/:name/:id/:sku', routeValidator.validate({
     // Product collection
     var collectionname = 'product_catelog';
 
+   //console.log(req.cookies.ShoppingCart);
     // Get collection
     var getCol = '';
   // Using try cache
@@ -1665,7 +1668,7 @@ router.get('/discription/:name/:id/:sku', routeValidator.validate({
       // Return collection
       // Res with ejs template
       //console.log(req)
-
+	
       res.render('discription', {result : result, getToken:req.csrfToken(), 'url':req.url});
 
   });
@@ -1725,20 +1728,63 @@ router.post('/addtocart', function(req, res){
 		message: "Product added to the cart"
 	};
 	
-	console.log(GetCart.cart('Dick head product'))
+	// Defining some variable 
+	//console.log(JSON.stringify(req.session.SetCartCooki565656));
  
-  //res.send(JSON.stringify(req.body));
+	let id = req.body.p_mongo_id;
+	let price = req.body.p_price;
+	let sku = req.body.sku;
+	let name = req.body.name;
+	let image = req.body.img_uri;
+	let qty = req.body.qty;
+	
+	// sku, name, image, qty, price, id) {
+	//res.clearCookie('ShoppingCart');
+	
+	console.log(AddItemToCart(req, res, sku, name, image, qty, price, id));
 
 	res.redirect(req.body.durl);
 });
 
 
+router.get('/cookietest', function(req, res){
+
+	// Clear cookie 
+	//res.clearCookie("ShoppingCart");
+	
+	res.send(req.cookies.ShoppingCart)
+	//res.send(JSON.stringify(req.cookies.ShoppingCart));
+});
+
+
 router.get('*', function(req, res){
 
+	
 	var fullUrl = req.protocol + '://' + req.get('host') + req.originalUrl;
 	
 	res.render('404.ejs', {url:fullUrl})
 });
+
+function AddItemToCart(req, res, sku, name, image, qty, price, id) {
+	
+		// Return new promises 
+		return new Promise (function (fullfill, reject ) {
+			
+				// Read file 
+				try {
+						
+						fullfill(GetCart.AddToCart(req, res, sku, name, image, qty, price, id));
+					
+					} catch (ex) {
+							
+						reject (ex)
+					}
+			
+			})
+	}
+
+
+
 
 
 

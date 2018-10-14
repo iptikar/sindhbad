@@ -1,10 +1,13 @@
 <?php
+
 declare(strict_types=1);
 
 use PHPUnit\Framework\TestCase;
 
 final class EmailTest extends TestCase
 {
+    protected $var;
+    protected $cel;
     public function testCanBeCreatedFromValidEmailAddress(): void
     {
         $this->assertInstanceOf(
@@ -20,6 +23,11 @@ final class EmailTest extends TestCase
         Email::fromString('invalid');
     }
 
+    
+    
+    
+    
+    
     public function testCanBeUsedAsString(): void
     {
         $this->assertEquals(
@@ -28,8 +36,3 @@ final class EmailTest extends TestCase
         );
     }
 }
-
-
-
-
-

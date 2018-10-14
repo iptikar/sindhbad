@@ -518,7 +518,7 @@ OPTIMIZE TABLE performs ANALYZE TABLE after doing some table compression. The eq
 	* 
 	* $pdo = new PDO($dsn, "username", 		$mysqli = new mysqli("localhost", "username", "password", "databaseName");
 	* "password", $options);	
-	* 
+	* $dbh = new PDO('mysql:host=localhost;dbname=test', $user, $pass);
 	* 
 	* $stmt->rowCount();					$stmt->affected_rows;
 	* $pdo->lastInsertId();					$mysqli->insert_id;	
