@@ -28,6 +28,10 @@ const MarketPlace = LoadedModules.MarketPlace;
 // Require addto cart module 
 var GetCart = require ('../../components/addtocart/index.js')
 
+var AddToCart = require ('../../implement/addToCart.js');
+
+// Require function 
+var MisFunctions = require ('../../components/functions.js');
 var router = express.Router();
 
 
@@ -1721,13 +1725,7 @@ router.post('/getCategory', function (req, res) {
 // Add cart rout addtocart addtocart
 router.post('/addtocart', function(req, res){
   
-  // Return res
-  req.session.sessionFlash = {
-
-		type: 'success',
-		message: "Product added to the cart"
-	};
-	
+  
 	// Defining some variable 
 	//console.log(JSON.stringify(req.session.SetCartCooki565656));
  
@@ -1738,52 +1736,66 @@ router.post('/addtocart', function(req, res){
 	let image = req.body.img_uri;
 	let qty = req.body.qty;
 	
-	// sku, name, image, qty, price, id) {
-	//res.clearCookie('ShoppingCart');
-	
-	console.log(AddItemToCart(req, res, sku, name, image, qty, price, id));
 
+		Promise.resolve(
+		[
+			AddToCart(req, res, sku, name, image, qty, price, id),
+			GetCart.cart.GetCartTotal(req, res, req.cookies.ShoppingCart)
+		]
+		
+		).then(([a,b]) => {
+  console.log(a,b);    
+});
+	
+	
+	// Return res
+	req.session.sessionFlash = {
+
+		type: 'success',
+		message: "Product added to the cart"
+	};
+	
 	res.redirect(req.body.durl);
 });
 
+
+// Route 
+router.get('/cart', function (req, res){
+	
+		// Get the cookie data 
+		let CartObject = '';
+		
+		// Get cookie value 
+		CartObject = req.cookies.ShoppingCart;
+		
+		// Sum amount 
+		//let carttotal = MisFunctions.SumArrayColumn(CartObject, 'total');
+		
+		res.render('cart', {cart: CartObject});
+	});
 
 router.get('/cookietest', function(req, res){
 
 	// Clear cookie 
 	//res.clearCookie("ShoppingCart");
+	//res.clearCookie("ShoppingCartTotal");
 	
-	res.send(req.cookies.ShoppingCart)
-	//res.send(JSON.stringify(req.cookies.ShoppingCart));
+	//res.send(req.cookies.ShoppingCartTotal)
+	res.send(JSON.stringify(req.cookies.ShoppingCart));
 });
+
+
+
 
 
 router.get('*', function(req, res){
 
+ 
 	
 	var fullUrl = req.protocol + '://' + req.get('host') + req.originalUrl;
 	
 	res.render('404.ejs', {url:fullUrl})
 });
-
-function AddItemToCart(req, res, sku, name, image, qty, price, id) {
-	
-		// Return new promises 
-		return new Promise (function (fullfill, reject ) {
-			
-				// Read file 
-				try {
-						
-						fullfill(GetCart.AddToCart(req, res, sku, name, image, qty, price, id));
-					
-					} catch (ex) {
-							
-						reject (ex)
-					}
-			
-			})
-	}
-
-
 
 
 

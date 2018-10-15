@@ -1,10 +1,12 @@
 const LoadedModules = require('../../required-modules');
+var MisFunctions = require ('../../components/functions.js');
 
 // get the session 
 const session =  LoadedModules.session;
 
-
-var cart = function AddToCart(req, res, sku, name, image, qty, price, id) {
+var cart = {
+		
+			AddToCart:function(req, res, sku, name, image, qty, price, id) {
 	
 		// Var object 
 		var obj = {};
@@ -98,6 +100,12 @@ var cart = function AddToCart(req, res, sku, name, image, qty, price, id) {
 			// Get the discount 
 			let getDiscount  = eachItems['discount'];
 			
+			if(getDiscount === ''){
+				
+					getDiscount = 0;
+					
+			}
+			
 			
 
 			// Parse string to integer 
@@ -146,13 +154,31 @@ var cart = function AddToCart(req, res, sku, name, image, qty, price, id) {
 			// Set new cookie 
 			res.cookie('ShoppingCart', GetCart);
 			
-			// Return true 
-			return true;
+			
 				
 		}
-}
-	
+		
+		// Set 
+},
+			
+			GetCartTotal: function(req, res, cartcookie) {
+				
+					let totalCart = MisFunctions.SumArrayColumn(cartcookie, 'total');
+					let totalQty = MisFunctions.SumArrayColumn(cartcookie, 'qty');
+					let totalDiscount = MisFunctions.SumArrayColumn(cartcookie, 'discount');
+					
+					// Set again those things as cookie 
+					let data = {
+									totalcart: totalCart,
+									totalqty: totalQty,
+									totaldiscount: totalDiscount
+								}
+								
+					// Responce new cookie value 
+					res.cookie('ShoppingCartTotal', data);
+				}
+	}
 
-	
-module.exports.AddToCart = cart;
+
+module.exports.cart = cart;
 
