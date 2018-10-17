@@ -10,6 +10,8 @@ var AddToCart = function AddItemToCart(req, res, sku, name, image, qty, price, i
 				try {
 						
 						fullfill(GetCart.cart.AddToCart(req, res, sku, name, image, qty, price, id));
+						
+						//GetCart.cart.GetCartTotal(req, res, req.cookies.ShoppingCart);
 					
 					} catch (ex) {
 							

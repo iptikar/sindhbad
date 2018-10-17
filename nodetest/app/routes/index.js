@@ -1737,16 +1737,8 @@ router.post('/addtocart', function(req, res){
 	let qty = req.body.qty;
 	
 
-		Promise.resolve(
-		[
-			AddToCart(req, res, sku, name, image, qty, price, id),
-			GetCart.cart.GetCartTotal(req, res, req.cookies.ShoppingCart)
-		]
+	GetCart.cart.AddToCart(req, res, sku, name, image, qty, price, id);
 		
-		).then(([a,b]) => {
-  console.log(a,b);    
-});
-	
 	
 	// Return res
 	req.session.sessionFlash = {
@@ -1754,6 +1746,11 @@ router.post('/addtocart', function(req, res){
 		type: 'success',
 		message: "Product added to the cart"
 	};
+	
+	
+	
+	//GetCart.cart.GetCartTotal(req, res, req.cookies.ShoppingCart);
+	//console.log(req.cookies.ShoppingCart);
 	
 	res.redirect(req.body.durl);
 });
@@ -1768,24 +1765,180 @@ router.get('/cart', function (req, res){
 		// Get cookie value 
 		CartObject = req.cookies.ShoppingCart;
 		
+		// Get the total 
+		CartTotal = req.cookies.ShoppingCartTotal;
+		
 		// Sum amount 
 		//let carttotal = MisFunctions.SumArrayColumn(CartObject, 'total');
 		
-		res.render('cart', {cart: CartObject});
+		res.render('cart', {cart: CartObject, cartTotal: CartTotal, getToken:req.csrfToken()});
 	});
 
 router.get('/cookietest', function(req, res){
-
-	// Clear cookie 
-	//res.clearCookie("ShoppingCart");
-	//res.clearCookie("ShoppingCartTotal");
 	
-	//res.send(req.cookies.ShoppingCartTotal)
-	res.send(JSON.stringify(req.cookies.ShoppingCart));
+	// Clear cookie 
+	//res.clearCookie("ShoppingCartTotal");
+	//res.clearCookie("ShoppingCart");
+//console.log(req.cookies.ShoppingCartTotal);
+//res.cookie('test1', 'test1');
+//res.cookie('test2', 'test2');
+
+//res.send(req.cookies.test1 + req.cookies.test1);
+
+//res.send(JSON.stringify(req.cookies.ShoppingCartTotal))
+res.send(JSON.stringify(req.cookies.ShoppingCart));
 });
 
 
+router.post('/carttotal', function(req, res){
+	
+	// if cart cookie set 
+	if(typeof req.cookies.ShoppingCart === 'undefined' ){
+		
+		res.send('');
+		return;
+	} 
+	
+	//GetCartTotal: function(req, res, cartcookie)
+	GetCart.cart.GetCartTotal(req, res, req.cookies.ShoppingCart);
+	
+	// Send empty string 
+	res.send('');
+	
+});
 
+// Edit cart 
+router.post('/editcart', function(req, res){
+	
+	// Get the required paramaters 
+	var getsku = req.body.sku;
+	let id = req.body.id;
+	let qty = req.body.qty; 
+	
+	// Reg 
+	let reg = new RegExp(/^[1-9]{1,100}$/);;
+	// Move ahead finding 
+	if(!reg.test(qty)) {
+		
+		res.send('Invalid Quantity.');
+	}
+	
+	// Cart 
+	var cart = req.cookies.ShoppingCart;
+	
+	// var index 
+	var i = 0;
+	
+	var found = false;
+	
+	// Loop each data 
+	if(cart.length > 0) {
+		
+		cart.forEach(function(element, index) {
+		
+		if(element.sku === getsku) {
+			
+			found = i;
+		}
+	i++;
+	
+	});
+	}
+	
+	// Check if index containe something 
+	if(found !== false){
+		
+			// Set new value of qty 
+			let newIndex = cart[found];
+			
+			// Get the price 
+			let price = cart[found]['price'];
+			
+			// Set new amount 
+			let newTotalAmount = qty * price;
+			
+			let PerDisocunt = parseInt (cart[found]['discount']) / parseInt(cart[found]['qty']);
+			
+			let totalDiscount =  PerDisocunt * qty;
+
+			// Set new array value 
+			newIndex['qty'] = qty;
+			
+			// Set new array amout 
+			newIndex['total'] = newTotalAmount;
+			
+			// Set new array amout 
+			newIndex['discount'] = totalDiscount;
+			
+			// Index need to add 
+			cart[found] = newIndex;
+			
+			// Set cart new cookie 
+			res.cookie('ShoppingCart',cart);
+			
+		}
+	
+	res.send(`${found}`);
+})
+
+
+// Removing cart itmes 
+router.post('/remove-item', function (req, res) {
+	
+	// Cart 
+	var cart = req.cookies.ShoppingCart;
+	
+	// var index 
+	var i = 0;
+	
+	var found = false;
+	
+	// Loop each data 
+	if(cart.length > 0) {
+		
+		cart.forEach(function(element, index) {
+		
+		if(element.id === req.body.id) {
+			
+			found = i;
+		}
+	i++;
+	
+	});
+	}
+	
+	
+	if(found !== false){
+		
+			// Get cart value 
+			found = parseInt(found);
+			
+			cart.splice(found, 1);
+			
+			// Sort cart 
+			cart.sort();
+			
+			// Set new cookie 
+			if(cart.length === 0){
+				
+					res.clearCookie("ShoppingCart");
+			} else {
+				
+				res.cookie('ShoppingCart',cart);
+			}
+			
+			
+		}
+	
+		res.send('');
+})
+
+router.post('/emptyCart', function (req, res) {
+
+		res.clearCookie("ShoppingCart");
+		res.send('');
+	
+});
 
 
 router.get('*', function(req, res){

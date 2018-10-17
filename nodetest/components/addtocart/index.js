@@ -151,32 +151,53 @@ var cart = {
 			// Get the cart pushed to arrrary 
 			GetCart.push(Incomingdata);
 			
+			
 			// Set new cookie 
 			res.cookie('ShoppingCart', GetCart);
 			
+			return;
 			
 				
 		}
 		
-		// Set 
+	
 },
 			
 			GetCartTotal: function(req, res, cartcookie) {
 				
-					let totalCart = MisFunctions.SumArrayColumn(cartcookie, 'total');
+					let totalCart = MisFunctions.SumArrayColumn(cartcookie, 'total').toFixed();
 					let totalQty = MisFunctions.SumArrayColumn(cartcookie, 'qty');
+					
 					let totalDiscount = MisFunctions.SumArrayColumn(cartcookie, 'discount');
+					
+					// calculate tax 
+					let tax = parseInt(((totalCart/100) * 5));
+					
+					// Shipping cost 
+					let shippingCost = totalCart > 99 ? 'free' : 20 ;
+					
+					// Parse to integer 
+					totalCart = parseInt(totalCart);
+					
 					
 					// Set again those things as cookie 
 					let data = {
 									totalcart: totalCart,
 									totalqty: totalQty,
-									totaldiscount: totalDiscount
+									totaldiscount: totalDiscount,
+									tax: tax,
+									shippingCost:shippingCost
 								}
 								
 					// Responce new cookie value 
 					res.cookie('ShoppingCartTotal', data);
+					
+					
 				}
+		
+		
+		
+	
 	}
 
 
