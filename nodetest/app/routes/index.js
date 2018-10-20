@@ -32,6 +32,13 @@ var AddToCart = require ('../../implement/addToCart.js');
 
 // Require function 
 var MisFunctions = require ('../../components/functions.js');
+
+// Require update cart module 
+var EditCart = require ('../../components/updateCart.js');
+
+// Remove items from the cart moudle 
+var RemoveItems = require ('../../components/deleteItems.js');
+
 var router = express.Router();
 
 
@@ -1533,11 +1540,106 @@ router.post('/user-buyer-14e1813e3d0cf9da1a9dafc6afadff37', function (req, res) 
 
 router.get('/user-buyer-14e1813e3d0cf9da1a9dafc6afadff37', function (req, res) {
 
-
+	if(typeof req.session.buyer === 'undefined' || req.session.buyer === null) {
+		
+			res.redirect('/login')
+		}
+		
 	res.render('user-buyer-14e1813e3d0cf9da1a9dafc6afadff37/index.ejs', {users:JSON.stringify(req.session)});
 
 
 });
+
+router.get('/user-buyer-14e1813e3d0cf9da1a9dafc6afadff37/shipping-address', function (req, res) {
+
+	
+	if(typeof req.session.buyer === 'undefined' || req.session.buyer === null) {
+		
+			res.redirect('/login')
+		}
+		
+	
+	res.render('user-buyer-14e1813e3d0cf9da1a9dafc6afadff37/shipping-address.ejs', {users:JSON.stringify(req.session), getToken:req.csrfToken()});
+
+
+});
+
+router.post('/user-buyer-14e1813e3d0cf9da1a9dafc6afadff37/updateBuyerShipp', function (req, res) {
+	
+	/* Expected data from this router */
+	/*
+	 * {  
+		   "_csrf":"XqpR5LAA-6TEGG50Cs548hxZB1-n7dRgs34c",
+		   "first-name":"",
+		   "last-name":"",
+		   "country":"United Arab Emirates",
+		   "city":"Fujairah",
+		   "AddressArea":"Taweelah",
+		   "country1":"AE",
+		   "city1":"FJR",
+		   "AddressArea1":"1294",
+		   "street":"",
+		   "building-name":"",
+		   "floor-no":"",
+		   "apartment-no":"",
+		   "landmark":"",
+		   "locationtype":"",
+		   "mobile-no":"",
+		   "land-line-no":"",
+		   "latitude":"",
+		   "longitude":"",
+		   "shipping-note":"",
+		   "submit":""
+}
+	 * */
+	 
+	 // Unset some variable 
+	 delete req.body.submit;
+	 
+	 // Esacpe all string 
+	 for(var i in req.body) {
+		 
+			req.body[i] = escape(req.body[i]);
+	}
+	 
+	 // Get the username of buyer 
+	 var email = req.session.buyer.username;
+	 
+	 var newvalues = {$set: req.body};
+	 var myquery = {email:email};
+
+	db.collection("buyer_address").updateOne(myquery, newvalues, function(err, res) {
+    if (err) throw err;
+
+	req.session.sessionFlash = {
+        type: 'error',
+        message: {'posted' :req.body, 'error' : JSON.stringify(req.body)}
+		};
+  });
+  
+	
+		
+	res.redirect('/user-buyer-14e1813e3d0cf9da1a9dafc6afadff37/shipping-address');
+})
+
+
+
+
+router.get('/user-buyer-14e1813e3d0cf9da1a9dafc6afadff37/logout', function (req, res) {
+
+
+		// Check if session set 
+		if(typeof req.session.buyer !== 'undefined' || req.session.buyer !== null) {
+			
+				// Unset the session variable 
+				delete req.session.buyer;
+				
+				res.redirect('/login');
+		}
+});
+
+// Buyer shipping address 
+
 
 // User activation link
 router.get('/user-activation/:timestapm/:userid/:usertype', function (req, res) {
@@ -1817,6 +1919,7 @@ router.post('/editcart', function(req, res){
 	
 	// Reg 
 	let reg = new RegExp(/^[1-9]{1,100}$/);;
+	
 	// Move ahead finding 
 	if(!reg.test(qty)) {
 		
@@ -1826,59 +1929,10 @@ router.post('/editcart', function(req, res){
 	// Cart 
 	var cart = req.cookies.ShoppingCart;
 	
-	// var index 
-	var i = 0;
+	// Edit cart using module 
+	EditCart.UpdateCart.AddToCart(req, res, cart, getsku, qty);
 	
-	var found = false;
-	
-	// Loop each data 
-	if(cart.length > 0) {
-		
-		cart.forEach(function(element, index) {
-		
-		if(element.sku === getsku) {
-			
-			found = i;
-		}
-	i++;
-	
-	});
-	}
-	
-	// Check if index containe something 
-	if(found !== false){
-		
-			// Set new value of qty 
-			let newIndex = cart[found];
-			
-			// Get the price 
-			let price = cart[found]['price'];
-			
-			// Set new amount 
-			let newTotalAmount = qty * price;
-			
-			let PerDisocunt = parseInt (cart[found]['discount']) / parseInt(cart[found]['qty']);
-			
-			let totalDiscount =  PerDisocunt * qty;
-
-			// Set new array value 
-			newIndex['qty'] = qty;
-			
-			// Set new array amout 
-			newIndex['total'] = newTotalAmount;
-			
-			// Set new array amout 
-			newIndex['discount'] = totalDiscount;
-			
-			// Index need to add 
-			cart[found] = newIndex;
-			
-			// Set cart new cookie 
-			res.cookie('ShoppingCart',cart);
-			
-		}
-	
-	res.send(`${found}`);
+	res.send('');
 })
 
 
@@ -1888,51 +1942,13 @@ router.post('/remove-item', function (req, res) {
 	// Cart 
 	var cart = req.cookies.ShoppingCart;
 	
-	// var index 
-	var i = 0;
+	// Remove items from the cart 
+	RemoveItems.Remove.DeleteItems(req,res, cart);
 	
-	var found = false;
-	
-	// Loop each data 
-	if(cart.length > 0) {
-		
-		cart.forEach(function(element, index) {
-		
-		if(element.id === req.body.id) {
-			
-			found = i;
-		}
-	i++;
-	
-	});
-	}
-	
-	
-	if(found !== false){
-		
-			// Get cart value 
-			found = parseInt(found);
-			
-			cart.splice(found, 1);
-			
-			// Sort cart 
-			cart.sort();
-			
-			// Set new cookie 
-			if(cart.length === 0){
-				
-					res.clearCookie("ShoppingCart");
-			} else {
-				
-				res.cookie('ShoppingCart',cart);
-			}
-			
-			
-		}
-	
-		res.send('');
+	res.send('');
 })
 
+// Empty cart rout 
 router.post('/emptyCart', function (req, res) {
 
 		res.clearCookie("ShoppingCart");
@@ -1941,6 +1957,36 @@ router.post('/emptyCart', function (req, res) {
 });
 
 
+router.get('/checkout', function (req, res) {
+		
+		let IfCartExists = req.cookies.ShoppingCart;
+		let buyerSession = req.session.buyer; 
+		let ShoppingCartTotal = req.cookies.ShoppingCartTotal;
+		
+		res.render('checkout', { result: { 
+			
+									IfCartExists: IfCartExists,
+									IsBuyerIsLoggedIn: buyerSession,
+									ShoppingCartTotal: ShoppingCartTotal,
+									getToken:req.csrfToken()
+									
+								}
+									}
+							
+					);
+	
+});
+
+// Guest Register and checkout 
+router.post('/guestcheckout', function (req, res)  {
+	
+	res.redirect('/checkout');
+});
+
+
+
+
+// If url not matched with server defiend route 
 router.get('*', function(req, res){
 
  

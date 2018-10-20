@@ -1,27 +1,3 @@
-<?php
-session_start();
-
-// Require the page 
-require('../controller/controller.php');
-
-// Check that valid session is set 
-
-// Get the object 
-$obj = new MarketPlace();
-
-// If admin user is logged in
-if($obj->IsUserLoggedInBuyer() !== true) {
-	
-		// Set the new header 
-		header('Location:http://localhost/login');
-}
-
-
-
-	// To view these page for session must be start
-?>
-
-
 <!DOCTYPE html>
 <!-- 
 Template Name: Metronic - Responsive Admin Dashboard Template build with Twitter Bootstrap 3.3.6
@@ -50,30 +26,34 @@ License: You must have a valid license purchased only from themeforest(the above
         <meta content="" name="author" />
         
        
-        <!-- BEGIN GLOBAL MANDATORY STYLES -->
-        <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&subset=all" rel="stylesheet" type="text/css" />
-        <link href="../user-admin-14e1813e3d0cf9da1a9dafc6afadff37/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
-        <link href="../user-admin-14e1813e3d0cf9da1a9dafc6afadff37/css/simple-line-icons.min.css" rel="stylesheet" type="text/css" />
-        <link href="../user-admin-14e1813e3d0cf9da1a9dafc6afadff37/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
-        <link href="../user-admin-14e1813e3d0cf9da1a9dafc6afadff37/css/uniform.default.css" rel="stylesheet" type="text/css" />
-        <link href="../user-admin-14e1813e3d0cf9da1a9dafc6afadff37/css/bootstrap-switch.min.css" rel="stylesheet" type="text/css" />
-        <!-- END GLOBAL MANDATORY STYLES -->
-        <!-- BEGIN PAGE LEVEL PLUGINS -->
-        <link href="../user-admin-14e1813e3d0cf9da1a9dafc6afadff37/css/daterangepicker.min.css" rel="stylesheet" type="text/css" />
-        <link href="../user-admin-14e1813e3d0cf9da1a9dafc6afadff37/css/morris.css" rel="stylesheet" type="text/css" />
-        <link href="../user-admin-14e1813e3d0cf9da1a9dafc6afadff37/css/fullcalendar.min.css" rel="stylesheet" type="text/css" />
-        <link href="../user-admin-14e1813e3d0cf9da1a9dafc6afadff37/css/jqvmap.css" rel="stylesheet" type="text/css" />
-        <!-- END PAGE LEVEL PLUGINS -->
-        <!-- BEGIN THEME GLOBAL STYLES -->
-        <link href="../user-admin-14e1813e3d0cf9da1a9dafc6afadff37/css/components.min.css" rel="stylesheet" id="style_components" type="text/css" />
-        <link href="../user-admin-14e1813e3d0cf9da1a9dafc6afadff37/css/plugins.min.css" rel="stylesheet" type="text/css" />
-        <!-- END THEME GLOBAL STYLES -->
-        <!-- BEGIN THEME LAYOUT STYLES -->
-        <link href="../user-admin-14e1813e3d0cf9da1a9dafc6afadff37/css/layout.min.css" rel="stylesheet" type="text/css" />
-        <link href="../user-admin-14e1813e3d0cf9da1a9dafc6afadff37/css/light.min.css" rel="stylesheet" type="text/css" id="style_color" />
-        <link href="../user-admin-14e1813e3d0cf9da1a9dafc6afadff37/css/custom.min.css" rel="stylesheet" type="text/css" />
+       <!-- BEGIN GLOBAL MANDATORY STYLES -->
+		<link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&subset=all" rel="stylesheet" type="text/css" />
+		<link href="http://localhost/user-admin-14e1813e3d0cf9da1a9dafc6afadff37/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+		<link href="http://localhost/user-admin-14e1813e3d0cf9da1a9dafc6afadff37/css/simple-line-icons.min.css" rel="stylesheet" type="text/css" />
+		<link href="http://localhost/user-admin-14e1813e3d0cf9da1a9dafc6afadff37/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+		<link href="http://localhost/user-admin-14e1813e3d0cf9da1a9dafc6afadff37/css/uniform.default.css" rel="stylesheet" type="text/css" />
+		<link href="http://localhost/user-admin-14e1813e3d0cf9da1a9dafc6afadff37/css/bootstrap-switch.min.css" rel="stylesheet" type="text/css" />
+		<!-- END GLOBAL MANDATORY STYLES -->
+		<!-- BEGIN PAGE LEVEL PLUGINS -->
+		<link href="http://localhost/user-admin-14e1813e3d0cf9da1a9dafc6afadff37/css/daterangepicker.min.css" rel="stylesheet" type="text/css" />
+		<link href="http://localhost/user-admin-14e1813e3d0cf9da1a9dafc6afadff37/css/morris.css" rel="stylesheet" type="text/css" />
+		<link href="http://localhost/user-admin-14e1813e3d0cf9da1a9dafc6afadff37/css/fullcalendar.min.css" rel="stylesheet" type="text/css" />
+		<link href="http://localhost/user-admin-14e1813e3d0cf9da1a9dafc6afadff37/css/jqvmap.css" rel="stylesheet" type="text/css" />
+		<!-- END PAGE LEVEL PLUGINS -->
+		<!-- BEGIN THEME GLOBAL STYLES -->
+		<link href="http://localhost/user-admin-14e1813e3d0cf9da1a9dafc6afadff37/css/components.min.css" rel="stylesheet" id="style_components" type="text/css" />
+		<link href="http://localhost/user-admin-14e1813e3d0cf9da1a9dafc6afadff37/css/plugins.min.css" rel="stylesheet" type="text/css" />
+		<!-- END THEME GLOBAL STYLES -->
+		<!-- BEGIN THEME LAYOUT STYLES -->
+		<link href="http://localhost/user-admin-14e1813e3d0cf9da1a9dafc6afadff37/css/layout.min.css" rel="stylesheet" type="text/css" />
+		<link href="http://localhost/user-admin-14e1813e3d0cf9da1a9dafc6afadff37/css/light.min.css" rel="stylesheet" type="text/css" id="style_color" />
+		<link href="http://localhost/user-admin-14e1813e3d0cf9da1a9dafc6afadff37/css/custom.min.css" rel="stylesheet" type="text/css" />
+
+        
         <!-- END THEME LAYOUT STYLES -->
         <link rel="shortcut icon" href="favicon.ico" /> </head>
+       
+       
         <style>
        
 

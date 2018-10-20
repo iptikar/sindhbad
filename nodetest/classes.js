@@ -1,8 +1,6 @@
 var LoadedModules = require('./required-modules');
-
 const express = LoadedModules.express;
 const bodyParser = LoadedModules.bodyParser;
-
 const kill = LoadedModules.kill;
 const csurf = LoadedModules.csurf;
 const cookieParser = LoadedModules.cookieParser;
@@ -13,7 +11,11 @@ const validation = LoadedModules.validation;
 const sessionStore = LoadedModules.sessionStore;
 const crypto = LoadedModules. crypto;
 const fileUpload = LoadedModules.fileUpload;
-const nodemailer = LoadedModules.nodemailer;
+
+
+const nodemailer = require('nodemailer');;
+
+
 const bcrypt = LoadedModules.bcrypt;
 const validUrl = LoadedModules.validUrl;
 const fs = LoadedModules.fs;
@@ -85,7 +87,8 @@ class MarketPlace {
 			if (error) {
             return console.log(error);
         }
-        
+        const nodemailer = require('nodemailer');
+
         console.log('Message sent: %s', info.messageId);
         // Preview only available when sending through an Ethereal account
         console.log('Preview URL: %s', nodemailer.getTestMessageUrl(info));
@@ -157,6 +160,7 @@ class MarketPlace {
              
              customer_entity: {
                bsonType: "string"
+
              },
              
              DOB: {
@@ -204,6 +208,7 @@ class MarketPlace {
              },
              
              store_id: {
+
                bsonType: "int"
              },
              
@@ -263,7 +268,7 @@ class MarketPlace {
 		
 		// Designing ProductCatelog model 
 		db.createCollection("product_catelog", {
-			
+
 		validator: {
       $jsonSchema: {
          bsonType: "object",
@@ -772,6 +777,27 @@ return batKicks.sort();
 		}
 				
 		return false;
+		
+		}
+		
+	// check if the seller is logged in 
+	IsBuyerIsLoggedIn(req) {
+		
+		//if(typeof req.session.user !== "undefined" || req.session.user === true){}
+			// If variable is undefined 
+			if( typeof req.session.buyer === "undefined" || req.session.buyer !== true) {
+				
+				// return seller session data 
+				return false;
+			
+	
+		} else {
+			
+				return req.session.buyer;
+				
+			}
+				
+		
 		
 		}
 	
