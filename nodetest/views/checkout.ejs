@@ -21,7 +21,7 @@ Client ID
 
      
       <%
-		console.log(result);
+		//console.log(result);
       %>
       
   
@@ -178,16 +178,269 @@ Client ID
                               <div class="opc-wrapper">
                                  <ol class="opc" id="checkoutSteps">
 										
-								<% if(result.IsBuyerIsLoggedIn !== 'undefined' || result.IsBuyerIsLoggedIn !== null || result.IsBuyerIsLoggedIn === 'object') {%>
+								<% if(typeof result.IsBuyerIsLoggedIn !== 'undefined') {%>
 								
-								
+								<!-- Check if variable is set -->
+								 <% if( typeof result.items !== 'undefined') { %>
+									 
+									 <% 									 
+										var shippingAddress =  result.items[0]; 
+										
+										var firstname;
+										var lastname;
+										var floorno;
+										var buildingname;
+										var street;
+										var country;
+										var city;
+										var mobileno;
+										var addressarea;
+										var landmark;
+										var shippingnote;
+										
+										
+										firstname 	= unescape( shippingAddress['first-name']);
+										lastname	= unescape( shippingAddress['last-name']);
+										floorno		= unescape( shippingAddress['floor-no']);
+										buildingname = unescape( shippingAddress['building-name']);
+										street		= unescape( shippingAddress['street']);
+
+										city  		= unescape( shippingAddress['city']);
+										country		= unescape( shippingAddress['country']);
+										mobileno	= unescape( shippingAddress['mobile-no']);
+										addressarea  = unescape( shippingAddress['AddressArea']);
+										landmark	= unescape( shippingAddress['landmark']);
+										shippingnote = unescape( shippingAddress['shipping-note']);
+																																
+										
+										
+										// I can not use loop for the code here 
+										// Because there is many index is not required 
+										// Nor i can 
+										
+									
+									 %>
+									 
+									<p>
+										
+									</p>
+								<% } %>
 								<!-- Get the user information about hte -->
-								<h1> Check all information is provided </h1>
-								<h1> Show the user information </h1>
+								<form action="/checkout" method="POST">
+								
+								<input type = "hidden" name = "_csrf" value = "<%= result.getToken %>" />
+								<li id="opc-shipping_method" class="checkout-shipping-method" data-bind="fadeVisible: visible(), blockLoader: isLoading" role="presentation">
+   <div class="checkout-shipping-method">
+      <div class="step-title" data-role="title" data-bind="i18n: 'Shipping Methods'">Shipping Address</div>
+      <div class="shipping-policy-block field-tooltip" data-bind="visible: config.isEnabled" style="display: none;">
+         <span class="field-tooltip-action" tabindex="0" data-toggle="dropdown" data-bind="mageInit: {'dropdown':{'activeClass': '_active'}}" aria-haspopup="true" aria-expanded="false" role="button">
+         <span>See our Shipping Policy</span>
+         </span>
+         <div class="field-tooltip-content" data-target="dropdown" aria-hidden="true">
+            <span data-bind="html: config.shippingPolicyContent"></span>
+         </div>
+      </div>
+      <div id="checkout-step-shipping_method" class="step-content" data-role="content" role="tabpanel" aria-hidden="false">
+       
+            <div id="checkout-shipping-method-load">
+               <table class="table-checkout-shipping-method">
+                  <thead>
+                     <tr class="row">
+                        <th class="col col-method" data-bind="i18n: 'Select Method'">Select Method</th>
+                        <th class="col col-price" data-bind="i18n: 'Price'">Price</th>
+                     </tr>
+                  </thead>
+                  <tbody>
+                     <tr class="row" data-bind="click: element.selectShippingMethod">
+                        <td class="col col-method">
+                           <input type="checkbox" name="shipping-address" required="">
+                        </td>
+                        <td class="col ">
+                           <textarea name="shipping-details-52" class="hidden">
+                           <%= JSON.stringify(shippingAddress) %>
+                           </textarea>
+                           <span>
+                              <p>
+
+								
+							<%=
+							
+							firstname +' '
+							+ ' '+lastname 
+							+ ' '+floorno+ ' '+		
+							+ ' '+buildingname %>
+							
+							<br/>
+							<%=
+							
+							
+							+ ' '+city+ ' '+
+							+ ' '+country+ ' '+
+							+ ' '+addressarea  + ' '+
+							+ ' '+landmark
+							
+							
+							%>
+                              </p>
+                              
+                              <p>
+								Shipping Note: <%= shippingnote %>
+                              </p>
+                             
+                             
+                              <p></p>
+                           </span>
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </div>
+            <div id="onepage-checkout-shipping-method-additional-load">
+            </div>
+            <div class="actions-toolbar" id="shipping-method-buttons-container">
+               <div class="primary">
+                  <button data-role="opc-continue" type="submit" class="button action continue primary">
+                  <span data-bind="i18n: 'Next'"><a href="http://localhost:8888/user-buyer-14e1813e3d0cf9da1a9dafc6afadff37/shipping-address" style="color:#f0f0f0">Edit</a></span>
+                  </button>
+               </div>
+            </div>
+        
+      </div>
+   </div>
+</li>
+								
+								<li id="opc-shipping_method" class="checkout-shipping-method" data-bind="fadeVisible: visible(), blockLoader: isLoading" role="presentation">
+                                       <div class="checkout-shipping-method">
+                                          <div class="step-title" data-role="title" data-bind="i18n: 'Shipping Methods'">Shipping Methods</div>
+                                          
+                                          
+                                          
+                                          <div class="shipping-policy-block field-tooltip" data-bind="visible: config.isEnabled" style="display: none;">
+                                             <span class="field-tooltip-action" tabindex="0" data-toggle="dropdown" data-bind="mageInit: {'dropdown':{'activeClass': '_active'}}" aria-haspopup="true" aria-expanded="false" role="button">
+                                                <span>See our Shipping Policy</span>
+                                             </span>
+                                             <div class="field-tooltip-content" data-target="dropdown" aria-hidden="true">
+                                                <span data-bind="html: config.shippingPolicyContent"></span>
+                                             </div>
+                                          </div>
+                                          
+                                          
+                                          
+                                          <div id="checkout-step-shipping_method" class="step-content" data-role="content" role="tabpanel" aria-hidden="false">
+                                             
+                                             
+                                                
+                                                <div id="checkout-shipping-method-load">
+                                                   <table class="table-checkout-shipping-method">
+                                                      <thead>
+                                                         <tr class="row">
+                                                            <th class="col col-method" data-bind="i18n: 'Select Method'">Select Method</th>
+                                                            <th class="col col-price" data-bind="i18n: 'Price'">Price</th>
+                                                            <th class="col col-method" data-bind="i18n: 'Method Title'">Method Title</th>
+                                                            <th class="col col-carrier" data-bind="i18n: 'Carrier Title'">Carrier Title</th>
+                                                         </tr>
+                                                      </thead>
+                                                      <tbody>
+                                                         
+                                                         
+                                                         <tr class="row" data-bind="click: element.selectShippingMethod">
+                                                            <td class="col col-method">
+                                                               <input type="radio" class="radio" name="shipping-method" required="">
+                                        
+                                                            </td>
+                                                            <td class="col col-price">
+                                                               
+                                                               
+                                                               <!-- If order is greather then 100 then -->
+                                                                                                                              
+                                                               
+                                                          <% if(result.ShoppingCartTotal.shippingCost === 'free') { %>
+														<span class="price"><span class="price" data-bind="text: getFormattedPrice(method.price_excl_tax)">AED 0.00 </span></span>
+                                                           
+														  <% } else { %>
+															  
+															  <span class="price"><span class="price" data-bind="text: getFormattedPrice(method.price_excl_tax)">AED 20.00 </span></span>
+														<% } %>
+                                                              
+                                                              
+                                                                                                                              
+                                                               
+                                                               
+                                                               
+                                                               
+                                                            </td>
+                                                            
+                                                            <td class="col col-method" data-bind="attr: {'id': 'label_method_' + method.method_code + '_' + method.carrier_code}, text: method.method_title" id="label_method_flatrate_flatrate">Fixed</td>
+                                                            <td class="col col-carrier" data-bind="attr: {'id': 'label_carrier_' + method.method_code + '_' + method.carrier_code}, text: method.carrier_title" id="label_carrier_flatrate_flatrate">Flat Rate</td>
+                                                         
+                                                         
+                                                         </tr>
+                                                         
+                                                         
+                                                         
+                                                      </tbody>
+                                                   </table>
+                                                </div>
+                                                
+                                                <div id="onepage-checkout-shipping-method-additional-load">
+                                                   
+                                                </div>
+                                                
+                                                <div class="actions-toolbar" id="shipping-method-buttons-container">
+                                                   <div class="primary">
+                                                      <button data-role="opc-continue" type="submit" class="button action continue primary">
+                                                      <span>Next</span>
+                                                      </button>
+                                                   </div>
+                                                </div>
+                                            
+                                             
+                                             
+                                          </div>
+                                       
+                                       
+                                       
+                                       </div>
+                                    </li>
+								
+								</form>
 								<% } else { %>
 									
 									<!-- Show th registraion form -->
 									<li id="shipping" class="checkout-shipping-address" data-bind="fadeVisible: visible()">
+										
+										
+				<% if ( sessionFlash && sessionFlash.message) { %>
+
+				<% if(sessionFlash.type == 'success'){ 
+
+					postData = 'Success';
+				%>
+
+
+				<div class="alert alert-success">
+				<strong>Success! </strong> <%= sessionFlash.message.message %>
+				</div>
+
+
+
+				<% } else { 
+
+				postData = sessionFlash.message.posted;
+				console.log(postData);
+				%>
+
+				<div class="alert alert-danger">
+				<strong>Error!</strong> <%- sessionFlash.message %>
+
+				</div>
+
+				<% } %>
+
+				<% } %>
+
+										
+										
    <div class="step-title" data-role="title" data-bind="i18n: 'Shipping Address'">Shipping Address</div>
    <div id="checkout-step-shipping" class="step-content" data-role="content">
       <form class="form form-login" action="/guestcheckout" method="post">
