@@ -2083,12 +2083,7 @@ var BuyerAddress  = {
 
 router.all('/checkout', function (req, res) {
 		
-		res.on('data', function(chunk) {
-       
-        var textChunk = chunk.toString('utf8');
-        // process utf8 text chunk
-        console.log(textChunk);
-    });
+		
 		
 		let IfCartExists = req.cookies.ShoppingCart;
 		let buyerSession = req.session.buyer; 
@@ -2162,13 +2157,24 @@ router.post('/guestcheckout', function (req, res)  {
 		// Throw error
 		req.session.sessionFlash = {
         type: 'error',
-        message: 'Please enter valid email address'
+        message: {'error':'Please enter valid email address', 'posted': req.body}
 		};
 		
 		 return res.redirect('/checkout');
 	}
 	
-	return res.redirect('/checkout');
+	
+	// Check passowrd 
+	if(req.body.password.length < 8 || req.body.password.length > 15) {
+		
+		// Throw error
+		req.session.sessionFlash = {
+        type: 'error',
+        message: {'error':'Password length must be between 8 to 15 characters', 'posted' : req.body}
+		};
+			
+		return res.redirect('/checkout');
+	}
 	
 	
 	// Check both password 
@@ -2177,18 +2183,21 @@ router.post('/guestcheckout', function (req, res)  {
 		// Throw error
 		req.session.sessionFlash = {
         type: 'error',
-        message: 'Both password did not matched'
+        message: {'error': 'Both password did not matched', 'posted': req.body}
 		};
 			
-		res.redirect('/checkout');
+		return res.redirect('/checkout');
 	}
+	
+	
+	
 	
 	// Check email address is already exists 
 	
 	// Before doing anything check if email address exits in db
 		var query = {email: req.body.email}
 
-		db.collection('buyer').find({email:req.body.email}).toArray(function(err, result) {
+		db.collection('buyer').find(query).toArray(function(err, result) {
 
 		if (err) throw err;
 
@@ -2200,7 +2209,7 @@ router.post('/guestcheckout', function (req, res)  {
 
 				// Require the session
 				req.session.sessionFlash = {
-					type: 'posteddata',
+					type: 'error',
 					message: {'posted': req.body, 'error': 'Email address '+ req.body.email +' is already registred!. <br/> If you forgot password please check the link below.'}
 				};
 
@@ -2208,10 +2217,26 @@ router.post('/guestcheckout', function (req, res)  {
 				// Redirect to the page
 				return res.redirect('/checkout');
 
+			} else {
+				
+				console.log(req.body);
+				
+				// Register user with details 
+				for(var key in req.body){
+		
+					req.body[key] = escape(req.body[key]);
+				}
+				
+				
+				
+				return res.redirect('/checkout');
 			}
 
 		});
 
+	
+	
+	/*
 	
 	// Loop each email address 
 	for(var key in req.body){
@@ -2220,11 +2245,11 @@ router.post('/guestcheckout', function (req, res)  {
 		}
 		
 	// Unset some variable 
-	
+	*/
 	
 
 
-	res.redirect('/checkout');
+	
 });
 
 
