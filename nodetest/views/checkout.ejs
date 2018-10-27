@@ -226,7 +226,7 @@ Client ID
 									</p>
 								<% } %>
 								<!-- Get the user information about hte -->
-								<form action="/checkout" method="POST">
+								<form action="/chekoutRegisteredUser" method="POST">
 								
 								<input type = "hidden" name = "_csrf" value = "<%= result.getToken %>" />
 								<li id="opc-shipping_method" class="checkout-shipping-method" data-bind="fadeVisible: visible(), blockLoader: isLoading" role="presentation">
@@ -256,9 +256,9 @@ Client ID
                            <input type="checkbox" name="shipping-address" required="">
                         </td>
                         <td class="col ">
-                           <textarea name="shipping-details-52" class="hidden">
-                           <%= JSON.stringify(shippingAddress) %>
-                           </textarea>
+                           <textarea name="shipping-details-52" class="hidden"><%= JSON.stringify(shippingAddress) %></textarea>
+              
+                           
                            <span>
                               <p>
 
@@ -276,6 +276,7 @@ Client ID
 							
 							+ ' '+city+ ' '+
 							+ ' '+country+ ' '+
+							+ ' '+mobileno+ ' '+
 							+ ' '+addressarea  + ' '+
 							+ ' '+landmark
 							
@@ -1225,6 +1226,7 @@ Client ID
                                              
                                           </div>
                                        </div>
+                                    
                                     </div>
                                  </div>
                                  <div data-role="focusable-end" tabindex="0"></div>

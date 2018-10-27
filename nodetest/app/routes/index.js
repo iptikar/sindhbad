@@ -44,6 +44,9 @@ var router = express.Router();
 
 const GetBuyerShipping = require('../../db1');
 
+// Create required modules modules 
+const models = require('../../model/order');
+
 // Csrf middle waredf
 const csrfMiddleware = csurf({
   cookie: true
@@ -723,6 +726,8 @@ router.post('/login-request', function (req, res) {
 					// Username
 					// Password
 					// Usertype
+					
+					
 
 					//req.session.userId = hash;
 					// If buyer
@@ -1614,12 +1619,12 @@ router.get('/user-buyer-14e1813e3d0cf9da1a9dafc6afadff37/shipping-address', func
 		
 	
 	// Get the username 
-	//let username = req.session.buyer.username;
+	let username = req.session.buyer.username;
 	
 	
     let collectionName = 'buyer_address'; 
     
-    let finbyInArray = { email: 'bharatrose1@gmail.com' };
+    let finbyInArray = {email:username};
     
     URLToRedirect = 'user-buyer-14e1813e3d0cf9da1a9dafc6afadff37/shipping-address.ejs';
     
@@ -1630,6 +1635,10 @@ router.get('/user-buyer-14e1813e3d0cf9da1a9dafc6afadff37/shipping-address', func
 });
 
 
+router.get('/allcookies', function (req, res) {
+	
+		res.send(req.cookies);
+	})
 	
 	
 	
@@ -2140,6 +2149,20 @@ router.all('/checkout', function (req, res) {
 });
 
 
+// Checkout already registered users 
+router.post('/chekoutRegisteredUser', function (req, res) {
+	
+	
+		// get the form shipping-details-52
+
+		let shippingCookies = req.body['shipping-details-52'];
+		
+		// Set to cookie 
+		res.cookie('shipping_address', shippingCookies);
+		
+		// Redirect to payment 
+		res.redirect('/payment');
+})
 
 
 
@@ -2216,20 +2239,145 @@ router.post('/guestcheckout', function (req, res)  {
 
 				// Redirect to the page
 				return res.redirect('/checkout');
+				
 
 			} else {
 				
 				console.log(req.body);
 				
-				// Register user with details 
-				for(var key in req.body){
+				// Some indexes need to delete 
+				delete req.body['confirm-password'];
+				delete req.body['submit'];
+				
+				// Has password
+				let hash = bcrypt.hashSync(req.body.password, 10);
+				// Insert the document to document
+
+
+				var myobj = {
+						firstname: req.body['first-name'],
+						lastname: req.body['last-name'],
+						email: req.body.email
+
+						};
+
+
+				// Some document need ot edit
+				req.body.password = hash;
+
+				var objectId = '';
+
+				// Add some activated
+				req.body.activated = 0;
+				
+				// escape all vairable 
+				for (var key in req.body) {
+					
+						req.body[key] = escape(req.body[key]);
+					}
+
+				var document_address = 'buyer_address';
+				
+				var document = 'buyer';
+				
+				var email = req.body.email;
+				
+				// Save the docuemtn
+				db.collection(document).save(req.body, (err, result) => {
+				if (err) return console.log(err)
+
+					// Get the object id
+					objectId = req.body._id;
+
+					// Insert to the table
+
+					// Insert to next db
+					var query = {id: objectId, email: email};
+
+					// Insert to another database
+					db.collection(document_address).insertOne(query, function(err, res) {
+
+					// Throw error
+					if (err) throw err;
+
+					//console.log("1 document inserted");
+
+				});
+
+			})
+				
+				// Threed days interval 
+				var days = 86400000 * 3;
+
+
+				// Regsiter as 
+				var registered_as = 0;
+				
+				// Create date object 
+				var dateObj = Date.now(); // 1534596948489
+
+				// Activation links 
+				var activationLink = 'http://localhost:8888/user-activation/'+dateObj+'/'+req.body._id+'/'+registered_as+'';
+
+				// http://localhost:8888/user-activation/1534599498533/5b78214a6048204305935e17/0
+
+				//console.log(activationLink);
+
+				//alert(dateObj);
+				/*
+				 * var vFrom = '"Ronnie Shah 👻" <info@sindhbad.com>';
+				var vTo = 'bharatrose1@gmail.com';
+				var vSubject = '✥ Thank your for you registration  ✔ ✔ ✔';
+				var vText = 'Hello world?'; // plain text body;
+				var vHtml = '<b>I will really hunt your dream@</b>'; // html body;res.redirect
+				* */
+
+				// Send verification email
+				var vFrom = '"Sindhbad.com 👻" <info@sindhbad.com>';
+				var vTo = req.body.email;
+				var vSubject = '✥ Thank your for you registration  ✔ ✔ ✔'
+				var vText = 'Hello World';
+				var vHtml = '<h1>Please click the link below the verify you account.</h1><a href = "'+activationLink+'">Click Here</a>';
+				
+				
+				// Send mail to the client
+				All.SendMaileToClient(vFrom, vTo, vSubject, vText, vHtml);
+
+				
+				var SessionData = {
+									"username":email,
+									"password":hash,
+									"usertype":0
+								}
+				
+								
+				req.session.regenerate(function(errSession) {
+							// Buyer session
+							if(errSession) {
+
+								console.log(errSession);
+
+							}
+
+
+							})
+				
+				req.session.buyer  = SessionData; 
+				
+				delete req.body.password;
+				delete req.body['confirm-password'];
+				delete req.body['submit'];
+				
+				let shippingCookies = JSON.stringify(req.body);
 		
-					req.body[key] = escape(req.body[key]);
-				}
+				// Set to cookie 
+				res.cookie('shipping_address', shippingCookies);
+
+				// Render the
+				return res.redirect('/payment');
 				
 				
 				
-				return res.redirect('/checkout');
 			}
 
 		});
@@ -2253,6 +2401,77 @@ router.post('/guestcheckout', function (req, res)  {
 });
 
 
+// Paymeht view 
+router.get('/payment', function (req, res) {
+	
+		let IfCartExists = req.cookies.ShoppingCart;
+		let buyerSession = req.session.buyer; 
+		let ShoppingCartTotal = req.cookies.ShoppingCartTotal;
+		
+		var shippingAddress = '';
+		var collectionName = 'buyer_address';
+		var URLToRedirect = 'checkout';
+		
+		var returnObject = { result: { 
+			
+									IfCartExists: IfCartExists,
+									IsBuyerIsLoggedIn: buyerSession,
+									ShoppingCartTotal: ShoppingCartTotal,
+									getToken:req.csrfToken(),
+									shipto: req.cookies.shipping_address
+									
+								}
+									};
+		res.render('payment', returnObject);
+	})
+
+
+// Confirm order 
+router.all('/order-confirmation', function (req, res) {
+	
+		/* This rout receiving following post data */
+		
+		/*
+		 * _csrf: 'xNlE2Km4-iWMRfqIxKlb3iob-IIsHSCqNZek',
+  paymentmethod: 'pbcod',
+  'billing-address-same-as-shipping': 'on' }
+
+		 * */
+		 
+		 // Need to create model 
+		 
+		let IfCartExists = req.cookies.ShoppingCart;
+		let buyerSession = req.session.buyer; 
+		let ShoppingCartTotal = req.cookies.ShoppingCartTotal;
+
+		var shippingAddress = '';
+		var collectionName = 'buyer_address';
+		var URLToRedirect = 'checkout';
+
+		var returnObject = { result: { 
+
+						IfCartExists: IfCartExists,
+						IsBuyerIsLoggedIn: buyerSession,
+						ShoppingCartTotal: ShoppingCartTotal,
+						getToken:req.csrfToken(),
+						shipto: req.cookies.shipping_address
+						
+					}
+						};
+		
+		console.log(req.body);
+		
+		res.render('order-confirmation', returnObject);
+})
+
+// Creating models 
+router.all('/create-required-models', function (req, res){
+	
+	models.orderModel.createOrderModel(req, res, db);
+	models.orderModel.createOrderDetailsMode(req, res, db);
+	
+	res.send('created');
+})
 
 
 // If url not matched with server defiend route 

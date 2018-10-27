@@ -15,7 +15,7 @@ module.exports = {
       })
     }).then(function (database) {
       return new Promise(function (resolve, reject) {
-        var finbyInArray = finbyInArray;
+        
 
         database.collection(collectionName).find(finbyInArray).toArray(function (err, items) {
           if (err) {
