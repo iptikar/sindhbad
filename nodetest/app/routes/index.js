@@ -25,6 +25,8 @@ const MongoClient = LoadedModules.MongoClient;
 const ObjectID = LoadedModules.ObjectID;
 const MarketPlace = LoadedModules.MarketPlace;
 
+var uniqid = require('uniqid');
+
 // Require addto cart module 
 var GetCart = require ('../../components/addtocart/index.js')
 
@@ -39,6 +41,10 @@ var EditCart = require ('../../components/updateCart.js');
 // Remove items from the cart moudle 
 var RemoveItems = require ('../../components/deleteItems.js');
 
+// Request 
+const request = require("request");
+
+
 var router = express.Router();
 
 
@@ -46,6 +52,8 @@ const GetBuyerShipping = require('../../db1');
 
 // Create required modules modules 
 const models = require('../../model/order');
+
+const http = require('http');
 
 // Csrf middle waredf
 const csrfMiddleware = csurf({
@@ -1635,10 +1643,7 @@ router.get('/user-buyer-14e1813e3d0cf9da1a9dafc6afadff37/shipping-address', func
 });
 
 
-router.get('/allcookies', function (req, res) {
-	
-		res.send(req.cookies);
-	})
+
 	
 	
 	
@@ -2429,39 +2434,147 @@ router.get('/payment', function (req, res) {
 // Confirm order 
 router.all('/order-confirmation', function (req, res) {
 	
-		/* This rout receiving following post data */
-		
-		/*
-		 * _csrf: 'xNlE2Km4-iWMRfqIxKlb3iob-IIsHSCqNZek',
-  paymentmethod: 'pbcod',
-  'billing-address-same-as-shipping': 'on' }
-
-		 * */
-		 
-		 // Need to create model 
-		 
-		let IfCartExists = req.cookies.ShoppingCart;
+		 var orderid = uniqid();
+		 let IfCartExists = req.cookies.ShoppingCart;
 		let buyerSession = req.session.buyer; 
 		let ShoppingCartTotal = req.cookies.ShoppingCartTotal;
-
-		var shippingAddress = '';
-		var collectionName = 'buyer_address';
-		var URLToRedirect = 'checkout';
-
-		var returnObject = { result: { 
+		
+		 if(typeof req.body.paymentmethod !== 'undefined' &&
+		 typeof IfCartExists !== 'undefined' &&
+		 typeof buyerSession !== 'undefined') {
+			 
+			
+			
+			// Get the cart cookie 
+			let cart = req.cookies.ShoppingCart;
+			
+			// Date 
+			let today = new Date();
+			
+			// buyer email 
+			let buyer_email = buyerSession.IsBuyerIsLoggedIn;
+			
+			// Ip address 
+			let ipv4_address = req.connection.remoteAddress;
+			
+			// tax amotn 
+			let taxamount = ShoppingCartTotal.tax;
+			
+			// tax percentage 
+			let taxpercentage = 5;
+			
+			// currency 
+			let currency = 'AED';
+			
+			// shipping cost 
+			let shippingcost = ShoppingCartTotal.shippingCost === 'free' ? 0 : 20;
+			
+			// shipping address 
+			let shippingaddress = req.cookies.shipping_address;
+			
+			// Billing 
+			let billingAddress = typeof req.body['billing-address-same-as-shipping'] !== 'undefined' ? req.cookies.shipping_address : '';
+			
+			// status 
+			let status = 'inprocess';
+			
+			// Purchase point 
+			// Will change letter 
+			let purchasePoint = 'sindhbad'; 
+			
+			
+			let payment = req.body.paymentmethod;
+			
+			// seen
+			let seen = '0';
+			
+			// Discount 
+			let discount = ShoppingCartTotal.totaldiscount;
+			
+			// total qty 
+			let totalqty = ShoppingCartTotal.totalqty;
+			
+			let data = 	{
+				
+							order_id:orderid,
+							ipv4_address: ipv4_address,
+							ipv6_address: ipv4_address,
+							tax_amount : taxamount,
+							tax_persentage : taxpercentage,
+							discount : discount,
+							totalqty : totalqty,
+							totaldiscount : discount,
+							currency : currency,
+							shipping_cost : shippingcost,
+							status : status,
+							shipping_address : shippingaddress,
+							billing_address : billingAddress,
+							purchase_date : today,
+							purchase_point : purchasePoint,
+							payment : payment,
+							seen : seen,
+							buyer_email :buyerSession.username
+					}
+					
+			// Save document to order table 
+			db.collection('order').save(data, (err, result) => {
+			
+			if (err) {
+				 
+				 // Throw error 
+				 console.log(err)
+				 
+			} else {
+				
+					// Object to save 
+					var returnObject = { result: { 
 
 						IfCartExists: IfCartExists,
 						IsBuyerIsLoggedIn: buyerSession,
 						ShoppingCartTotal: ShoppingCartTotal,
 						getToken:req.csrfToken(),
-						shipto: req.cookies.shipping_address
+						shipto: req.cookies.shipping_address,
+						orderId :orderid
 						
 					}
 						};
-		
-		console.log(req.body);
-		
-		res.render('order-confirmation', returnObject);
+						
+						// Append some data 
+						for(var key in req.cookies.ShoppingCart) {
+							
+								// Append order id 
+								req.cookies.ShoppingCart[key]['orderid'] = orderid;
+							}
+						
+						// Order details 
+						let orderDetails = req.cookies.ShoppingCart;
+						
+						// Save multiple document to orderdetails 
+						db.collection('orderdetails').insert(orderDetails, (err1, result1) => {
+							
+							if(err1) {
+									
+									// Console error 
+									console.log(err1);
+								}
+							
+						})
+					
+					// We need to send order confirmation details to buyer 
+					// We need to send sms to the user about the id 
+					
+					// Need to insert to another table
+					
+					res.render('order-confirmation', returnObject);
+
+				}
+			
+			
+
+			
+	})
+		}
+
 })
 
 // Creating models 
@@ -2471,6 +2584,39 @@ router.all('/create-required-models', function (req, res){
 	models.orderModel.createOrderDetailsMode(req, res, db);
 	
 	res.send('created');
+})
+
+
+router.get('/allcookies', function (req, res) {
+	
+	res.send(req.cookies);
+})
+	
+	
+router.get('/orderConfirmationTemplate', function (req, res) {
+	
+	
+  // You have to pass the data from here 
+	
+	// I have to pass data here 
+	//console.log(req.query);
+	
+	//res.render('template/order-confirmation.ejs');
+	res.render('template/order-confirmation.ejs', {result: req.query});
+	
+})
+// Order confirmation 
+
+router.get('/getOrderConfirmationTemplate', function (req, res) {
+	
+		
+
+request.get({url: "http://localhost:8888/orderConfirmationTemplate", qs: {firstname: "Ass whole"}}, function(err, response, body) {
+    console.log(err, body);
+    
+    res.send(body);
+})
+		
 })
 
 

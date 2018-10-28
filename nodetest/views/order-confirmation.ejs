@@ -76,7 +76,7 @@
   
 <p><b>Order Details</b></p>
 
-<p>Order ID: <?= $orderid; ?></p>
+<p>Order ID: <%= result.orderId || ''; %></p>
 <p>Order Date: <?= date('l jS \of F Y h:i:s A', strtotime($orderdate)); ?></p>
   <p>
     Having trouble? <a href="">Contact us</a>
