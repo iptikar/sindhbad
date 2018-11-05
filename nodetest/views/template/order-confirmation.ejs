@@ -1,50 +1,55 @@
-<?php
-	require 'controller/controller.php';
-	
-	// Get object 
-	$obj = new MarketPlace();
-// This page required some paramaters to post 
-	
-$postRequired  = ["firstname",
-				"lastname",
-				"orderNumber",
-				"phonenumber",
-				"address",
-				"cartItems",
-				"taxOrvat",
-				"cartTotalAmount",
-				"orderdate",
-				'shippingcost',
-				"to"
-			];
-
-$keys = array_keys($_POST);
-
-// If any different 
-$diff = array_diff($postRequired, $keys);
-
-// Check everything is poted 
-if(count($diff) > 0 ) {
-	
-		// Die with error message 
-		die('Can not process the page');
-}
-
-
-	 
-foreach($_POST as $key => $value) {
-	
-		${$key} = $_POST[$key];
-}
-	
-?>
-
 <!DOCTYPE html>
+<% 
+	var shippingAddress = '';
+	var firstname;
+	var lastname;
+	var floorno;
+	var buildingname;
+	var street;
+	var country;
+	var city;
+	var mobileno;
+	var addressarea;
+	var landmark;
+	var shippingnote;
+
+	shippingAddress = JSON.parse(result.shipto);
+
+	result.ShoppingCartTotal = JSON.parse(result.ShoppingCartTotal);
+	// If var is object 
+	if(typeof shippingAddress === 'object' ){
+
+
+
+
+	firstname 	= unescape( shippingAddress['first-name']);
+	lastname	= unescape( shippingAddress['last-name']);
+	floorno		= unescape( shippingAddress['floor-no']);
+	buildingname = unescape( shippingAddress['building-name']);
+	street		= unescape( shippingAddress['street']);
+
+	city  		= unescape( shippingAddress['city']);
+	country		= unescape( shippingAddress['country']);
+	mobileno	= unescape( shippingAddress['mobile-no']);
+	addressarea  = unescape( shippingAddress['AddressArea']);
+	landmark	= unescape( shippingAddress['landmark']);
+	shippingnote = unescape( shippingAddress['shipping-note']);
+	}
+	
+	
+	
+	
+%>
+
+
 <html lang="en">
    <head>
       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
       <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
       <link rel="stylesheet" href="custom.css">
+      
+       <%- include('../functions.ejs') %>
+      
    </head>
    <body class="bg-danger pt-5">
       <table width="100%" cellpadding="0" cellspacing="0" style="background-color:#eeeeee;padding:0px;margin:0px" align="center">
@@ -82,6 +87,8 @@ foreach($_POST as $key => $value) {
                         </tr>
                         <tr>
                            <td colspan="2" style="font-family:Arial,Helvetica,sans-serif;font-size:13px;line-height:25px">
+                              
+                              
                               <table width="630" align="center" cellspacing="0" cellpadding="0" bgcolor="#FFFFFF" style="padding:10px;border-bottom:none">
                                  <tbody>
                                     <tr>
@@ -101,7 +108,13 @@ foreach($_POST as $key => $value) {
                                     </tr>
                                     <tr>
                                        <td>
-                                          <span style="font-family:Arial,Helvetica,sans-serif;font-size:14px;font-weight:bold">Hello Bharat Shah,</span>
+                                          <span style="font-family:Arial,Helvetica,sans-serif;font-size:14px;font-weight:bold">Hello 
+                                         
+                                          
+                                          
+                                          <%= firstname+' '+ lastname %>
+                                          
+                                          </span>
                                        </td>
                                     </tr>
                                     <tr>
@@ -135,18 +148,35 @@ foreach($_POST as $key => $value) {
                                                 <tr>
                                                    <td valign="top" width="48%" style="border-right:1px solid #ccc">
                                                       <b style="font-family:Arial,Helvetica,sans-serif;color:#555;font-size:13px">Order Details</b><br>
-                                                      <span style="font-family:Arial,Helvetica,sans-serif;color:#555;font-size:11px;line-height:18px">Order ID: <?= $orderNumber; ?></span><br>
-                                                      <span style="font-family:Arial,Helvetica,sans-serif;color:#555;font-size:11px;line-height:18px">Order Date: <?= $orderdate; ?></span><br>
+                                                      <span style="font-family:Arial,Helvetica,sans-serif;color:#555;font-size:11px;line-height:18px">
+														Order ID: <%= result.orderid; %></span><br>
+                                                      <span style="font-family:Arial,Helvetica,sans-serif;color:#555;font-size:11px;line-height:18px">Order Date: <%= new Date(); %></span><br>
                                                    </td>
                                                    <td style="width:10px">
                                                    </td>
+                                                   
                                                    <td valign="top" width="48%">
                                                       <b style="font-family:Arial,Helvetica,sans-serif;color:#555">Delivery Details</b><br>
-                                                      <span style="font-family:Arial,Helvetica,sans-serif;color:#555;font-size:11px;line-height:18px">Full Name: <%= result.firstname %></span><br>
-                                                      <span style="font-family:Arial,Helvetica,sans-serif;color:#555;font-size:11px;line-height:18px">Phone Number: <?= $phonenumber ?></span><br>
-                                                      <span style="font-family:Arial,Helvetica,sans-serif;color:#555;font-size:11px;line-height:18px">Address: <?= $address; ?><br>
+                                                      <span style="font-family:Arial,Helvetica,sans-serif;color:#555;font-size:11px;line-height:18px">Full Name: <%= firstname +' '+lastname %></span><br>
+                                                      <span style="font-family:Arial,Helvetica,sans-serif;color:#555;font-size:11px;line-height:18px">Phone Number: <%= shippingAddress['mobile-no'] %></span><br>
+                                                      <span style="font-family:Arial,Helvetica,sans-serif;color:#555;font-size:11px;line-height:18px">Address: <%=
+                                                      firstname +' '
+                                                      + ' '+lastname 
+                                                      + ' '+floorno+ ' '+		
+                                                      + ' '+buildingname %>
+                                                   <%=
+                                                      + ' '+city+ ' '+
+                                                      + ' '+country+ ' '+
+                                                      + ' '+mobileno+ ' '+
+                                                      + ' '+addressarea  + ' '+
+                                                      + ' '+landmark
+                                                      
+                                                      
+                                                      %><br>
                                                    </td>
                                                 </tr>
+                                                
+                                                
                                                 <tr>
                                                    <td height="10">
                                                    </td>
@@ -192,6 +222,8 @@ foreach($_POST as $key => $value) {
                                        </td>
                                     </tr>
                                     <tr>
+										
+										
                                        <td style="border-bottom:solid 1px #ddd" valign="middle">
                                           <table width="100%" border="0" cellspacing="0" cellpadding="0">
                                              <tbody>
@@ -202,18 +234,30 @@ foreach($_POST as $key => $value) {
 													$cartItemsInarray = json_decode($cartItems,true);
 													$i = 1;
                                                 ?>
+                                                <% var i = 0; %>
                                                 
                                                 <?php if(is_array($cartItemsInarray)):?>
                                                 
-                                                
+                                                <% if (typeof result.IfCartExists !== 'undefined' || typeof result.IfCartExists === 'array') { %>
+													
+												<% var cart = JSON.parse(result.IfCartExists) %>
+													<!-- Loop each data -->
+												<%	cart.forEach(function(eachitems) { %>
+														
+														<tr>
+                                                   <td width="5%" valign="top" style="font-family:Arial,Helvetica,sans-serif;font-size:12px;color:#333;padding-left:5px"><%= i %></td>
+                                                   <td width="70%" valign="top" style="font-family:Arial,Helvetica,sans-serif;font-size:12px;color:#333;line-height:16px"><%= eachitems['name']; %></td>
+                                                   <td width="10%" valign="top" style="font-family:Arial,Helvetica,sans-serif;font-size:12px;color:#333" align="center"><%= eachitems['qty']; %></td>
+                                                   <td width="20%" valign="top" style="font-family:Arial,Helvetica,sans-serif;font-size:12px;color:#333" align="center"><b><%= parseInt (eachitems['price']).formatMoney(2, '.', ','); %> AED </b></td>
+                                                </tr>
+													
+												<% i++ %>
+												<% }) %>
+													
+												<% } %>
                                                 <!-- Cart items will be shown here --->
                                                 <?php foreach ( $cartItemsInarray as $eachitems) :?>
-                                                <tr>
-                                                   <td width="5%" valign="top" style="font-family:Arial,Helvetica,sans-serif;font-size:12px;color:#333;padding-left:5px"><?= $i ?></td>
-                                                   <td width="70%" valign="top" style="font-family:Arial,Helvetica,sans-serif;font-size:12px;color:#333;line-height:16px"><?= $eachitems['name']; ?></td>
-                                                   <td width="10%" valign="top" style="font-family:Arial,Helvetica,sans-serif;font-size:12px;color:#333" align="center"><?= $eachitems['qty']; ?></td>
-                                                   <td width="20%" valign="top" style="font-family:Arial,Helvetica,sans-serif;font-size:12px;color:#333" align="center"><b><?= $obj->getPriceFormate($eachitems['price']); ?> AED </b></td>
-                                                </tr>
+                                                
                                                 
                                                 <?php $i++ ?>
                                                 <?php endforeach; ?>
@@ -242,17 +286,27 @@ foreach($_POST as $key => $value) {
                                     </tr>
                                     <tr>
                                        <td align="right" style="font-family:Arial,Helvetica,sans-serif;font-size:12px;color:#666">
-                                          Delivery Price: <b style="font-family:Arial,Helvetica,sans-serif;font-size:12px;color:#333"><?= $shippingcost?> <span></span></b>
+                                          Delivery Price: <b style="font-family:Arial,Helvetica,sans-serif;font-size:12px;color:#333">
+											  
+											  <%= 
+											  result.ShoppingCartTotal.shippingCost === 'free' ? result.ShoppingCartTotal.shippingCost :
+											  
+								parseInt (result.ShoppingCartTotal.shippingCost).formatMoney(2, '.', ',');
+											  
+											  %> <span></span></b>
                                        </td>
                                     </tr>
                                     <tr>
                                        <td align="right" style="font-family:Arial,Helvetica,sans-serif;font-size:12px;color:#666">
-                                          VAT Applicable: <b style="font-family:Arial,Helvetica,sans-serif;font-size:12px;color:#333"><?= $taxOrvat?> AED</b>
+                                          VAT Applicable: <b style="font-family:Arial,Helvetica,sans-serif;font-size:12px;color:#333"><%= 
+                                          
+                                          parseInt (result.ShoppingCartTotal.tax).formatMoney(2, '.', ','); %> AED</b>
                                        </td>
                                     </tr>
                                     <tr>
                                        <td align="right" style="font-family:Arial,Helvetica,sans-serif;font-size:12px;color:#666">
-                                          Sub Total: <b style="font-family:Arial,Helvetica,sans-serif;font-size:14px;color:#666"><?= $cartTotalAmount ?> AED</b>
+                                          Sub Total: <b style="font-family:Arial,Helvetica,sans-serif;font-size:14px;color:#666"><%= 
+                                          parseInt (result.ShoppingCartTotal.totalcart).formatMoney(2, '.', ','); %> AED</b>
                                        </td>
                                     </tr>
                                     <tr>
@@ -330,6 +384,8 @@ foreach($_POST as $key => $value) {
                                  </tbody>
                               </table>
                            </td>
+                       
+                       
                         </tr>
                         <tr>
                            <td colspan="2">

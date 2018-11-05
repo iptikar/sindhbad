@@ -39,7 +39,6 @@ DDD aside, you at least want to develop your own sets of stereotypes for your cl
 Also always remember that all of these rules are to manage complexity, not to hamstring yourself.
 
 
-
 Q. Active-Record is the design pattern that promotes objects to include functions such as Insert, Update, and Delete, and properties that correspond to the columns in some underlying database table. In your opinion and experience, which are the limits and pitfalls of the this pattern?
 
 25

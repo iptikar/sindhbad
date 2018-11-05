@@ -282,7 +282,7 @@ Client ID
                                                    <div class="control" >
                                                       
                                                       
-                                                      <input  type="text" class="form-control" name="first-name" placeholder="" value="<?= $_POST['first-name'] ?? '' ;?>" 
+                                                      <input  type="text" class="form-control" name="firstname" placeholder="" value="<?= $_POST['firstname'] ?? '' ;?>" 
                                                       
                                                       pattern="[a-zA-Z ]{2,}" 
 														oninvalid="this.setCustomValidity('Please Enter first name.')"
@@ -303,7 +303,7 @@ Client ID
                                                    </label>
                                                    <div class="control" data-bind="css: {'_with-tooltip': element.tooltip}">
 
-                                                      <input type="text" id="last-name" class="form-control" name="last-name" placeholder="" value="<?= $_POST['last-name'] ?? '';?>"
+                                                      <input type="text" id="last-name" class="form-control" name="lastname" placeholder="" value="<?= $_POST['lastname'] ?? '';?>"
 														
 														pattern="[a-zA-Z ]{2,}"
 														oninvalid="this.setCustomValidity('Please Enter last name.')"
@@ -315,7 +315,7 @@ Client ID
                                                 
                                                 <div class = "form-group">
                                                 
-													<input type = "hidden" value = "" id = "country_node" name="country"/>
+													<input type = "hidden" value = "" id = "country_node" name="country1"/>
 													<input type = "hidden" value = "" id = "city_node" name = "city"/>
 													<input type = "hidden" value = "" id = "area_node" name = "AddressArea"/>
 													
@@ -331,7 +331,7 @@ Client ID
                                                    
                                                    <div class="control" >
 
-                                                     <select  id="country" name="country1"
+                                                     <select  id="country" name="country"
                                                       oninvalid="this.setCustomValidity('Please select country.')"
 														oninput="setCustomValidity('')" #565655652
 													
@@ -749,8 +749,8 @@ Client ID
                                                    
                                                    <div class="control" >
 
-                                                      <input class="input-text" type="text"  name="mobile-no" pattern="[0-9 ]{9,10}" oninvalid="this.setCustomValidity('Please enter your mobile')"
-														oninput="setCustomValidity('')" #565655652 value = "<?= $_POST['mobile-no'] ?? ''?>">
+                                                      <input class="input-text" type="text"  name="mobile_no" pattern="[0-9 ]{9,10}" oninvalid="this.setCustomValidity('Please enter your mobile')"
+														oninput="setCustomValidity('')" #565655652 value = "<?= $_POST['mobile_no'] ?? ''?>">
                                    
                                                    </div>
                                                 </div>
@@ -926,6 +926,8 @@ Client ID
                                           
                                           
                                           <div id="checkout-step-shipping_method" class="step-content" data-role="content" role="tabpanel" aria-hidden="false">
+											   
+											  
                                              <?php
 												$obj->CheckoutRegisteredUser();
                                              ?>
@@ -942,7 +944,9 @@ Client ID
                                                       </thead>
                                                       <tbody>
                                                          
+                                                         <pre>
                                                          
+                                                        </pre>
                                                          <tr class="row" data-bind="click: element.selectShippingMethod">
                                                             <td class="col col-method">
                                                                <input type="checkbox" name = "shipping-address" required ></td>

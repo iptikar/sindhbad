@@ -22,6 +22,7 @@
     "nodemailer": "^4.6.7",
     "npm": "^6.4.0",
     "os": "^0.1.1",
+    "querystring": "^0.2.0",
     "randomstring": "^1.1.5",
     "req-flash": "0.0.3",
     "sqlite3": "^4.0.2",

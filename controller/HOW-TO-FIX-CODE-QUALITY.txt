@@ -1,0 +1,2 @@
+1. Check .php_cs.cache
+2. You can add rules as you need go to the website and find all rules

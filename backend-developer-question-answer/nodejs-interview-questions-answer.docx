@@ -466,18 +466,6 @@ var cheese = new Food('feta', 5);
 var fun = new Toy('robot', 40);
 What Product.apply(this, arguments) does is the following: The Product constructor is applied as a function within each of the Food and Toy constructors, and each of these object instances are being passed as this. Thus, each of Food and Toy now have this.name and this.category properties.
 
-
-What are some of the biggest limitations of javascript?
-It lacks the following important features i.e. Limitations of JavaScript:
-For security reason, JavaScript does not allow the reading or writing of files.
-This doesn’t have any multiprocessor/multi threading capabilities.
-As there is no support available, this cannot be used for networking applications.
-Cannot access web pages hosted on a different domain.
-Cannot access databases.
-Depends a lot on the browser.
-Inability to use local devices.
-JavaScript can be disabled.
-Not Search Engine Friendly.
-JavaScript cannot protect your page source or images.
+sd
 
 Hope this helps. Much comes from personal experience with interviewers.

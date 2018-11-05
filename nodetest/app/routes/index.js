@@ -24,34 +24,43 @@ const MongoDB = LoadedModules.MongoDB;
 const MongoClient = LoadedModules.MongoClient;
 const ObjectID = LoadedModules.ObjectID;
 const MarketPlace = LoadedModules.MarketPlace;
-
-var uniqid = require('uniqid');
-
-// Require addto cart module 
-var GetCart = require ('../../components/addtocart/index.js')
-
-var AddToCart = require ('../../implement/addToCart.js');
-
-// Require function 
-var MisFunctions = require ('../../components/functions.js');
-
-// Require update cart module 
-var EditCart = require ('../../components/updateCart.js');
-
-// Remove items from the cart moudle 
-var RemoveItems = require ('../../components/deleteItems.js');
-
-// Request 
-const request = require("request");
-
+const querystring = require('querystring');
+const buffer = require('buffer');
 
 var router = express.Router();
 
 
+
+var uniqid = require('uniqid');
+
+// Require addto cart module
+var GetCart = require ('../../components/addtocart/index.js')
+
+var AddToCart = require ('../../implement/addToCart.js');
+
+// Require function
+var MisFunctions = require ('../../components/functions.js');
+
+// Require update cart module
+var EditCart = require ('../../components/updateCart.js');
+
+// Remove items from the cart moudle
+var RemoveItems = require ('../../components/deleteItems.js');
+
+// Request
+const request = require("request");
+
+
+
+
+
 const GetBuyerShipping = require('../../db1');
 
-// Create required modules modules 
+// Create required modules modules
 const models = require('../../model/order');
+
+// Module check if mobile is UAE number 
+const IsUAEMobileNumber = require ('../../components/IsUAEMobileNumber');
 
 const http = require('http');
 
@@ -127,7 +136,7 @@ var db;
 MongoClient.connect(url, (err, client) => {
   if (err) return console.log(err)
   db = client.db('mydb59589') // whatever your database name is
-  
+
 })
 
 router.get('/', (req, res) => {
@@ -227,7 +236,7 @@ router.get('/index1', (req, res) => {
 
 	// Deleting cookies
 	//res.clearCookie("username");
-	
+
 	// res.cookie('cookieName',randomNumber, { maxAge: 900000, httpOnly: true });
 
 	//req.session.userId = hash;
@@ -734,8 +743,8 @@ router.post('/login-request', function (req, res) {
 					// Username
 					// Password
 					// Usertype
-					
-					
+
+
 
 					//req.session.userId = hash;
 					// If buyer
@@ -812,8 +821,6 @@ router.post('/login-request', function (req, res) {
 
 
 // Seller administrator dashborad
-
-
 router.get('/user-admin-14e1813e3d0cf9da1a9dafc6afadff37', function (req, res) {
 
 	// Seller must be logged in
@@ -1556,105 +1563,98 @@ router.post('/user-buyer-14e1813e3d0cf9da1a9dafc6afadff37', function (req, res) 
 router.get('/user-buyer-14e1813e3d0cf9da1a9dafc6afadff37', function (req, res) {
 
 	if(typeof req.session.buyer === 'undefined' || req.session.buyer === null) {
-		
+
 			res.redirect('/login')
 		}
-		
+
 	res.render('user-buyer-14e1813e3d0cf9da1a9dafc6afadff37/index.ejs', {users:JSON.stringify(req.session)});
 
 
 });
 
 var both  = {
-	
+
 	RoutAndFunction: function (req, res, collectionName, finbyInArray, URLToRedirect) {
-			
+
 				return new Promise(function (resolve, reject) {
-					
+
 					GetBuyerShipping.FindinCol1(collectionName, finbyInArray).then(function(items) {
-					
+
 					resolve(items);
 					}, function(err) {
 					reject (err, err.stack);
 					});
 
 					}).then(function (items) {
-						
+
 						return new Promise(function (resolve, reject) {
-						
+
 						GetBuyerShipping.FindinCol1('buyer', finbyInArray).then(function(buyer) {
-						
+
 						let bna = {buyer:buyer,buyeraddress:items};
-						
+
 						resolve(bna);
 						}, function(err) {
 						reject (err, err.stack);
 						});
 
-						
+
 					})
-						
-						
+
+
 					})
-			
-					
-					
+
+
+
 					.then(function (bna) {
-						
+
 						return new Promise(function (resolve, reject) {
-							
-							
+
+
 							resolve(res.render(URLToRedirect, {users:JSON.stringify(req.session), getToken:req.csrfToken(), ShippingAddress:bna}));
 
 					})
-						
-						
+
+
 					})
-			
+
 			}
 
 	}
-	
-	
+
+
 
 router.get('/user-buyer-14e1813e3d0cf9da1a9dafc6afadff37/shipping-address', function (req, res) {
 
-	
+
 	if(typeof req.session.buyer === 'undefined' || req.session.buyer === null) {
-		
+
 			res.redirect('/login')
 		}
-		
-	
-	// Get the username 
+
+
+	// Get the username
 	let username = req.session.buyer.username;
-	
-	
-    let collectionName = 'buyer_address'; 
-    
+
+
+    let collectionName = 'buyer_address';
+
     let finbyInArray = {email:username};
-    
+
     URLToRedirect = 'user-buyer-14e1813e3d0cf9da1a9dafc6afadff37/shipping-address.ejs';
-    
-    
-    // Write again new promisess 
-    
+
+
+    // Write again new promisess
+
 	both.RoutAndFunction(req, res, collectionName, finbyInArray, URLToRedirect);
 });
 
-
-
-	
-	
-	
-// Send the userdetails 
-
-
+// Send the userdetails
 router.post('/user-buyer-14e1813e3d0cf9da1a9dafc6afadff37/updateBuyerShipp', function (req, res) {
-	
+
 	/* Expected data from this router */
 	/*
-	 * {  
+	 * {
 		   "_csrf":"XqpR5LAA-6TEGG50Cs548hxZB1-n7dRgs34c",
 		   "first-name":"",
 		   "last-name":"",
@@ -1678,34 +1678,34 @@ router.post('/user-buyer-14e1813e3d0cf9da1a9dafc6afadff37/updateBuyerShipp', fun
 		   "submit":""
 }
 	 * */
-	 
-	 // Unset some variable 
+
+	 // Unset some variable
 	 delete req.body.submit;
-	 
-	 // Esacpe all string 
+
+	 // Esacpe all string
 	 for(var i in req.body) {
-		 
+
 			req.body[i] = escape(req.body[i]);
 	}
-	 
-	 // Get the username of buyer 
+
+	 // Get the username of buyer
 	 var email = req.session.buyer.username;
-	 
+
 	 var newvalues = {$set: req.body};
 	 var myquery = {email:email};
-	 
+
 	 console.log(req.body);
-	 
-	 // update buyer table 
+
+	 // update buyer table
 	 var buyerValue = {$set: {firstname: req.body['first-name'], lastname: req.body['last-name']} };
 
 	db.collection("buyer").updateOne(myquery, buyerValue, function(err, res) {
-    
+
 		if (err) console.log( err);
 		console.log(res);
 	});
-  
- 
+
+
 	db.collection("buyer_address").updateOne(myquery, newvalues, function(err, res) {
     if (err) throw err;
 
@@ -1714,9 +1714,9 @@ router.post('/user-buyer-14e1813e3d0cf9da1a9dafc6afadff37/updateBuyerShipp', fun
         message: 'Information updated sucessfully.'
 		};
   });
-  
-	
-		
+
+
+
 	res.redirect('/user-buyer-14e1813e3d0cf9da1a9dafc6afadff37/shipping-address');
 })
 
@@ -1726,17 +1726,17 @@ router.post('/user-buyer-14e1813e3d0cf9da1a9dafc6afadff37/updateBuyerShipp', fun
 router.get('/user-buyer-14e1813e3d0cf9da1a9dafc6afadff37/logout', function (req, res) {
 
 
-		// Check if session set 
+		// Check if session set
 		if(typeof req.session.buyer !== 'undefined' || req.session.buyer !== null) {
-			
-				// Unset the session variable 
+
+				// Unset the session variable
 				delete req.session.buyer;
-				
+
 				res.redirect('/login');
 		}
 });
 
-// Buyer shipping address 
+// Buyer shipping address
 
 
 // User activation link
@@ -1872,7 +1872,7 @@ router.get('/discription/:name/:id/:sku', routeValidator.validate({
       // Return collection
       // Res with ejs template
       //console.log(req)
-	
+
       res.render('discription', {result : result, getToken:req.csrfToken(), 'url':req.url});
 
   });
@@ -1924,59 +1924,59 @@ router.post('/getCategory', function (req, res) {
 
 // Add cart rout addtocart addtocart
 router.post('/addtocart', function(req, res){
-  
-  
-	// Defining some variable 
+
+
+	// Defining some variable
 	//console.log(JSON.stringify(req.session.SetCartCooki565656));
- 
+
 	let id = req.body.p_mongo_id;
 	let price = req.body.p_price;
 	let sku = req.body.sku;
 	let name = req.body.name;
 	let image = req.body.img_uri;
 	let qty = req.body.qty;
-	
+
 
 	GetCart.cart.AddToCart(req, res, sku, name, image, qty, price, id);
-		
-	
+
+
 	// Return res
 	req.session.sessionFlash = {
 
 		type: 'success',
 		message: "Product added to the cart"
 	};
-	
-	
-	
+
+
+
 	//GetCart.cart.GetCartTotal(req, res, req.cookies.ShoppingCart);
 	//console.log(req.cookies.ShoppingCart);
-	
+
 	res.redirect(req.body.durl);
 });
 
 
-// Route 
+// Route
 router.get('/cart', function (req, res){
-	
-		// Get the cookie data 
+
+		// Get the cookie data
 		let CartObject = '';
-		
-		// Get cookie value 
+
+		// Get cookie value
 		CartObject = req.cookies.ShoppingCart;
-		
-		// Get the total 
+
+		// Get the total
 		CartTotal = req.cookies.ShoppingCartTotal;
-		
-		// Sum amount 
+
+		// Sum amount
 		//let carttotal = MisFunctions.SumArrayColumn(CartObject, 'total');
-		
+
 		res.render('cart', {cart: CartObject, cartTotal: CartTotal, getToken:req.csrfToken()});
 	});
 
 router.get('/cookietest', function(req, res){
-	
-	// Clear cookie 
+
+	// Clear cookie
 	//res.clearCookie("ShoppingCartTotal");
 	//res.clearCookie("ShoppingCart");
 //console.log(req.cookies.ShoppingCartTotal);
@@ -1991,104 +1991,104 @@ res.send(JSON.stringify(req.cookies.ShoppingCart));
 
 
 router.post('/carttotal', function(req, res){
-	
-	// if cart cookie set 
+
+	// if cart cookie set
 	if(typeof req.cookies.ShoppingCart === 'undefined' ){
-		
+
 		res.send('');
 		return;
-	} 
-	
+	}
+
 	//GetCartTotal: function(req, res, cartcookie)
 	GetCart.cart.GetCartTotal(req, res, req.cookies.ShoppingCart);
-	
-	// Send empty string 
+
+	// Send empty string
 	res.send('');
-	
+
 });
 
-// Edit cart 
+// Edit cart
 router.post('/editcart', function(req, res){
-	
-	// Get the required paramaters 
+
+	// Get the required paramaters
 	var getsku = req.body.sku;
 	let id = req.body.id;
-	let qty = req.body.qty; 
-	
-	// Reg 
+	let qty = req.body.qty;
+
+	// Reg
 	let reg = new RegExp(/^[1-9]{1,100}$/);;
-	
-	// Move ahead finding 
+
+	// Move ahead finding
 	if(!reg.test(qty)) {
-		
+
 		res.send('Invalid Quantity.');
 	}
-	
-	// Cart 
+
+	// Cart
 	var cart = req.cookies.ShoppingCart;
-	
-	// Edit cart using module 
+
+	// Edit cart using module
 	EditCart.UpdateCart.AddToCart(req, res, cart, getsku, qty);
-	
+
 	res.send('');
 })
 
 
-// Removing cart itmes 
+// Removing cart itmes
 router.post('/remove-item', function (req, res) {
-	
-	// Cart 
+
+	// Cart
 	var cart = req.cookies.ShoppingCart;
-	
-	// Remove items from the cart 
+
+	// Remove items from the cart
 	RemoveItems.Remove.DeleteItems(req,res, cart);
-	
+
 	res.send('');
 })
 
-// Empty cart rout 
+// Empty cart rout
 router.post('/emptyCart', function (req, res) {
 
 		res.clearCookie("ShoppingCart");
 		res.send('');
-	
+
 });
 
 var BuyerAddress  = {
-	
+
 	Shipping: function (req, res, collectionName, finbyInArray, URLToRedirect, returnObject) {
-			
+
 				return new Promise(function (resolve, reject) {
-					
+
 					GetBuyerShipping.FindinCol1(collectionName, finbyInArray).then(function(items) {
-					
+
 					resolve(items);
 					}, function(err) {
 					reject (err, err.stack);
 					});
 
 					}).then(function (items) {
-						
+
 						return new Promise(function (resolve, reject) {
-							
+
 							// IF new return contain
 							if(typeof returnObject === 'object'){
-								
+
 								returnObject.result.items = items;
-								
+
 								resolve(res.render(URLToRedirect, returnObject));
-								
+
 							} else {
-								
+
 									resolve(res.render(URLToRedirect, returnObject));
 								}
-							
+
 
 					})
-						
-						
+
+
 					})
-			
+
 			}
 
 	}
@@ -2096,88 +2096,104 @@ var BuyerAddress  = {
 
 
 router.all('/checkout', function (req, res) {
-		
-		
-		
+
+
+
 		let IfCartExists = req.cookies.ShoppingCart;
-		let buyerSession = req.session.buyer; 
+		let buyerSession = req.session.buyer;
 		let ShoppingCartTotal = req.cookies.ShoppingCartTotal;
-		
+
 		var shippingAddress = '';
 		var collectionName = 'buyer_address';
 		var URLToRedirect = 'checkout';
-		
-		var returnObject = { result: { 
-			
+
+		var returnObject = { result: {
+
 									IfCartExists: IfCartExists,
 									IsBuyerIsLoggedIn: buyerSession,
 									ShoppingCartTotal: ShoppingCartTotal,
 									getToken:req.csrfToken()
-									
+
 								}
 									};
-		
-		
-		
-		// If user is logged in 
+
+
+
+		// If user is logged in
 		if(typeof buyerSession !== 'undefined') {
-			
-				// var username 
+
+				// var username
 				let username = buyerSession.username;
-				
+
 				var finbyInArray = {email:username};
-				
-				// Run promise to get the result 
+
+				// Run promise to get the result
 				BuyerAddress.Shipping(req, res, collectionName, finbyInArray, URLToRedirect, returnObject);
-				
-				
-		
+
+
+
 		} else {
-			
-			res.render('checkout', { result: { 
-			
+
+			res.render('checkout', { result: {
+
 									IfCartExists: IfCartExists,
 									IsBuyerIsLoggedIn: buyerSession,
 									ShoppingCartTotal: ShoppingCartTotal,
 									getToken:req.csrfToken()
-									
+
 								}
 									}
-							
+
 					);
 			}
-		
-		
-		
-		
-	
+
+
+
+
+
 });
 
 
-// Checkout already registered users 
+// Checkout already registered users
 router.post('/chekoutRegisteredUser', function (req, res) {
-	
-	
+
+
 		// get the form shipping-details-52
 
 		let shippingCookies = req.body['shipping-details-52'];
-		
-		// Set to cookie 
+
+		// Set to cookie
 		res.cookie('shipping_address', shippingCookies);
-		
-		// Redirect to payment 
+
+		// Redirect to payment
 		res.redirect('/payment');
 })
 
 
+// Testing sending sms
+function SendSMSOrderConfirmation( orderid, mob_no ){
 
 
-// Guest Register and checkout 
+  var message = 'Your order has been confirmed ! <br/> Order ID: '+orderid+'';
+  var url = 'http://mshastra.com/sendurlcomma.aspx?user=20088619&pwd=b2n6i6&senderid=ABC&mobileno='+mob_no+'&msgtext='+message+'&CountryCode=971';
+
+   request(url, function (error, response, body) {
+    if (!error && response.statusCode == 200) {
+        console.log(body) // Print the google web page.
+     }
+})
+
+
+
+}
+
+
+// Guest Register and checkout
 router.post('/guestcheckout', function (req, res)  {
-	
-	// Check if string is valid 
+
+	// Check if string is valid
 	let reg = new RegExp(/^\S+@[\w\d.-]{2,}\.[\w]{2,6}$/i);
-	
+
 
 	 // Validate username
 	 if(!(reg.test(req.body.email))) {
@@ -2187,41 +2203,41 @@ router.post('/guestcheckout', function (req, res)  {
         type: 'error',
         message: {'error':'Please enter valid email address', 'posted': req.body}
 		};
-		
+
 		 return res.redirect('/checkout');
 	}
-	
-	
-	// Check passowrd 
+
+
+	// Check passowrd
 	if(req.body.password.length < 8 || req.body.password.length > 15) {
-		
+
 		// Throw error
 		req.session.sessionFlash = {
         type: 'error',
         message: {'error':'Password length must be between 8 to 15 characters', 'posted' : req.body}
 		};
-			
+
 		return res.redirect('/checkout');
 	}
-	
-	
-	// Check both password 
+
+
+	// Check both password
 	if(req.body.password !== req.body['confirm-password']) {
-		
+
 		// Throw error
 		req.session.sessionFlash = {
         type: 'error',
         message: {'error': 'Both password did not matched', 'posted': req.body}
 		};
-			
+
 		return res.redirect('/checkout');
 	}
-	
-	
-	
-	
-	// Check email address is already exists 
-	
+
+
+
+
+	// Check email address is already exists
+
 	// Before doing anything check if email address exits in db
 		var query = {email: req.body.email}
 
@@ -2244,16 +2260,16 @@ router.post('/guestcheckout', function (req, res)  {
 
 				// Redirect to the page
 				return res.redirect('/checkout');
-				
+
 
 			} else {
-				
-				console.log(req.body);
-				
-				// Some indexes need to delete 
+
+				//console.log(req.body);
+
+				// Some indexes need to delete
 				delete req.body['confirm-password'];
 				delete req.body['submit'];
-				
+
 				// Has password
 				let hash = bcrypt.hashSync(req.body.password, 10);
 				// Insert the document to document
@@ -2274,19 +2290,19 @@ router.post('/guestcheckout', function (req, res)  {
 
 				// Add some activated
 				req.body.activated = 0;
-				
-				// escape all vairable 
+
+				// escape all vairable
 				for (var key in req.body) {
-					
+
 						req.body[key] = escape(req.body[key]);
 					}
 
 				var document_address = 'buyer_address';
-				
+
 				var document = 'buyer';
-				
+
 				var email = req.body.email;
-				
+
 				// Save the docuemtn
 				db.collection(document).save(req.body, (err, result) => {
 				if (err) return console.log(err)
@@ -2310,18 +2326,18 @@ router.post('/guestcheckout', function (req, res)  {
 				});
 
 			})
-				
-				// Threed days interval 
+
+				// Threed days interval
 				var days = 86400000 * 3;
 
 
-				// Regsiter as 
+				// Regsiter as
 				var registered_as = 0;
-				
-				// Create date object 
+
+				// Create date object
 				var dateObj = Date.now(); // 1534596948489
 
-				// Activation links 
+				// Activation links
 				var activationLink = 'http://localhost:8888/user-activation/'+dateObj+'/'+req.body._id+'/'+registered_as+'';
 
 				// http://localhost:8888/user-activation/1534599498533/5b78214a6048204305935e17/0
@@ -2343,19 +2359,19 @@ router.post('/guestcheckout', function (req, res)  {
 				var vSubject = '✥ Thank your for you registration  ✔ ✔ ✔'
 				var vText = 'Hello World';
 				var vHtml = '<h1>Please click the link below the verify you account.</h1><a href = "'+activationLink+'">Click Here</a>';
-				
-				
+
+
 				// Send mail to the client
 				All.SendMaileToClient(vFrom, vTo, vSubject, vText, vHtml);
 
-				
+
 				var SessionData = {
 									"username":email,
 									"password":hash,
 									"usertype":0
 								}
-				
-								
+
+
 				req.session.regenerate(function(errSession) {
 							// Buyer session
 							if(errSession) {
@@ -2366,136 +2382,137 @@ router.post('/guestcheckout', function (req, res)  {
 
 
 							})
-				
-				req.session.buyer  = SessionData; 
-				
+
+				req.session.buyer  = SessionData;
+
 				delete req.body.password;
 				delete req.body['confirm-password'];
 				delete req.body['submit'];
-				
+
 				let shippingCookies = JSON.stringify(req.body);
-		
-				// Set to cookie 
+
+				// Set to cookie
 				res.cookie('shipping_address', shippingCookies);
 
 				// Render the
 				return res.redirect('/payment');
-				
-				
-				
+
+
+
 			}
 
 		});
 
-	
-	
+
+
 	/*
-	
-	// Loop each email address 
+
+	// Loop each email address
 	for(var key in req.body){
-		
+
 			req.body[key] = escape(req.body[key]);
 		}
-		
-	// Unset some variable 
+
+	// Unset some variable
 	*/
-	
 
 
-	
+
+
 });
 
 
-// Paymeht view 
+// Paymeht view
 router.get('/payment', function (req, res) {
-	
+
 		let IfCartExists = req.cookies.ShoppingCart;
-		let buyerSession = req.session.buyer; 
+		let buyerSession = req.session.buyer;
 		let ShoppingCartTotal = req.cookies.ShoppingCartTotal;
-		
+
 		var shippingAddress = '';
 		var collectionName = 'buyer_address';
 		var URLToRedirect = 'checkout';
-		
-		var returnObject = { result: { 
-			
+
+		var returnObject = { result: {
+
 									IfCartExists: IfCartExists,
 									IsBuyerIsLoggedIn: buyerSession,
 									ShoppingCartTotal: ShoppingCartTotal,
 									getToken:req.csrfToken(),
 									shipto: req.cookies.shipping_address
-									
+
 								}
 									};
 		res.render('payment', returnObject);
 	})
 
 
-// Confirm order 
+// Confirm order
 router.all('/order-confirmation', function (req, res) {
-	
+
 		 var orderid = uniqid();
-		 let IfCartExists = req.cookies.ShoppingCart;
-		let buyerSession = req.session.buyer; 
-		let ShoppingCartTotal = req.cookies.ShoppingCartTotal;
-		
+		 var IfCartExists = req.cookies.ShoppingCart;
+		var buyerSession = req.session.buyer;
+		var ShoppingCartTotal = req.cookies.ShoppingCartTotal;
+		var buyerShippingAddress = req.cookies.shipping_address;
+
 		 if(typeof req.body.paymentmethod !== 'undefined' &&
 		 typeof IfCartExists !== 'undefined' &&
 		 typeof buyerSession !== 'undefined') {
-			 
-			
-			
-			// Get the cart cookie 
+
+
+
+			// Get the cart cookie
 			let cart = req.cookies.ShoppingCart;
-			
-			// Date 
+
+			// Date
 			let today = new Date();
-			
-			// buyer email 
+
+			// buyer email
 			let buyer_email = buyerSession.IsBuyerIsLoggedIn;
-			
-			// Ip address 
+
+			// Ip address
 			let ipv4_address = req.connection.remoteAddress;
-			
-			// tax amotn 
+
+			// tax amotn
 			let taxamount = ShoppingCartTotal.tax;
-			
-			// tax percentage 
+
+			// tax percentage
 			let taxpercentage = 5;
-			
-			// currency 
+
+			// currency
 			let currency = 'AED';
-			
-			// shipping cost 
+
+			// shipping cost
 			let shippingcost = ShoppingCartTotal.shippingCost === 'free' ? 0 : 20;
-			
-			// shipping address 
+
+			// shipping address
 			let shippingaddress = req.cookies.shipping_address;
-			
-			// Billing 
+
+			// Billing
 			let billingAddress = typeof req.body['billing-address-same-as-shipping'] !== 'undefined' ? req.cookies.shipping_address : '';
-			
-			// status 
+
+			// status
 			let status = 'inprocess';
-			
-			// Purchase point 
-			// Will change letter 
-			let purchasePoint = 'sindhbad'; 
-			
-			
+
+			// Purchase point
+			// Will change letter
+			let purchasePoint = 'sindhbad';
+
+
 			let payment = req.body.paymentmethod;
-			
+
 			// seen
 			let seen = '0';
-			
-			// Discount 
+
+			// Discount
 			let discount = ShoppingCartTotal.totaldiscount;
-			
-			// total qty 
+
+			// total qty
 			let totalqty = ShoppingCartTotal.totalqty;
-			
+
 			let data = 	{
-				
+
 							order_id:orderid,
 							ipv4_address: ipv4_address,
 							ipv6_address: ipv4_address,
@@ -2516,18 +2533,9 @@ router.all('/order-confirmation', function (req, res) {
 							buyer_email :buyerSession.username
 					}
 					
-			// Save document to order table 
-			db.collection('order').save(data, (err, result) => {
-			
-			if (err) {
-				 
-				 // Throw error 
-				 console.log(err)
-				 
-			} else {
-				
-					// Object to save 
-					var returnObject = { result: { 
+					
+			// Object to save
+			var returnObject = { result: {
 
 						IfCartExists: IfCartExists,
 						IsBuyerIsLoggedIn: buyerSession,
@@ -2535,98 +2543,321 @@ router.all('/order-confirmation', function (req, res) {
 						getToken:req.csrfToken(),
 						shipto: req.cookies.shipping_address,
 						orderId :orderid
-						
+
 					}
 						};
+
+
+			var saveOrder = new Promise(function(resolve, reject){
+					
+					db.collection('order').save(data, (err, result) => {
 						
-						// Append some data 
+							if(err) {
+									
+									reject(err)
+								} else {
+									
+										resolve(result);
+									}
+					});
+			});
+			
+			
+			// Save order details 
+			var saveOrderDetails = new Promise(function(resolve, reject){
+						
+					
+
+						// Append some data
 						for(var key in req.cookies.ShoppingCart) {
-							
-								// Append order id 
+
+								// Append order id
 								req.cookies.ShoppingCart[key]['orderid'] = orderid;
 							}
-						
-						// Order details 
+
+						// Order details
 						let orderDetails = req.cookies.ShoppingCart;
 						
-						// Save multiple document to orderdetails 
-						db.collection('orderdetails').insert(orderDetails, (err1, result1) => {
+						db.collection('orderdetails').insert(orderDetails, (err, result) => {
 							
-							if(err1) {
+								if(err) {
 									
-									// Console error 
-									console.log(err1);
-								}
-							
+										reject(err)
+									} else {
+										
+											resolve(result);
+										}
 						})
-					
-					// We need to send order confirmation details to buyer 
-					// We need to send sms to the user about the id 
-					
-					// Need to insert to another table
-					
-					res.render('order-confirmation', returnObject);
+						
+				});
+			
+			
+			// Send Order confirmmation 
+			
+			var sendOrderConfirmation = new Promise( function ( resolve, reject ) {
+				
+					// send order confirmation details to the client 
+								IfCartExists = JSON.stringify(IfCartExists);
+								buyerSession = JSON.stringify(buyerSession);
+								ShoppingCartTotal = JSON.stringify(ShoppingCartTotal);
+								buyerShippingAddress = req.cookies.shipping_address
+								//let orderid = JSON.stringify('56565');
+								
+								
+								var DataToSend = 	{ 	
+													IfCartExists: IfCartExists,
+													IsBuyerIsLoggedIn: buyerSession,
+													ShoppingCartTotal: ShoppingCartTotal,
+													getToken:req.csrfToken(),
+													shipto: buyerShippingAddress,
+													orderid: orderid
+												}
+												
+								
+								// Promise two 
+								request.post({
+									headers: {'content-type': 'application/json'},
+									url: 'http://localhost:8888/orderConfirmationTemplate',
+									form: DataToSend
+								}, function(error, response, body){
 
-				}
-			
-			
 
+				
+								if( error ) {
+										
+										reject(error)
+									} else {
+										
+										resolve(All.SendMaileToClient(
+								'info@sindhbad.com',
+								req.session.buyer.username,
+								'Thank you for your shopping.',
+								'Your order has been confirmed !.',
+								body));
+										
+									}
+										
+								
+				
+				})
+				
+				
+				})
+				
+				
+			// Send text sms 
+			var sendTextSMS = new Promise( function (resolve, reject ) {
+				
+					var buyerShippingAddress = req.cookies.shipping_address
+					
+					var ParseAddress = JSON.parse(buyerShippingAddress);
+
+					var mobile_no = ParseAddress['mobile-no'];
+					var country = ParseAddress['country'];
+
+					if(IsUAEMobileNumber.UAENumber(country, mobile_no) === true ){
+
+					
+					// Then send sms 
+						resolve(SendSMSOrderConfirmation(orderid, mobile_no));
+
+					}
+								
+				})
+				
+				
+				
+			Promise.all([saveOrder, saveOrderDetails, sendOrderConfirmation, sendTextSMS]).then(function(values) {
 			
-	})
+				console.log(values);
+			});
+			
+			res.render('order-confirmation', returnObject);
+			
+			
+		
 		}
 
+			// Send text message 
+			
 })
 
-// Creating models 
+// Creating models
 router.all('/create-required-models', function (req, res){
-	
+
 	models.orderModel.createOrderModel(req, res, db);
 	models.orderModel.createOrderDetailsMode(req, res, db);
-	
+
 	res.send('created');
 })
 
 
 router.get('/allcookies', function (req, res) {
 	
-	res.send(req.cookies);
+	
+	//var number = '0522365236';
+	//var country = 'AE';
+	test
+.then(function(data) {
+    console.log(data);
+    return test2;
 })
 	
+	//console.log(IsUAEMobileNumber.UAENumber(country, number));
 	
-router.get('/orderConfirmationTemplate', function (req, res) {
-	
-	
-  // You have to pass the data from here 
-	
-	// I have to pass data here 
-	//console.log(req.query);
-	
-	//res.render('template/order-confirmation.ejs');
-	res.render('template/order-confirmation.ejs', {result: req.query});
-	
+	res.send(req.session);
+	//res.send(req.cookies);
+	//console.log(buffer.length);
 })
-// Order confirmation 
 
-router.get('/getOrderConfirmationTemplate', function (req, res) {
-	
-		
 
-request.get({url: "http://localhost:8888/orderConfirmationTemplate", qs: {firstname: "Ass whole"}}, function(err, response, body) {
-    console.log(err, body);
-    
+
+
+// Writing promises for three function
+/*
+ * 	Save the order record in order table
+ * 	Save the order record in orderdetails table
+ * 	Send Order confirmation email with template
+ *
+ * */
+
+
+
+router.get('/PostOrderConfirmationTemplate', function (req, res) {
+
+let IfCartExists = JSON.stringify(req.cookies.ShoppingCart);
+let buyerSession = JSON.stringify(req.session.buyer);
+let ShoppingCartTotal = JSON.stringify(req.cookies.ShoppingCartTotal);
+let buyerShippingAddress = req.cookies.shipping_address
+let orderid = JSON.stringify('56565');
+
+var result = 	{ 		IfCartExists: IfCartExists,
+						IsBuyerIsLoggedIn: buyerSession,
+						ShoppingCartTotal: ShoppingCartTotal,
+						getToken:req.csrfToken(),
+						shipto: buyerShippingAddress,
+						orderid: orderid
+				}
+
+
+
+console.log(result);
+var data = '{"hello":"World"}';
+//var json_obj = JSON.parse(result);
+request.post({
+    headers: {'content-type': 'application/json'},
+    url: 'http://localhost:8888/orderConfirmationTemplate',
+    form: result
+}, function(error, response, body){
+
+
+
+/*
+  console.log(All.SendMaileToClient(
+								'info@sindhbad.com',
+								'bharatrose1@gmail.com',
+								'Order confirmation ',
+								'Your order confirmed',
+								body));
+
+*/
+
+res.send(body);
+});
+
+
+
+
+})
+
+
+
+
+
+router.get('/getOrderConfirmationTemplateGet', function (req, res) {
+
+let IfCartExists = JSON.stringify(req.cookies.ShoppingCart);
+let buyerSession = JSON.stringify(req.session.buyer);
+let ShoppingCartTotal = JSON.stringify(req.cookies.ShoppingCartTotal);
+let buyerShippingAddress = req.cookies.shipping_address
+var orderid = '565656';
+
+var result = { 			IfCartExists: IfCartExists,
+						IsBuyerIsLoggedIn: buyerSession,
+						ShoppingCartTotal: ShoppingCartTotal,
+						getToken:req.csrfToken(),
+						shipto: buyerShippingAddress,
+						orderid: orderid
+		}
+
+
+request.get({url: "http://localhost:8888/orderConfirmationTemplate", qs: {data: result}}, function(err, response, body) {
+
+
     res.send(body);
 })
-		
+
+
+
 })
 
 
-// If url not matched with server defiend route 
+router.get('/testing1', function (req, res) {
+
+console.log(JSON.stringify('Helo 5656'));
+/*
+request.post({
+  headers: {'content-type' : 'application/x-www-form-urlencoded'},
+  url:     'http://localhost:8888/testing2',
+  body:    "mes=heydude"
+}, function(error, response, body){
+  console.log(body);
+});
+
+*/
+
+})
+
+
+
+router.post('/testing2', function (req, res) {
+
+
+	//res.send('fuck you')
+	//res.send(req.body);
+	res.send(JSON.stringify(req.body));
+	console.log(req.body)
+
+
+})
+
+
+
+
+// If url not matched with server defiend route
+router.get('/test', function(req, res){
+
+
+
+	//res.render('test.ejs');
+  var orderid = '98955655656';
+  var mob_no = '0565973854';
+  
+
+  console.log(SendSMSOrderConfirmation(orderid, mob_no));
+});
+
+
+
+// Testing one
+
+// If url not matched with server defiend route
 router.get('*', function(req, res){
 
- 
-	
+
+
 	var fullUrl = req.protocol + '://' + req.get('host') + req.originalUrl;
-	
+
 	res.render('404.ejs', {url:fullUrl})
 });
 

@@ -1,5 +1,7 @@
-<?php 
-$product = file_get_contents('ProjectJson/project.json');
+<?php
 
-$arr = json_decode($product, true);
+//setcookie('buyershipping7522', '', time() -3600, '/', $_SERVER['SERVER_NAME']);
+echo "<pre>";
 
+print_r($_COOKIE);
+echo "</pre>";

@@ -24,9 +24,13 @@ const MongoDB = LoadedModules.MongoDB;
 const MongoClient = LoadedModules.MongoClient;
 const ObjectID = LoadedModules.ObjectID;
 const MarketPlace = LoadedModules.MarketPlace;
+var router = express.Router();
 
 
+const request = require("request");
 
+const http = require('http');
+const querystring = require('querystring');
 
 // Csrf middle waredf
 const csrfMiddleware = csurf({
@@ -39,6 +43,7 @@ const csrfMiddleware = csurf({
 debug = require('debug')('http');
 app.set('port', 8888);
 app.use(express.static(__dirname + '/public'));
+
 
 
 /* Use session */
@@ -69,6 +74,24 @@ app.use(bodyParser.urlencoded({extended: true}))
 
 // App use cookieParser
 app.use(cookieParser());
+
+// This router do not need csrf token
+app.all('/orderConfirmationTemplate', function (req, res) {
+
+res.render('template/order-confirmation.ejs', {result: req.body});
+		
+		//console.log(req.body);
+		//console.log(req.query.data)
+		//res.render('template/order-confirmation.ejs', {result: req.query.data});
+		
+		
+	//res.render('template/order-confirmation.ejs');
+	//
+	
+})
+// Order confirmation 
+
+
 
 // App use form csrf protection
 app.use(csrfMiddleware);

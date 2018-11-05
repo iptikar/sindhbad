@@ -15,23 +15,19 @@ module.exports = {
       })
     }).then(function (database) {
       return new Promise(function (resolve, reject) {
-        
-
         database.collection(collectionName).find(finbyInArray).toArray(function (err, items) {
           if (err) {
             reject(err)
           } else {
-            
-            // Need to unescape all data 
-            // Esacpe all string 
-			
-           //console.log(items)
+            // Need to unescape all data
+            // Esacpe all string
+
+            // console.log(items)
             resolve(items)
           }
         })
       })
     })
   }
-
 
 }

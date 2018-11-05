@@ -1,0 +1,187 @@
+<html lang="en" >
+   
+	<head >
+		<title>Dick Head</title>
+		<link href = "https://cdn3.devexpress.com/jslib/18.1.7/css/dx.common.css" rel = "stylesheet" type = "text/css"/>
+		<link href = "https://cdn3.devexpress.com/jslib/18.1.7/css/dx.light.css" rel = "stylesheet" type = "text/css"/>
+		<script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js">
+		</script>
+		
+		<script src = "https://cdn3.devexpress.com/jslib/18.1.7/js/dx.all.js"></script>
+	</head>
+	<style>
+	#scrollview-demo {
+    min-height: 550px;
+}
+
+#scrollview {
+    height: auto;
+    position: absolute;
+    top: 0; 
+    bottom: 300px;
+    padding: 20px;  
+}
+
+.options {
+    padding: 20px;
+    background-color: rgba(191, 191, 191, 0.15);
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+.caption {
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.option {
+    margin-top: 10px;
+}
+
+.option > span {
+    position: relative;
+    top: 2px;
+    margin-right: 10px;
+}
+
+.option > .dx-selectbox {
+    display: inline-block;
+    vertical-align: middle;
+    max-width: 340px;
+    width: 100%;
+}
+	</style>
+
+	<script>
+	$(function(){
+    $("#scrollview-content").html(longText);
+
+    function updateContent(args, eventName) {
+        setTimeout(function() {
+            $("<br /><div>Content has been updated on the " + eventName + " event.</div><br />")[eventName == "PullDown" ? "prependTo" : "appendTo"]("#scrollview-content");
+            args.component.release();
+        }, 500);
+    }
+    
+    function updateBottomContent(e) {
+        updateContent(e, "ReachBottom");
+    }
+    
+    function updateTopContent(e) {
+         updateContent(e, "PullDown");
+    }
+    
+    var scrollViewWidget = $("#scrollview").dxScrollView({
+        scrollByContent: true,
+        scrollByThumb: true,
+        showScrollbar: "onScroll",
+        onReachBottom: updateBottomContent,
+        reachBottomText: "Updating..."
+    }).dxScrollView("instance");
+    
+    var showScrollbarModes = [{
+        text: "On Scroll",
+        value: "onScroll"
+    }, {
+        text: "On Hover",
+        value: "onHover"
+    }, {
+        text: "Always",
+        value: "always"
+    }, {
+        text: "Never",
+        value: "never"
+    }];
+    
+    $("#show-scrollbar-mode").dxSelectBox({
+        items: showScrollbarModes,
+        value: showScrollbarModes[0].value,
+        valueExpr: "value",
+        displayExpr: "text",
+        onValueChanged: function(data) {
+            scrollViewWidget.option("showScrollbar", data.value);
+        }
+    });
+    
+    $("#use-reach-bottom").dxCheckBox({
+        value: true,
+        text: "Update content on the ReachBottom event",
+        onValueChanged: function(data) {
+            scrollViewWidget.option("onReachBottom", data.value ? updateBottomContent : null);
+        }
+    });
+    
+    $("#use-pull-down-bottom").dxCheckBox({
+        value: false,
+        text: "Update content on the PullDown event",
+        onValueChanged: function(data) {
+            scrollViewWidget.option("onPullDown", data.value ? updateTopContent : null);
+            scrollViewWidget.option("bounceEnabled", data.value);
+        }
+    });
+    
+    $("#scroll-by-content").dxCheckBox({
+        value: true,
+        text: "Scroll by content",
+        onValueChanged: function(data) {
+            scrollViewWidget.option("scrollByContent", data.value);
+        }
+    });
+    
+    $("#scroll-by-thumb").dxCheckBox({
+        value: true,
+        text: "Scroll by thumb",
+        onValueChanged: function(data) {
+            scrollViewWidget.option("scrollByThumb", data.value);
+        }
+    });
+});
+
+var longText = "";
+
+for(var i=0; i < 10; i++) {
+    longText += "<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>";
+}
+
+longText += "<br />";
+	</script>
+
+
+
+<body>
+	
+	
+	
+    <div class="dx-viewport demo-container">
+        <div id="scrollview-demo">         
+            <div id="scrollview">
+                <div id="scrollview-content"></div>
+            </div>
+
+            <div class="options">
+                <div class="caption">Options</div>
+                <div class="option">
+                    <span>Show scrollbar:</span> 
+                    <div id="show-scrollbar-mode"></div>
+                </div>
+                <div class="option">
+                    <div id="use-reach-bottom"></div>
+                </div>
+                <div class="option">    
+                    <div id="use-pull-down-bottom"></div>
+                </div>
+                <div class="option">    
+                    <div id="scroll-by-content"></div>
+                </div>
+                <div class="option">
+                    <div id="scroll-by-thumb"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
