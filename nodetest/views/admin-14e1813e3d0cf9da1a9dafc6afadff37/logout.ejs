@@ -1,0 +1,14 @@
+<?php
+
+session_start();
+// require controller 
+require '../controller/controller.php';
+
+if(AdminLoginController::IsUserIsLoggedIn() !== true) {
+		
+	header('Location:http://localhost/admin-14e1813e3d0cf9da1a9dafc6afadff37/login');
+}
+// Obj 
+$new = new MarketPlace();
+
+AdminLoginController::LogOut();

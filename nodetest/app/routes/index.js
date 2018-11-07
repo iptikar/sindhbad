@@ -29,9 +29,17 @@ const buffer = require('buffer');
 
 var router = express.Router();
 
-
-
+// Generating unique id
 var uniqid = require('uniqid');
+
+// Generating order id 
+const oid = require('order-id')('mysecret');
+
+
+
+// Generate 
+
+const getOrderId = oid.generate()
 
 // Require addto cart module
 var GetCart = require ('../../components/addtocart/index.js')
@@ -51,7 +59,8 @@ var RemoveItems = require ('../../components/deleteItems.js');
 const request = require("request");
 
 
-
+// Require function
+var mysqlDate = require ('../../components/getMysqlDate.js'); 
 
 
 const GetBuyerShipping = require('../../db1');
@@ -59,10 +68,16 @@ const GetBuyerShipping = require('../../db1');
 // Create required modules modules
 const models = require('../../model/order');
 
+// Administrator model 
+const administrator = require('../../model/administartor-user');
+
+
 // Module check if mobile is UAE number 
 const IsUAEMobileNumber = require ('../../components/IsUAEMobileNumber');
 
 const http = require('http');
+
+const async = require('async');
 
 // Csrf middle waredf
 const csrfMiddleware = csurf({
@@ -2293,7 +2308,11 @@ router.post('/guestcheckout', function (req, res)  {
 
 				// escape all vairable
 				for (var key in req.body) {
-
+						
+						if(key === 'password') {
+							
+								continue;
+						}
 						req.body[key] = escape(req.body[key]);
 					}
 
@@ -2450,11 +2469,27 @@ router.get('/payment', function (req, res) {
 // Confirm order
 router.all('/order-confirmation', function (req, res) {
 
-		 var orderid = uniqid();
+		 var orderid = oid.getTime(getOrderId);
 		 var IfCartExists = req.cookies.ShoppingCart;
 		var buyerSession = req.session.buyer;
 		var ShoppingCartTotal = req.cookies.ShoppingCartTotal;
 		var buyerShippingAddress = req.cookies.shipping_address;
+		
+		
+		// Object to save
+			var returnObject = { result: {
+
+						IfCartExists: IfCartExists,
+						IsBuyerIsLoggedIn: buyerSession,
+						ShoppingCartTotal: ShoppingCartTotal,
+						getToken:req.csrfToken(),
+						shipto: req.cookies.shipping_address,
+						orderId :orderid
+
+					}
+						};
+
+
 
 		 if(typeof req.body.paymentmethod !== 'undefined' &&
 		 typeof IfCartExists !== 'undefined' &&
@@ -2532,21 +2567,6 @@ router.all('/order-confirmation', function (req, res) {
 							seen : seen,
 							buyer_email :buyerSession.username
 					}
-					
-					
-			// Object to save
-			var returnObject = { result: {
-
-						IfCartExists: IfCartExists,
-						IsBuyerIsLoggedIn: buyerSession,
-						ShoppingCartTotal: ShoppingCartTotal,
-						getToken:req.csrfToken(),
-						shipto: req.cookies.shipping_address,
-						orderId :orderid
-
-					}
-						};
-
 
 			var saveOrder = new Promise(function(resolve, reject){
 					
@@ -2659,7 +2679,7 @@ router.all('/order-confirmation', function (req, res) {
 
 					
 					// Then send sms 
-						resolve(SendSMSOrderConfirmation(orderid, mobile_no));
+						//resolve(SendSMSOrderConfirmation(orderid, mobile_no));
 
 					}
 								
@@ -2672,12 +2692,22 @@ router.all('/order-confirmation', function (req, res) {
 				console.log(values);
 			});
 			
+			// Delete cookies 
+			res.clearCookie("ShoppingCart");
+			res.clearCookie("ShoppingCartTotal");
+			res.clearCookie("shipping_address");
+			
 			res.render('order-confirmation', returnObject);
 			
 			
+			
 		
-		}
-
+		} else {
+			
+				console.log(returnObject);
+				res.render('order-confirmation', returnObject);
+			
+			}
 			// Send text message 
 			
 })
@@ -2695,17 +2725,11 @@ router.all('/create-required-models', function (req, res){
 router.get('/allcookies', function (req, res) {
 	
 	
-	//var number = '0522365236';
-	//var country = 'AE';
-	test
-.then(function(data) {
-    console.log(data);
-    return test2;
-})
 	
 	//console.log(IsUAEMobileNumber.UAENumber(country, number));
 	
-	res.send(req.session);
+	res.send(req.cookies);
+	//console.log('Hi Hi ha');
 	//res.send(req.cookies);
 	//console.log(buffer.length);
 })
@@ -2802,6 +2826,189 @@ request.get({url: "http://localhost:8888/orderConfirmationTemplate", qs: {data: 
 })
 
 
+/* Administrator section start from here */
+// Admin login route
+router.get('/admin-14e1813e3d0cf9da1a9dafc6afadff37/login', function (req, res) {
+	
+	res.render('admin-14e1813e3d0cf9da1a9dafc6afadff37/login.ejs', {result: {getToken:req.csrfToken()}});
+})
+
+
+// Login post request 
+router.post('/admin-14e1813e3d0cf9da1a9dafc6afadff37/admin_login_request', function (req, res) {
+	
+	// expected data 
+	/*
+	 * { _csrf: 'Gw7mb7cI-ksJfmG25Vz2LDuRWXQ26raQHagM',
+  username: '',
+  password: '',
+  remember: '1' }
+	 * */
+	
+	console.log(req.body);
+	
+	var email = req.body.username;
+	 var password = req.body.password;
+
+	 var Reg  = /^\S+@[\w\d.-]{2,}\.[\w]{2,6}$/i;
+
+	 // Validate username
+	 if(!(Reg.test(email))) {
+
+		// Throw error
+		req.session.sessionFlash = {
+        type: 'error',
+        message: 'Please enter valid email address'
+		};
+	}
+
+	// Lets do query
+	db.collection('admin_user').find({email:email}).toArray(function(err, result) {
+
+    // If error occured
+    if (err) throw err;
+
+    // Length of object must be 1
+    if(result.length !== 1) {
+
+			// Flash the error
+		req.session.sessionFlash =
+			{
+			type: 'error',
+			message: 'Unable to find username '+email
+			};
+			
+			console.log(`No user found with ${email}`)
+			// Redirect
+			return res.redirect('/admin-14e1813e3d0cf9da1a9dafc6afadff37/login');
+
+	} else {
+
+			// Get the password
+			var hashed_password = (result[0].password);
+
+			// Using bcrypt for password validation
+			var IsValidPass = bcrypt.compareSync(password, hashed_password); // true
+
+			// Check if password
+			if(IsValidPass === true ) {
+
+				// Get server key
+				var serverKey = All.ServerKey();
+
+				var SessionData = {
+									"username":email,
+									"password":hashed_password,
+									"usertype":'administartor'
+								}
+								
+				
+
+				req.session.regenerate(function(errSession) {
+
+							if(errSession)  {
+
+								console.log(errSession);
+							}
+				})
+
+				req.session.administartor  = SessionData;
+				
+				return res.redirect('/admin-14e1813e3d0cf9da1a9dafc6afadff37/');
+				
+				
+
+			} else {
+
+					req.session.sessionFlash =
+					{
+						type: 'error',
+						message: 'Invalid password'
+					};
+					
+					console.log('login failed')
+					// Redirect to login page
+					return res.redirect('/admin-14e1813e3d0cf9da1a9dafc6afadff37/login');
+				}
+
+
+
+		}
+
+	// Get the password
+	//var password = result[password'];
+
+
+  });
+  
+  
+	
+})
+
+// create admin model
+
+
+// Sindhbad admin index rount 
+router.get('/admin-14e1813e3d0cf9da1a9dafc6afadff37/', function (req, res) {
+	
+	// check admin session is set 
+	if(typeof req.session.administartor === 'undefined') {
+		
+			res.redirect('/admin-14e1813e3d0cf9da1a9dafc6afadff37/login');
+		}
+	res.render('admin-14e1813e3d0cf9da1a9dafc6afadff37/index.ejs');
+})
+
+// Order rout 
+router.get('/admin-14e1813e3d0cf9da1a9dafc6afadff37/orders', function (req, res) {
+	
+	res.render('admin-14e1813e3d0cf9da1a9dafc6afadff37/orders.ejs');
+})
+
+
+// Get order by order id route
+router.get('/admin-14e1813e3d0cf9da1a9dafc6afadff37/order-details', function (req, res) {
+	
+	res.render('admin-14e1813e3d0cf9da1a9dafc6afadff37/order-details.ejs');
+})
+
+
+// Create administrator model 
+
+router.get('/admin-14e1813e3d0cf9da1a9dafc6afadff37/createAdminModel', function (req, res) {
+	
+	/*
+	// Whenever need try to make that point of time 
+	
+	var password = bcrypt.hashSync('123@husABID', 10);
+	var date = mysqlDate.mysqldate(new Date());
+	var email = 'admin@sindhbad.com';
+	
+	// Moving to un profession way 
+	db.collection('admin_user').insert({
+		  user_id:1,
+		  firstname: '',
+		  lastname: '',
+		  email: email,
+		  username: 'sindhbad',
+		  password: password,
+		  create_at: date,
+		  update_at: date,
+		  logdate: date,
+		  is_active: 0,
+		  firstfailure: date,
+		  status: 0,
+		  refresh_token:'',
+		  failure_number:''
+  
+});
+
+	*/
+})
+
+
+
+
 router.get('/testing1', function (req, res) {
 
 console.log(JSON.stringify('Helo 5656'));
@@ -2832,19 +3039,30 @@ router.post('/testing2', function (req, res) {
 })
 
 
+// For testing pourpose remove all doc 
+router.get('/remove', function (req, res) {
+	
+	db.collection('buyer').remove({})
+	db.collection('buyer_address').remove({})
 
+	
+		
+	
+	})
 
 // If url not matched with server defiend route
 router.get('/test', function(req, res){
 
+let hash = bcrypt.hashSync('thisismylife', 10);
 
-
-	//res.render('test.ejs');
-  var orderid = '98955655656';
-  var mob_no = '0565973854';
+console.log(escape('$2b$10$/JI1oE8X6/Lu10l9.6DnGe7FnaJ3nFTTxlHSDc/k6mg9OiXoOeg3m'));
+//res.render('test.ejs');
+  //var orderid = '98955655656';
+  //var mob_no = '0565973854';
   
 
-  console.log(SendSMSOrderConfirmation(orderid, mob_no));
+ // console.log(SendSMSOrderConfirmation(orderid, mob_no));
+ 
 });
 
 

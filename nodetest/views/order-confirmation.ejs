@@ -40,7 +40,7 @@
       
       
      
-      <%- include('header.ejs');%>
+      
       
       
       
@@ -57,7 +57,7 @@
       
       <div class="page-wrapper">
       
-       <?php include 'header.php'; ?>
+		<%- include('header.ejs');%>
 	
 		<main id="maincontent" class="page-main">
 		<div class="columns col1-layout">
@@ -65,7 +65,12 @@
                   <div class="row">
                      <div class="col-lg-12 col-md-12"> 
                      
-                     <?php if($obj->IfCartExists() === true) :?>
+                     <% if(typeof result.IfCartExists !== 'undefined') { %>
+						 
+					
+                     
+                     
+                     
                      <div class="jumbotron center" style = "text-align:center;">
   <h1 class="display-3">Thank you for your purchase!</h1>
   <p class="lead">
@@ -87,12 +92,17 @@
   </p>
 </div>
                     
-                     <?php else:?>
+                     <% } else {%>
+                     
+                     
                      <div class="message info">
 		<div>
   <strong> </strong>Shopping cart is empty !.
 </div></div>
-                     <?php endif;?>
+                     
+                     
+                     
+                     <% } %>
                      
                     </div>
                     </div>
@@ -102,10 +112,7 @@
 		</main>
          
          
-         <?php 
-			
-			include ('footer.php');
-         ?>
+           <%- include('footer.ejs') %>
       </div>
       </body>
      </html>

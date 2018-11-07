@@ -2,3 +2,6 @@
  even though user is not verified it will set same session which is controversial 
  
 Ans: Set different session name then verified users so it's help 
+
+2: While checkout user register password as well get escape therefore continue password fields because it will not validate 
+

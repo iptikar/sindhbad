@@ -249,4 +249,32 @@ SELECT *fields* FROM database1.table1
 	* can often be obtained as well. In Microsoft SQL Server, the Query Analyzer has an option called “Show Execution Plan” 
 	* (located on the Query drop down menu). If this option is turned on, it will display query execution plans in a separate window when a query is run.
   * */
+  
+  mysql -u USER_NAME –xml -e 'SELECT * FROM table_name' > table_name.xml
+  
+  While you can execute backup commands from PHP, they don't really have anything to do with PHP. It's all about MySQL.
+
+I'd suggest using the mysqldump utility to back up your database. The documentation can be found here : http://dev.mysql.com/doc/refman/5.1/en/mysqldump.html.
+
+The basic usage of mysqldump is
+
+mysqldump -u user_name -p name-of-database >file_to_write_to.sql
+You can then restore the backup with a command like
+
+mysql -u user_name -p <file_to_read_from.sql
+Do you have access to cron? I'd suggest making a PHP script that runs mysqldump as a cron job. That would be something like
+
+<?php
+
+$filename='database_backup_'.date('G_a_m_d_y').'.sql';
+
+$result=exec('mysqldump database_name --password=your_pass --user=root --single-transaction >/var/backups/'.$filename,$output);
+
+if($output==''){/* no output is good */}
+else {/* we have something to log the output here*/}
+If mysqldump is not available, the article describes another method, using the SELECT INTO OUTFILE and LOAD DATA INFILE commands. The only connection to PHP is that you're using PHP to connect to the database and execute the SQL commands. You could also do this from the command line MySQL program, the MySQL monitor.
+
+It's pretty simple, you're writing an SQL file with one command, and loading/executing it when it's time to restore.
+
+You can find the docs for select into outfile here (just search the page for outfile). LOAD DATA INFILE is essentially the reverse of this. See here for the docs
    
