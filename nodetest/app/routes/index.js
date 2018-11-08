@@ -2837,20 +2837,11 @@ router.get('/admin-14e1813e3d0cf9da1a9dafc6afadff37/login', function (req, res) 
 // Login post request 
 router.post('/admin-14e1813e3d0cf9da1a9dafc6afadff37/admin_login_request', function (req, res) {
 	
-	// expected data 
-	/*
-	 * { _csrf: 'Gw7mb7cI-ksJfmG25Vz2LDuRWXQ26raQHagM',
-  username: '',
-  password: '',
-  remember: '1' }
-	 * */
-	
-	console.log(req.body);
 	
 	var email = req.body.username;
 	 var password = req.body.password;
 
-	 var Reg  = /^\S+@[\w\d.-]{2,}\.[\w]{2,6}$/i;
+	 var Reg  = new RegExp(/^\S+@[\w\d.-]{2,}\.[\w]{2,6}$/i);
 
 	 // Validate username
 	 if(!(Reg.test(email))) {
@@ -2858,8 +2849,24 @@ router.post('/admin-14e1813e3d0cf9da1a9dafc6afadff37/admin_login_request', funct
 		// Throw error
 		req.session.sessionFlash = {
         type: 'error',
-        message: 'Please enter valid email address'
+        message: 'Please enter valid email address.'
 		};
+		
+		return res.redirect('/admin-14e1813e3d0cf9da1a9dafc6afadff37/login');
+	}
+	
+	
+	// Check password sombody can play with application 
+	if(password === '') {
+		
+		// Throw error
+		req.session.sessionFlash = {
+        type: 'error',
+        message: 'Please enter valid password'
+		};
+		
+		return res.redirect('/admin-14e1813e3d0cf9da1a9dafc6afadff37/login');
+		
 	}
 
 	// Lets do query
@@ -2878,7 +2885,7 @@ router.post('/admin-14e1813e3d0cf9da1a9dafc6afadff37/admin_login_request', funct
 			message: 'Unable to find username '+email
 			};
 			
-			console.log(`No user found with ${email}`)
+			
 			// Redirect
 			return res.redirect('/admin-14e1813e3d0cf9da1a9dafc6afadff37/login');
 
@@ -2923,22 +2930,14 @@ router.post('/admin-14e1813e3d0cf9da1a9dafc6afadff37/admin_login_request', funct
 					req.session.sessionFlash =
 					{
 						type: 'error',
-						message: 'Invalid password'
+						message: 'Please enter valid password.'
 					};
 					
 					console.log('login failed')
 					// Redirect to login page
 					return res.redirect('/admin-14e1813e3d0cf9da1a9dafc6afadff37/login');
 				}
-
-
-
 		}
-
-	// Get the password
-	//var password = result[password'];
-
-
   });
   
   
@@ -2956,24 +2955,82 @@ router.get('/admin-14e1813e3d0cf9da1a9dafc6afadff37/', function (req, res) {
 		
 			res.redirect('/admin-14e1813e3d0cf9da1a9dafc6afadff37/login');
 		}
+		
+	
 	res.render('admin-14e1813e3d0cf9da1a9dafc6afadff37/index.ejs');
 })
 
 // Order rout 
 router.get('/admin-14e1813e3d0cf9da1a9dafc6afadff37/orders', function (req, res) {
 	
-	res.render('admin-14e1813e3d0cf9da1a9dafc6afadff37/orders.ejs');
+	// check admin session is set 
+	/*
+	if(typeof req.session.administartor === 'undefined') {
+		
+			res.redirect('/admin-14e1813e3d0cf9da1a9dafc6afadff37/login');
+		}
+		
+	*/
+	
+	let collectionName = 'orders';
+
+    let finbyInArray = {};
+
+    URLToRedirect = 'admin-14e1813e3d0cf9da1a9dafc6afadff37/orders.ejs';
+
+
+    // Write again new promisess
+
+	db.collection('order').find().toArray((err, result) => {
+    
+    if (err) return console.log(err)
+    // renders index.ejs
+    // check something found 
+    if(result.length > 0) {
+		
+		res.render('admin-14e1813e3d0cf9da1a9dafc6afadff37/orders.ejs', {result: result});
+	} else {
+		
+		res.render('admin-14e1813e3d0cf9da1a9dafc6afadff37/orders.ejs', {result: 'No records found.'});
+			
+		}
+    
+    
+  })
+	
+	// Get the order details and return the the view 
+	
+	//res.render('admin-14e1813e3d0cf9da1a9dafc6afadff37/orders.ejs');
 })
 
 
 // Get order by order id route
 router.get('/admin-14e1813e3d0cf9da1a9dafc6afadff37/order-details', function (req, res) {
 	
+	// check admin session is set 
+	if(typeof req.session.administartor === 'undefined') {
+		
+			res.redirect('/admin-14e1813e3d0cf9da1a9dafc6afadff37/login');
+		}
+	
 	res.render('admin-14e1813e3d0cf9da1a9dafc6afadff37/order-details.ejs');
 })
 
-
 // Create administrator model 
+// Logout 
+router.get('/admin-14e1813e3d0cf9da1a9dafc6afadff37/logout', function (req, res){
+	
+		// If check the session is set 
+		if(typeof req.session.administartor !== 'undefined') {
+		
+			// Delete the session 
+			delete req.session.administartor;
+			
+			// Redirect to 
+			res.redirect('/admin-14e1813e3d0cf9da1a9dafc6afadff37/login');
+		}
+		
+	})
 
 router.get('/admin-14e1813e3d0cf9da1a9dafc6afadff37/createAdminModel', function (req, res) {
 	
@@ -3005,8 +3062,6 @@ router.get('/admin-14e1813e3d0cf9da1a9dafc6afadff37/createAdminModel', function 
 
 	*/
 })
-
-
 
 
 router.get('/testing1', function (req, res) {

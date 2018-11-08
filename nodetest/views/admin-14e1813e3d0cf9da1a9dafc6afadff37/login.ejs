@@ -75,15 +75,30 @@ License: You must have a valid license purchased only from themeforest(the above
         <div class="content">
             <!-- BEGIN LOGIN FORM -->
             <div class = "form-message">
-				<?php if(AdminLoginController::LoginAsAdmin('username', 'password') === false ) :?>
-					
-					<div class="alert alert-danger display-hide" style="display: block;">
-                      <button class="close" data-close="alert"></button> You have some form errors. Invalid login. </div>
 				
-				<?php endif;?>
-           
+				
+			<div class = "row">
+<% if ( sessionFlash && sessionFlash.message) { %>
 
-            </div>
+
+
+<!-- Chek if error containe -->
+
+<% if (sessionFlash.type === 'error') { %>
+
+<div class="alert alert-danger">
+<strong>Error!</strong> <%- sessionFlash.message %>
+
+</div>
+
+<% } %>
+
+<% } %>
+					
+					
+					
+ 
+ </div>
             <form class="login-form"  action = "/admin-14e1813e3d0cf9da1a9dafc6afadff37/admin_login_request"method="post" novalidate="novalidate">
 				<input type = "hidden" name = "_csrf" value = "<%= result.getToken; %>" />
                 <h3 class="form-title"><center>Administrator</center></h3>

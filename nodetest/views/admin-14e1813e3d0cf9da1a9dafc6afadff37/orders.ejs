@@ -1,19 +1,4 @@
-<?php 
-session_start();
-	// Reqire controller 
-	require '../controller/controller.php';
-	
-	// Get the object 
-	$obj = new MarketPlace();
-
-	date_default_timezone_set ('Asia/Dubai');
-	
-	if(AdminLoginController::IsUserIsLoggedIn() !== true) {
-		
-			header('Location:http://localhost/admin-14e1813e3d0cf9da1a9dafc6afadff37/login');
-		}
-	
-?>
+<% console.log(result)%>
 <!DOCTYPE html>
 <!-- 
 Template Name: Metronic - Responsive Admin Dashboard Template build with Twitter Bootstrap 3.3.6
