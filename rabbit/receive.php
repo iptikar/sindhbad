@@ -7,10 +7,16 @@ $channel->queue_declare('hello', false, false, false, false);
 echo " [*] Waiting for messages. To exit press CTRL+C\n";
 
 $callback = function ($msg) {
-    echo ' [x] Received ', $msg->body, "\n";
+  echo ' [x] Received ', $msg->body, "\n";
+  
+  sleep(substr_count($msg->body, '.'));
+  echo " [x] Done\n";
 };
+
 $channel->basic_consume('hello', '', false, true, false, false, $callback);
+
 while (count($channel->callbacks)) {
+   
     $channel->wait();
 }
 $channel->close();

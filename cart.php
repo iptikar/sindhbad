@@ -276,6 +276,8 @@
 		<script>
 			
 			
+    
+			
 		function editCart(el) {
 		
 			// Get the attribute value 
@@ -310,9 +312,12 @@
 			  dataType: "text",
 			  success: function(resultData) { 
 				
-				$("#cart-update-msg").html(resultData);
+				//$("#cart-update-msg").html(resultData);
+				window.location.reload();
+				//$("#cart-container-5656").load('updated-cart-2e3615a020749.phtml');
 				
-				$("#cart-container-5656").load('updated-cart-2e3615a020749.phtml');
+				
+				
 				
  				
 		  }
@@ -368,9 +373,13 @@
 			  dataType: "text",
 			  success: function(resultData) { 
 				
-				$("#cart-update-msg").html(resultData);
+				//$("#cart-update-msg").html(resultData);
 				
-				$("#cart-container-5656").load('updated-cart-2e3615a020749.phtml');
+				//$("#cart-container-5656").load('updated-cart-2e3615a020749.phtml');
+				
+				//$("#min-cart-5656").load('mini-cart.phtml');
+				window.location.reload();
+				//mini-cart.phtml
 				
  				
 		  }
@@ -437,8 +446,8 @@
 			  success: function(resultData) { 
 		
 				// here set the 
-				$("#cart-update-msg").html(resultData);
-				
+				//$("#cart-update-msg").html(resultData);
+				window.location.reload();
 
 			}
 });

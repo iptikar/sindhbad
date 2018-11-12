@@ -2396,6 +2396,8 @@ window.onclick = function(event) {
     public function getPriceFormate($number)
     {
         
+        settype($number, 'integer');
+        
     // Set the local currency
         setlocale(LC_MONETARY, "en_US.UTF-8");
     

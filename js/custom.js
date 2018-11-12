@@ -117,9 +117,64 @@ $(function () {
 		})
 	
 	
+	
  
 	
 });
 
 
+function SendItemToCart(el) {
+		
+			// get 
+			// Get the data attribute 
+	var data = $(el).attr('data-cart');
+	
+	// parse json 
+	data = JSON.parse(data);
+	
+	
+	// Get the element that is required 
+	var sku = data.sku;
+
+	// Get the product name 
+	var p_name = data.name;
+
+	// Get the product image 
+	var p_p_img = data.image; 
+
+	// Get the quentity 
+	var qty = data.qty
+
+	// Get the price 
+	var price = data.price;
+
+	// Get the id of the product 
+	var id = data.id;
+
+	// quentity must be number 
+	var data = {sku:sku, name:p_name, image:p_p_img, qty:qty, price:price, id:id};
+
+
+
+	var url = 'http://localhost/ajax/add-to-cart-ajax.php';
+	
+	
+	 $.ajax({
+			  type: 'POST',
+			  url: url,
+			  data: data,
+			  dataType: "text",
+			  success: function(resultData) { 
+				  
+			 
+			 window.location.href = "http://localhost/cart";
+			  //$('#cart-msg').html(resultData);
+		 
+		  }
+});
+
+
+
+	
+}
 

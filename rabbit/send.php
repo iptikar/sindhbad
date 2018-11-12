@@ -5,9 +5,18 @@ use PhpAmqpLib\Connection\AMQPStreamConnection;
 use PhpAmqpLib\Message\AMQPMessage;
 $connection = new AMQPStreamConnection('localhost', 5672, 'guest', 'guest');
 $channel = $connection->channel();
-$channel->queue_declare('hello', false, false, false, false);
-$msg = new AMQPMessage('Hello World!');
+
+// Mail to seend 
+$data = implode(' ', array_slice($argv, 1));
+if (empty($data)) {
+    $data = "Hello World!. I am hanging arout you. Hello";
+}
+$msg = new AMQPMessage($data);
+
 $channel->basic_publish($msg, '', 'hello');
-echo " [x] Sent 'Hello World!'\n";
+
+echo ' [x] Sent ', $data, "\n";
+
 $channel->close();
+
 $connection->close();
