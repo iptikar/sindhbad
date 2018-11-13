@@ -1,21 +1,22 @@
 
 
 jQuery(function () {
-               jQuery('#date-available-to').datetimepicker({
-                    locale: 'ru'
+               jQuery('#date-available-to').datepicker({
+                    format: 'yyyy-mm-dd'
+                    
                 });
 	
-    	jQuery('#date-available-from').datetimepicker({
-                    locale: 'ru'
+    	jQuery('#date-available-from').datepicker({
+                   format: 'yyyy-mm-dd'
                 });
 			
 			
-		jQuery('#special-price-from').datetimepicker({
-                    locale: 'ru'
+		jQuery('#special-price-from').datepicker({
+                    format: 'yyyy-mm-dd'
                 });
 	
-    	jQuery('#special-price-to').datetimepicker({
-                    locale: 'ru'
+    	jQuery('#special-price-to').datepicker({
+                     format: 'yyyy-mm-dd'
                 });
 
 		jQuery("#form_sample_1").on('click', '.addSpecificationBtn', function(){

@@ -87,7 +87,7 @@ License: You must have a valid license purchased only from themeforest(the above
         
         <!-- END HEADER -->
         <!-- BEGIN HEADER & CONTENT DIVIDER -->
-        <div class="clearfix"> </div>
+        <div class="clearfix"> </div>datetimepicker
         <!-- END HEADER & CONTENT DIVIDER -->
         <!-- BEGIN CONTAINER -->
         <div class="page-container">
@@ -514,10 +514,7 @@ License: You must have a valid license purchased only from themeforest(the above
                                                   
                                                    </div>
                                                 </div>
-                                             
-                                             
-                                           
-                                            
+
                                              <div class = "form-group">
 												
 												
@@ -870,10 +867,7 @@ License: You must have a valid license purchased only from themeforest(the above
                                                   
                                          
                                          </div>
-                                      
-                                         
-                                         
-                                         
+ 
                                         <div class = "form-group">
                                          
                                           <label class = "col-md-2 control-label">Telephone
@@ -895,8 +889,7 @@ License: You must have a valid license purchased only from themeforest(the above
                                                   
                                          
                                          </div>
-                                         
-                                         
+
                                         <div class = "form-group">
                                          
                                           <label class = "col-md-2 control-label">Mobile No.
@@ -920,7 +913,7 @@ License: You must have a valid license purchased only from themeforest(the above
                                          </div>
                                         
                                         
-                                    <link rel="stylesheet" href="build/css/intlTelInput.css">    <div class="form-group">
+                                   <div class="form-group">
 											
                                                    <label class="col-md-2 control-label">Latitude</label>
                                                    <div class="col-md-4">
@@ -969,6 +962,27 @@ License: You must have a valid license purchased only from themeforest(the above
                                         
                                         </div>
                                        
+									
+									
+									<div class="form-group">
+
+									   <label class="col-md-2 control-label">Seller Type
+									   <span class="required"> * </span>
+									   </label>
+									   <div class="col-md-4">
+										  <select name="seller-type" id="seller-type" class="form-control" oninvalid="this.setCustomValidity('Please Enter seller type.')" oninput="setCustomValidity('')" required="">
+											 <option value="">--Select--</option>
+											 <option value="whole-sale">Whole Sale</option>
+											 <option value="retails" selected="">Retails</option>
+											 <option value="whole-sale-and-retail">Whole Sale And Retail</option>
+											 <option value="individual">Individual</option>
+										  </select>
+									   </div>
+									
+                                                
+                                                
+                                                </div>
+
 									<div class="form-group">
 										
 										  <label class="col-md-2 control-label">Document
@@ -983,7 +997,7 @@ License: You must have a valid license purchased only from themeforest(the above
                                         </div>
                                           
 										</div>
-                                       
+        
 									<div class = "portlet-title">
                                     <div class = "message" id = "message"></div>
                                     <div class = "actions btn-set custom12">
@@ -1003,7 +1017,9 @@ License: You must have a valid license purchased only from themeforest(the above
                                            
 											</form>
                                    
-                                    <form action  =  "" method  =  'POST' enctype  =  'multipart/form-data' id  "individual_form" style = "display:none;">
+         <form action  =  "" method  =  'POST' enctype  =  'multipart/form-data' id  ="individual_form" style = "display:none;">
+											
+											
 											<div id = "if_individual">
 
                                         
@@ -1606,9 +1622,27 @@ License: You must have a valid license purchased only from themeforest(the above
                                                   
                                          
                                          </div>
-                                        
-                                       
-                                       
+ 
+ 
+										<div class="form-group">
+
+									   <label class="col-md-2 control-label">Seller Type
+									   <span class="required"> * </span>
+									   </label>
+									   <div class="col-md-4">
+										  <select name="seller-type" id="seller-type" class="form-control" oninvalid="this.setCustomValidity('Please Enter seller type.')" oninput="setCustomValidity('')" required="">
+											 <option value="">--Select--</option>
+											 <option value="whole-sale">Whole Sale</option>
+											 <option value="retails" selected="">Retails</option>
+											 <option value="whole-sale-and-retail">Whole Sale And Retail</option>
+											 <option value="individual">Individual</option>
+										  </select>
+									   </div>
+									
+                                                
+                                                
+                                                </div>
+
                                       <div class = "form-group">
 										
 										  <label class = "col-md-2 control-label">Document
@@ -2399,6 +2433,7 @@ License: You must have a valid license purchased only from themeforest(the above
     
    $('input[name="seller-type"]').change(function() {
 	   
+	  
     if (this.value == 'individual') {
        
        

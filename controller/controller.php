@@ -184,7 +184,7 @@ class MarketPlace
         
         
         
-        $seller_type = $_POST['seller-type'];
+        
         $avaibility = $_POST['avaibility'];
         $min_order = $_POST['min-order'];
         $tax_class = $_POST['tax-class'];
@@ -193,20 +193,13 @@ class MarketPlace
         $unite_amount = $_POST['unite-amount'];
         $product_unite = $_POST['product-unite'];
         $product_condition = $_POST['product-condition'];
-        $country = $_POST['country'];
-        $country_phone_code = $_POST['country-phone-code'];
-        $phone = $_POST['phone'];
-        
-        
-        
         
         $warrenty = $_POST['warrenty'] ?? '';
         $weblink = $_POST['weblink'] ?? '';
         $youtube_link = $_POST['youtube-link'] ?? '';
         $facebook_link = $_POST['facebook-link'] ?? '';
         $saller_note = $_POST['saller-note'] ?? '';
-        $latitude = $_POST['latitude'];
-        $longitude = $_POST['longitude'];
+        
         $product_articles_html = $_POST['product-articles-html'] ?? '';
         $meta_title = $_POST['meta_title'] ?? '';
         $meta_keywords = $_POST['meta_keywords'] ?? '';
@@ -214,8 +207,8 @@ class MarketPlace
         
         $spcification_title = $_POST['spcification-title'];
         $spcification_value = $_POST['spcification-value'];
-        $city = $_POST['city'] ?? '';
-        $poboxno = $_POST['poboxno'] ?? '';
+        
+        
         $delivery_service = $_POST['delivery-service'] ?? '' ;
         
         
@@ -250,7 +243,7 @@ class MarketPlace
         
         
         // discription
-        $vpn = $this->validateDate($date_available_from, 'Y-m-d H:i');
+        $vpn = $this->validateDate($date_available_from, 'Y-m-d');
         
         
         // If variable is not returning true
@@ -262,7 +255,7 @@ class MarketPlace
         
         
         // discription
-        $vpn = $this->validateDate($date_available_to, 'Y-m-d H:i');
+        $vpn = $this->validateDate($date_available_to, 'Y-m-d');
         
         
         // If variable is not returning true
@@ -337,7 +330,7 @@ class MarketPlace
             
         // Check it's regression
             // discription
-            $vpn = $this->validateDate($special_price_from, 'Y-m-d H:i');
+            $vpn = $this->validateDate($special_price_from, 'Y-m-d');
         
         
             // If variable is not returning true
@@ -349,7 +342,7 @@ class MarketPlace
         
             // Check it's regression
             // discription
-            $vpn = $this->validateDate($special_price_to, 'Y-m-d H:i');
+            $vpn = $this->validateDate($special_price_to, 'Y-m-d');
         
         
             // If variable is not returning true
@@ -380,12 +373,6 @@ class MarketPlace
             return $vpn;
         }
         
-        // Seller type
-        if ($seller_type === '') {
-            
-            // Return js error message
-            return $this->JSErrorMsg("$seller_type Please select seller type.");
-        }
         
         
         
@@ -475,65 +462,8 @@ class MarketPlace
             // Select product condition
             return $this->JSErrorMsg('Please select product condition.');
         }
-        
-        
-        
-        // Country
-        if ($country === '') {
-            
-            // Select product condition
-            return $this->JSErrorMsg('Please select country.');
-        }
-        
-        // If country ae then city and pox must be select
-        if ($country === 'AE') {
-            
-             // Check city and post box no
-            if ($_POST['city'] === '') {
-                 
-                 // Select product condition
-                return $this->JSErrorMsg('Please select city.');
-            }
-                
-            // Post box no
-            $reg = '/^[0-9]{1,6}$/';
-        
-            // discription
-            $vpn = $this->ErrorMsg($reg, $poboxno, $this->JSErrorMsg('Please enter Post Box No.'));
-        
-        
-            // If variable is not returning true
-            if ($vpn !== true) {
-                // Return the message
-                return $vpn;
-            }
-        }
-        // City
-        
-        
-        
-        // Select country code
-        if ($country_phone_code === '') {
-            
-            // Select product condition
-            return $this->JSErrorMsg('Please select country phone code.');
-        }
-            
-        // Phone number
-        $reg = '/^[0-9]{9,10}$/';
-        
-        // discription
-        $vpn = $this->ErrorMsg($reg, $phone, $this->JSErrorMsg('Please enter phone number.'));
-        
-        
-        // If variable is not returning true
-        if ($vpn !== true) {
-            // Return the message
-            return $vpn;
-        }
-                
-        
-        
+       
+         
         // Warrenty
         $reg = '/^[a-zA-Z0-9 ]{2,50}$/';
         
@@ -650,21 +580,7 @@ class MarketPlace
             }
         }
         
-        // Lattitude
-        if (!$this->isGeoValid('latitude', $latitude)) {
-            
-            // Throw the error
-            return $this->JSErrorMsg('Please enter valid latitude.');
-        }
-            
-        // Longititude
-        if (!$this->isGeoValid('longitude', $longitude)) {
-            
-            // Throw the error
-            return $this->JSErrorMsg('Please enter valid longitude.');
-        }
-        
-        
+       
         // Reassign the value and then with json encode
         $spcification_title = json_encode($spcification_title);
 
@@ -756,7 +672,6 @@ class MarketPlace
         $special_price_from 	= 		htmlspecialchars($special_price_from);
         $special_price_to 		= 		htmlspecialchars($special_price_to);
         $items_available 		= 		htmlspecialchars($items_available);
-        $seller_type 			= 		htmlspecialchars($seller_type);
         $avaibility 			= 		htmlspecialchars($avaibility);
         
         
@@ -768,9 +683,11 @@ class MarketPlace
         $unite_amount 			= 		htmlspecialchars($unite_amount);
         $product_unite 			= 		htmlspecialchars($product_unite);
         $product_condition 		= 		htmlspecialchars($product_condition);
-        $country 				= 		htmlspecialchars($country);
-        $country_phone_code 	= 		htmlspecialchars($country_phone_code);
-        $phone 					= 		htmlspecialchars($phone);
+       
+       
+       
+       
+       
         $warrenty 				= 		htmlspecialchars($warrenty);
         
         
@@ -779,8 +696,9 @@ class MarketPlace
         $youtube_link 			= 		htmlspecialchars($youtube_link);
         $facebook_link 			= 		htmlspecialchars($facebook_link);
         $saller_note 			= 		htmlspecialchars($saller_note);
-        $latitude 				= 		htmlspecialchars($latitude);
-        $longitude 				= 		htmlspecialchars($longitude);
+        
+        
+        
         $product_articles_html  = 		htmlspecialchars($product_articles_html);
         
         
@@ -795,8 +713,8 @@ class MarketPlace
         $spcification_value 	= 		htmlspecialchars($spcification_value);
         
         
-        $city 					= 		htmlspecialchars($city);
-        $poboxno 				= 		htmlspecialchars($poboxno);
+       
+        
         $delivery_service 		= 		htmlspecialchars($delivery_service) ;
         $delivery_period		= htmlspecialchars($_POST['delivery_period']) ;
         
@@ -893,8 +811,8 @@ class MarketPlace
 													avaibility,
 													supplier_sku,
 													customer_email,
-													phonenumber,
-													seller_type,
+													
+												
 													product_unite,
 													unite_amount,
 													delivery_servic,
@@ -910,13 +828,13 @@ class MarketPlace
 													meta_description,
 													images,
 													minimun_order
-													) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)"
+													) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)"
                                             );
                                             
         
         // Bind the all paramets
         $stmt->bind_param(
-            "sssssssssssssssssssssssssssssssss",
+            "sssssssssssssssssssssssssssssss",
                                                     
                                                     $seller_email,
                                                     $product_name,
@@ -934,8 +852,8 @@ class MarketPlace
                                                     $avaibility,
                                                     $supplier_sku,
                                                     $seller_email,
-                                                    $phone,
-                                                    $seller_type,
+                                                    
+                                                 
                                                     $product_unite,
                                                     $unite_amount,
                                                     $delivery_service,
