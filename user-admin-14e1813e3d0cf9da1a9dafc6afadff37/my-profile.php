@@ -569,7 +569,7 @@ License: You must have a valid license purchased only from themeforest(the above
                                                    </label>
                                                    <div class = "col-md-4">
 													   
-                                       <input type="text" class="datepicker form-control " name = "expiry_date"  value="" oninvalid="this.setCustomValidity('Please Enter date available from.')" oninput="setCustomValidity('')" #595656565=""> 
+                                       <input type="text" class="datepicker form-control " name = "registration_no"  value="" oninvalid="this.setCustomValidity('Please Enter date available from.')" oninput="setCustomValidity('')" #595656565=""> 
 													
                                                   
                                                   
@@ -970,7 +970,7 @@ License: You must have a valid license purchased only from themeforest(the above
 									   <span class="required"> * </span>
 									   </label>
 									   <div class="col-md-4">
-										  <select name="seller-type" id="seller-type" class="form-control" oninvalid="this.setCustomValidity('Please Enter seller type.')" oninput="setCustomValidity('')" required="">
+										  <select name="seller_type" id="seller_type" class="form-control" oninvalid="this.setCustomValidity('Please Enter seller type.')" oninput="setCustomValidity('')" required="">
 											 <option value="">--Select--</option>
 											 <option value="whole-sale">Whole Sale</option>
 											 <option value="retails" selected="">Retails</option>

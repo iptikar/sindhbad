@@ -1,3 +1,26 @@
+var validateObject = function (obj, callback) {
+    if (typeof obj !== 'object') {
+        return callback(new Error('Invalid object'));
+    }
+    return callback();
+};
+
+var a = {a:'b'};
+console.log(typeof a)
+validateObject(a, function (err) {
+  
+  // Check if error is instance 
+  if(err instanceof Error ) {
+  console.log('Callback: ' + err.message);
+  } else {
+  
+  	console.log('tight pussy')
+  }
+    
+});
+
+
+
 //https://stackoverflow.com/questions/7042340/error-cant-set-headers-after-they-are-sent-to-the-client
 /* What is recursion */
 

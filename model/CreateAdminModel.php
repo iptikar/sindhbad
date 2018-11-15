@@ -2,7 +2,6 @@
 
 // Require connection 
 require '../controller/connection.php';
-
 class CreateAdminModel {
 	
 	
