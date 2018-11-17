@@ -16,6 +16,12 @@ if($obj->IsUserLoggedInSeller() !== true) {
 		header('Location:http://localhost/login');
 }
 
+	/*
+	 * 	This view running two methods 
+	 *  Company selller information post 
+	 * 	Individual seller post information 
+	 * 
+	 * */
 
 
 	// To view these page for session must be start
@@ -381,8 +387,15 @@ License: You must have a valid license purchased only from themeforest(the above
 							<h4> Your Account is Incomplete!</h4> 
 							<h6>Please verify you account</h6>
 							
+							<?php?>
 							
+							<?php
+								
+								var_dump($obj->SaveComapnyInformation(new CompanySeller ));
+								
+								var_dump($obj->SaveIndividualSeller(new IndividualSeller ));
 							
+							?>
 							
 						</div>
 						
@@ -413,7 +426,7 @@ License: You must have a valid license purchased only from themeforest(the above
                                        
                                         
 
-                                      
+                                    
                                        
                                        <div class = "tab-content" id = "form_sample_1">
 										  
@@ -451,8 +464,9 @@ License: You must have a valid license purchased only from themeforest(the above
 												
                                             </div>
                                            
-                                    <form  action  =  "" method  =  'POST' enctype  =  'multipart/form-data' id = "company_form" style = "display:none;">
                                            <div id = "if_company">
+                                    <form  action  =  "<?=  basename($_SERVER['PHP_SELF'],'.php');?>" method  =  'POST' enctype  =  'multipart/form-data' id = "company_form" style = "display:none;">
+                                           
                                            
                                            <div class = "form-body">
                                             
@@ -1004,7 +1018,7 @@ License: You must have a valid license purchased only from themeforest(the above
                                        <button class = "btn btn-secondary-outline" id = "reset">
                                        <i class = "fa fa-reply"></i> Reset</button>
                                        
-                                       <button type  =  "submit" class = "btn" id = "upload" name = "submit">
+                                       <button type  =  "submit" class = "btn" id = "upload" name = "business_submit_btn">
                                        <i class = "fa fa-check"></i> Save</button>    
                                        
                                                                      
@@ -1013,14 +1027,14 @@ License: You must have a valid license purchased only from themeforest(the above
                            
                                     </div>
                                    
-                                       </div>
+                                     
                                            
-											</form>
-                                   
-         <form action  =  "" method  =  'POST' enctype  =  'multipart/form-data' id  ="individual_form" style = "display:none;">
-											
-											
+								</form>
+                                   </div>
+									
 											<div id = "if_individual">
+									<form action  =  "<?=  basename($_SERVER['PHP_SELF'],'.php');?>" method  =  'POST' enctype  =  'multipart/form-data' id  ="individual_form" style = "display:none;">
+								
 
                                         
                                         <div class = "form-group">
@@ -1630,7 +1644,7 @@ License: You must have a valid license purchased only from themeforest(the above
 									   <span class="required"> * </span>
 									   </label>
 									   <div class="col-md-4">
-										  <select name="seller-type" id="seller-type" class="form-control" oninvalid="this.setCustomValidity('Please Enter seller type.')" oninput="setCustomValidity('')" required="">
+										  <select name="seller_type" id="seller-type" class="form-control" oninvalid="this.setCustomValidity('Please Enter seller type.')" oninput="setCustomValidity('')" required="">
 											 <option value="">--Select--</option>
 											 <option value="whole-sale">Whole Sale</option>
 											 <option value="retails" selected="">Retails</option>
@@ -1665,7 +1679,7 @@ License: You must have a valid license purchased only from themeforest(the above
                                        <button class="btn btn-secondary-outline" id="reset">
                                        <i class="fa fa-reply"></i> Reset</button>
                                        
-                                       <button type="submit" class="btn" id="upload" name="submit">
+                                       <button type="submit" class="btn" id="upload" name="individual_submit_btn">
                                        <i class="fa fa-check"></i> Save</button>    
                                        
                                                                      
@@ -1673,10 +1687,9 @@ License: You must have a valid license purchased only from themeforest(the above
                                  </div>
                                       </div>
 									</div>
-                                   
-                                   
-                                    </div>
+
                                  </form>
+                                 </div>
                                  
                                  </div>
                                     </div>

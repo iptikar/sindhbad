@@ -75,6 +75,8 @@ class Sellers {
 				city char(40) not null,
 				telephone char(50) not null,
 				mobile_no char(50) not null,
+				po_box int (20) not null,
+				fax char(25) not null,
 				website varchar(75) not null,
 				latitude DECIMAL(10, 8),
 				longitude DECIMAL(11, 8),
@@ -82,6 +84,8 @@ class Sellers {
 				unique_business_id char(50) UNIQUE KEY NOT NULL,
 				seller_type char(50) NOT NULL,
 				document CHAR (50) null,
+				created date not null,
+				updated date not null,
 				seller_email VARCHAR(225) UNIQUE KEY,
 				FOREIGN KEY (seller_email) REFERENCES seller(email)
 				)ENGINE  =  INNODB DEFAULT CHARSET =  utf8";
@@ -157,13 +161,17 @@ class Sellers {
 				 state_region_province CHAR (50) NOT NULL,
 				 post_zip_code INT(20) NOT NULL,
 				 land_line_no CHAR(20) NULL,
+				 mobile_no char(50) not null,
 				 nationality CHAR(30) NOT NULL,
 				 emirate_id_no CHAR(50) NOT NULL,
 				 unique_business_id CHAR(50) NOT NULL,
+				 seller_type char(50) NOT NULL,
 				 website VARCHAR(100) NULL,
 				 address VARCHAR(225) NOT NULL,
 				 document CHAR(50) NOT NULL,
 				 seller_email VARCHAR(225) UNIQUE KEY,
+				 created date not null,
+				 updated date not null,
 				FOREIGN KEY (seller_email) REFERENCES seller(email)
 				)ENGINE  =  INNODB DEFAULT CHARSET =  utf8";
                     

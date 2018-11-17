@@ -12,6 +12,15 @@ require 'Orders.php';
 // require select store procedure
 require 'SelectStoreProcedure.php';
 
+// company seller required 
+require 'CompanySeller.php';
+
+// Require individual seller 
+require 'IndividaulSeller.php';
+
+// preparedInsertStatement.php
+require 'InsertPreparedStatement.php';
+
 
 class MarketPlace
 {
@@ -4944,4 +4953,16 @@ window.onclick = function(event) {
     }
 
     /* Third phase development ends here */
+    
+    public function SaveComapnyInformation(CompanySeller  $obj) {
+		
+			return $obj::SaveCompanyInformation();
+	}
+
+	
+	/* Saving individual seller account details */
+	public function SaveIndividualSeller(IndividualSeller $obj) {
+		
+			return $obj::UpdateIndividualSellerDetails();
+		}
 }
