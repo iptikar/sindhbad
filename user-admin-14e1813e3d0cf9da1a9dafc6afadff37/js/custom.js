@@ -1,6 +1,14 @@
 
 
 jQuery(function () {
+              
+              //     $('.datepicker').datepicker();
+              
+              jQuery('.datepicker').datepicker({
+                    format: 'yyyy-mm-dd'
+                    
+                });
+                
                jQuery('#date-available-to').datepicker({
                     format: 'yyyy-mm-dd'
                     

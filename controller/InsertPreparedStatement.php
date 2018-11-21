@@ -59,7 +59,7 @@ class InsertPreparedStatement
                 $mysqli = $db->getConnection();
 				
 				// Prepare mysqli statements 
-				$stmt = $mysqli->prepare("INSERT INTO seller_as_company ($column) VALUES ($questionMark)");
+				$stmt = $mysqli->prepare("INSERT INTO $tablename ($column) VALUES ($questionMark)");
 				
 				// If stmet failed 
 				if(!$stmt) {
@@ -81,4 +81,13 @@ class InsertPreparedStatement
 				
 			return true;
 			}
+
+		public function updateDocument(array $addColumn, 
+											array $removeColumn,
+											string $tablename) {
+												
+												
+											
+		}
+
 }

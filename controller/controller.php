@@ -2607,7 +2607,11 @@ window.onclick = function(event) {
     public function getTemplate($template, $data, $regrex)
     {
         
-
+		if(!is_array($data)) 
+		{
+			
+				return false;
+			}
         /* Data type each value must be array */
         $arrval = array_values($data);
 
@@ -4964,5 +4968,120 @@ window.onclick = function(event) {
 	public function SaveIndividualSeller(IndividualSeller $obj) {
 		
 			return $obj::UpdateIndividualSellerDetails();
+		}
+		
+	/* Is profile complete for the seller */
+	public function IsProfileExists() {
+		
+			// Get the seller email 
+			$seller_email = $this->SellerSession()->email;
+			
+			
+			// Check they exist in the table 
+			$company_table = 'seller_as_company';
+			$indivdual_table = 'seller_as_individual';
+			
+			
+			// Select 
+			$mysqli  = $this->Connection();
+			
+			// Sql 
+			$sql = "SELECT 
+					id,
+					business_name ,
+					legal_form,
+					nationality,
+					established,
+					expiry_date,
+					company_type,
+					tax_no,
+					registration_no,
+					country,
+					city,
+					telephone,
+					mobile_no,
+					po_box,
+					fax,
+					website,
+					latitude,
+					longitude,
+					address,
+					unique_business_id,
+					seller_type,
+					document,
+					created,
+					updated,
+					seller_email 
+					from $company_table where seller_email = '$seller_email'";
+			
+			// Result 
+			$result = $mysqli->query($sql);
+			// Run the query 
+			if(!$result) {
+				
+					// return error 
+					return $mysqli->error;
+				}
+				
+			
+			// Set record exists 
+			if($result->num_rows === 1) {
+				
+				$mysqli->close();
+				
+				// Records exists 
+				return ['result' => $result->fetch_all(MYSQLI_ASSOC)[0], 'seller_type'=> 'company'];
+
+			} else {
+				
+				// Do another query 
+				$sql = "SELECT 
+						id,
+						country,
+						city,
+						state_region_province,
+						post_zip_code,
+						land_line_no,
+						mobile_no,
+						nationality,
+						emirate_id_no,
+						unique_business_id,
+						seller_type,
+						website,
+						address,
+						document,
+						seller_email,
+						created from $indivdual_table where seller_email = '$seller_email'";
+				
+				// Result 
+				$result = $mysqli->query($sql);
+				// Run the query 
+				if(!$result) {
+				
+					// return error 
+					return $mysqli->error;
+				}
+				
+				// Set record exists 
+			if($result->num_rows === 1) {
+				
+				// Records exists 
+				return ['result' => $result->fetch_all(MYSQLI_ASSOC)[0], 'seller_type'=> 'individual'];
+				
+				$mysqli->close();
+			}
+					
+				}
+			// Clsoe 
+			$mysqli->close();
+			
+		return false;
+	}
+
+
+	/* Updating business seller type form */
+	public function UpdateBusinessSellerForm(){
+			
+		
 		}
 }
