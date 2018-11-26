@@ -7271,7 +7271,7 @@ License: You must have a valid license purchased only from themeforest(the above
        placeholderNumberType: "MOBILE",
       // preferredCountries: ['cn', 'jp'],
       // separateDialCode: true,
-      utilsScript: "build/js/utils.js",
+      
     });
     
    

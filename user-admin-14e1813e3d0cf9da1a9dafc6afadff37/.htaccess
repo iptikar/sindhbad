@@ -1,9 +1,0 @@
-#turn on url rewriting 
-RewriteEngine on
-ErrorDocument 404 http://localhost/newproject3/404_error
-
-#remove the need for .php extention 
-RewriteCond %{REQUEST_FILENAME} !-d 
-RewriteCond %{REQUEST_FILENAME}\.php -f 
-RewriteRule ^(.*)$ $1.php
-

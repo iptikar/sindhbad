@@ -22,6 +22,9 @@ require 'IndividaulSeller.php';
 require 'InsertPreparedStatement.php';
 
 
+// Need to show products list to the seller 
+require 'Products.php';
+
 class MarketPlace
 {
     
