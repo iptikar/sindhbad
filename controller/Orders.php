@@ -5,7 +5,7 @@ class Orders
     public static function GetOrders()
     {
                 
-                    // Get the connection
+         // Get the connection
         $db = Database::getInstance();
                     
         // Get the instance of connection

@@ -41,7 +41,7 @@ class MarketPlace
     
     private $key1 = '3vmigUCQdJGRrvG';
     
-    protected $isFileValid = [];
+    public $isFileValid = [];
     
     // Here we go
     protected $category_seperator ='#2e3615a020749';
@@ -3160,6 +3160,7 @@ window.onclick = function(event) {
         // Get the rows
         $result = $query->fetch_array();
             
+            
         // Free result
         $query->free_result();
             
@@ -5086,5 +5087,10 @@ window.onclick = function(event) {
 	public function UpdateBusinessSellerForm(){
 			
 		
+		}
+
+	public function test8989() {
+		
+			return 'HEllo';
 		}
 }

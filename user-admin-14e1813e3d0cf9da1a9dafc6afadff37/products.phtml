@@ -8,10 +8,12 @@ session_start();
 
 	date_default_timezone_set ('Asia/Dubai');
 	
-	if(AdminLoginController::IsUserIsLoggedIn() !== true) {
-		
-			header('Location:http://localhost/admin-14e1813e3d0cf9da1a9dafc6afadff37/login');
-		}
+// If admin user is logged in
+if($obj->IsUserLoggedInSeller() !== true) {
+	
+		// Set the new header 
+		header('Location:http://localhost/login');
+}
 	
 ?>
 <!DOCTYPE html>

@@ -1,7 +1,9 @@
 <?php
 
 //setcookie('buyershipping7522', '', time() -3600, '/', $_SERVER['SERVER_NAME']);
-echo "<pre>";
+$var = ['a', 'b', 'c'];
 
-print_r($_COOKIE);
-echo "</pre>";
+unset($var[1]);
+
+sort($var);
+print_R($var);
