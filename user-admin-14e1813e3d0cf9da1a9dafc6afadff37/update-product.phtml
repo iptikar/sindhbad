@@ -397,15 +397,14 @@
                      <!-- END PAGE BREADCRUMB -->
                      <!-- BEGIN PAGE BASE CONTENT -->
                      <!-- BEGIN DASHBOARD STATS 1-->
-                     <?php
-                                       
-					echo "<pre>";
-					
-					//print_R(Products::GetProductById('id', 'sku'));
-					echo "</pre>";
-										
-										
-                     ?>
+                     <?php if(UpdateProductDetails::UpdatingNow(new MarketPlace) === true):?>
+                     <div class = "alert alert-success">
+						Information updated successfully !.
+                     </div>
+                 
+                     <?php endif; ?>
+                     
+                     
                      
                       <?php if(is_array (Products::GetProductById('id', 'sku')['result'])) :?>
                       
@@ -430,7 +429,7 @@
                                          
                                        </ul>
                                        
-                                        <form id = "form58656" action  =  "<?php echo basename($_SERVER['PHP_SELF'],'.php');?>" method  =  'POST' enctype  =  'multipart/form-data' >
+                                        <form id = "form58656" action  =  "<?php echo basename($_SERVER['PHP_SELF'],'.php').'?'.$_SERVER['QUERY_STRING'];?>" method  =  'POST' enctype  =  'multipart/form-data' >
                                        
                                        <div class = "tab-content" id = "form_sample_1">
 										  
@@ -1027,36 +1026,9 @@ oninput="setCustomValidity('')" required
 												$img_src_link = 'http://localhost/img/product-images/'.$primary_image;
                                                 
                                                 ?>
-                                                
-                                                <div class = "form-group">
-													
-													<div class = "col-md-4 product-images">
-													
-														<img src = "http://localhost/img/product-images/152878910490841.jpg"/>
-													</div>
-                                                
-                                                </div>
-                                                
-                                                
-                                                <div class = "form-group">
-													
-                                                   <label class = "col-md-2 control-label">Upload Images</label>
-                                                   <div class = "col-xs-4">
-                                                      <input type = "file" name = "option[]" accept="image/*" required>
-                                                   </div>
-                                                   <div class = "col-xs-4">
-                                                      <button type = "button" class = "btn btn-default addButton"><i class = "fa fa-plus"></i></button>
-                                                   </div>
-                                                </div>
-                                                
-                                                
-                                                <div class  =  "added-images" style  =  "min-height:175px;" id = "add-file-120">
-                                                  
                                                
-                                                </div>
-                                                <!-- Here end-->
-                                             
-                                             
+                                                
+                                                
                                              
                                              
                                              
@@ -1935,8 +1907,9 @@ oninput="setCustomValidity('')" required
 			
 			
 			livalue = JSON.stringify(livalue);
+			var sku = $('#SKUToSend').val();
 			
-			var data = {data:livalue};
+			var data = {data:livalue, sku:sku};
 			
 			 $.ajax({
 			  type: 'POST',
@@ -1945,9 +1918,25 @@ oninput="setCustomValidity('')" required
 			  dataType: "text",
 			  success: function(resultData) { 
 				  
-			 
-			  $('.df').html(resultData);
-		 
+					
+					$('#exampleModal1').on('hidden.bs.modal', function () {
+					
+					// do something…
+						window.location.reload();
+					})
+		
+					
+					if(resultData == '1') {
+				 
+					$('#exampleModal1').modal({
+		
+						show: true,
+						refresh: true
+					})
+					
+					
+			}
+
 		  }
 });
 
@@ -1959,38 +1948,7 @@ oninput="setCustomValidity('')" required
     
     $( "#sortable" ).disableSelection();
   } );
-  
-  
-  
-  function RemoveProductImage(el) {
-	  
-	  
-		
-		
-		var data = $(el).attr('data-product-image');
-		
-	
-		var url = 'http://localhost/user-admin-14e1813e3d0cf9da1a9dafc6afadff37/ajax/RemoveProductImage.php';
-		var decode = JSON.parse(data);
-		
-		// Send http ajax request 
-		 $.ajax({
-			  type: 'POST',
-			  url: url,
-			  data: decode,
-			  dataType: "text",
-			  success: function(resultData) { 
-				  
-			 
-			  //$('.df').html(resultData);
-			alert(resultData)
-		  }
-});
 
-
-		
-	 
-	 }
   
    $('input[name=images]').change(function () {
 		  
@@ -2018,15 +1976,72 @@ oninput="setCustomValidity('')" required
         //alert(result);
         
         
-        $('#exampleModal').modal({
-		
-			show: true
+        $('#exampleModal').on('hidden.bs.modal', function () {
+					
+					// do something…
+						window.location.reload();
 		})
+					
+					
+        if(result == '1') {
+			
+			$('#exampleModal').modal({
+		
+			show: true,
+			refresh: true
+		})
+		
+	}
+         
     }
 		  
 	})
 		})
   
+  
+   function RemoveProductImage(el) {
+	  
+	  
+		
+		
+		var data = $(el).attr('data-product-image');
+		
+	
+		var url = 'http://localhost/user-admin-14e1813e3d0cf9da1a9dafc6afadff37/ajax/RemoveProductImage.php';
+		var decode = JSON.parse(data);
+		
+		// Send http ajax request 
+		 $.ajax({
+			  type: 'POST',
+			  url: url,
+			  data: decode,
+			  dataType: "text",
+			  success: function(resultData) { 
+					
+	
+					$('#exampleModal2').on('hidden.bs.modal', function () {
+					
+					// do something…
+						window.location.reload();
+					})
+					
+					
+					$('#exampleModal2').modal({
+		
+						show: true,
+						refresh: true
+			});
+		  
+				
+				
+		  }
+});
+
+
+		
+	 
+	 }
+ 
 	</script>
 
 
@@ -2051,9 +2066,51 @@ oninput="setCustomValidity('')" required
     </div>
   </div>
 </div>
+ 
+ 
+<div class="modal fade" id="exampleModal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Image Sucessfully Arragned.</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true"></span>
+        </button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        
+      </div>
+    </div>
+  </div>
+</div>
            
             <!-- END THEME LAYOUT SCRIPTS -->
-         </body>
+<div class="modal fade no-reload" id="exampleModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Image Sucessfully Deleted.</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true"></span>
+        </button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        
+      </div>
+    </div>
+  </div>
+</div>
+ 
+         
+</body>
 
 
 <!-- The Modal -->

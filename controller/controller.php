@@ -25,6 +25,14 @@ require 'InsertPreparedStatement.php';
 // Need to show products list to the seller 
 require 'Products.php';
 
+// Required updating product 
+require 'UpdateProductDetails.php';
+
+
+// Remving product 
+require 'DeleteProductBySKU.php';
+
+
 class MarketPlace
 {
     
@@ -44,7 +52,7 @@ class MarketPlace
     public $isFileValid = [];
     
     // Here we go
-    protected $category_seperator ='#2e3615a020749';
+    public $category_seperator ='#2e3615a020749';
     
     // Per page data
     public $perpage = 5;
@@ -4962,6 +4970,8 @@ window.onclick = function(event) {
 
     /* Third phase development ends here */
     
+    /* Forth phas development start form here */
+    
     public function SaveComapnyInformation(CompanySeller  $obj) {
 		
 			return $obj::SaveCompanyInformation();
@@ -5089,8 +5099,7 @@ window.onclick = function(event) {
 		
 		}
 
-	public function test8989() {
 		
-			return 'HEllo';
-		}
+		
+	 /* Forth phas development ends form here */
 }

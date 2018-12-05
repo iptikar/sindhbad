@@ -188,13 +188,7 @@ License: You must have a valid license purchased only from themeforest(the above
                                         </div>
                                     </div>
                                     
-                                    <?php
-                                    
-                                    echo "<pre>";
-                                    print_R(Products::GetProducts()['result'][0]);
-                                    
-                                    echo "</pre>"; 
-                                    ?>
+                                   
                                     <div class="portlet-body flip-scroll">
                                         
                                         <?php if(isset(Products::GetProducts()['result'][0]) && count(Products::GetProducts()['result'][0]) > 0):?>
@@ -860,6 +854,28 @@ License: You must have a valid license purchased only from themeforest(the above
                 <i class="icon-arrow-up"></i>
             </div>
         </div>
+        
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Image Sucessfully Uploaded.</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true"></span>
+        </button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" id="modal-btn-si">Yes</button>
+        <button type="button" class="btn btn-primary" id="modal-btn-no">Cancel</button>
+        
+      </div>
+    </div>
+  </div>
+</div>
+
         <!-- END FOOTER -->
         <!--[if lt IE 9]>
 <script src="../assets/global/plugins/respond.min.js"></script>
@@ -921,6 +937,13 @@ License: You must have a valid license purchased only from themeforest(the above
 <script>
 $(document).ready(function() {
     $('#example').DataTable();
+    
+    
+    $('#exampleModal2').on('hidden.bs.modal', function () {
+					
+					// do something…
+						window.location.reload();
+	})
 } );
 
 
@@ -931,9 +954,11 @@ function DeleteItem(el) {
 		// Deoce 
 		var jsonData =  JSON.parse(data);
 		
-		
-		// quentity must be number 
-	
+		var r = confirm("Are you sure to delete the product !.");
+	if (r !== true) {
+   
+   return false;
+} 
 	var url = 'http://localhost/user-admin-14e1813e3d0cf9da1a9dafc6afadff37/ajax/DeleteMyItem.php';
 	 $.ajax({
 			  type: 'POST',
@@ -943,16 +968,55 @@ function DeleteItem(el) {
 			  success: function(result) { 
 				  
 			 
-			 alert(result);
-			  //$('#cart-msg').html(resultData);
+			 $('#exampleModal2').on('hidden.bs.modal', function () {
+					
+					// do something…
+						window.location.reload();
+					})
+					
+			
+			 if(result == '1'){
+				 
+				$('#exampleModal2').modal({
+		
+						show: true,
+						refresh: true
+					})
+				
+			}
 		 
 		  }
 });
 
 		
 	}
+
+
 </script>
         <!-- END THEME LAYOUT SCRIPTS -->
+
+            <!-- END THEME LAYOUT SCRIPTS -->
+<div class="modal fade no-reload" id="exampleModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Image Sucessfully Deleted.</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true"></span>
+        </button>
+      </div>
+     
+      <div class="modal-footer">
+		
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        
+        
+      </div>
+    </div>
+  </div>
+</div>
+ 
+        
     </body>
 
 </html>

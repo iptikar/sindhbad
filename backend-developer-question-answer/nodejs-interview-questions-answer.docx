@@ -242,6 +242,7 @@ function Car() {
         alert("I can access " + self.publicField + " and " + privateField);
     }
 }
+
 you can instantiate those classes:
 
 var car = new Car();

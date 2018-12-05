@@ -1,5 +1,26 @@
 <?php
 
+$sku = 'SSDF65656';
+$id = 18;
+$seller_email = 'bharatrose1@gmail.com';
+
+$mysqli = new mysqli('localhost', 'root' ,'a', 'iptikar-marketplace');
+
+
+$sql = "DELETE FROM product_catalogs, product_categlog_attributes	
+USING product_catalogs
+INNER JOIN product_categlog_attributes
+WHERE product_catalogs.id = 17
+      AND product_catalogs.id = product_categlog_attributes.id";
+
+
+
+if(!$mysqli->query($sql)) {
+	
+		echo $mysqli->error;
+	}
+
+echo $mysqli->affected_rows;
 
 
 exit();
