@@ -27,3 +27,8 @@ require 'InsertPreparedStatement.php';
 4. Not sure if you have to update js folder 
 /var/www/html/user-admin-14e1813e3d0cf9da1a9dafc6afadff37/js/custom.js
 
+Again 
+http://sindhbad.com/user-admin-14e1813e3d0cf9da1a9dafc6afadff37/css/custom.min.css
+
+13 link change z index 
+

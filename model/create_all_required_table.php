@@ -440,6 +440,15 @@
 	
 	
 	
+	// Adding full text index to product catalogs table to name column 
+	
+	$sql = "ALTER TABLE product_catalogs ADD FULLTEXT(name)";
+	
+	// Run the query 
+	if(!$mysqli->query($sql)) {
+		
+			return $mysqli->error;
+		}
 	
 	// Adding in order table weather coloun is seen or not ENUM
 	 

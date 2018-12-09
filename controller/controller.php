@@ -1,36 +1,28 @@
 <?php
-
 // Require order confirmation
 require 'OrderConfirmationEmail.php';
-
 // Require admin login controller
 require 'AdminLoginController.php';
-
 // Required orders
 require 'Orders.php';
-
 // require select store procedure
 require 'SelectStoreProcedure.php';
-
 // company seller required 
 require 'CompanySeller.php';
-
 // Require individual seller 
 require 'IndividaulSeller.php';
-
 // preparedInsertStatement.php
 require 'InsertPreparedStatement.php';
-
-
 // Need to show products list to the seller 
 require 'Products.php';
-
 // Required updating product 
 require 'UpdateProductDetails.php';
-
-
 // Remving product 
 require 'DeleteProductBySKU.php';
+
+// Search Product
+require 'SearchProducts.php';
+
 
 
 class MarketPlace
@@ -55,7 +47,7 @@ class MarketPlace
     public $category_seperator ='#2e3615a020749';
     
     // Per page data
-    public $perpage = 5;
+    public $perpage = 3;
     
     // Under free shipping amount
     public $MinimunOrderFreeShip = 100;
@@ -2286,6 +2278,9 @@ window.onclick = function(event) {
     }
     
     
+    
+   
+    
     public function Pagination()
     {
         
@@ -2295,6 +2290,40 @@ window.onclick = function(event) {
             
         // how many pages
         if ($records < 1) {
+            return false;
+        }
+                
+            
+        // Record per page
+        $rpp = $this->perpage;
+            
+            
+        // Per page must be less then
+        if ($rpp > $records) {
+                
+                    // Return false
+            return false;
+        }
+                
+        // Celing the record
+        $tp = ceil($records/$rpp);
+            
+            
+        // Return the pagination
+        return $tp;
+    }
+
+
+	 public function PaginationOOP($NumberOfRecords)
+    {
+        
+        
+            // Get the records
+        $records = $NumberOfRecords;
+            
+        // how many pages
+        if ($records < 1) {
+			
             return false;
         }
                 

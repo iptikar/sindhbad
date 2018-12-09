@@ -1,0 +1,19 @@
+> view
+search.phtml
+
+js/search.js
+
+Add this src linke to every page in the footer.php
+
+css/search.css
+
+
+> Model
+
+> createrequiredtable.php
+
+> Alter table added index to the product catagloges name coloum 
+	
+> Controller 
+	SearchProducts.php
+	print_R(SearchProducts::LetMeSearchProducts('q', 'cat'));

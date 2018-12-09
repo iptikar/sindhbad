@@ -1,9 +1,40 @@
 <?php
 
-//setcookie('buyershipping7522', '', time() -3600, '/', $_SERVER['SERVER_NAME']);
-$var = ['a', 'b', 'c'];
+class Node 
+{
+	
+		private $_i;
+		
+		public function __construct($key) 
+		{
+				
+			$this->_i = $key;
+		}
+		
+		public function getKey() {
+			
+			return $this->_i;
+		}
+}
 
-unset($var[1]);
 
-sort($var);
-print_R($var);
+class Heap {
+	
+		private $head_Array;
+		
+		private $_current_Size;
+		
+		public function __construct() {
+			
+			
+			$head_Array = array();
+			
+			$this->_current_Size = 0;
+		}
+		
+		public function remove() {
+			
+			$root = $this->head_Array[0];
+		}
+	
+	}

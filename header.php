@@ -2500,7 +2500,7 @@
                            <div class="search-wrapper">
                               <div id="sm_searchbox14897965901524390218" class="sm-searchbox">
                                  <div class="sm-searchbox-content">
-                                    <form class="form minisearch" id="searchbox_mini_form" action="#" method="get">
+                                    <form class="form minisearch" id="searchbox_mini_form" action="/search" method="get">
                                        <div class="field searchbox">
                                           <div class="control">
                                             
@@ -2684,3 +2684,5 @@
                </div>
             </div>
          </div>
+
+
