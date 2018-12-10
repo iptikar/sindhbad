@@ -14,7 +14,8 @@
 <script src="http://localhost/js/easyResponsiveTabs.js"></script>
 <script src = "http://localhost/js/track-buyer.js"></script>
 <link rel="stylesheet" href="http://localhost/css/xzoom.css">
-      
+
+<link rel="stylesheet" href="http://localhost/css/search.css">  
       
       <!--CUSTOM CSS-->
       <style></style>

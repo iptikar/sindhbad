@@ -416,7 +416,7 @@
   window.authenticationPopup = {"autocomplete":"off","customerRegisterUrl":"http:\/\/magento2.flytheme.net\/themes\/sm_market2\/argentina\/customer\/account\/create\/","customerForgotPasswordUrl":"http:\/\/magento2.flytheme.net\/themes\/sm_market2\/argentina\/customer\/account\/forgotpassword\/","baseUrl":"http:\/\/magento2.flytheme.net\/themes\/sm_market2\/argentina\/"};
 </script>
      
-     
+<script src = "/js/search.js" ></script>    
                                          
         
 </body>

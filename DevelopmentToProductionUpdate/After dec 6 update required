@@ -17,3 +17,11 @@ css/search.css
 > Controller 
 	SearchProducts.php
 	print_R(SearchProducts::LetMeSearchProducts('q', 'cat'));
+
+
+
+=================================================================================
+QUESTIONS 
+=================================================================================
+
+HOW TO ADD SYSTEM SHOW USERING CAN HAVE SOMETHING LIKE GB, TB Etc.

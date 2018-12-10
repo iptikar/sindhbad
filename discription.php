@@ -87,9 +87,68 @@ $details = $obj->getIndividualProduct('name', 'id', 'sku');
 				})
 			
 		</script>
+		
+		<style>
+		  padding-top: 70px;
+}
+.btn-grey{
+    background-color:#D8D8D8;
+	color:#FFF;
+}
+.rating-block{
+	background-color:#FAFAFA;
+	border:1px solid #EFEFEF;
+	padding:15px 15px 20px 15px;
+	border-radius:3px;
+}
+.bold{
+	font-weight:700;
+}
+.padding-bottom-7{
+	padding-bottom:7px;
+}
+
+.review-block{
+	background-color:#FAFAFA;
+	border:1px solid #EFEFEF;
+	padding:15px;
+	border-radius:3px;
+	margin-bottom:15px;
+}
+.review-block-name{
+	font-size:12px;
+	margin:10px 0;
+}
+.review-block-date{
+	font-size:12px;
+}
+.review-block-rate{
+	font-size:13px;
+	margin-bottom:15px;
+}
+.review-block-title{
+	font-size:15px;
+	font-weight:700;
+	margin-bottom:10px;
+}
+.review-block-description{
+	font-size:13px;
+}
+		</style>
+   
    </head>
 
    <body onload="DiscriptionTrackViewer(this);">
+   <div class="container">
+    			
+					
+		
+		
+</div> <!-- /container -->
+
+  
+  
+  
    <input type = "hidden" value = "<?= $_GET['sku'];?>" id = "traker-sku">
 	<input type = "hidden" value = "<?= $details['category_id'];?>" id = "traker-category-id" >
       <noscript>
@@ -688,56 +747,15 @@ $details = $obj->getIndividualProduct('name', 'id', 'sku');
          <div id="product-review-container" data-role="product-review">
             <div class="block review-list" id="customer-reviews">
                <div class="block-title"><strong>Customer Reviews</strong></div>
+               
                <div class="block-content">
                   <div class="toolbar review-toolbar">
                      <div class="pager">
-                        <div class="limiter">
-                           <strong class="limiter-label">Show</strong> 
-                           <select id="limiter" data-mage-init="{&quot;redirectUrl&quot;: {&quot;event&quot;:&quot;change&quot;}}" class="limiter-options">
-                              <option value="http://magento2.flytheme.net/themes/sm_market2/argentina/review/product/listAjax/id/2274/?limit=10" selected="selected">10</option>
-                              <option value="http://magento2.flytheme.net/themes/sm_market2/argentina/review/product/listAjax/id/2274/?limit=20">20</option>
-                              <option value="http://magento2.flytheme.net/themes/sm_market2/argentina/review/product/listAjax/id/2274/?limit=50">50</option>
-                           </select>
-                           <span class="limiter-text">per page</span>
-                        </div>
+                     
+                    
                      </div>
                   </div>
-                  <ol class="items review-items">
-                     <li class="item review-item" itemscope="" itemprop="review" itemtype="http://schema.org/Review">
-                        <div class="review-title" itemprop="name">Nemo enim ipsam voluptatem quia voluptas</div>
-                        <div class="review-ratings">
-                           <div class="rating-summary item" itemprop="reviewRating" itemscope="" itemtype="http://schema.org/Rating">
-                              <span class="label rating-label"><span>Value</span></span> 
-                              <div class="rating-result" title="80%">
-                                 <meta itemprop="worstRating" content="1">
-                                 <meta itemprop="bestRating" content="100">
-                                 <span style="width:80%"><span itemprop="ratingValue">80%</span></span>
-                              </div>
-                           </div>
-                           <div class="rating-summary item" itemprop="reviewRating" itemscope="" itemtype="http://schema.org/Rating">
-                              <span class="label rating-label"><span>Quality</span></span> 
-                              <div class="rating-result" title="80%">
-                                 <meta itemprop="worstRating" content="1">
-                                 <meta itemprop="bestRating" content="100">
-                                 <span style="width:80%"><span itemprop="ratingValue">80%</span></span>
-                              </div>
-                           </div>
-                           <div class="rating-summary item" itemprop="reviewRating" itemscope="" itemtype="http://schema.org/Rating">
-                              <span class="label rating-label"><span>Price</span></span> 
-                              <div class="rating-result" title="100%">
-                                 <meta itemprop="worstRating" content="1">
-                                 <meta itemprop="bestRating" content="100">
-                                 <span style="width:100%"><span itemprop="ratingValue">100%</span></span>
-                              </div>
-                           </div>
-                        </div>
-                        <div class="review-content" itemprop="description">Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt </div>
-                        <div class="review-details">
-                           <p class="review-author"><span class="review-details-label">Review by</span> <strong class="review-details-value" itemprop="author">Magentech</strong></p>
-                           <p class="review-date"><span class="review-details-label">Posted on</span> <time class="review-details-value" itemprop="datePublished" datetime="3/14/18">3/14/18</time></p>
-                        </div>
-                     </li>
-                  </ol>
+                 
                   <div class="toolbar review-toolbar">
                      <div class="pager">
                         <div class="limiter">
@@ -757,64 +775,181 @@ $details = $obj->getIndividualProduct('name', 'id', 'sku');
         
        
          <div class="block review-add">
-            <div class="block-title"><strong>Write Your Own Review</strong></div>
+			 <div class="row">
+			<div class="col-sm-6">
+				<div class="rating-block">
+					<h4>Average user rating</h4>
+					<h2 class="bold padding-bottom-7">4.3 <small>/ 5</small></h2>
+					<button type="button" class="btn btn-warning btn-sm" aria-label="Left Align">
+					  <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+					</button>
+					<button type="button" class="btn btn-warning btn-sm" aria-label="Left Align">
+					  <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+					</button>
+					<button type="button" class="btn btn-warning btn-sm" aria-label="Left Align">
+					  <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+					</button>
+					<button type="button" class="btn btn-default btn-grey btn-sm" aria-label="Left Align">
+					  <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+					</button>
+					<button type="button" class="btn btn-default btn-grey btn-sm" aria-label="Left Align">
+					  <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+					</button>
+				</div>
+			</div>
+			<div class="col-sm-6">
+				<h4>Rating breakdown</h4>
+				<div class="pull-left">
+					<div class="pull-left" style="width:35px; line-height:1;">
+						<div style="height:9px; margin:5px 0;">5 <span class="glyphicon glyphicon-star"></span></div>
+					</div>
+					<div class="pull-left" style="width:180px;">
+						<div class="progress" style="height:9px; margin:8px 0;">
+						  <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="5" aria-valuemin="0" aria-valuemax="5" style="width: 1000%">
+							<span class="sr-only">80% Complete (danger)</span>
+						  </div>
+						</div>
+					</div>
+					<div class="pull-right" style="margin-left:10px;">1</div>
+				</div>
+				<div class="pull-left">
+					<div class="pull-left" style="width:35px; line-height:1;">
+						<div style="height:9px; margin:5px 0;">4 <span class="glyphicon glyphicon-star"></span></div>
+					</div>
+					<div class="pull-left" style="width:180px;">
+						<div class="progress" style="height:9px; margin:8px 0;">
+						  <div class="progress-bar progress-bar-primary" role="progressbar" aria-valuenow="4" aria-valuemin="0" aria-valuemax="5" style="width: 80%">
+							<span class="sr-only">80% Complete (danger)</span>
+						  </div>
+						</div>
+					</div>
+					<div class="pull-right" style="margin-left:10px;">1</div>
+				</div>
+				<div class="pull-left">
+					<div class="pull-left" style="width:35px; line-height:1;">
+						<div style="height:9px; margin:5px 0;">3 <span class="glyphicon glyphicon-star"></span></div>
+					</div>
+					<div class="pull-left" style="width:180px;">
+						<div class="progress" style="height:9px; margin:8px 0;">
+						  <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="3" aria-valuemin="0" aria-valuemax="5" style="width: 60%">
+							<span class="sr-only">80% Complete (danger)</span>
+						  </div>
+						</div>
+					</div>
+					<div class="pull-right" style="margin-left:10px;">0</div>
+				</div>
+				<div class="pull-left">
+					<div class="pull-left" style="width:35px; line-height:1;">
+						<div style="height:9px; margin:5px 0;">2 <span class="glyphicon glyphicon-star"></span></div>
+					</div>
+					<div class="pull-left" style="width:180px;">
+						<div class="progress" style="height:9px; margin:8px 0;">
+						  <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="2" aria-valuemin="0" aria-valuemax="5" style="width: 40%">
+							<span class="sr-only">80% Complete (danger)</span>
+						  </div>
+						</div>
+					</div>
+					<div class="pull-right" style="margin-left:10px;">0</div>
+				</div>
+				<div class="pull-left">
+					<div class="pull-left" style="width:35px; line-height:1;">
+						<div style="height:9px; margin:5px 0;">1 <span class="glyphicon glyphicon-star"></span></div>
+					</div>
+					<div class="pull-left" style="width:180px;">
+						<div class="progress" style="height:9px; margin:8px 0;">
+						  <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="1" aria-valuemin="0" aria-valuemax="5" style="width: 20%">
+							<span class="sr-only">80% Complete (danger)</span>
+						  </div>
+						</div>
+					</div>
+					<div class="pull-right" style="margin-left:10px;">0</div>
+				</div>
+			</div>			
+		
+	</div>
+			<div class = "row">
+			
+			<div class="col-sm-6">
+			<div class="block-title">
+				
+				<h1>Write You Review</h1></div>
             <div class="block-content">
-               
-               
-               
-                  <input name="form_key" type="hidden" value="f64vD6orRjO7Hseg">  
-                  <fieldset class="fieldset review-fieldset" data-hasrequired="* Required Fields">
-                     <legend class="legend review-legend"><span>You're reviewing:</span><strong>Heston Boiler Espresso Machine </strong></legend>
-                     <br> <span id="input-message-box"></span> 
+
+              <fieldset class="fieldset review-fieldset" data-hasrequired="* Required Fields">
+                     
                      <fieldset class="field required review-field-ratings">
-                        <legend class="label"><span>Your Rating</span></legend>
-                        <br>
-                        <div class="control">
-                           <div class="nested" id="product-review-table">
-                              <div class="field choice review-field-rating">
-                                 <label class="label" id="Price_rating_label"><span>Price</span></label> 
-                                 <div class="control review-control-vote">  <input type="radio" name="ratings[3]" id="Price_1" value="11" class="radio" data-validate="{ 'rating-required':true}" aria-labelledby="Price_rating_label Price_1_label" aria-required="true"><label class="rating-1" for="Price_1" title="1 star" id="Price_1_label"><span>1 star</span></label>   <input type="radio" name="ratings[3]" id="Price_2" value="12" class="radio" data-validate="{ 'rating-required':true}" aria-labelledby="Price_rating_label Price_2_label" aria-required="true"><label class="rating-2" for="Price_2" title="2 stars" id="Price_2_label"><span>2 stars</span></label>   <input type="radio" name="ratings[3]" id="Price_3" value="13" class="radio" data-validate="{ 'rating-required':true}" aria-labelledby="Price_rating_label Price_3_label" aria-required="true"><label class="rating-3" for="Price_3" title="3 stars" id="Price_3_label"><span>3 stars</span></label>   <input type="radio" name="ratings[3]" id="Price_4" value="14" class="radio" data-validate="{ 'rating-required':true}" aria-labelledby="Price_rating_label Price_4_label" aria-required="true"><label class="rating-4" for="Price_4" title="4 stars" id="Price_4_label"><span>4 stars</span></label>   <input type="radio" name="ratings[3]" id="Price_5" value="15" class="radio" data-validate="{ 'rating-required':true}" aria-labelledby="Price_rating_label Price_5_label" aria-required="true"><label class="rating-5" for="Price_5" title="5 stars" id="Price_5_label"><span>5 stars</span></label>  </div>
-                              </div>
-                              <div class="field choice review-field-rating">
-                                 <label class="label" id="Value_rating_label"><span>Value</span></label> 
-                                 <div class="control review-control-vote">  <input type="radio" name="ratings[2]" id="Value_1" value="6" class="radio" data-validate="{ 'rating-required':true}" aria-labelledby="Value_rating_label Value_1_label" aria-required="true"><label class="rating-1" for="Value_1" title="1 star" id="Value_1_label"><span>1 star</span></label>   <input type="radio" name="ratings[2]" id="Value_2" value="7" class="radio" data-validate="{ 'rating-required':true}" aria-labelledby="Value_rating_label Value_2_label" aria-required="true"><label class="rating-2" for="Value_2" title="2 stars" id="Value_2_label"><span>2 stars</span></label>   <input type="radio" name="ratings[2]" id="Value_3" value="8" class="radio" data-validate="{ 'rating-required':true}" aria-labelledby="Value_rating_label Value_3_label" aria-required="true"><label class="rating-3" for="Value_3" title="3 stars" id="Value_3_label"><span>3 stars</span></label>   <input type="radio" name="ratings[2]" id="Value_4" value="9" class="radio" data-validate="{ 'rating-required':true}" aria-labelledby="Value_rating_label Value_4_label" aria-required="true"><label class="rating-4" for="Value_4" title="4 stars" id="Value_4_label"><span>4 stars</span></label>   <input type="radio" name="ratings[2]" id="Value_5" value="10" class="radio" data-validate="{ 'rating-required':true}" aria-labelledby="Value_rating_label Value_5_label" aria-required="true"><label class="rating-5" for="Value_5" title="5 stars" id="Value_5_label"><span>5 stars</span></label>  </div>
-                              </div>
-                              <div class="field choice review-field-rating">
-                                 <label class="label" id="Quality_rating_label"><span>Quality</span></label> 
-                                 <div class="control review-control-vote">  <input type="radio" name="ratings[1]" id="Quality_1" value="1" class="radio" data-validate="{ 'rating-required':true}" aria-labelledby="Quality_rating_label Quality_1_label" aria-required="true"><label class="rating-1" for="Quality_1" title="1 star" id="Quality_1_label"><span>1 star</span></label>   <input type="radio" name="ratings[1]" id="Quality_2" value="2" class="radio" data-validate="{ 'rating-required':true}" aria-labelledby="Quality_rating_label Quality_2_label" aria-required="true"><label class="rating-2" for="Quality_2" title="2 stars" id="Quality_2_label"><span>2 stars</span></label>   <input type="radio" name="ratings[1]" id="Quality_3" value="3" class="radio" data-validate="{ 'rating-required':true}" aria-labelledby="Quality_rating_label Quality_3_label" aria-required="true"><label class="rating-3" for="Quality_3" title="3 stars" id="Quality_3_label"><span>3 stars</span></label>   <input type="radio" name="ratings[1]" id="Quality_4" value="4" class="radio" data-validate="{ 'rating-required':true}" aria-labelledby="Quality_rating_label Quality_4_label" aria-required="true"><label class="rating-4" for="Quality_4" title="4 stars" id="Quality_4_label"><span>4 stars</span></label>   <input type="radio" name="ratings[1]" id="Quality_5" value="5" class="radio" data-validate="{ 'rating-required':true}" aria-labelledby="Quality_rating_label Quality_5_label" aria-required="true"><label class="rating-5" for="Quality_5" title="5 stars" id="Quality_5_label"><span>5 stars</span></label>  </div>
-                              </div>
-                           </div>
-                           <input type="hidden" name="validate_rating" class="validate-rating" value="" aria-required="true">
-                        </div>
-                     </fieldset>
-                     <div class="field review-field-nickname required">
-                        <label for="nickname_field" class="label"><span>Nickname</span></label> 
-                        <div class="control"><input type="text" name="nickname" id="nickname_field" class="input-text" data-validate="{required:true}" data-bind="value: nickname()" aria-required="true"></div>
-                     </div>
-                     <div class="field review-field-summary required">
-                        <label for="summary_field" class="label"><span>Summary</span></label> 
-                        <div class="control"><input type="text" name="title" id="summary_field" class="input-text" data-validate="{required:true}" data-bind="value: review().title" aria-required="true"></div>
-                     </div>
-                     <div class="field review-field-text required">
-                        <label for="review_field" class="label"><span>Review</span></label> 
-                        <div class="control"><textarea name="detail" id="review_field" cols="5" rows="3" data-validate="{required:true}" data-bind="value: review().detail" aria-required="true"></textarea></div>
-                     </div>
-                  </fieldset>
-                  
-                  
-                  
-                  <div class="actions-toolbar review-form-actions">
-                     <div class="primary actions-primary">
-						 
-						 
-						 <button type="submit" class="action submit primary" id = "review-btn"><span>Submit Review</span></button></div>
-                  </div>
-              
-              
-              
-              
+
+                       <div class="control">
+    <div class="nested" id="product-review-table">
+        <div class="field choice review-field-rating">
+			
+			<hr />
+            <label class="label" id="Price_rating_label">Write you reviews</span></label>
+
+            <div class="control review-control-vote" id = "write-review10" data-href = "http://localhost/reviews?action=reviewForm&id_item=<?= $_GET['sku'] ;?>&id=<?= $_GET['id']?>">
+                
+                
+                
                
+               
+             
+                <input type="radio" name="ratings[3]" id="Price_1" value="11" class="radio" data-validate="{ 'rating-required':true}" aria-labelledby="Price_rating_label Price_1_label" aria-required="true">
+                
+                
+                <label class="rating-1" for="Price_1" title="1 star" id="Price_1_label"><span>1 star</span></label>
+                
+                
+                <input type="radio" name="ratings[3]" id="Price_2" value="12" class="radio" data-validate="{ 'rating-required':true}" aria-labelledby="Price_rating_label Price_2_label" aria-required="true">
+                
+                
+                <label class="rating-2" for="Price_2" title="2 stars" id="Price_2_label"><span>2 stars</span></label>
+                
+                <input type="radio" name="ratings[3]" id="Price_3" value="13" class="radio" data-validate="{ 'rating-required':true}" aria-labelledby="Price_rating_label Price_3_label" aria-required="true">
+                
+                <label class="rating-3" for="Price_3" title="3 stars" id="Price_3_label"><span>3 stars</span></label>
+                <input type="radio" name="ratings[3]" id="Price_4" value="14" class="radio" data-validate="{ 'rating-required':true}" aria-labelledby="Price_rating_label Price_4_label" aria-required="true">
+                
+                <label class="rating-4" for="Price_4" title="4 stars" id="Price_4_label"><span>4 stars</span></label>
+                
+                <input type="radio" name="ratings[3]" id="Price_5" value="15" class="radio" data-validate="{ 'rating-required':true}" aria-labelledby="Price_rating_label Price_5_label" aria-required="true">
+                <label class="rating-5" for="Price_5" title="5 stars" id="Price_5_label"><span>5 stars</span></label>
+             </a>
+           
             </div>
+        </div>
+    </div>
+    <input type="hidden" name="validate_rating" class="validate-rating" value="" aria-required="true">
+</div>
+                     </fieldset>
+                    
+                 <script>
+               
+					 
+					 $("#write-review10").click(function (){
+						 
+						 var loca = $(this).attr('data-href');
+						 
+						 window.location.href = loca;
+							 
+							
+					})
+						
+				
+                 
+                 </script>
+                    
+                 
+                  </fieldset>
+
+            </div>
+       
+       
+			</div>
+			
+			</div>
+           
+           
+            
          </div>
      
      
@@ -1277,7 +1412,106 @@ $details = $obj->getIndividualProduct('name', 'id', 'sku');
          
          <div id  = "test56">Thisis</div>
          </main>
-         
+         <div class="container">
+    			
+		
+		<div class="row">
+			<div class="col-sm-7">
+				<hr/>
+				<div class="review-block">
+					<div class="row">
+						<div class="col-sm-3">
+							<img src="http://dummyimage.com/60x60/666/ffffff&text=No+Image" class="img-rounded">
+							<div class="review-block-name"><a href="#">nktailor</a></div>
+							<div class="review-block-date">January 29, 2016<br/>1 day ago</div>
+						</div>
+						<div class="col-sm-9">
+							<div class="review-block-rate">
+								<button type="button" class="btn btn-warning btn-xs" aria-label="Left Align">
+								  <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+								</button>
+								<button type="button" class="btn btn-warning btn-xs" aria-label="Left Align">
+								  <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+								</button>
+								<button type="button" class="btn btn-warning btn-xs" aria-label="Left Align">
+								  <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+								</button>
+								<button type="button" class="btn btn-default btn-grey btn-xs" aria-label="Left Align">
+								  <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+								</button>
+								<button type="button" class="btn btn-default btn-grey btn-xs" aria-label="Left Align">
+								  <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+								</button>
+							</div>
+							<div class="review-block-title">this was nice in buy</div>
+							<div class="review-block-description">this was nice in buy. this was nice in buy. this was nice in buy. this was nice in buy this was nice in buy this was nice in buy this was nice in buy this was nice in buy</div>
+						</div>
+					</div>
+					<hr/>
+					<div class="row">
+						<div class="col-sm-3">
+							<img src="http://dummyimage.com/60x60/666/ffffff&text=No+Image" class="img-rounded">
+							<div class="review-block-name"><a href="#">nktailor</a></div>
+							<div class="review-block-date">January 29, 2016<br/>1 day ago</div>
+						</div>
+						<div class="col-sm-9">
+							<div class="review-block-rate">
+								<button type="button" class="btn btn-warning btn-xs" aria-label="Left Align">
+								  <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+								</button>
+								<button type="button" class="btn btn-warning btn-xs" aria-label="Left Align">
+								  <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+								</button>
+								<button type="button" class="btn btn-warning btn-xs" aria-label="Left Align">
+								  <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+								</button>
+								<button type="button" class="btn btn-default btn-grey btn-xs" aria-label="Left Align">
+								  <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+								</button>
+								<button type="button" class="btn btn-default btn-grey btn-xs" aria-label="Left Align">
+								  <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+								</button>
+							</div>
+							<div class="review-block-title">this was nice in buy</div>
+							<div class="review-block-description">this was nice in buy. this was nice in buy. this was nice in buy. this was nice in buy this was nice in buy this was nice in buy this was nice in buy this was nice in buy</div>
+						</div>
+					</div>
+					<hr/>
+					<div class="row">
+						<div class="col-sm-3">
+							<img src="http://dummyimage.com/60x60/666/ffffff&text=No+Image" class="img-rounded">
+							<div class="review-block-name"><a href="#">nktailor</a></div>
+							<div class="review-block-date">January 29, 2016<br/>1 day ago</div>
+						</div>
+						<div class="col-sm-9">
+							<div class="review-block-rate">
+								<button type="button" class="btn btn-warning btn-xs" aria-label="Left Align">
+								  <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+								</button>
+								<button type="button" class="btn btn-warning btn-xs" aria-label="Left Align">
+								  <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+								</button>
+								<button type="button" class="btn btn-warning btn-xs" aria-label="Left Align">
+								  <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+								</button>
+								<button type="button" class="btn btn-default btn-grey btn-xs" aria-label="Left Align">
+								  <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+								</button>
+								<button type="button" class="btn btn-default btn-grey btn-xs" aria-label="Left Align">
+								  <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+								</button>
+							</div>
+							<div class="review-block-title">this was nice in buy</div>
+							<div class="review-block-description">this was nice in buy. this was nice in buy. this was nice in buy. this was nice in buy this was nice in buy this was nice in buy this was nice in buy this was nice in buy</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+</div>
+
+
         
         <?php include ('footer.php');?>
         
