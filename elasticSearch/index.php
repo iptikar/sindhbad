@@ -136,6 +136,8 @@ $responses = $client->index($params);
  * ==============================================
  * */
  
+ 
+ /*
 
  $params = [
 			'index' => 'my_index', 
@@ -158,9 +160,33 @@ $params['body']['doc']  = [
 
 $responses = $client->update($params);
 
+*/
  
 
+/*
+ * ==============================================
+ * 	NOW GET THE DOCUMENT 
+ * 	Using above same paramaters 
+ * ==============================================
+ */
+ 
+ /*
+ $params = [
+			'index' => 'my_index', 
+			'type' => 'my_type', 
+			'id' => 99, 
+					
+		];
 
+
+ $responses = $client->get($params);
+ 
+ 
+echo "<pre>";
+print_r($responses);
+echo '</pre>';
+
+*/
 
 
 /*

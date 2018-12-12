@@ -23,6 +23,8 @@ require 'DeleteProductBySKU.php';
 // Search Product
 require 'SearchProducts.php';
 
+// Write Review about the product 
+require_once  'WriteReviewAboutProduct.php';
 
 
 class MarketPlace

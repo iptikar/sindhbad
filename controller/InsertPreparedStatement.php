@@ -64,7 +64,7 @@ class InsertPreparedStatement
 				// If stmet failed 
 				if(!$stmt) {
 					
-					return $stmt->error;
+					return $mysqli->error;
 				}
 					
 				// Get the post data values 
@@ -73,6 +73,10 @@ class InsertPreparedStatement
 				// Bind the data to it's paramaters 
 				$stmt->bind_param($s, ...$data);
 			
+				if(!$stmt) {
+					
+					return $stmt->error;
+				}
 				// Execute statment 
 				if(!$stmt->execute()) {
 					

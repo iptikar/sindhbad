@@ -1,5 +1,4 @@
 <?PHP
 
-$_POST['name'] = 'hello';
-
-echo "h{$_POST['name']}";
+$start = explode('.',microtime(true))[0].uniqid();
+echo $start;

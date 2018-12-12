@@ -1,27 +1,32 @@
 <?php
 
 require 'vendor/autoload.php';
-require_once ('vendor/phpunit/php-code-coverage/tests/TestCase.php');
+
 require 'calculator.php';
+
+$u = $_POST['username'] = '';
+$p = $_POST['password'] = '';
+
  
-class CalculatorTests extends PHPUnit\Framework\TestCase
+class LoginTests extends PHPUnit\Framework\TestCase
 {
-    private $calculator;
+    private $Login;
  
     protected function setUp()
     {
-        $this->calculator = new Calculator();
+        $this->Login = new Login();
     }
  
     protected function tearDown()
     {
-        $this->calculator = NULL;
+        $this->Login = NULL;
     }
  
     public function testAdd()
     {
-        $result = $this->calculator->add(1, 2);
-        $this->assertEquals(3, $result);
+        $result = $this->Login->LoginIn('bharatrose1@gmail.com', '6565656565656', 'username', 'passwdord');
+        
+        $this->assertEquals(true, $result);
     }
  
 }

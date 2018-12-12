@@ -886,7 +886,7 @@ $details = $obj->getIndividualProduct('name', 'id', 'sku');
 			<hr />
             <label class="label" id="Price_rating_label">Write you reviews</span></label>
 
-            <div class="control review-control-vote" id = "write-review10" data-href = "http://localhost/reviews?action=reviewForm&id_item=<?= $_GET['sku'] ;?>&id=<?= $_GET['id']?>">
+            <div class="control review-control-vote" id = "write-review10" data-href = "http://localhost/reviews?action=reviewForm&id_item=<?= urlencode($_GET['sku']) ;?>&id=<?= urlencode($_GET['id'])?>&name=<?= urlencode($details['name'])?>&img=<?= urlencode($img_src_link) ?>">
                 
                 
                 
@@ -1410,7 +1410,7 @@ $details = $obj->getIndividualProduct('name', 'id', 'sku');
             </div>
          <div id = "myDiv"></div>
          
-         <div id  = "test56">Thisis</div>
+         <div id  = "test56"></div>
          </main>
          <div class="container">
     			

@@ -101,6 +101,7 @@
 	// Creating table product_catalogs 
 	$tablename  =  'product_catalogs';
 	
+	// You sku shoud used UNIQUE INDEX 
 	// Sql queries 
 	$sql  =  "CREATE TABLE IF NOT EXISTS $tablename(
 			id int UNSIGNED AUTO_INCREMENT PRIMARY KEY UNIQUE KEY,

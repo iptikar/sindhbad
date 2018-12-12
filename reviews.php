@@ -1,11 +1,14 @@
 <?php
-
+session_start();
 require('controller/controller.php');
-
 // Setting time to dubai
 date_default_timezone_set ('Asia/Dubai');
 // Get the object
 $obj = new MarketPlace();
+if(WriteReviewAboutProduct::IsViewAble('id', 'id_item') !== true) {
+	
+		header('Location:http://localhost');
+}
 
 
 ?>
@@ -77,9 +80,44 @@ $obj = new MarketPlace();
 						 
 						 <div class = "col-sm-2"></div>
                      
-                     <div class = "col-sm-8">
                      
-                       <form class="form create account form-create-account" action="" method="post" id="form-validate" autocomplete="off" novalidate="novalidate">
+                     
+                    
+                     
+                     <div class = "col-sm-8">
+                    
+                    
+                    
+                    
+                     <?php if(isset($_POST['submit'])) :?>
+                     
+                     <?php if(WriteReviewAboutProduct::WritingReview('submit', new Marketplace()) === true) :?>
+                     
+                     <div class="message success">
+		<div>
+  <strong>Error ! </strong>Thank you. Your review has been submitted.
+</div></div>
+
+						
+
+                    
+                    <?php else :?>
+                    
+             
+						
+						<div class="message error">
+		<div>
+  <strong>Error ! </strong><?= WriteReviewAboutProduct::WritingReview('submit', new Marketplace()) ;?>
+</div></div>
+
+						
+						
+						
+                    
+                    
+                    <?php endif;?>
+                    <?php endif;?>
+                       <form class="form create account form-create-account" <?php echo basename($_SERVER['PHP_SELF'],'.php').'?'.$_SERVER['QUERY_STRING'];?>" method="post" id="form-validate" autocomplete="off" novalidate="novalidate">
 						   
 			
    
@@ -91,7 +129,7 @@ $obj = new MarketPlace();
 		
 		<div class = "col-sm-4" >
 			<div class = "img-war140">
-				<img src = "http://localhost/img/product-images/152878752620919.jpg" style = "width:75px; height:75px;"/>
+				<img src = "<?= urldecode($_GET['img'])?>" style = "width:75px; height:75px;"/>
 			</div>
 		</div>
        <div class = "col-sm-8" > 
@@ -99,7 +137,7 @@ $obj = new MarketPlace();
 		   <div class = "p-name" style = "text-align:center; margin-top:25px;">
 				
 				
- Apple MacBook Air MQD32 Laptop - Intel Core i5-1.8Ghz Dual Core, 13-In..
+ <?= urldecode($_GET['name']);?>
 
 		   </div>
 		</div>
@@ -110,30 +148,33 @@ $obj = new MarketPlace();
          <label for="email_address" class="label"><span>What's good about this product?</span></label> 
          <div class="control">
 			 
-			 <input type="email" name="email" autocomplete="email" id="email_address" value="" title="Email" class="input-text" data-validate="{required:true, 'validate-email':true}" aria-required="true"></div>
+			 <input type="email" name="good" autocomplete="email" id="email_address" value="<?= $_POST['good'] ?? '';?>" title="Good About The Product" class="input-text" data-validate="{required:true, 'validate-email':true}" aria-required="true"></div>
       </div>
       <div class="field password required">
          <label for="password" class="label"><span>What's not so good about this product?</span></label> 
          <div class="control">
-            <input type="password" name="password" id="password" title="Password" class="input-text" data-password-min-length="8" data-password-min-character-sets="3" data-validate="{required:true, 'validate-customer-password':true}" autocomplete="off" aria-required="true">
+            <input type="text" value = "<?= $_POST['bad'] ?? '';?>"name="bad" id="password" title="Bad About The Product" class="input-text"  autocomplete="off" aria-required="true">
           
             
             
          </div>
       </div>
-      
+      <?php
+		$recomanded = $_POST['recomanded'] ?? '';
+	?>
+     <input type = "hidden" id = "stars" name = "stars" />
    <div class="field required">
    
    <label for="recommand" class="label"><span>Would you recommend this product to a friend?</span></label> 
    
    <div class = "col-sm-2">
 	<label for = "yes20" class = "label">Yes</label>
-	<input type = "radio" value = "yes" id = "yes20"/>
+	<input type = "radio" value = "yes" id = "yes20" name = "recomanded" <?= $recomanded == 'yes' ? 'checked' : ''?>/>
 	</div>
 	
 	<div class = "col-sm-2">
 	<label for = "no20">No</label>
-	<input type = "radio" value = "no" id = "no20"/>
+	<input type = "radio" value = "no" id = "no20" name = "recomanded" <?= $recomanded == 'no' ? 'checked' : ''?>/>
    </div>
    </div>
    
@@ -142,13 +183,16 @@ $obj = new MarketPlace();
    
    <label for = "review-msg" class = "label">Write you review</label>
    
-   <textarea class = "form-control" id = "review-msg" ></textarea>
+   <textarea class = "form-control" id = "review-msg" name = "details"><?= $_POST['detail'] ?? ''; ?></textarea>
    
    </div>
    
    <div class="field required">
 	   
-	<input id = "start-got" name = "stars" value = "" type = "hidden"/>
+	
+							
+							
+							
 							<div class="control">
     <div class="nested" id="product-review-table">
         <div class="field choice review-field-rating">
@@ -188,7 +232,8 @@ $obj = new MarketPlace();
             </div>
         </div>
     </div>
-    <input type="hidden" name="validate_rating" class="validate-rating" value="" aria-required="true">
+    <input type="hidden" name="product_id"  value="<?= $_GET['id']?>" >
+      <input type="hidden" name="sku"  value="<?= $_GET['id_item']?>" >
 </div>
 	
 	</div>				
@@ -205,7 +250,7 @@ $obj = new MarketPlace();
 					var vl = $(this).attr('data-star-value');
 					
 					// Set the value to form element 
-					$('#start-got').val(vl);
+					$('#stars').val(vl);
 					
 			})
 		})
