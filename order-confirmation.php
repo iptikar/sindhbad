@@ -12,15 +12,16 @@ $orderid = '';
 
 $orderdate = '';
 
-
-
 if(isset ($_COOKIE[$obj->CartCookiName()])) {
 	
 	$getObj = $obj->OrderConfirmation('paymentmethod');
+	 
 	 $orderid = $getObj['orderid'];
 	 
 	 $orderdate = $getObj['orderdate'];
 }
+
+
 
 ?>
 <!doctype html>

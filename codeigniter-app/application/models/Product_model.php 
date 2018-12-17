@@ -1,7 +1,0 @@
-<?php 
-class Product_model extends CI_Model {
-	function list_product(){
-		$product = $this->db->query('select * from tracker');
-		return $product;
-	}
-}

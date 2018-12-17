@@ -35,7 +35,7 @@ $config['base_url'] = 'http://localhost/codeigniter-app';
 | variable so that it is blank.
 |
 */
-$config['index_page'] = 'index.php';
+$config['index_page'] = '';
 
 /*
 |--------------------------------------------------------------------------
@@ -52,7 +52,7 @@ $config['index_page'] = 'index.php';
 |
 | WARNING: If you set this to 'PATH_INFO', URIs will always be URL-decoded!
 */
-$config['uri_protocol']	= 'REQUEST_URI';
+$config['uri_protocol']	= 'AUTO';
 
 /*
 |--------------------------------------------------------------------------
@@ -410,12 +410,30 @@ $config['cookie_httponly'] 	= FALSE;
 | 'csrf_regenerate' = Regenerate token on every submission
 | 'csrf_exclude_uris' = Array of URIs which ignore CSRF checks
 */
-$config['csrf_protection'] = FALSE;
+$config['csrf_protection'] = TRUE;
 $config['csrf_token_name'] = 'csrf_test_name';
 $config['csrf_cookie_name'] = 'csrf_cookie_name';
 $config['csrf_expire'] = 7200;
 $config['csrf_regenerate'] = TRUE;
 $config['csrf_exclude_uris'] = array();
+
+
+// Except url for codeignitor 
+
+if(isset($_SERVER["PHP_SELF"])){
+  $parts = explode("/",$_SERVER["PHP_SELF"]);
+  $exclude_url_arr = array('itemCRUDCreate');
+  if (!empty($exclude_url_arr[0])) {
+    foreach($parts as $part) {
+      if (in_array($part,$exclude_url_arr)) {
+          $config['csrf_protection'] = FALSE;
+          break;
+      }
+    }
+  }
+}
+
+
 
 /*
 |--------------------------------------------------------------------------

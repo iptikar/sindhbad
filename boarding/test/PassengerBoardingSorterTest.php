@@ -40,7 +40,7 @@ $cards   = [
 				[
 					"from" => "Barcelona", 
 					"to" =>  "New York", 
-					"instruction" => "It will containe information", 
+					"instruction" => "", 
 					'time' => '2018-02-02 20:05',
 					'transport' => 'Flight' , 
 					'transportno' => 'B33',
@@ -50,7 +50,7 @@ $cards   = [
 				[
 					"from"=> "Barcelona", 
 					"to" => "Gerona", 
-					"instruction" => "It will containe information", 
+					"instruction" => "", 
 					'time' => '2018-02-02 20:05', 
 					'transport' => 'Bus' , 
 					'transportno' => 'M31, M32, M33','seatno' => 'Any'
@@ -59,7 +59,7 @@ $cards   = [
 				[
 					"from" => "Madrid",    
 					"to" => "Barcelona", 
-					"instruction" => "It will containe information", 
+					"instruction" => "", 
 					'time' => '2018-02-02 20:05', 
 					'transport' => 'Bus' , 
 					'transportno' => 'M31, M32, M33',
@@ -68,15 +68,15 @@ $cards   = [
 				
 				["from" => "New York",    
 				"to" => "Stockholm", 
-				"instruction" => "It will containe information", 
-				'time' => '2018-02-02 20:05', 'transport' => 'Bus' , 
+				"instruction" => "", 
+				'time' => '2018-02-02 20:05', 'transport' => 'Flight' , 
 				'transportno' => 'M31, M32, M33','seatno' => 'Any'
 				], // 0
 				
 				[
 					"from" => "Gerona",    
 					"to" => "Barcelona", 
-					"instruction" => "It will containe information", 
+					"instruction" => "", 
 					'time' => '2018-02-02 20:05', 
 					'transport' => 'Bus' , 
 					'transportno' => 'M31, M32, M33',
@@ -102,4 +102,4 @@ $cards   = [
 }
 
 
-var_dump(PassengerBoardingSorterTest::AddTest());
+echo PassengerBoardingSorterTest::AddTest();

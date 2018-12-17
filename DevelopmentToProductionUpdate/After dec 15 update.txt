@@ -1,0 +1,61 @@
+0. discription.phtml 
+
+line 441 
+<input type = "hidden" name = "seller_email" value = "<?= base64_encode($details['seller_email']); ?>" id  = "seller_email120"/
+
+is added 
+
+
+1. js/custom.js 
+
+
+Replace whole function 
+line 82 var seller_email = $('#seller_email120').val();  is added 
+
+
+3 on line 2743 public function AddToCart change whole function 
+
+4. OrderConfirmation on line 4484 replace all functions id development 
+/controller/controller.php line 4484 
+
+
+5. in the file select store procedure on line 157 this method is added 
+
+SelectRecordsByStoreProcedureWithJoinWithGroup
+
+6. GetOrersForSeller.php controller is added 
+
+7. Add this controller required to controller.php
+
+8. user-admin-14e1813e3d0cf9da1a9dafc6afadff37/order-details.php is added 
+
+9. create user-admin-14e1813e3d0cf9da1a9dafc6afadff37/side-bar-menu.phtml
+
+10. page-sidebar-wrapper after evert page in user-admin-14e1813e3d0cf9da1a9dafc6afadff37 
+after page-sidebar-wrapper html class 
+this php tage is added 
+
+<?php include 'side-bar-menu.phtml'; ?>
+pages are 
+
+better simple replace the files 
+
+
+11. Replace review.phtml file 
+
+
+12. In index.php file index file seller_email index need to be added 
+
+
+13. public function GetProductByCategory($categoryId) select additional seller_email index 
+
+
+14. on line 480 line add update the following line <button type="submit" 
+
+
+
+15. Order need to show to the buyer as well 
+
+
+
+

@@ -7,6 +7,8 @@ class ItemCRUDModel extends CI_Model{
           $this->db->like('title', $this->input->get("search"));
           $this->db->or_like('description', $this->input->get("search")); 
         }
+        
+        
         $query = $this->db->get("items");
         
         
@@ -16,10 +18,30 @@ class ItemCRUDModel extends CI_Model{
 
     public function insert_item()
     {    
+		
+		$this->load->library('form_validation');
+		
+		$this->form_validation->set_rules('title', 'Title', 'required',
+                       
+                        array('required' => 'You must provide a %s.')
+                );
+                
+                
+        if ($this->form_validation->run() == FALSE)
+            {
+				$this->load->view('theme/header');
+				$this->load->view('itemCRUD/create');
+				$this->load->view('theme/footer');  
+            }
+             
+           
+		
         $data = array(
             'title' => $this->input->post('title'),
             'description' => $this->input->post('description')
         );
+        
+        
         return $this->db->insert('items', $data);
     }
 

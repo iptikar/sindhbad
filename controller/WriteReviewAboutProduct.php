@@ -51,7 +51,7 @@ class WriteReviewAboutProduct
 				// Check errir 
 				if(!$stmt) {
 					
-						return $mysqli->errro;
+						return $mysqli->error;
 					}
 					
 				// Bind the paramaters 
@@ -80,7 +80,7 @@ class WriteReviewAboutProduct
 			$removeColumn = ['ratings', 'submit'];
 		
 			// Check what recomanded 
-			if($_POST['re'])
+			
 			
 			// Save the document 
 			return InsertPreparedStatement::SaveDocument($addColumn, $removeColumn, $tablename);

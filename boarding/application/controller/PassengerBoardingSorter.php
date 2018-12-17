@@ -34,9 +34,11 @@ class PassengerBoardingSorter {
 			
 			$coutboarding = count($boardingLists);
 			
-		
-			$boardingLists[0][$instruction] = 'Your journey starts here. ';
-			$boardingLists[$coutboarding - 1 ][$instruction] = 'Your journey ends here ';
+			// Appending data to start index 
+			$boardingLists[0][$instruction] = 'Your journey will starts here. ';
+			
+			// Appending string to end column 
+			$boardingLists[$coutboarding - 1 ][$instruction] = $boardingLists[$coutboarding - 1 ][$instruction].'Your journey will ends here. Baggage will we automatically transferred from your last leg.';
 			// Return bording list 
 			return $boardingLists;
 			
@@ -45,43 +47,41 @@ class PassengerBoardingSorter {
 		
 		public static function getTemplate($template,$data,$regrex)
 		{
-	$result = '';
+			$result = '';
 
-	/* Go and loop each data and replace with it's value */
-	$returndata = '';
-
-
-
-	/* Loop each data */
-	for($j = 0; $j < count($data); $j++)
-	{
-	/* Get the template  */
-	$output = $template;
-	/* where indexs matches in template  */
-	foreach($data[$j] as $key => $value)
-	{
-		$reg = str_replace('(.*?)',$key, $regrex);
-
-		/* Check with regular expression */
-		if(preg_match($reg,$template))
-		{
-			/* Replace with */
-			$output = preg_replace($reg,$value,$output);
-			
-
-		}			
-		
-	//echo $ReplacedData ;	
-	//echo "<br/>";
-	}
-
-	 $result .= $output;
-}
+			/* Go and loop each data and replace with it's value */
+			$returndata = '';
 
 
-	return $result;
 
-}
+			/* Loop each data */
+			for($j = 0; $j < count($data); $j++)
+			{
+			/* Get the template  */
+			$output = $template;
+			/* where indexs matches in template  */
+			foreach($data[$j] as $key => $value)
+			{
+				$reg = str_replace('(.*?)',$key, $regrex);
+
+				/* Check with regular expression */
+				if(preg_match($reg,$template))
+				{
+					/* Replace with */
+					$output = preg_replace($reg,$value,$output);
+					
+
+				}			
+				
+			}
+
+			 $result .= $output;
+		}
+
+
+			return $result;
+
+		}
 
 
 }

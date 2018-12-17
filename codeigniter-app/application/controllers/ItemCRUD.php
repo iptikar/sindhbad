@@ -87,6 +87,7 @@ class ItemCRUD extends CI_Controller {
             redirect(base_url('itemCRUD/create'));
         }else{
            $this->itemCRUD->insert_item();
+           
            redirect(base_url('itemCRUD'));
         }
     }

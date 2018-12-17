@@ -93,9 +93,10 @@ if(WriteReviewAboutProduct::IsViewAble('id', 'id_item') !== true) {
                      
                      <?php if(WriteReviewAboutProduct::WritingReview('submit', new Marketplace()) === true) :?>
                      
+                     <?php $_POST = []; ?>
                      <div class="message success">
 		<div>
-  <strong>Error ! </strong>Thank you. Your review has been submitted.
+  <strong></strong>Thank you. Your review has been submitted.
 </div></div>
 
 						

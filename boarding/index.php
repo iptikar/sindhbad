@@ -28,7 +28,7 @@ $cards   = [
 				[
 					"from" => "Barcelona", 
 					"to" =>  "New York", 
-					"instruction" => "It will containe information", 
+					"instruction" => "", 
 					'time' => '2018-02-02 20:05',
 					'transport' => 'Flight' , 
 					'transportno' => 'B33',
@@ -38,7 +38,7 @@ $cards   = [
 				[
 					"from"=> "Barcelona", 
 					"to" => "Gerona", 
-					"instruction" => "It will containe information", 
+					"instruction" => "", 
 					'time' => '2018-02-02 20:05', 
 					'transport' => 'Bus' , 
 					'transportno' => 'M31, M32, M33','seatno' => 'Any'
@@ -47,7 +47,7 @@ $cards   = [
 				[
 					"from" => "Madrid",    
 					"to" => "Barcelona", 
-					"instruction" => "It will containe information", 
+					"instruction" => "", 
 					'time' => '2018-02-02 20:05', 
 					'transport' => 'Bus' , 
 					'transportno' => 'M31, M32, M33',
@@ -56,15 +56,15 @@ $cards   = [
 				
 				["from" => "New York",    
 				"to" => "Stockholm", 
-				"instruction" => "It will containe information", 
-				'time' => '2018-02-02 20:05', 'transport' => 'Bus' , 
+				"instruction" => "", 
+				'time' => '2018-02-02 20:05', 'transport' => 'Flight' , 
 				'transportno' => 'M31, M32, M33','seatno' => 'Any'
 				], // 0
 				
 				[
 					"from" => "Gerona",    
 					"to" => "Barcelona", 
-					"instruction" => "It will containe information", 
+					"instruction" => "", 
 					'time' => '2018-02-02 20:05', 
 					'transport' => 'Bus' , 
 					'transportno' => 'M31, M32, M33',
@@ -76,7 +76,8 @@ $cards   = [
 		$sortBoardingList = PassengerBoardingSorter::ArangeBordingList('from', 'to', $cards, 'instruction');
 		
 		// Form a template so you can get template list 
-		$template = '<li class="list-group-item">{{&instruction}}Take {{&transport}} {{&from}} To {{&to}}. Sit in seat {{&seatno}}</li>';
+		$template = '<li class="list-group-item">{{&instruction}}Take {{&transport}} From {{&from}} To {{&to}},
+		 {{&transport}} No  {{&transportno}}, {{&transport}} Departure Date {{&time}}. Seat Number {{&seatno}}.</li>';
 		
 		// Regression for to getting the value from array 
 		$regrex = '/{{&(.*?)}}/';

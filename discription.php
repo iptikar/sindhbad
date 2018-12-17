@@ -437,6 +437,8 @@ $details = $obj->getIndividualProduct('name', 'id', 'sku');
                                  
 									<input type = "hidden" name = "cart-p-id" id = "cart-p-id" value = "<?= $details['id']; ?>" />
 									<input type = "hidden" name = "cart-price" id = "cart-price" value = "<?= $cartPrice; ?>" />
+									
+					<input type = "hidden" name = "seller_email" value = "<?= base64_encode($details['seller_email']); ?>" id  = "seller_email120"/>
                                     
                                     <input type="hidden" name="product" value="2276" />
                                     <input type = "hidden" name = "p_p_image" value = "<?= $img_src_link ;?>" id = "p_p_image"/>

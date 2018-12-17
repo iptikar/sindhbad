@@ -79,8 +79,10 @@ $(function () {
 			// Get the id of the product 
 			var id = $('#cart-p-id').val();
 			
+			var seller_email = $('#seller_email120').val(); 
+			
 			// quentity must be number 
-			var data = {sku:sku, name:p_name, image:p_p_img, qty:qty, price:price, id:id};
+			var data = {sku:sku, name:p_name, image:p_p_img, qty:qty, price:price, id:id, seller_email: seller_email};
 			
 			
 			

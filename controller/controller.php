@@ -27,6 +27,9 @@ require 'SearchProducts.php';
 require_once  'WriteReviewAboutProduct.php';
 
 
+// Get orer
+require_once 'GetOrdersForSeller.php';
+
 class MarketPlace
 {
     
@@ -953,7 +956,7 @@ jQuery("html, body").animate({ scrollTop: 0 }, "slow");
             // Get the connection
         $mysqli = $this->Connection();
             
-        $sql = "SELECT category_id,id, name,sku, images, regular_price, special_price, avaibility_from, (((regular_price - special_price )/regular_price) * 100) as discount, NOW() as current from product_catalogs where category_id= '$categoryId' and published = '0' and avaibility_from <= NOW() and  avaibility_to >= NOW()  limit 10";
+        $sql = "SELECT seller_email, category_id,id, name,sku, images, regular_price, special_price, avaibility_from, (((regular_price - special_price )/regular_price) * 100) as discount, NOW() as current from product_catalogs where category_id= '$categoryId' and published = '0' and avaibility_from <= NOW() and  avaibility_to >= NOW()  limit 10";
             
         // Get the result
         $result = $mysqli->query($sql);
@@ -2784,7 +2787,8 @@ window.onclick = function(event) {
                                                 "qty"=>$qty,
                                                 "price"=>$price,
                                                 "totalamount"=>$qty*$price,
-                                                "image" => $image
+                                                "image" => $image,
+                                                'seller_email' => $_POST['seller_email']
                                     ));
                     
                 // Encode the json data
@@ -2832,7 +2836,8 @@ window.onclick = function(event) {
                 "qty"=>$eachItem["qty"]+$qty,
                 "price"=>$price,
                 "totalamount"=>$eachItem["totalamount"]+$qty*$price,
-                "image" => $image
+                "image" => $image,
+                'seller_email' => $_POST['seller_email']
         )
     )
 );
@@ -2864,7 +2869,8 @@ window.onclick = function(event) {
                                             "qty"=>$qty,
                                             "price"=>$price,
                                             "totalamount"=>$qty*$price,
-                                            "image" => $image
+                                            "image" => $image,
+                                            'seller_email' => $_POST['seller_email']
                                             )
                                         );
 
@@ -4668,10 +4674,10 @@ window.onclick = function(event) {
             }
                     
             // Procedure index
-            $indexs = "'product_id', 'product_name', 'sku', 'qty', 'price', 'totalamount', 'images','order_id'";
+            $indexs = "'product_id', 'product_name', 'sku', 'qty', 'price', 'totalamount', 'images','seller_email', 'order_id'";
                     
             // Indexs to insert
-            $insertIndexs  = "product_id, prodct_name, sku, qty, price, totalamount,images, order_id";
+            $insertIndexs  = "product_id, prodct_name, sku, qty, price, totalamount,images, seller_email, order_id";
                     
             // Tablename
             $tablename = 'orderdetails';
@@ -4684,10 +4690,14 @@ window.onclick = function(event) {
 										price INT(50), 
 										totalamount INT(100),
 										images VARCHAR(225),
-										order_id VARCHAR(150))';
-                                        
+										seller_email VARCHAR(50),
+										order_id VARCHAR(150)
+										)';
+                    
             $sqlData = $this->MultipleSqlQuery($cartToArray);
-                                        
+                                
+         
+                    
             // Runing stroe product method with parameters {connection, tableindexs, data to insert, storeIndexs, InsertIndexes, tablename }
                     
             // Return true on success or string error on false
@@ -4709,27 +4719,11 @@ window.onclick = function(event) {
                             );
             }
                     
-            /*
-            $sql = "INSERT INTO orders(product_id, prodct_name, sku, qty, price, totalamount,images)VALUES $sqlData";
-
-            // Close the connection
-            if(!$mysqli->query($sql)) {
-
-                return $mysqli->error;
-            }
-
-            */
+            
                     
             $mysqli->close();
                     
-            // Get the content before flush
-            //$getContent = ob_get_contents();
-                    
-            // Get the buffer clean
-            //ob_get_clean();
-                    
-            // Unset Cookie
-                    
+           
                     
             // Send confirmation order details to the user
             $shippingInJson = $this->buyerShippingAsArray();

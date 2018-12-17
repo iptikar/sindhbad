@@ -103,7 +103,8 @@ var countries = ["Afghanistan (3)","Albania","Algeria","Andorra","Angola","Angui
 
 $( "#searchbox" ).keyup(function() {
   
-  var url = '../ajax/searchSuggesion.php'
+  
+  var url = 'http://localhost/ajax/searchSuggesion.php'
   
   
   var data = {q:$(this).val()}
