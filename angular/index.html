@@ -1,0 +1,469 @@
+<html lang = "en">
+   <head>
+	   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	   <link rel = "stylesheet" href = "https://material.angularjs.org/1.1.10/docs.css"/>
+      <link rel = "stylesheet"
+         href = "https://ajax.googleapis.com/ajax/libs/angular_material/1.0.0/angular-material.min.css">
+      
+      
+     <script src = "https://ajax.googleapis.com/ajax/libs/angularjs/1.6.7/angular.js" ></script>
+	<script src = "https://ajax.googleapis.com/ajax/libs/angularjs/1.6.7/angular-animate.min.js"></script>
+	
+	<script src = "https://ajax.googleapis.com/ajax/libs/angularjs/1.6.7/angular-route.min.js"></script>
+	<script src = "https://ajax.googleapis.com/ajax/libs/angularjs/1.6.7/angular-aria.min.js"></script>
+	<script src = "https://ajax.googleapis.com/ajax/libs/angularjs/1.6.7/angular-messages.min.js"></script>
+	<script src = "https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.1/moment.js"></script>
+	<script src = "https://s3-us-west-2.amazonaws.com/s.cdpn.io/t-114/svg-assets-cache.js"></script>
+	<script src = "https://cdn.gitcdn.link/cdn/angular/bower-material/v1.1.10/angular-material.js"></script>
+      <!--
+      <script src = "https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+      <script src = "https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-animate.min.js"></script>
+      <script src = "https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-aria.min.js"></script>
+      <script src = "https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-messages.min.js"></script>
+      <script src = "https://ajax.googleapis.com/ajax/libs/angular_material/1.0.0/angular-material.min.js"></script>
+      
+      -->
+      
+      <link rel = "stylesheet" href = "https://fonts.googleapis.com/icon?family=Material+Icons">
+      <style>
+		  .gridListdemoBasicUsage md-grid-list {
+  margin: 8px; }
+
+.gridListdemoBasicUsage .gray {
+  background: #f5f5f5; }
+
+.gridListdemoBasicUsage .green {
+  background: #b9f6ca; }
+
+.gridListdemoBasicUsage .yellow {
+  background: #ffff8d; }
+
+.gridListdemoBasicUsage .blue {
+  background: #84ffff; }
+
+.gridListdemoBasicUsage .purple {
+  background: #b388ff; }
+
+.gridListdemoBasicUsage .red {
+  background: #ff8a80; }
+		  
+		  .tabsdemoDynamicHeight md-content h1:first-child {
+  margin-top: 0; 
+  
+  }
+   
+.inputdemoErrors .inputErrorsApp {
+  min-height: 48px; }
+
+.inputdemoErrors md-input-container > p {
+  font-size: 0.8em;
+  text-align: left;
+  width: 100%; 
+  .selectdemoSelectHeader {
+  /* Please note: All these selectors are only applied to children of elements with the 'selectdemoSelectHeader' class */ }
+  .selectdemoSelectHeader .demo-header-searchbox {
+    border: none;
+    outline: none;
+    height: 100%;
+    width: 100%;
+    padding: 0; }
+  .selectdemoSelectHeader .demo-select-header {
+    box-shadow: 0 1px 0 0 rgba(0, 0, 0, 0.1), 0 0 0 0 rgba(0, 0, 0, 0.14), 0 0 0 0 rgba(0, 0, 0, 0.12);
+    padding-left: 10.667px;
+    height: 48px;
+    cursor: pointer;
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: auto; }
+  .selectdemoSelectHeader md-content._md {
+    max-height: 240px; }
+    
+    
+  
+  
+      </style>
+      <script language = "javascript">
+       
+       
+      
+      
+var app = angular.module('inputErrorsApp', ['ngMaterial', 'ngMessages']);
+
+
+/*
+	===========================================
+	UPLOAD MULTIPLE FILE 
+	===========================================
+*/ 
+
+/*
+app.directive('ngFile', ['$parse', function ($parse) {
+  return {
+   restrict: 'A',
+   link: function(scope, element, attrs) {
+     element.bind('change', function(){
+
+     $parse(attrs.ngFile).assign(scope,element[0].files)
+     scope.$apply();
+   });
+  }
+ };
+}]);
+
+*/
+
+app.controller('AppCtrl', function($scope, $http, $element) {
+	
+
+
+  $scope.project = {
+    description: 'Nuclear Missile Defense System',
+    rate: 500,
+    special: false,
+    tos: true
+  };
+  
+  
+  $scope.color = {
+      
+      red: Math.floor(Math.random() * 255)
+      
+   };
+  
+  
+   $scope.vegetables = ['Corn' ,'Onions' ,'Kale' ,'Arugula' ,'Peas', 'Zucchini'];
+      $scope.searchTerm;
+      $scope.clearSearchTerm = function() {
+        $scope.searchTerm = '';
+      };
+      // The md-select directive eats keydown events for some quick select
+      // logic. Since we have a search input here, we don't need that logic.
+      $element.find('input').on('keydown', function(ev) {
+          ev.stopPropagation();
+      });
+      
+    
+   $scope.color.red.click = function() {
+	   
+		alert('sdf')
+	}
+
+/*
+===========================================
+UPLOAD MULTIPLE FILE ON SUGMIT 
+===========================================
+
+*/
+  
+ /*
+$scope.submit = function() {
+	  
+	var fd = new FormData();
+   angular.forEach($scope.uploadfiles,function(file){
+    
+     fd.append('file[]',file);
+   });
+	
+	$http({
+   method: 'post',
+   url: 'upload.php',
+   data: fd,
+   headers: {'Content-Type': undefined},
+  }).then(function successCallback(response) { 
+    // Store response data
+    //$scope.response = response.data;
+   
+    alert(JSON.stringify(response))
+  
+  
+  });
+}
+  
+*/
+  
+});
+
+
+
+      
+      
+ </script>     	  
+   </head>
+   
+   <body ng-app = "inputErrorsApp"> 
+     
+<div ng-controller="AppCtrl" layout="column" ng-cloak>
+
+
+  <md-content layout-padding>
+    <form name="projectForm">
+
+      <md-input-container class="md-block">
+        <label>Description</label>
+        <input md-maxlength="30" required md-no-asterisk name="description" ng-model="project.description">
+        <div ng-messages="projectForm.description.$error">
+          <div ng-message="required">This is required.</div>
+          <div ng-message="md-maxlength">The description must be less than 30 characters long.</div>
+        </div>
+      </md-input-container>
+
+      <div layout="row">
+        <md-input-container flex="50">
+          <label>Client Name</label>
+          <input required name="clientName" ng-model="project.clientName">
+          <div ng-messages="projectForm.clientName.$error">
+            <div ng-message="required">This is required.</div>
+          </div>
+        </md-input-container>
+
+        <md-input-container flex="50">
+          <label>Project Type</label>
+          <md-select name="type" ng-model="project.type" required>
+            <md-option value="app">Application</md-option>
+            <md-option value="web">Website</md-option>
+          </md-select>
+        </md-input-container>
+      </div>
+
+      <md-input-container class="md-block">
+        <label>Client Email</label>
+        <input required type="email" name="clientEmail" ng-model="project.clientEmail"
+               minlength="10" maxlength="100" ng-pattern="/^.+@.+\..+$/" />
+
+        <div ng-messages="projectForm.clientEmail.$error" role="alert">
+          <div ng-message-exp="['required', 'minlength', 'maxlength', 'pattern']">
+            Your email must be between 10 and 100 characters long and look like an e-mail address.
+          </div>
+        </div>
+      </md-input-container>
+
+      <md-input-container class="md-block">
+        <label>Hourly Rate (USD)</label>
+        <input required type="number" step="any" name="rate" ng-model="project.rate" min="800"
+               max="4999" ng-pattern="/^1234$/" />
+
+        <div ng-messages="projectForm.rate.$error" multiple md-auto-hide="false">
+          <div ng-message="required">
+            You've got to charge something! You can't just <b>give away</b> a Missile Defense
+            System.
+          </div>
+
+          <div ng-message="min">
+            You should charge at least $800 an hour. This job is a big deal... if you mess up,
+            everyone dies!
+          </div>
+
+          <div ng-message="pattern">
+            You should charge exactly $1,234.
+          </div>
+
+          <div ng-message="max">
+            {{projectForm.rate.$viewValue | currency:"$":0}} an hour? That's a little ridiculous. I
+            doubt even Bill Clinton could afford that.
+          </div>
+        </div>
+      </md-input-container>
+
+      <md-input-container class="md-block">
+        <md-checkbox name="tos" ng-model="project.tos" required>
+          I accept the terms of service.
+        </md-checkbox>
+        <div ng-messages="projectForm.tos.$error" multiple md-auto-hide="false">
+          <div ng-message="required">
+            You must accept the terms of service before you can proceed.
+          </div>
+        </div>
+      </md-input-container>
+
+      <md-input-container class="md-block">
+        <md-switch class="md-primary" name="special" ng-model="project.special" required>
+          Enable special options.
+        </md-switch>
+        <div ng-messages="projectForm.special.$error" multiple>
+          <div ng-message="required">
+            You must enable all special options before you can proceed.
+          </div>
+        </div>
+      </md-input-container>
+     
+     <md-input-container class="md-block">
+     
+     </md-input-container>
+   
+   <md-input-container class="md-block">
+	<md-slider-container>
+      <span>R</span>
+      <md-slider min="0" max="1000" ng-model="color.red" aria-label="red" id="red-slider"
+                 class="md-warn" >
+      </md-slider>
+      
+      <md-input-container>
+        <input type="number" ng-model="color.red" aria-label="red" aria-controls="red-slider">
+      </md-input-container>
+      
+   </md-input-container>
+     
+	</form>
+  
+  <md-input-container class="md-block">
+ <div>
+    <h1 class="md-title">Pick a vegetable below</h1>
+    <div layout="row">
+      <md-input-container>
+        <label>Vegetables</label>
+        <md-select ng-model="selectedVegetables"
+                   md-on-close="clearSearchTerm()"
+                   data-md-container-class="selectdemoSelectHeader"
+                   multiple>
+          <md-select-header class="demo-select-header">
+            <input ng-model="searchTerm"
+                   type="search"
+                   placeholder="Search for a vegetable.."
+                   class="demo-header-searchbox md-text">
+          </md-select-header>
+          <md-optgroup label="vegetables">
+            <md-option ng-value="vegetable" ng-repeat="vegetable in vegetables |
+              filter:searchTerm">{{vegetable}}</md-option>
+          </md-optgroup>
+        </md-select>
+      </md-input-container>
+    </div>
+ </div>
+        
+  </md-input-container>
+ 
+  
+  <md-input-container class="md-block">
+  <div flex-gt-xs>
+      <h4>Standard date-picker</h4>
+      <md-datepicker ng-model="ctrl.myDate" md-placeholder="Enter date"></md-datepicker>
+    </div>
+  </md-input-container>
+  </md-content>
+  
+  <md-input-container class="md-block">
+   <input type='file' multiple ng-file='uploadfiles'><br/>
+      
+      <div>
+        <md-button type="submit" ng-click = "submit();" >Submit</md-button>
+      </div>
+
+      <p style="font-size:.8em; width: 100%; text-align: center;">
+        Make sure to include <a href="https://docs.angularjs.org/api/ngMessages" target="_blank">ngMessages</a> module when using ng-message markup.
+      </p>
+      
+  </md-input-container>
+
+
+
+</form>
+
+<h1>
+	Tabs
+</h1>
+
+<div ng-cloak>
+  <md-content>
+    <md-tabs md-dynamic-height md-border-bottom>
+      <md-tab label="one">
+        <md-content class="md-padding">
+          <h1 class="md-display-2">Tab One</h1>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla venenatis ante augue. Phasellus volutpat neque ac dui mattis vulputate. Etiam consequat aliquam cursus. In sodales pretium ultrices. Maecenas lectus est, sollicitudin consectetur felis nec, feugiat ultricies mi.</p>
+        </md-content>
+      </md-tab>
+      <md-tab label="two">
+        <md-content class="md-padding">
+          <h1 class="md-display-2">Tab Two</h1>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla venenatis ante augue. Phasellus volutpat neque ac dui mattis vulputate. Etiam consequat aliquam cursus. In sodales pretium ultrices. Maecenas lectus est, sollicitudin consectetur felis nec, feugiat ultricies mi. Aliquam erat volutpat. Nam placerat, tortor in ultrices porttitor, orci enim rutrum enim, vel tempor sapien arcu a tellus. Vivamus convallis sodales ante varius gravida. Curabitur a purus vel augue ultrices ultricies id a nisl. Nullam malesuada consequat diam, a facilisis tortor volutpat et. Sed urna dolor, aliquet vitae posuere vulputate, euismod ac lorem. Sed felis risus, pulvinar at interdum quis, vehicula sed odio. Phasellus in enim venenatis, iaculis tortor eu, bibendum ante. Donec ac tellus dictum neque volutpat blandit. Praesent efficitur faucibus risus, ac auctor purus porttitor vitae. Phasellus ornare dui nec orci posuere, nec luctus mauris semper.</p>
+          <p>Morbi viverra, ante vel aliquet tincidunt, leo dolor pharetra quam, at semper massa orci nec magna. Donec posuere nec sapien sed laoreet. Etiam cursus nunc in condimentum facilisis. Etiam in tempor tortor. Vivamus faucibus egestas enim, at convallis diam pulvinar vel. Cras ac orci eget nisi maximus cursus. Nunc urna libero, viverra sit amet nisl at, hendrerit tempor turpis. Maecenas facilisis convallis mi vel tempor. Nullam vitae nunc leo. Cras sed nisl consectetur, rhoncus sapien sit amet, tempus sapien.</p>
+          <p>Integer turpis erat, porttitor vitae mi faucibus, laoreet interdum tellus. Curabitur posuere molestie dictum. Morbi eget congue risus, quis rhoncus quam. Suspendisse vitae hendrerit erat, at posuere mi. Cras eu fermentum nunc. Sed id ante eu orci commodo volutpat non ac est. Praesent ligula diam, congue eu enim scelerisque, finibus commodo lectus.</p>
+        </md-content>
+      </md-tab>
+      <md-tab label="three">
+        <md-content class="md-padding">
+          <h1 class="md-display-2">Tab Three</h1>
+          <p>Integer turpis erat, porttitor vitae mi faucibus, laoreet interdum tellus. Curabitur posuere molestie dictum. Morbi eget congue risus, quis rhoncus quam. Suspendisse vitae hendrerit erat, at posuere mi. Cras eu fermentum nunc. Sed id ante eu orci commodo volutpat non ac est. Praesent ligula diam, congue eu enim scelerisque, finibus commodo lectus.</p>
+        </md-content>
+      </md-tab>
+    </md-tabs>
+    
+    <div layout="row" layout-wrap>
+  <div flex="33">[flex=33]</div>
+  <div flex="66">[flex=66]</div>
+  <div flex="66">[flex=66]</div>
+  <div flex="33">[flex=33]</div>
+  <div flex="33">[flex=33]</div>
+  <div flex="33">[flex=33]</div>
+  <div flex="33">[flex=33]</div>
+</div>
+
+
+<div class = "gridListdemoBasicUsage">
+<md-grid-list
+        md-cols-xs="1" md-cols-sm="2" md-cols-md="4" md-cols-gt-md="6"
+        md-row-height-gt-md="1:1" md-row-height="2:2"
+        md-gutter="12px" md-gutter-gt-sm="8px" >
+
+    <md-grid-tile class="gray"
+        md-rowspan="3" md-colspan="2" md-colspan-sm="1" md-colspan-xs="1">
+      <md-grid-tile-footer>
+        <h3>#1: (3r x 2c)</h3>
+      </md-grid-tile-footer>
+    </md-grid-tile>
+
+    <md-grid-tile class="green">
+      <md-grid-tile-footer>
+        <h3>#2: (1r x 1c)</h3>
+      </md-grid-tile-footer>
+    </md-grid-tile>
+
+    <md-grid-tile class="yellow">
+      <md-grid-tile-footer>
+        <h3>#3: (1r x 1c)</h3>
+      </md-grid-tile-footer>
+    </md-grid-tile>
+
+    <md-grid-tile class="blue"
+        md-rowspan="2">
+      <md-grid-tile-footer>
+        <h3>#4: (2r x 1c)</h3>
+      </md-grid-tile-footer>
+    </md-grid-tile>
+
+    <md-grid-tile class="red"
+        md-rowspan="2" md-colspan="2" md-colspan-sm="1" md-colspan-xs="1">
+      <md-grid-tile-footer>
+        <h3>#5: (2r x 2c)</h3>
+      </md-grid-tile-footer>
+    </md-grid-tile>
+
+    <md-grid-tile class="green"
+        md-rowspan="2" >
+      <md-grid-tile-footer>
+        <h3>#6: (2r x 1c)</h3>
+      </md-grid-tile-footer>
+    </md-grid-tile>
+
+  </md-grid-list>
+
+</div>
+
+  
+
+
+  </md-content>
+</div>
+ONE
+TWO
+THREE
+ONETWO
+
+</div>
+
+
+
+   </body>
+
+
+</html>

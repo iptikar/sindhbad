@@ -2,6 +2,8 @@
 	
 	// Check if there is any view 
 	require 'application/controller/PassengerBoardingSorter.php';
+	
+	require 'application/controller/controller.php';
 
 ?>
 <!DOCTYPE html>
@@ -72,25 +74,32 @@ $cards   = [
 				], // 2
 		];
 		
-		// Sort the bording list using Static class 
-		$sortBoardingList = PassengerBoardingSorter::ArangeBordingList('from', 'to', $cards, 'instruction');
+		$obj = new PassengerBoardingSorterOOP($cards);
+		
+		$obj->startMessage = 'Your journey start from here ';
+		
+		// End message 
+		$obj->endMessage = 'Your journey ends here';
+		
+		$obj->ArrageBoardingTicket('from', 'to', 'instruction');
 		
 		// Form a template so you can get template list 
 		$template = '<li class="list-group-item">{{&instruction}}Take {{&transport}} From {{&from}} To {{&to}},
 		 {{&transport}} No  {{&transportno}}, {{&transport}} Departure Date {{&time}}. Seat Number {{&seatno}}.</li>';
-		
-		// Regression for to getting the value from array 
 		$regrex = '/{{&(.*?)}}/';
 		
-		$getTemplate = PassengerBoardingSorter::getTemplate($template,$sortBoardingList ,$regrex);
+		$obj->GetEmbededHTMlTemplate($template, $regrex);
 		
+		echo $obj->getTemplate;
+		
+	
 		
 	  
 	  ?>
 	  
 	 <!--- Getting each data to view -->
 	 
-	 <?= $getTemplate ?>
+	 
     
     
   </ul>

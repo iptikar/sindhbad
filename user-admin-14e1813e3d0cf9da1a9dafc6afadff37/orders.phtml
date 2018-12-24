@@ -18,14 +18,19 @@ if($obj->IsUserLoggedInSeller() !== true) {
 ?>
 
 <?php
-
+/*
+* echo "<pre>";
+print_r(Orders::GetOrdersForSeller());
+echo "</pre>";
+					
 //echo "<pre>";
 
 //print_R(GetOrdersForSeller::FetchAllOrders()['result']);
 //echo "</pre>";
 
-//exit();
 
+//exit();
+*/
 ?>
 <!DOCTYPE html>
 <!-- 
@@ -167,7 +172,7 @@ License: You must have a valid license purchased only from themeforest(the above
                                     
                                     <div class="portlet-body flip-scroll">
                                         
-                                        <?php if(GetOrdersForSeller::FetchAllOrders()['result'] != 'No records founds' && is_array(GetOrdersForSeller::FetchAllOrders()['result'])) :?>
+                                        <?php if(Orders::GetOrdersForSeller()['result'] != 'No records founds' && is_array(Orders::GetOrdersForSeller()['result'][0])) :?>
                                         
                                         
                                         <table id = "example" class="table table-bordered table-striped table-condensed flip-content">
@@ -186,7 +191,7 @@ License: You must have a valid license purchased only from themeforest(the above
                                             </thead>
                                             <tbody>
 											
-												<?php foreach (GetOrdersForSeller::FetchAllOrders()['result']['0'] as $eachItem):?>
+												<?php foreach (Orders::GetOrdersForSeller()['result']['0'] as $eachItem):?>
 												
 												<?php
 													 // Decoding some strings 
@@ -194,17 +199,17 @@ License: You must have a valid license purchased only from themeforest(the above
 													 
 													 $shipping_address = json_decode($eachItem['shipping_address'], true);
 												?>
-												<tr>
-                                                    <td><?= $eachItem['order_id']?></td>
-                                                    <td> <?= $eachItem['purchase_point']?> </td>
-                                                    <td class="date"> <?= $eachItem['purchase_date']?> </td>
-                                                    <td class="numeric"><?= ucfirst($billing_address['first-name']) ?? '';?> <?= ucfirst($billing_address['last-name']) ?? '';?></td>
-                                                    <td class="numeric"> <?= $shipping_address['first-name'] ?? '';?> <?= $shipping_address['last-name'] ?? '';?> </td>
-                                                    <td class="numeric"><?= $eachItem['currency']; ?> <?= $obj->getPriceFormate($eachItem['totalamount']); ?> </td>
-                                                    <td class="numeric"> <?= $eachItem['currency']; ?> <?= $obj->getPriceFormate($eachItem['totalamount']); ?> </td>
-                                                    <td class="numeric">  <?= $eachItem['status']; ?> </td>
-                                                    <td class="numeric"> <a href = "order-details.phtml?id=<?=$eachItem['id']?>&order_id=<?=$eachItem['order_id']?>">View</a> </td>
-                                                </tr>
+<tr>
+<td><?= $eachItem['order_id']?></td>
+<td> <?= $eachItem['purchase_point']?> </td>
+<td class="date"> <?= $eachItem['purchase_date']?> </td>
+<td class="numeric"><?= ucfirst($billing_address['firstname']) ?? '';?> <?= ucfirst($billing_address['lastname']) ?? '';?></td>
+<td class="numeric"> <?= $shipping_address['firstname'] ?? '';?> <?= $shipping_address['lastname'] ?? '';?> </td>
+<td class="numeric"><?= $eachItem['currency']; ?> <?= $eachItem['totalamount']; ?> </td>
+<td class="numeric"> <?= $eachItem['currency']; ?> <?= $eachItem['totalamount'] ?> </td>
+<td class="numeric">  <?= $eachItem['status']; ?> </td>
+<td class="numeric"> <a href = "order-details.phtml?id=<?=$eachItem['id']?>&order_id=<?=$eachItem['order_id']?>">View</a> </td>
+</tr>
 												
 												<?php endforeach;?>
 												

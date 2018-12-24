@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<body>
+ <script src = "https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+      <script src = "https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-animate.min.js"></script>
+      <script src = "https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-aria.min.js"></script>
+      <script src = "https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-messages.min.js"></script>
+      <script src = "https://ajax.googleapis.com/ajax/libs/angular_material/1.0.0/angular-material.min.js"></script>
+      <link rel = "stylesheet" href = "https://fonts.googleapis.com/icon?family=Material+Icons">
+   
+<div ng-app="myApp" ng-controller="myCtrl">
+
+First Name: <input type="text" ng-model="firstName"><br>
+Last Name: <input type="text" ng-model="lastName"><br>
+Phone <input type = "text" ng-model = "phone" />
+
+
+<br/>
+<input name = "email" ng-click = "hello()" ng-model = "email" type = "email" />
+
+<p>The input's valid state is:</p>
+<h1>{{myApp.email.$valid}}</h1>
+
+<h1 ng-click ="count = count + 1">Mouse over me!</h1>
+
+<h2>{{ count }}</h2>
+
+<select  ng-model = "selectedName" ng-options = "x for x in names"></select>
+
+<br>
+
+Full Name: {{firstName + " " + lastName}}
+<br>
+Phone: {{phone}}
+
+
+<ul>
+      <li ng-repeat="x in products">{{x}}<span ng-click="removeItem($index)">×</span></li>
+</ul>
+  
+  <input ng-model="addMe">
+  <button ng-click="addItem()">Add</button>
+
+<p>{{errortext}}</p>
+
+</div>
+
+<script>
+var app = angular.module('myApp', []);
+
+app.controller('myCtrl', function($scope, $http) {
+    $scope.firstName= "John";
+    $scope.lastName= "Doe";
+    $scope.phone = '';
+    $scope.names = ['a', 'b'];
+    $scope.count = 0;
+    
+    $http({
+    url: "test.php", 
+    method: "POST",
+    data: { username: 'sdf', password: 'sdf' },
+    headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+
+    }).success(function(data, status, headers, config) {
+   // this callback will be called asynchronously
+   // when the response is available
+
+    if(status == 200) {
+      var return_data = data;
+
+    if(return_data == 0){
+          console.log("test "+data,status);
+          
+         
+        
+        
+        }else{
+
+          console.log("test "+data,status);
+        }
+      }
+    }).
+  error(function(data, status, headers, config) {
+   // called asynchronously if an error occurs
+   // or server returns response with an error status.
+   console.log("test "+data,status);
+
+    });
+    
+   
+$scope.products = ["Milk", "Bread", "Cheese"];
+    $scope.addItem = function () {
+        $scope.errortext = "";
+        if (!$scope.addMe) {return;}
+        if ($scope.products.indexOf($scope.addMe) == -1) {
+            $scope.products.push($scope.addMe);
+        } else {
+            $scope.errortext = "The item is already in your shopping list.";
+            
+        }
+    }
+    
+    $scope.removeItem = function (x) {
+        $scope.errortext = "";
+        $scope.products.splice(x, 1);
+    } 
+    
+});
+
+function hello() {
+	alert('s')
+	
+	}
+	
+	
+function showAlertError() {
+	
+	}
+</script>
+
+
+
+
+  
+
+<p>So far we have made an HTML list based on the items of an array.</p>
+
+
+
+
+</body>
+</html>

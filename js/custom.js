@@ -153,8 +153,10 @@ function SendItemToCart(el) {
 	// Get the id of the product 
 	var id = data.id;
 
+	var seller_email = data.seller_email; 
+			
 	// quentity must be number 
-	var data = {sku:sku, name:p_name, image:p_p_img, qty:qty, price:price, id:id};
+	var data = {sku:sku, name:p_name, image:p_p_img, qty:qty, price:price, id:id, seller_email: seller_email};
 
 
 

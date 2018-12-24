@@ -218,8 +218,8 @@ License: You must have a valid license purchased only from themeforest(the above
                                                     <td><?= $eachItem['order_id']?></td>
                                                     <td> <?= $eachItem['purchase_point']?> </td>
                                                     <td class="date"> <?= $eachItem['purchase_date']?> </td>
-                                                    <td class="numeric"><?= ucfirst($billing_address['first-name']) ?? '';?> <?= ucfirst($billing_address['last-name']) ?? '';?></td>
-                                                    <td class="numeric"> <?= $shipping_address['first-name'] ?? '';?> <?= $shipping_address['last-name'] ?? '';?> </td>
+                                                    <td class="numeric"><?= ucfirst($billing_address['firstname']) ?? '';?> <?= ucfirst($billing_address['lastname']) ?? '';?></td>
+                                                    <td class="numeric"> <?= $shipping_address['firstname'] ?? '';?> <?= $shipping_address['lastname'] ?? '';?> </td>
                                                     <td class="numeric"><?= $eachItem['currency']; ?> <?= $obj->getPriceFormate($eachItem['totalamount']); ?> </td>
                                                     <td class="numeric"> <?= $eachItem['currency']; ?> <?= $obj->getPriceFormate($eachItem['totalamount']); ?> </td>
                                                     <td class="numeric">  <?= $eachItem['status']; ?> </td>

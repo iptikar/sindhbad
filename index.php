@@ -477,7 +477,7 @@ $obj = new MarketPlace();
 																	   
 																	   
 																   
-<button type="submit" title="Add to Cart" class="action tocart primary btn-action btn-cart" data-cart = '{"name" : "<?= $row['name']?>", "sku": "<?= $row['sku']?>", "image": "<?= $img_src_link ?>", "qty": "1", "price" : "<?= $row['discount'] == '0' ? $row['regular_price'] : $row['special_price'];?> ", "id" : <?= $row['id']?>, "seller_email":<?=base64_encode($row['seller_email']);?>}' onclick = "SendItemToCart(this)"><span>Add to Cart</span></button>
+<button type="submit" title="Add to Cart" class="action tocart primary btn-action btn-cart" data-cart = '{"name" : "<?= $row['name']?>", "sku": "<?= $row['sku']?>", "image": "<?= $img_src_link ?>", "qty": "1", "price" : "<?= $row['discount'] == '0' ? $row['regular_price'] : $row['special_price'];?> ", "id" : <?= $row['id']?>, "seller_email":"<?=base64_encode($row['seller_email']);?>"}' onclick = "SendItemToCart(this)"><span>Add to Cart</span></button>
 
 																   
 																   

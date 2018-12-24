@@ -341,7 +341,7 @@ License: You must have a valid license purchased only from themeforest(the above
                                                                 <div class="portlet-body">
                                                                     <div class="row static-info">
                                                                         <div class="col-md-5 name"> Customer Name: </div>
-                                                                        <div class="col-md-7 value"> <?= ucwords($shipping['first-name'].' '. $shipping['last-name'])?> </div>
+                                                                        <div class="col-md-7 value"> <?= ucwords($shipping['firstname'].' '. $shipping['lastname'])?> </div>
                                                                     </div>
                                                                     <div class="row static-info">
                                                                         <div class="col-md-5 name"> Email: </div>
@@ -353,7 +353,7 @@ License: You must have a valid license purchased only from themeforest(the above
                                                                     </div>
                                                                     <div class="row static-info">
                                                                         <div class="col-md-5 name"> Phone Number: </div>
-                                                                        <div class="col-md-7 value"> <?= $shipping['mobile-no']; ?></div>
+                                                                        <div class="col-md-7 value"> <?= $shipping['mobile_no']; ?></div>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -498,33 +498,37 @@ License: You must have a valid license purchased only from themeforest(the above
                                                                                     <th> Tax Percent </th>
                                                                                     <th> Discount Amount </th>
                                                                                     <th> Total </th>
+                                                                                    <th>Seller Email</th>
+                                                                                    
                                                                                 </tr>
                                                                             </thead>
+                                                                            
                                                                             <tbody>
 																				<?php $result = $obj->GetItemsByOrderId('order_id')['result']; ?>
 																				
 																				<?php if (count($result) > 0) :?>
 																				
 																				<?php foreach($result as $eachItems) :?>
-																				<tr>
-                                                                                    <td>
-                                                                                        <a href="javascript:;"><?= $eachItems['short_product_name'];?> </a>
-                                                                                    </td>
-                                                                                    <td>
-                                                                                        <span class="label label-sm label-success"><?= $eachItems['avaibility'];?></span></td>
-                                                                                    <td><?= $eachItems['currency'];?> <?= $eachItems['regular_price'];?> </td>
-                                                                                    <td><?= $eachItems['currency'];?> <?= $eachItems['special_price'];?> </td>
-                                                                                    <td> <?= $eachItems['qty'];?> </td>
-                                                                                    <td> <?= $eachItems['currency'];?> <?= $eachItems['tax'];?>  </td>
-                                                                                    <td> 5 % </td>
-                                                                                    <td><?= $eachItems['discount'] == 0 ? 'N/A' : $eachItems['currency'].' '.$eachItems['discount_amount'] ;?> </td>
-                                                                                    
-                                                                                    <td> <?= $eachItems['currency'];?> <?= $eachItems['totalamount'];?>  </td>
-                                                                                </tr>
-																				
-																				<?php endforeach; ?>
-																				
-																				<?php endif;?>
+<tr>
+<td>
+<a href="javascript:;"><?= $eachItems['short_product_name'];?> </a>
+</td>
+<td>
+<span class="label label-sm label-success"><?= $eachItems['avaibility'];?></span></td>
+<td><?= $eachItems['currency'];?> <?= $eachItems['regular_price'];?> </td>
+<td><?= $eachItems['currency'];?> <?= $eachItems['special_price'];?> </td>
+<td> <?= $eachItems['qty'];?> </td>
+<td> <?= $eachItems['currency'];?> <?= $eachItems['tax'];?>  </td>
+<td> 5 % </td>
+<td><?= $eachItems['discount'] == 0 ? 'N/A' : $eachItems['currency'].' '.$eachItems['discount_amount'] ;?> </td>
+
+<td> <?= $eachItems['currency'];?> <?= $eachItems['totalamount'];?>  </td>
+<td><?=$eachItems['seller_email']?></td>
+</tr>
+
+<?php endforeach; ?>
+
+<?php endif;?>
 
                                                                             </tbody>
                                                                         </table>

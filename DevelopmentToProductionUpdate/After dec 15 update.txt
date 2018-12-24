@@ -1,3 +1,6 @@
+1. getIndividualProduct add seller_email index to select 
+
+
 0. discription.phtml 
 
 line 441 
@@ -13,19 +16,19 @@ Replace whole function
 line 82 var seller_email = $('#seller_email120').val();  is added 
 
 
-3 on line 2743 public function AddToCart change whole function 
+3 on line 2743 public function AddToCart change whole function (Done)
 
 4. OrderConfirmation on line 4484 replace all functions id development 
-/controller/controller.php line 4484 
+/controller/controller.php line 4484 (Done)
 
 
-5. in the file select store procedure on line 157 this method is added 
+5. in the file select store procedure on line 157 this method is added (Done)
 
 SelectRecordsByStoreProcedureWithJoinWithGroup
 
-6. GetOrersForSeller.php controller is added 
+6. GetOrersForSeller.php controller is added (Added)
 
-7. Add this controller required to controller.php
+7. Add this controller required to controller.php (Added)
 
 8. user-admin-14e1813e3d0cf9da1a9dafc6afadff37/order-details.php is added 
 
@@ -41,13 +44,12 @@ pages are
 better simple replace the files 
 
 
-11. Replace review.phtml file 
-
+11. Replace review.phtml file (done)
 
 12. In index.php file index file seller_email index need to be added 
 
 
-13. public function GetProductByCategory($categoryId) select additional seller_email index 
+13. public function GetProductByCategory($categoryId) select additional seller_email index (Added)
 
 
 14. on line 480 line add update the following line <button type="submit" 

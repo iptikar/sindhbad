@@ -120,10 +120,17 @@ License: You must have a valid license purchased only from themeforest(the above
                                 <i class="fa fa-angle-down"></i>
                             </div>
                             <!-- BEGIN THEME PANEL -->
+                            
+                            <!--
                             <div class="btn-group btn-theme-panel">
+								
+								
                                 <a href="javascript:;" class="btn dropdown-toggle" data-toggle="dropdown">
                                     <i class="icon-settings"></i>
                                 </a>
+                                
+                                
+                                
                                 <div class="dropdown-menu theme-panel pull-right dropdown-custom hold-on-click">
                                     <div class="row">
                                         <div class="col-md-4 col-sm-4 col-xs-12">
@@ -195,6 +202,8 @@ License: You must have a valid license purchased only from themeforest(the above
                                     </div>
                                 </div>
                             </div>
+                            -->
+                            
                             <!-- END THEME PANEL -->
                         </div>
                         <!-- END PAGE TOOLBAR -->
@@ -214,19 +223,14 @@ License: You must have a valid license purchased only from themeforest(the above
                     <!-- BEGIN PAGE BASE CONTENT -->
                     <!-- BEGIN DASHBOARD STATS 1-->
 					
+					<!--
+					
 					 <div class="row">
                         
 						 <div class = "col-md-12">
 							<h4> Your Account is Incomplete!</h4> 
 							<h6>Please verify you account</h6>
 							
-							
-							<?php
-echo "<pre>";
-print_r($obj->GetBuyerMessage());
-
-echo "</pre>";
- ?>
 							
 						</div>
 						
@@ -235,8 +239,10 @@ echo "</pre>";
 					</div>
 						 
 					</div>
+					-->
 					
 					
+					<!--
                     <div class="row">
                         <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
                             <div class="dashboard-stat blue">
@@ -302,6 +308,7 @@ echo "</pre>";
                         </div>
                     </div>
                   
+                  -->
                    <div class="clearfix"></div>
                     
                     
