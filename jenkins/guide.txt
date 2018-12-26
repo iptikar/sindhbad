@@ -1,0 +1,10 @@
+http://www.vogella.com/tutorials/Jenkins/article.html
+https://jenkins.io/doc/book/installing/#debian-ubuntu
+
+localhost:8080 is used by another system 
+
+/etc/default/jenkins 
+
+change HTTP_port to another 
+
+https://www.youtube.com/watch?v=7DE_f3zX1RM

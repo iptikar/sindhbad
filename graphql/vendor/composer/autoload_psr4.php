@@ -7,5 +7,6 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'Youshido\\GraphQL\\' => array($vendorDir . '/youshido/graphql/src'),
+    'Youshido\\GraphQLExtension\\' => array($vendorDir . '/youshido/graphql-extensions/src'),
     'StarTutorial\\' => array($baseDir . '/src'),
 );

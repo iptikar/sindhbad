@@ -12,6 +12,7 @@
         }
     },
     "require": {
-        "youshido/graphql": "^1.5"
+        "youshido/graphql": "^1.5",
+        "youshido/graphql-extensions": "^0.0.6"
     }
 }

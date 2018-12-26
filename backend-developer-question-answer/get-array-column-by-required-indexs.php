@@ -36,7 +36,7 @@ function array_column_multi(array $input,
 							array $column_keys, 
 							int $perpage, 
 							int $startfrom,
-							string $sortby
+							array $sortby
 							) {
     $result = array();
     $column_keys = array_flip($column_keys);
@@ -48,13 +48,39 @@ function array_column_multi(array $input,
     // $getFrom range 
     $result = array_splice($result, $perpage, $startfrom);
     
+    if(!is_array($sortby)) {
+		
+			return false;
+		}
+		
+	
+	// Index to sort 
+	$indextosort = $sortby['field'];
+	
+	
+	    
     if($sortby !== '') {
 		
-		usort($result, function ($a, $b) use ($sortby){
+		usort($result, function ($a, $b) use ($sortby, $indextosort){
 			
-			if(array_key_exists($sortby, $a)) {
+			if(array_key_exists($indextosort, $a)) {
 				
-				return $a[$sortby] - $b[$sortby];
+				// Switch 
+		switch($sortby['order']) {
+		
+			case 'ASC':
+			return $a[$indextosort] - $b[$indextosort];
+			break;
+			
+			case 'DESC':
+			return $b[$indextosort] - $a[$indextosort];
+			break;
+			
+			default:
+			break;
+		}
+				
+				
 			}
 			
 		});
@@ -63,11 +89,11 @@ function array_column_multi(array $input,
     return $result;
 }
 
-
+$sortby = ['field' => 'id', 'order' =>  'DESC'];
 
 
 echo "<pre>";
-print_R(array_column_multi($records, $required_column, 0 , 2, 'id'));
+print_R(array_column_multi($records, $required_column, 0 , 2, $sortby));
 echo "</pre>";
 
 

@@ -10,6 +10,7 @@ class ComposerStaticInit32f0c934ae97691e3273c59716738f5f
         'Y' => 
         array (
             'Youshido\\GraphQL\\' => 17,
+            'Youshido\\GraphQLExtension\\' => 26,
         ),
         'S' => 
         array (
@@ -21,6 +22,10 @@ class ComposerStaticInit32f0c934ae97691e3273c59716738f5f
         'Youshido\\GraphQL\\' => 
         array (
             0 => __DIR__ . '/..' . '/youshido/graphql/src',
+        ),
+        'Youshido\\GraphQLExtension\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/youshido/graphql-extensions/src',
         ),
         'StarTutorial\\' => 
         array (
