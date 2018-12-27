@@ -2,6 +2,7 @@
   <testsuites>
     <testsuite name="money">
       <file>unittest/CalculatorTest.php</file>
+      <file>unittest/CalculatorTest1.php</file>
       </testsuite>
   </testsuites>
 </phpunit>
