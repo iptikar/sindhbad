@@ -8,7 +8,7 @@ $u = $_POST['username'] = '';
 $p = $_POST['password'] = '';
 
  
-class LoginTests extends PHPUnit\Framework\TestCase
+class LoginTests1 extends PHPUnit\Framework\TestCase
 {
     private $Login;
  
