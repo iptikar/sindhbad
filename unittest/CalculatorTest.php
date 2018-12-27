@@ -26,7 +26,7 @@ class LoginTests extends PHPUnit\Framework\TestCase
     {
         $result = $this->Login->LoginIn('bharatrose1@gmail.com', '6565656565656', 'username', 'passwdord');
         
-        $this->assertEquals(true, $result);
+        $this->assertEquals('Hello', $result);
     }
  
 }
