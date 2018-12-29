@@ -8,3 +8,13 @@ localhost:8080 is used by another system
 change HTTP_port to another 
 
 https://www.youtube.com/watch?v=7DE_f3zX1RM
+
+
+You might get this error but error is minor 
+https://stackoverflow.com/questions/27161854/why-does-jenkins-complain-that-my-reverse-proxy-setup-is-broken
+
+It appears that your reverse proxy set up is broken.
+
+
+Need to install git plugines 
+https://www.guru99.com/jenkins-github-integration.html
