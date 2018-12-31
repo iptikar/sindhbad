@@ -1,0 +1,16 @@
+# This file is the entry point to configure your own HTTP routes.
+# Files in the routes/ subdirectory configure the routes for your dependencies.
+
+#index:
+#    path: /
+#    defaults: { _controller: 'App\Controller\DefaultController::index' }
+
+app_lucky_number:
+    path: /lucky/number
+    controller: App\Controller\LuckyController::number
+show_blog_create:
+    path: /lucky/create
+    controller: App\Controller\LuckyController::create
+Product:
+    path: /product
+    controller: App\Controller\ProductController::index
