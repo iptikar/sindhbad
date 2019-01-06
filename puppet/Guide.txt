@@ -1,0 +1,13 @@
+I was following these toturial first stage 
+
+https://vexxhost.com/resources/tutorials/how-to-install-and-setup-puppet-master-and-client-on-ubuntu-14-04/
+
+But i was facing trought because i was testing in localhost and setting puppet master in localhost and agent in Nginx web Server which was unable to connect to the puppet master. There was a lots of trouble due to i hade tested in puppet master in localhost.
+
+So i have create two vurtal machince with nginx docker-compose.yml and stablished two client with ip 
+http://172.17.0.7/ Puppet Master 
+http://172.17.0.5/ Puppet Client 
+
+After tyring this only toturial started to work.
+
+Toturial will be continue.

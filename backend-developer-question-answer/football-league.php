@@ -69,6 +69,7 @@ class LeagueTable
 
       
 $table = new LeagueTable(array('Mike', 'john', 'Chris', 'Arnold', 'Ben'));
+
 $table->recordResult('Mike', 1);
 $table->recordResult('Mike', 3);
 $table->recordResult('john', 5);

@@ -1,6 +1,5 @@
 <?php 
 echo phpinfo();
-
 /*
 $mysqli = new mysqli('localhost', 'root', 'a', 'iptikar-marketplace');
 

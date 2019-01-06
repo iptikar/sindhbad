@@ -71,6 +71,12 @@ GetBoardingList.prototype.ArrayCards = function (){
 	return this.arrayData;
 }
 
+// Get the template 
+GetBoardingList.prototype.GetTemplate = function (data, template, regrex ) {
+	
+		
+}
+
 var obj = new GetBoardingList(boarding);
 
 console.log(obj.ArrayCards())
