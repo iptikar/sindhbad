@@ -1,0 +1,20 @@
+1. Installing couchdb first 
+https://www.hugeserver.com/kb/how-install-apache-couchdb-ubuntu-16/
+
+2. After installation 
+https://blog.eduonix.com/web-programming-tutorials/learn-create-couchdb-document-php/
+follow this toturial 
+
+3. You can find couchdb index file 
+and try to learn 
+
+It was really got for experiment for this couchdb
+
+=============================================================
+CONCLUSION 
+=============================================================
+
+I am closing this experiment it was good to test and things was successful 
+i did CRUD application using couch db and was successful
+
+

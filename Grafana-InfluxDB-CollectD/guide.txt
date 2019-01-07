@@ -1,0 +1,83 @@
+By using  the following toturial i have installed graphana, influxdb-colltd in ubuntu 16.04
+Without any error 
+ 
+https://www.cyberpunk.rs/system-monitoring-with-grafana-influxdb-collectd
+
+1. Alots of plugines is avialble fir example i would like to add influxdb then 
+by running following command 
+
+[grafana-cli plugins install grafana-influxdb-08-datasource] 
+
+i can install influxdb plugine
+
+After installing all three components i influxdb was unable to restart so  and check the 
+syslog file and found 
+
+: run: open server: open service: Stat(): stat /usr/local/share/collectd: no such file or directory
+
+which is set in /etc/influxdb/influxdb.conf [[collectd]] line 
+
+file was not there i have create and influxdb started to work.
+
+
+> While connection to influxdb and creating data source got error collectd database not found 
+Ans I need to create database get request is not allowed to create database therefore i have 
+send curl request 
+
+=================================================================
+$url = 'http://localhost:8086/query';
+
+$ch = curl_init();
+
+curl_setopt($ch, CURLOPT_URL, $url);
+curl_setopt($ch, CURLOPT_POST, 1);
+curl_setopt($ch, CURLOPT_POSTFIELDS,
+            "q=CREATE+DATABASE+collectd");
+
+// In real life you should use something like:
+// curl_setopt($ch, CURLOPT_POSTFIELDS, 
+//          http_build_query(array('postvar1' => 'value1')));
+
+// Receive server response ...
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+
+$server_output = curl_exec($ch);
+
+curl_close ($ch);
+
+// Further processing ...
+if ($server_output == "OK") { 
+	
+} else { }
+
+echo $server_output;
+===================================================================
+
+to create database influxdb and its create now it's connected with influxdb  as well
+
+> https://portal.influxdata.com/downloads/ This links gives you more about influxdb 
+such as how to create datavisualisation 
+
+https://docs.influxdata.com/chronograf/v1.7/introduction/installation/
+https://sonnguyen.ws/monitor-server-with-collectd-influxdb-and-grafana/
+
+It will guide you how to install the tings to monitors 
+
+There is alots of things need to learn and hope will not find too much changles.
+
+http://localhost:8888/sources/1/dashboards/1?lower=now%28%29%20-%2015m
+
+Grafana 
+http://127.0.0.1:3000/datasources/edit/9?gettingstarted
+
+
+=========================================================
+CONCLUSION
+=========================================================
+
+On the date on Jan 7 2019 i am closing this prcatice about grafana because you can learn 
+in free time and this is data visualitaion things  in the mean time i am moving to couch db.
+
+ 
+
+
