@@ -1,0 +1,27 @@
+https://stackoverflow.com/questions/51685490/you-have-exceeded-your-request-quota-for-this-api-in-google-map
+
+
+AIzaSyBQnJ5029HZsZSfrclRs2T8GPpH_SBFCuc
+
+Geocoding Service: You must use an API key to authenticate each request to Google Maps Platform APIs.
+
+
+Bottom line is i spend already 2 hours to solve this 
+https://developers.google.com/maps/documentation/javascript/usage-and-billing
+https://developers.google.com/maps/documentation/javascript/usage-and-billing
+
+
+
+js?key=AIzaSyBQnJ5029HZsZSfrclRs2T8GPpH_SBFCuc:51 Geocoding Service: You have exceeded your daily request quota for this API. If you did not set a custom daily request quota, verify your project has an active billing account: http://g.co/dev/maps-no-account  For more information on usage limits and the Google Maps JavaScript API services please see: https://developers.google.com/maps/documentation/javascript/usage
+_.Oc @ js?key=AIzaSyBQnJ5029HZsZSfrclRs2T8GPpH_SBFCuc:51
+d @ geocoder.js:2
+c @ common.js:73
+(anonymous) @ VM352 GeocodeService.Search:1
+js?key=AIzaSyBQnJ5029HZsZSfrclRs2T8GPpH_SBFCuc:51 You have exceeded your request quota for this API. See https://developers.google.com/maps/documentation/javascript/error-messages?utm_source=maps_js&utm_medium=degraded&utm_campaign=billing#api-key-and-billing-errors
+
+
+=======================================================================================
+HE NEED TO PAY FOR GOOGLE MAP SERVICE NOT FREE AT ALL 
+=======================================================================================
+
+I AM CLOSING THIS TOPIC ON JAN 8 2019

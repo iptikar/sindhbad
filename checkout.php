@@ -36,9 +36,17 @@ Client ID
   
      <script type="text/javascript" src='https://maps.google.com/maps/api/js?key=AIzaSyDW9y0X7Hffibp0nXO7_J-nuW1o1qhOoRY&libraries=places'></script>
      -->
-     <script type="text/javascript" src='https://maps.google.com/maps/api/js?sensor=false&libraries=places'></script>
      
+   
+		<script type="text/javascript"
+          src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBQnJ5029HZsZSfrclRs2T8GPpH_SBFCuc"></script>
+    
     <script src="js/locationpicker.jquery.js"></script>
+
+     
+     
+     
+    
       
       
       <style>

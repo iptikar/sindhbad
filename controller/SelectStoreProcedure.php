@@ -68,7 +68,7 @@ class SelectStoreProcedure
                         return "Store failed: (" . $mysqli->errno . ") " . $mysqli->error."Line No".__LINE__;
                     }
                 } // If there is more result then move to next
-            } while ($mysqli->next_result());
+            } while ($mysqli->more_results() && $mysqli->next_result());
                                     
             // Append result
             $result['result'] = $all_result;
@@ -141,7 +141,7 @@ class SelectStoreProcedure
                         return "Store failed: (" . $mysqli->errno . ") " . $mysqli->error."Line No".__LINE__;
                     }
                 } // If there is more result then move to next
-            } while ($mysqli->next_result());
+            } while ($mysqli->more_results() && $mysqli->next_result());
                                     
             // Append result
             $result['result'] = $all_result;

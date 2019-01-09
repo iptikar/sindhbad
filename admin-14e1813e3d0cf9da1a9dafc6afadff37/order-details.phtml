@@ -89,7 +89,10 @@ License: You must have a valid license purchased only from themeforest(the above
 		
         <!-- BEGIN HEADER -->
         <?php include 'header.php'; ?>
+        
+        
      	
+        
         
         <!-- END HEADER -->
         <!-- BEGIN HEADER & CONTENT DIVIDER -->
@@ -195,6 +198,27 @@ License: You must have a valid license purchased only from themeforest(the above
 						// Get the details 
 						$orderdetails = $obj->GetOrderById('order_id')['result'][0][0];
 					?>
+					
+					
+					<?php 
+        
+			/*
+			 * string $submit, 
+									string $clientEmail, 
+									string $notifyCustomer, 
+									string $comments, 
+			 * 
+			 * */
+			 
+        $UpdateOrder = new UpdateOrderStatus('submit' , 'status', 'notify_buyer' , 'comments'); 
+		?> 
+		
+		<?php if($UpdateOrder->UpdateOrder() == 1):?>
+		
+		<div class = "alert alert-success">Order successfully updated !.</div>
+		<?php endif;?>
+		
+        
 					
 					<div class="row">
                             <div class="col-md-12">
@@ -549,30 +573,65 @@ License: You must have a valid license purchased only from themeforest(the above
 															<form action = "<?= basename($action, '.phtml')?>" method = "POST"?>
 															 <div class="form-group">
 															<label>Status</label><br/>
-															<select class="form-control table-group-action-input  input-inline input-big input-sm"
+															
+															<?php  $orderStatus = $UpdateOrder->WhatIsStausOfOrder('order_id'); ?>
+															
+															
+															<select name = "status" class="form-control table-group-action-input  input-inline input-big input-sm"
 															required
 															>
                                                                 <option value="">Select...</option>
-                                                                <option value="pending">Pending</option>
-                                                                <option value="frad">Suspected Fraud</option>
-                                                                <option value="processing">Processing</option>
-                                                                <option value="item-picked">Item Picked, Packed & Shipped</option>
-                                                                <option value="delivered">Delivered</option>
-                                                                <option value="processing">Canceled</option>
+                                                                
+                                                                <option value="pending" <?= $orderStatus['result']['status'] === 'pending' ? 'selected' : '';?>>Pending</option>
+                                                               
+                                                                <option value="frad"  <?= $orderStatus['result']['status'] === 'frad' ? 'selected' : '';?>>Suspected Fraud</option>
+                                                                <option value="processing"
+                                                                <?= $orderStatus['result']['status'] === 'processing' ? 'selected' : '';?>
+                                                                >Processing</option>
+                                                                
+                                                                <option value="confirmed"
+                                                                <?= $orderStatus['result']['status'] === 'confirmed' ? 'selected' : '';?>
+                                                              
+                                                                >Confirmed</option>
+                                                                
+                                                                
+                                                                <option value="item_picked"
+                                                                <?= $orderStatus['result']['status'] === 'item_picked' ? 'selected' : '';?>
+                                                              
+                                                                >Item Picked, Packed & Shipped</option>
+                                                                
+                                                                
+                                                                <option value="Ready for dispatch"
+                                                                <?= $orderStatus['result']['status'] === 'Ready for dispatch' ? 'selected' : '';?>
+                                                                
+                                                                
+                                                                >Ready For Dispatch</option>
+                                                                
+                                                                
+                                                                <option value="delivered"
+                                                                 <?= $orderStatus['result']['status'] === 'delivered' ? 'selected' : '';?>
+                                                                >Delivered</option>
+                                                                
+                                                                
+                                                                <option value="processing"
+                                                                <?= $orderStatus['result']['status'] === 'processing' ? 'selected' : '';?>
+                                                                >Canceled</option>
+                                                           
                                                             </select>
                                                             </div>
                                                             
                                                             
                                                             <div class="form-group">
                                                     <label>Comments</label>
-                                                    <textarea class="form-control" rows="3"></textarea>
+                                                    <textarea class="form-control" rows="3" name = "comments"><?= $orderStatus['result']['comments'] ?? '';?></textarea>
+                                                    
                                                 </div>
                                                 
 															<div class="form-group">
                                                    <div>
                                                     <div class="mt-checkbox-list">
                                                         
-                                                            <input type="checkbox" value="1" name="test" id = "ncbe">
+                                                            <input type="checkbox" value="1" name="notify_buyer" id = "ncbe">
                                                             
                                                             <label class="mt-checkbox" for = "ncbe"> Notify Customer by Email</label>
          
@@ -580,7 +639,7 @@ License: You must have a valid license purchased only from themeforest(the above
                                                         
                                                        <div>
                                                        
-                                                            <input type="checkbox" value="1" name="test" id = "vos">
+                                                            <input type="checkbox" value="1" name="v_o_s" id = "vos">
                                                             
                                                          <label class="mt-checkbox" for = "vos"> Visible on Storefront</label>
                                                         
@@ -589,7 +648,7 @@ License: You must have a valid license purchased only from themeforest(the above
                                                 </div>
 													
 															<div class  = "form-group">
-												<button type="submit" class="btn green">Update Order</button>
+												<button type="submit" class="btn green"  name = "submit">Update Order</button>
 												</div>		 
 													</form>
 												</div>

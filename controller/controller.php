@@ -26,9 +26,17 @@ require 'SearchProducts.php';
 // Write Review about the product 
 require_once  'WriteReviewAboutProduct.php';
 
+/* JAN 15 UPDATE */
+
+require_once 'GetEmailTemplate.php';
 
 // Get orer
 require_once 'GetOrdersForSeller.php';
+
+require_once 'UpdateOrderStatus.php';
+
+/* JAN 15 UPDATE ENDS HERE */
+
 
 class MarketPlace
 {
