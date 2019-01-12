@@ -37,6 +37,9 @@ require_once 'UpdateOrderStatus.php';
 
 /* JAN 15 UPDATE ENDS HERE */
 
+require_once 'GetOrderDetailsForClient.php';
+
+
 
 class MarketPlace
 {
@@ -4565,7 +4568,7 @@ window.onclick = function(event) {
                         
             // Three options {inprocess, dispacted, delivered}
                         
-            $status				= 	'inprocess';
+            $status				= 	'created';
             $shipping_address   = 	$_COOKIE['buyershipping7522'];
             $billing_address	= 	$_POST['billing-address-same-as-shipping'] ?? $_COOKIE['buyershipping7522'];
             $purchase_date		= 	date('Y-m-d H:i:s');
@@ -4728,6 +4731,14 @@ window.onclick = function(event) {
             }
                     
             
+            // Need to insert into order status table as well 
+            $sql = "INSERT INTO orderstatus (status, order_id, created_at, updated_at, comments)values ('$status', '$order_id', NOW(), NOW(), '')";
+            
+            // cHECK QUERY 
+            if(!$mysqli->query($sql)) {
+				
+				return $mysqli->error;
+			}
                     
             $mysqli->close();
                     

@@ -1,0 +1,11 @@
+15 files changed, 738 insertions(+), 86 deletions(-)
+ create mode 100644 DevelopmentToProductionUpdate/jan 9.txt
+ create mode 100644 about-project/why-there-is-no-google-map-in-checkout-page.txt
+ create mode 100644 backend-developer-question-answer/mis.docx
+ create mode 100644 backend-developer-question-answer/static-to-non-static.php
+ create mode 100644 controller/GetEmailTemplate.php
+ create mode 100644 controller/UpdateOrderStatus.php
+ rewrite location-picker/examples/simple.html (98%)
+ create mode 100644 model/OrderStatus.php
+ create mode 100644 templates/order-notification.phtml
+ create mode 100644 vault/guide.txt

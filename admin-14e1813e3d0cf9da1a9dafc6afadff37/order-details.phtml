@@ -577,47 +577,47 @@ License: You must have a valid license purchased only from themeforest(the above
 															<?php  $orderStatus = $UpdateOrder->WhatIsStausOfOrder('order_id'); ?>
 															
 															
-															<select name = "status" class="form-control table-group-action-input  input-inline input-big input-sm"
-															required
-															>
-                                                                <option value="">Select...</option>
-                                                                
-                                                                <option value="pending" <?= $orderStatus['result']['status'] === 'pending' ? 'selected' : '';?>>Pending</option>
-                                                               
-                                                                <option value="frad"  <?= $orderStatus['result']['status'] === 'frad' ? 'selected' : '';?>>Suspected Fraud</option>
-                                                                <option value="processing"
-                                                                <?= $orderStatus['result']['status'] === 'processing' ? 'selected' : '';?>
-                                                                >Processing</option>
-                                                                
-                                                                <option value="confirmed"
-                                                                <?= $orderStatus['result']['status'] === 'confirmed' ? 'selected' : '';?>
-                                                              
-                                                                >Confirmed</option>
-                                                                
-                                                                
-                                                                <option value="item_picked"
-                                                                <?= $orderStatus['result']['status'] === 'item_picked' ? 'selected' : '';?>
-                                                              
-                                                                >Item Picked, Packed & Shipped</option>
-                                                                
-                                                                
-                                                                <option value="Ready for dispatch"
-                                                                <?= $orderStatus['result']['status'] === 'Ready for dispatch' ? 'selected' : '';?>
-                                                                
-                                                                
-                                                                >Ready For Dispatch</option>
-                                                                
-                                                                
-                                                                <option value="delivered"
-                                                                 <?= $orderStatus['result']['status'] === 'delivered' ? 'selected' : '';?>
-                                                                >Delivered</option>
-                                                                
-                                                                
-                                                                <option value="processing"
-                                                                <?= $orderStatus['result']['status'] === 'processing' ? 'selected' : '';?>
-                                                                >Canceled</option>
-                                                           
-                                                            </select>
+<select name = "status" class="form-control table-group-action-input  input-inline input-big input-sm"
+required
+>
+<option value="">Select...</option>
+
+<option value="created" <?= $orderStatus['result']['status'] === 'created' ? 'selected' : '';?>>created</option>
+
+<option value="frad"  <?= $orderStatus['result']['status'] === 'frad' ? 'selected' : '';?>>Suspected Fraud</option>
+<option value="processing"
+<?= $orderStatus['result']['status'] === 'processing' ? 'selected' : '';?>
+>Processing</option>
+
+<option value="confirmed"
+<?= $orderStatus['result']['status'] === 'confirmed' ? 'selected' : '';?>
+
+>Confirmed</option>
+
+
+<option value="item_picked"
+<?= $orderStatus['result']['status'] === 'item_picked' ? 'selected' : '';?>
+
+>Item Picked, Packed & Shipped</option>
+
+
+<option value="Ready for dispatch"
+<?= $orderStatus['result']['status'] === 'Ready for dispatch' ? 'selected' : '';?>
+
+
+>Ready For Dispatch</option>
+
+
+<option value="delivered"
+<?= $orderStatus['result']['status'] === 'delivered' ? 'selected' : '';?>
+>Delivered</option>
+
+
+<option value="canceled"
+<?= $orderStatus['result']['status'] === 'processing' ? 'selected' : '';?>
+>Canceled</option>
+
+</select>
                                                             </div>
                                                             
                                                             
