@@ -1,11 +1,19 @@
 'use strict'
 
 class GetBoardingList {
-  constructor (arrayData, firstindex) {
-    this.firstindex = 'fuckyou';
-
+  constructor (arrayData) {
+    
     this.arrayData = arrayData;
+
   }
+  
+  RegresToSring() {
+	  
+		if(typeof this.regrex !== 'undefined')
+		{
+			return this.regrex.toString();
+		}
+	  }
 }
 
 class GetHTMLTemplate extends GetBoardingList {
@@ -67,6 +75,7 @@ var boarding = [
 GetBoardingList.prototype.propComparator =  function (prop, prop1) {
     
     return function(a, b) {
+		
         return a[prop] == b[prop1] ? 0 : 1;
     }
 }
@@ -83,41 +92,95 @@ GetBoardingList.prototype.ArrayCards = function () {
 
   // Check if data is type of array
   
-    // Sortted list
-
+   
+	
+	
+	
+	
    var SortedBoarding =  boradingList.sort(this.propComparator('to', 'from'));
 
    this.ArrayCards = SortedBoarding;
    
-  // return SortedBoarding;
-  console.log(SortedBoarding);
+  
 }
 
 // Get the template
-GetBoardingList.prototype.GetTemplate = function (data, template, regrex) {
+GetBoardingList.prototype.GetTemplate = function () {
 
-  // Here we will print the data
+	// template 
+	var template = this.template;
+	
+	// regrex 
+	var regrex = this.regrex;
+	
+	// Resi;t 
+	var result = '';
+	
+	// Check data is array and associative array 
+	if(this.ArrayCards.length < 1) 
+	{
+		return false;
+	}
+	
+	
+	
+	// Some variable must be defined 
+	if(typeof this.template === 'undefined') 
+	{
+		return false;
+	}
+	
+	if(typeof this.regrex === 'undefined') { return false; }
 
+	 // Sortted list
+	var expression = this.RegresToSring();
+	
+	// Get first three and last two 
+	var fristthree = expression.substr(1, 3);
+	
+	var lastExpression = expression.substr(-3,2);
+	
+	
+	
+	for(var j = 0; j < this.ArrayCards.length; j++) {
+		
+			var output = template;
+			
+			for(var index in this.ArrayCards[j]) {
+				
+				var reg = index.replace(index,  fristthree+index+lastExpression);
+				
+				// Check if pattern match
+				output =  output.replace(reg, this.ArrayCards[j][index]); 
+				
+			}
+			
+			result += output;
+	}
+	
+	return result ;
+	
+	
 }
 
 
 
 GetBoardingList.prototype.prop = 'to';
 
+GetBoardingList.prototype.template = '<li>Get {{&transport}} from {{&from}} To {{&to}}</li>';
+
+GetBoardingList.prototype.regrex = /{{&(.*?)}}/;
+
 var obj = new GetBoardingList(boarding, 'to')
 
 
 //obj.prototype.prop1 = 'from';
 
-console.log(obj.ArrayCards())
+var data = obj.ArrayCards();
 
-//console.log(obj.prop)
-// console.log(obj.firstindex)
-/*
-var sorted = boarding.sort(function(a,b){
-                                  return (a.to == b.from) ? 0 : 1;
-                              });
+console.log(obj.GetTemplate());
 
-console.log(boarding)
 
-*/
+
+
+

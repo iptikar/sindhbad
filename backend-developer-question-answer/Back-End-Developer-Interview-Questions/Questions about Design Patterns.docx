@@ -41,9 +41,6 @@ Also always remember that all of these rules are to manage complexity, not to ha
 
 Q. Active-Record is the design pattern that promotes objects to include functions such as Insert, Update, and Delete, and properties that correspond to the columns in some underlying database table. In your opinion and experience, which are the limits and pitfalls of the this pattern?
 
-25
-down vote
-accepted
 The main drawback is your "entities" are aware of their own persistence which leads to a lot of other bad design decisions.
 
 The other issues is that most active record toolkits basically map 1 to 1 to table fields with zero layers of indirection. This works on small scales but falls apart when you have trickier problems to solve.
@@ -128,6 +125,7 @@ Unless you are programming in assembler, GOTO should always be treated the same 
 
 
 Q. Separation of Concerns is a design principle for separating a computer program into distinct areas, each of ones addressing a separate concern. There are a lot of different mechanisms for achieving Separation of Concerns (use of objects, functions, modules, or patterns such as MVC and the like). Would you discuss this topic?
+
 Well, like doing many things in life, it always helpful to be well organized. Models, Views and Controllers are distinctly different pieces of code that helps to provide different functions to your overall project. Because of that, they are kept separate and organized.
 
 Imagine if you were designing a program. You wouldn't put all your code into one function, would you? No, you would divide them up into separate smaller functions that solve very specific tasks. Likewise, as programmers, we're constantly looking for ways to separate and divide our large applications to smaller bits of pieces. One of these organization design patterns is MVC, where, the model (the data) exists in one section, the view (the UI) exist in one section, and the controller (logic) exists in another section.
