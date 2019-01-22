@@ -983,11 +983,18 @@ class MarketPlace {
       var utc = new Date().toJSON().slice(0, 10).replace(/-/g, '-')
 
       // Run the database collection
+
+      /* Before i had in find paramaters /*
+          'date-available-from': { $lte: utc },
+          'date-available-to': { $gte: utc },
+        */
+
+
       var records = db.collection(collectioName).find(
         {
           'categoryId': categoryId,
-          'date-available-from': { $lte: utc },
-          'date-available-to': { $gte: utc },
+
+
           'status': '1',
           'avaibility': '1'
         }, {

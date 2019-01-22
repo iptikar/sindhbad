@@ -178,7 +178,10 @@ router.get('/', (req, res) => {
 		// Module All
 		All.GetCollection(db, categoryId, limitBy, SkipFrom, collectioName, function (records) {
 
+		console.log(records);
+
 		res.render('index.ejs', {records:records})
+
 });
 
 
@@ -1974,6 +1977,7 @@ router.post('/addtocart', function(req, res){
 // Route
 router.get('/cart', function (req, res){
 
+		//console.log(req.cookies.ShoppingCartTotal);
 		// Get the cookie data
 		let CartObject = '';
 
@@ -1982,6 +1986,8 @@ router.get('/cart', function (req, res){
 
 		// Get the total
 		CartTotal = req.cookies.ShoppingCartTotal;
+
+		console.log(CartTotal);
 
 		// Sum amount
 		//let carttotal = MisFunctions.SumArrayColumn(CartObject, 'total');
@@ -2546,11 +2552,15 @@ router.all('/order-confirmation', function (req, res) {
 			// total qty
 			let totalqty = ShoppingCartTotal.totalqty;
 
+			// Cart totle
+			let totalamount = ShoppingCartTotal.totalcart;
+
 			let data = 	{
 
 							order_id:orderid,
 							ipv4_address: ipv4_address,
 							ipv6_address: ipv4_address,
+							carttotal:totalamount,
 							tax_amount : taxamount,
 							tax_persentage : taxpercentage,
 							discount : discount,
@@ -2981,7 +2991,7 @@ router.get('/admin-14e1813e3d0cf9da1a9dafc6afadff37/orders', function (req, res)
 
     // Write again new promisess
 
-	db.collection('order').find().toArray((err, result) => {
+	db.collection('order').find({}, {"sort" : ['order_id', 'asc']}).toArray((err, result) => {
     
     if (err) return console.log(err)
     // renders index.ejs

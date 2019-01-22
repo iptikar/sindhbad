@@ -1,4 +1,3 @@
-<% console.log(result)%>
 <!DOCTYPE html>
 <!-- 
 Template Name: Metronic - Responsive Admin Dashboard Template build with Twitter Bootstrap 3.3.6
@@ -59,11 +58,11 @@ License: You must have a valid license purchased only from themeforest(the above
     <!-- END HEAD -->
 
     <body class="page-container-bg-solid page-header-fixed page-sidebar-closed-hide-logo">
-		
-		
+        
+        
         <!-- BEGIN HEADER -->
         <%- include('header.ejs');%>
-     	
+        
         
         <!-- END HEADER -->
         <!-- BEGIN HEADER & CONTENT DIVIDER -->
@@ -94,8 +93,8 @@ License: You must have a valid license purchased only from themeforest(the above
                             </a>
                      </li>
                         
-						
-						
+                        
+                        
                         <li class="nav-item  ">
                             <a href="orders" class="nav-link nav-toggle">
                                 <i class="icon-diamond"></i>
@@ -127,8 +126,8 @@ License: You must have a valid license purchased only from themeforest(the above
                                
                             </h1>
                         </div>
-						
-						
+                        
+                        
                         <!-- END PAGE TITLE -->
                         <!-- BEGIN PAGE TOOLBAR -->
                         <div class="page-toolbar">
@@ -156,9 +155,9 @@ License: You must have a valid license purchased only from themeforest(the above
                     <!-- END PAGE BREADCRUMB -->
                     <!-- BEGIN PAGE BASE CONTENT -->
                     <!-- BEGIN DASHBOARD STATS 1-->
-				
-					
-					<div class="portlet box green">
+                
+                    
+                    <div class="portlet box green">
                        
                                     <div class="portlet-title">
                                         <div class="caption">
@@ -174,7 +173,12 @@ License: You must have a valid license purchased only from themeforest(the above
                                         
                                         <?php if(isset($obj->GetOrders()['result']) && count($obj->GetOrders()['result']) > 0):?>
                                         
+                                       <%
+                                            if(typeof result !== 'undefined' && result.length > 0)  { %>
+
                                         
+                                        
+                                       
                                         <table id = "example" class="table table-bordered table-striped table-condensed flip-content">
                                             <thead class="flip-content">
                                                 <tr>
@@ -190,50 +194,74 @@ License: You must have a valid license purchased only from themeforest(the above
                                                 </tr>
                                             </thead>
                                             <tbody>
-											
-												<?php foreach ($obj->GetOrders()['result'][0] as $eachItem):?>
-												
-												<?php
-													 // Decoding some strings 
-													 $billing_address = json_decode($eachItem['billing_address'], true);
-													 
-													 $shipping_address = json_decode($eachItem['shipping_address'], true);
-												?>
-												<tr>
-                                                    <td><?= $eachItem['order_id']?></td>
-                                                    <td> <?= $eachItem['purchase_point']?> </td>
-                                                    <td class="date"> <?= $eachItem['purchase_date']?> </td>
-                                                    <td class="numeric"><?= ucfirst($billing_address['first-name']) ?? '';?> <?= ucfirst($billing_address['last-name']) ?? '';?></td>
-                                                    <td class="numeric"> <?= $shipping_address['first-name'] ?? '';?> <?= $shipping_address['last-name'] ?? '';?> </td>
-                                                    <td class="numeric"><?= $eachItem['currency']; ?> <?= $obj->getPriceFormate($eachItem['totalamount']); ?> </td>
-                                                    <td class="numeric"> <?= $eachItem['currency']; ?> <?= $obj->getPriceFormate($eachItem['totalamount']); ?> </td>
-                                                    <td class="numeric">  <?= $eachItem['status']; ?> </td>
+                                            
+
+                                                <?php foreach ($obj->GetOrders()['result'][0] as $eachItem):?>
+                                                
+                                                <?php
+                                                     // Decoding some strings 
+                                                     $billing_address = json_decode($eachItem['billing_address'], true);
+                                                     
+                                                     $shipping_address = json_decode($eachItem['shipping_address'], true);
+                                                ?>
+
+
+                                                <% for (var i in result ) { %>
+                                                
+                                                <%
+                                                    var eachItem = result[i];
+                                                    var shipping_address = JSON.parse(result[i]['shipping_address']);
+                                                    var billing_address = result[i]['billing_address'] == '' ? null : JSON.parse(result[i]['billing_address']);
+                                                %>
+
+                                                <tr>
+                                                    <td><%= eachItem['order_id'] %></td>
+                                                    <td> <%= eachItem['purchase_point']; %> </td>
+                                                    <td class="date"> <%= eachItem['purchase_date']; %> </td>
+                                                    <td class="numeric">
+
+                                                        <%= billing_address !== null ? billing_address['first-name'] : ''; %> 
+
+
+                                                        <%= billing_address !== null ? billing_address['last_name'] : ''; %>
+                                                            
+
+
+                                                        </td>
+                                                    <td class="numeric"> <%= shipping_address['first-name'] %> <%= shipping_address['last-name']  %> </td>
+                                                    <td class="numeric"><%= eachItem['currency']; %> 
+
+                                                    <%= eachItem['carttotal'] !== '' ? parseInt(eachItem['carttotal']).toFixed(2) : ''; %> </td>
+
+                                                    <td class="numeric"> <% eachItem['currency']; %> 
+
+                                                    
+
+                                                    <%= parseInt(eachItem['carttotal'] + eachItem['tax_amount']).toFixed(2); %> </td>
+
+
+                                                    <td class="numeric">  <%= eachItem['status']; %> </td>
                                                     <td class="numeric"> <a href = "/admin-14e1813e3d0cf9da1a9dafc6afadff37/order-details?id=<?=$eachItem['id']?>">View</a> </td>
                                                 </tr>
-												
-												<?php endforeach;?>
-												  <tr>
-                                                    <td> ABY </td>
-                                                    <td> ADITYA BIRLA MINERALS LIMITED </td>
-                                                    <td class="numeric"> $0.77 </td>
-                                                    <td class="numeric"> +0.02 </td>
-                                                    <td class="numeric"> 2.00% </td>
-                                                    <td class="numeric"> $0.76 </td>
-                                                    <td class="numeric"> $0.77 </td>
-                                                    <td class="numeric"> $0.76 </td>
-                                                    <td class="numeric"> 54,567 </td>
-                                                </tr>
+
+                                                <% }%>
+
+                                                
+                                                
+                                                 
                                             
                                             </tbody>
                                         </table>
                                    
-										<?php else: ?>
-										
-										<div class = "alert info">
-										<?= $obj->GetOrders()['result']; ?>
-										</div>
-										
-										<?php endif;?>
+                                    
+
+                                        <% }else {  %>
+                                        <div class = "alert info">
+                                       Unable to find records.
+                                        </div>
+                                        
+                                        <% } %>
+                                        
                                    
                                     </div>
                                 </div>
