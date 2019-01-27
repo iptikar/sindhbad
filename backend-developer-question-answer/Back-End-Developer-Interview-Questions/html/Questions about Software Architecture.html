@@ -1,0 +1,617 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8">
+	<title></title>
+	<meta name="generator" content="LibreOffice 4.2.3.3 (Linux)">
+	<meta name="created" content="0;0">
+	<meta name="changed" content="0;0">
+	<style type="text/css">
+	<!--
+		@page { margin: 0.79in }
+		p { margin-bottom: 0.1in; direction: ltr; color: #00000a; line-height: 120%; text-align: left; widows: 0; orphans: 0 }
+		p.western { font-family: "Liberation Serif", serif; font-size: 12pt; so-language: en-US }
+		p.cjk { font-family: "Droid Sans Fallback"; font-size: 12pt; so-language: zh-CN }
+		p.ctl { font-family: "FreeSans"; font-size: 12pt; so-language: hi-IN }
+		pre { direction: ltr; color: #00000a; text-align: left; widows: 0; orphans: 0 }
+		pre.western { font-family: "Liberation Mono", serif; so-language: en-US }
+		pre.cjk { font-family: "Droid Sans Fallback"; so-language: zh-CN }
+		pre.ctl { font-family: "Liberation Mono"; so-language: hi-IN }
+		a:link { so-language: zxx }
+	-->
+	</style>
+</head>
+<body lang="en-US" text="#00000a" dir="ltr">
+<pre class="western"><font face="Arial, serif"><b>When is a cache not
+useful or even dangerous?</b></font></pre>
+<pre class="western"><font face="Arial, serif"><i><span style="font-weight: normal">Performance
+tuning through cachine could be categorized into multi-layers:</span></i></font></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><font face="Arial, serif"><i><span style="font-weight: normal">Client-side
+(JS and CSS): Add an Expires or a Cache-Control Header will get it
+done for you. But note that there are more to do than only caching to
+enhance client-side performance. For detailes check Best Practices
+for Speeding Up Your Web Site</span></i></font></pre>
+<pre class="western"><font face="Arial, serif"><i><span style="font-weight: normal">Server-side:
+this could be on many levels web server, scripting language,
+database, operating system, network, etc..</span></i></font></pre>
+<pre class="western"><font face="Arial, serif"><i><span style="font-weight: normal">Good
+introduction and practical code examples can be found in Chapter 9
+(Performance) - Developing Large Web Applications. It will talk about
+Caching CSS, Javascript, Modules, Pages, Ajax and Expire headers.</span></i></font></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><font face="Arial, serif"><i><span style="font-weight: normal">If
+we need to keep things simple on server-side do the following:</span></i></font></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><font face="Arial, serif"><i><span style="font-weight: normal">Install
+APC extension which will make PHP faster for you through the so
+called opcode caching. No special configuration, it will work
+silently for you.</span></i></font></pre>
+<pre class="western"><font face="Arial, serif"><i><span style="font-weight: normal">Cache
+the full page for two-hours using this simple Pear library
+PEAR::Cache_Lite.</span></i></font></pre>
+<pre class="western"><font face="Arial, serif"><i><span style="font-weight: normal">For
+each database SELECT query cache the result in APC with a TTL of 5
+Min, md5 hash the SELECT statement and use it as key for APC cache.
+Docs</span></i></font></pre>
+<pre class="western"><font face="Arial, serif"><i><span style="font-weight: normal">In
+future if you have multiple servers and the performance becomes to be
+crucial before then you will need to look at:</span></i></font></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><font face="Arial, serif"><i><span style="font-weight: normal">Shared
+memory caching between servers. Check Memecache or even Membase</span></i></font></pre>
+<pre class="western"><font face="Arial, serif"><i><span style="font-weight: normal">You
+need a reverse proxy solution: this basically layer between your user
+and server server so that it will serve the HTTP requests instead of
+your server. You can use for that Varnish, Squid or Apache Traffic
+Server.</span></i></font></pre>
+<pre class="western"><font face="Arial, serif"><i><span style="font-weight: normal">Mysql
+innoDB engine is slow, you may need to go for faster engine such as
+XtraDB</span></i></font></pre>
+<pre class="western"><font face="Arial, serif"><i><span style="font-weight: normal">Then
+maybe you will find that rational databases are stil slow for you.
+Then you will go for the key-value solution such as MongoDB.</span></i></font></pre>
+<pre class="western"><font face="Arial, serif"><i><span style="font-weight: normal">Finally
+as references in web application performance check:</span></i></font></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><font face="Arial, serif"><i><span style="font-weight: normal">Front-end
+Performance: High Performance Web Sites, Even Faster Web Sites and
+High Performance JavaScript.</span></i></font></pre>
+<pre class="western"><font face="Arial, serif"><i><span style="font-weight: normal">Back-end
+Performance: Pro PHP Application Performance and High Performance
+MySQL</span></i></font></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><font color="#000080"><span lang="zxx"><u><a href="https://stackoverflow.com/questions/8082092/different-file-caching-methods-pros-cons"><font face="Arial, serif"><i><span style="font-weight: normal">https://stackoverflow.com/questions/8082092/different-file-caching-methods-pros-cons</span></i></font></a></u></span></font></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><font face="Arial, serif"><b>Why does
+Event-Driven Architecture improve scalability?</b></font></pre>
+<pre class="western"><font color="#000080"><span lang="zxx"><u><a href="https://www.infoworld.com/article/3269207/enterprise-architecture/busting-event-driven-myths.html"><font face="Arial, serif"><b>https://www.infoworld.com/article/3269207/enterprise-architecture/busting-event-driven-myths.html</b></font></a></u></span></font></pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><font face="Arial, serif"><b>What makes code
+readable?</b></font></pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><font face="Arial, serif"><i><span style="font-weight: normal">Check
+out Jeff Atwood's Code Smells blog post. It pretty much sums it up.
+I'll add my personal ethos when it comes to good readable code:</span></i></font></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><font face="Arial, serif"><i><span style="font-weight: normal">Consistency:
+this applies to formatting, using braces, naming (variables, classes,
+methods) and directory layout (if you bury a source directory
+somewhere under /css I'm coming after you with a machete);</span></i></font></pre>
+<pre class="western"><font face="Arial, serif"><i><span style="font-weight: normal">Size:
+if a function doesn't fit in its entirety on the screen in a normal
+IDE at a normal font size then you need a pretty darn good reason as
+to why not. Of course there are some valid cases for much longer
+functions but they are greatly outweighed by the egregious examples.
+Decompose as necessary to keep your functions simple;</span></i></font></pre>
+<pre class="western"><font face="Arial, serif"><i><span style="font-weight: normal">Comment
+Judiciously: there is a tendency for some programmers to use comments
+as a substitute for readable code or to simply comment for the sake
+of commenting (like /* finished */ comments right before return
+true;. Seriously, what's the point? Most (good) code explains itself;</span></i></font></pre>
+<pre class="western"><font face="Arial, serif"><i><span style="font-weight: normal">Never
+Cut and Paste Within a Project: it's perfectly acceptable to take a
+code snippet from one project to another (every project is an island)
+but you should never take a non-trivial code segment from within one
+project to some other point within the project. Inevitably one
+changes and you leave some poor developer with the task of looking at
+these two or more code segments trying to work out how (and arguably
+more importantly, why) they are different; and</span></i></font></pre>
+<pre class="western"><font face="Arial, serif"><i><span style="font-weight: normal">Avoid
+Repetitive Code: if you find yourself writing the same sequence of
+statements (or very similar) over and over again, abstract or
+parameterize it. If you see very similar statements the tendency is
+to skim over them assuming they're all the same (when typically they
+won't be in a way that matters).</span></i></font></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><font color="#000080"><span lang="zxx"><u><a href="https://stackoverflow.com/questions/550861/improving-code-readability"><font face="Arial, serif"><i><span style="font-weight: normal">https://stackoverflow.com/questions/550861/improving-code-readability</span></i></font></a></u></span></font></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><font face="Arial, serif"><b>What is the
+difference between emergent design and evolutionary architecture?</b></font></pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><font face="Arial, serif"><b>Leveraging reusable
+code, Part 2</b></font></pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><font color="#000080"><span lang="zxx"><u><a href="https://www.ibm.com/developerworks/java/library/j-eaed12/index.html"><font face="Arial, serif"><b>https://www.ibm.com/developerworks/java/library/j-eaed12/index.html</b></font></a></u></span></font></pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><font face="Arial, serif"><b>Scale out vs scale
+up: how are they different? When to apply one, when the other?</b></font></pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><font face="Arial, serif"><i><span style="font-weight: normal">Scaling
+up generally refers to purchasing and installing a more capable
+central control or piece of hardware. For example, when a project's
+input/output demands start to push against the limits of an
+individual server, a scaling up approach would be to buy a more
+capable server with more processing capacity and RAM.</span></i></font></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><font face="Arial, serif"><b>How to deal with
+failover and user sessions?</b></font></pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><font face="Arial, serif"><i><span style="font-weight: normal">You
+could set PHP to handle the sessions in the database, so all your
+servers share same session information as all servers use the same
+database for that.</span></i></font></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><font face="Arial, serif"><i><span style="font-weight: normal">A
+good tutorial for that can be found here.</span></i></font></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><font color="#000080"><span lang="zxx"><u><a href="https://stackoverflow.com/questions/994935/php-sessions-in-a-load-balancing-cluster-how"><font face="Arial, serif"><i><span style="font-weight: normal">https://stackoverflow.com/questions/994935/php-sessions-in-a-load-balancing-cluster-how</span></i></font></a></u></span></font></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><font face="Arial, serif"><b>What is CQRS
+(Command Query Responsibility Segregation)? How is it different from
+the oldest Command-Query Separation Principle?</b></font></pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><font face="Arial, serif"><i><span style="font-weight: normal">Command
+and Query Responsibility Segregation (CQRS) is a pattern that
+segregates the operations that read data (queries) from the
+operations that update data (commands) by using separate interfaces.
+This means that the data models used for querying and updates are
+different.</span></i></font></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><font face="Arial, serif"><b>How would you
+design a software system for scalability?</b></font></pre>
+<pre class="western"><font face="Arial, serif"><i><span style="font-weight: normal">Scalability
+Design Principles</span></i></font></pre>
+<pre class="western"><font face="Arial, serif"><i><span style="font-weight: normal">Avoid
+the single point of failure. ...</span></i></font></pre>
+<pre class="western"><font face="Arial, serif"><i><span style="font-weight: normal">Scale
+horizontally, not vertically. ...</span></i></font></pre>
+<pre class="western"><font face="Arial, serif"><i><span style="font-weight: normal">Push
+work as far away from the core as possible. ...</span></i></font></pre>
+<pre class="western"><font face="Arial, serif"><i><span style="font-weight: normal">API
+first. ...</span></i></font></pre>
+<pre class="western"><font face="Arial, serif"><i><span style="font-weight: normal">Cache
+everything, always. ...</span></i></font></pre>
+<pre class="western"><font face="Arial, serif"><i><span style="font-weight: normal">Provide
+as fresh as needed data. ...</span></i></font></pre>
+<pre class="western"><font face="Arial, serif"><i><span style="font-weight: normal">Design
+for maintenance and automation. ...</span></i></font></pre>
+<pre class="western"><font face="Arial, serif"><i><span style="font-weight: normal">Asynchronous
+rather than synchronous.</span></i></font></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><font face="Arial, serif"><b>Someone gave the
+name &quot;The &quot;C10k problem&quot; to the problem of optimising
+network sockets to handle over 10.000 open connections at once. While
+handling 10.000 concurrent clients is not the same as handling 10.000
+open connection, the context is similar. It's a tough challenge
+anyway, and no one is expected to know every single detail to solve
+it. It may be interesting to discuss the strategies you know to deal
+with that problem. Would you like to try?</b></font></pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><font face="Arial, serif"><b>PHP</b></font></pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><font face="Arial, serif"><i><span style="font-weight: normal">For
+active connections (as in, loading and running a defined PHP script),
+yes, there will be as many PHP processes as active connections. But
+KeepAlive is about passive connections, and Nginx is very good at
+handling passive KeepAlive connections with very low resource usage -
+even for thousands of them.</span></i></font></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><font face="Arial, serif"><i><span style="font-weight: normal">The
+problem with Apache is that it, in the usual configuration with
+mod_php and mpm_prefork, needs a process for each connection even if
+it's just a passive KeepAlive. This means that most Apache servers in
+fact do need to have a PHP process in memory even if the connection
+is passive, but this is not the case if you run PHP as FastCGI.
+Apache can also handle lots of passive connections if you run PHP as
+FastCGI and choose the mpm_worker which will create a more
+lightweight thread per connection, but it's still not as good as
+Nginx.</span></i></font></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><font color="#000080"><span lang="zxx"><u><a href="https://stackoverflow.com/questions/16578874/what-specifically-makes-node-js-more-scalable-than-apache"><font face="Arial, serif"><i><span style="font-weight: normal">https://stackoverflow.com/questions/16578874/what-specifically-makes-node-js-more-scalable-than-apache</span></i></font></a></u></span></font></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><font face="Arial, serif"><b>How would you
+design a decentralized (that is, with no central server) P2P system?</b></font></pre>
+<pre class="western"><font face="Arial, serif"><i><span style="font-weight: normal">P2P
+or Peer-to-Peer is a very hard type of program to create, mostly
+because of its very structure. Most internet applications are
+Client-Server this is because a lot of headaches are solved just by
+having a fixed server you know you can connect to. At the end of the
+day, that's more or less all Napster did, it just indexed files and
+said who is currently hosting them.</span></i></font></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><font face="Arial, serif"><i><span style="font-weight: normal">The
+other problem with creating P2P software, is that developing it on
+your own, you will have very few peers to test with, even if you do
+create a bunch of virtual computers. You will find it hard to test it
+scaled to 00's of users.</span></i></font></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><font face="Arial, serif"><i><span style="font-weight: normal">First
+steps though, you will need to learn to program in a suitable
+language, something like C++ or C# maybe just make it as a console
+application to learn the technology.</span></i></font></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><font face="Arial, serif"><i><span style="font-weight: normal">Next,
+learn how to work with files. Not much use if you can't save stuff is
+it.</span></i></font></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><font face="Arial, serif"><i><span style="font-weight: normal">Networking
+next. Start with a client-server set up just to get to grips with
+transferring files. Make a server app that gives the files and a
+client app that downloads it. Then start to scale it to one server
+giving files to lots of clients.</span></i></font></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><font face="Arial, serif"><i><span style="font-weight: normal">Final
+step is to merge the client and server so that as the peer downloads
+more of the file, it can start to be a server and let other clients
+download from it.</span></i></font></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><font face="Arial, serif"><i><span style="font-weight: normal">If
+you want, now you can think about a GUI.</span></i></font></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><font face="Arial, serif"><b>You may recall that
+Common Gateway Interface (CGI) is a standard protocol for web servers
+to execute programs (CGI scripts) that execute as Command-line
+programs on a server, and that dynamically generate HTML pages when
+invoked by a HTTP request. Perl and PHP used to be common languages
+for such scripts. In CGI, a HTTP request generally causes the
+invocation of a new process on the server, but FastCGI, SCGI and
+other approaches improved the mechanism, raising the performance,
+with techniques such as preforking processes. Can you imagine why
+has't CGI eventually win, and was instead replaced with other
+architectural approaches?</b></font></pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><font face="Arial, serif"><i><span style="font-weight: normal">The
+questions is a little bit strange, it's not clear if you're asking
+only for PHP or your question is more general.</span></i></font></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><font face="Arial, serif"><i><span style="font-weight: normal">I
+will give you a brief overview from the PHP side.</span></i></font></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><font face="Arial, serif"><i><span style="font-weight: normal">First,
+the two protocols:</span></i></font></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><font face="Arial, serif"><i><span style="font-weight: normal">CGI
+scripts is a way how to run a server side script when a HTTP request
+comes; this has nothing to do with PHP</span></i></font></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><font face="Arial, serif"><i><span style="font-weight: normal">FastCGI
+is a &quot;better CGI&quot; - CGI is known to be slow, Fast CGI is a
+different approach with much faster results; this has also nothing to
+do with PHP.</span></i></font></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><font face="Arial, serif"><i><span style="font-weight: normal">Now
+the PHP related things:</span></i></font></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><font face="Arial, serif"><i><span style="font-weight: normal">mod_php
+is running a PHP as Apache module - that is PHP request is run under
+Apache process with everything that goes with it - Apache processes
+are defined by Apache configuration, PHP is run with Apache
+permission etc.</span></i></font></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><font face="Arial, serif"><i><span style="font-weight: normal">PHP-FPM
+is PHP's FastCGI implementation; PHP-FPM runs as a standalone FastCGI
+server and Apache connects to the server using Apache's module,
+usually mod_fcgid or mod_fastcgi; I personally think this is much
+better than running as mod_php, but it depends on your requirements
+and is also a little more complex; in this configuration, permission,
+processes related stuff &amp; everything is run under PHP
+configuration, PHP user etc. &amp; Apache connects to PHP as to a
+server; in this configuration it is also possible to have pool of PHP
+servers and to have PHP server on physically different machine than
+Apache. They say this is almost as fast as using Apache's module and
+there are benefits of better control over PHP configuration.</span></i></font></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><font face="Arial, serif"><i><span style="font-weight: normal">SuPHP
+- this was mostly used to address some problems of mod_php related to
+permissions; with mod_php PHP scripts are run under the Apache
+user/group; mod_suphp can run the scripts in different user; I never
+used it, PHP-FPM now should be much better choice</span></i></font></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><font face="Arial, serif"><i><span style="font-weight: normal">So,
+basically:</span></i></font></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><font face="Arial, serif"><i><span style="font-weight: normal">CGI,
+Fast-CGI are protocols; CGI is slow, Fast-CGI is much faster</span></i></font></pre>
+<pre class="western"><font face="Arial, serif"><i><span style="font-weight: normal">mod_php
+(with underscore) and PHP-FPM are two basic ways how to run PHP</span></i></font></pre>
+<pre class="western"><font face="Arial, serif"><i><span style="font-weight: normal">mod_SuPHP
+is similar to mod_php but can change the user/group that the process
+runs under</span></i></font></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><font color="#000080"><span lang="zxx"><u><a href="https://serverfault.com/questions/645755/differences-and-dis-advanages-between-fast-cgi-cgi-mod-php-suphp-php-fpm"><font face="Arial, serif"><i><span style="font-weight: normal">https://serverfault.com/questions/645755/differences-and-dis-advanages-between-fast-cgi-cgi-mod-php-suphp-php-fpm</span></i></font></a></u></span></font></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><font face="Arial, serif"><b>How would you
+defend the design of your systems against Vendor Lock-in?</b></font></pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><font color="#000080"><span lang="zxx"><u><a href="https://inviqa.com/blog/8-tips-for-avoiding-vendor-lock-in"><font face="Arial, serif"><b>https://inviqa.com/blog/8-tips-for-avoiding-vendor-lock-in</b></font></a></u></span></font></pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><font face="Arial, serif"><b>What are the
+disadvantages of the Publish-Subscribe pattern at scale?</b></font></pre>
+<pre class="western"><font color="#000080"><span lang="zxx"><u><a href="https://hackernoon.com/observer-vs-pub-sub-pattern-50d3b27f838c"><font face="Arial, serif"><i><span style="font-weight: normal">https://hackernoon.com/observer-vs-pub-sub-pattern-50d3b27f838c</span></i></font></a></u></span></font></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><font face="Arial, serif"><b>What's new in CPUs
+since the 80s, and how does it affect programming?</b></font></pre>
+<pre class="western"><font color="#000080"><span lang="zxx"><u><a href="https://danluu.com/new-cpu-features/"><font face="Arial, serif"><b>https://danluu.com/new-cpu-features/</b></font></a></u></span></font></pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><font face="Arial, serif"><b>In which part of
+the lifecycle of a software performance should be taken in
+consideration, and how?</b></font></pre>
+<pre class="western"><font color="#000080"><span lang="zxx"><u><a href="https://airbrake.io/blog/sdlc/what-is-the-software-development-life-cycle"><font face="Arial, serif"><b>https://airbrake.io/blog/sdlc/what-is-the-software-development-life-cycle</b></font></a></u></span></font></pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><font face="Arial, serif"><b>What’s the
+relationship between Performance and Scalability?</b></font></pre>
+<pre class="western"><font color="#000080"><span lang="zxx"><u><a href="https://blog.professorbeekums.com/performance-vs-scalability/"><font face="Arial, serif"><b>https://blog.professorbeekums.com/performance-vs-scalability/</b></font></a></u></span></font></pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><font face="Arial, serif"><b>When is it OK (if
+ever) to use tight coupling?</b></font></pre>
+<pre class="western"><font face="Arial, serif"><span style="font-weight: normal">i0</span></font></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><font face="Arial, serif"><span style="font-weight: normal">A
+tightly coupled architecture integrates enterprise applications
+around a single point of truth, which is often a single
+spatially-enabled RDBMS. The types of applications that are linked
+include engineering design (CAD), facility records management (GIS),
+asset management, workflow, ERP, CRM, outage management, and other
+enterprise applications.</span></font></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><font face="Arial, serif"><span style="font-weight: normal">A
+major advantage of a tightly coupled architecture is that it enables
+the rapid and efficient processing of large volumes of data, provides
+a single point of truth instead of several, often redundant, data
+sources, and enables open access to data throughout the organization.</span></font></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><font face="Arial, serif"><span style="font-weight: normal">Tightly
+coupled architectures rely on standards such as SQL, ODBC, JDBC, and
+OLEDB, SQL/MM, and the Simple Feature Specification for SQL from the
+OGC, to provide open and secure access to data, including geo-spatial
+data, throughout the organization.</span></font></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><font face="Arial, serif"><span style="font-weight: normal">Loosely
+coupled Web services require substantial redundancies unlike tight
+coupling between clients and service, which minimizes redundancies.</span></font></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><font face="Arial, serif"><span style="font-weight: normal">One
+problem with asynchronous loosely coupled Web services is that for
+some business functions, it can exceed its resource capacity for the
+message queuing servers or system.</span></font></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><font face="Arial, serif"><span style="font-weight: normal">Loosely
+coupled Web services can be made to switch to tight coupling mode to
+avoid system overloads of scarce resources.</span></font></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><font face="Arial, serif"><b>What characteristic
+should a system have to be Cloud Ready?</b></font></pre>
+<pre class="western"><font color="#000080"><span lang="zxx"><u><a href="http://www.altivon.com/nine-characteristics-of-a-modern-cloud-architecture/"><font face="Arial, serif"><b>http://www.altivon.com/nine-characteristics-of-a-modern-cloud-architecture/</b></font></a></u></span></font></pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><font face="Arial, serif"><b>Does unity of
+design imply an aristocracy of architects? Putting it simple: can
+good design emerge from a collective effort of all developers?</b></font></pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><font face="Arial, serif"><b>What's the
+difference between design, architecture, functionality and aesthetic?
+Discuss.</b></font></pre>
+<pre class="western"><font face="Arial, serif"><i><span style="font-weight: normal">You're
+right yes. The architecture of a system is its 'skeleton'. It's the
+highest level of abstraction of a system. What kind of data storage
+is present, how do modules interact with each other, what recovery
+systems are in place. Just like design patterns, there are
+architectural patterns: MVC, 3-tier layered design, etc.</span></i></font></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><font face="Arial, serif"><i><span style="font-weight: normal">Software
+design is about designing the individual modules / components. What
+are the responsibilities, functions, of module x? Of class Y? What
+can it do, and what not? What design patterns can be used?</span></i></font></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><font face="Arial, serif"><i><span style="font-weight: normal">So
+in short, Software architecture is more about the design of the
+entire system, while software design emphasizes on module / component
+/ class level.</span></i></font></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><font face="Arial, serif"><i><span style="font-weight: normal">In
+some descriptions of the SDLC (Software Development Life Cycle) they
+are interchangeable, but the consesus is that they are distinct. They
+are at the same time: different (1) stages, (2) areas of
+responsibility, and (3) levels of decision-making.</span></i></font></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><font face="Arial, serif"><i><span style="font-weight: normal">Architecture
+is the bigger picture: the choice of frameworks, languages, scope,
+goals, and high-level methodologies (Rational, waterfall, agile,
+etc.).</span></i></font></pre>
+<pre class="western"><font face="Arial, serif"><i><span style="font-weight: normal">Design
+is the smaller picture: the plan for how code will be organized; how
+the contracts between different parts of the system will look; the
+ongoing implementation of the project's methodologies and goals.
+Specification are written during this stage.</span></i></font></pre>
+<pre class="western"><font face="Arial, serif"><i><span style="font-weight: normal">These
+two stages will seem to blend together for different reasons.</span></i></font></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><font face="Arial, serif"><i><span style="font-weight: normal">Smaller
+projects often don't have enough scope to separate out planning into
+these to stages.</span></i></font></pre>
+<pre class="western"><font face="Arial, serif"><i><span style="font-weight: normal">A
+project might be a part of a larger project, and hence parts of both
+stages are already decided. (There are already existing databases,
+conventions, standards, protocols, frameworks, reusable code, etc.)</span></i></font></pre>
+<pre class="western"><font face="Arial, serif"><i><span style="font-weight: normal">Newer
+ways of thinking about the SDLC (see Agile methodologies) somewhat
+rearrange this traditional approach. Design (architecture to a lesser
+extent) takes place throughout the SDLC on purpose. There are often
+more iterations where the whole process happens over and over.</span></i></font></pre>
+<pre class="western"><font face="Arial, serif"><i><span style="font-weight: normal">Software
+development is complicated and difficult to plan anyway, but
+clients/managers/salespeople usually make it harder by changing goals
+and requirements mid-stream. Design and even architectural decisions
+must bemade later in the project whether that is the plan or not.</span></i></font></pre>
+<pre class="western"><font face="Arial, serif"><i><span style="font-weight: normal">Even
+if the stages or areas of responsibility blend together and happen
+all over the place, it is always good to know what level of
+decision-making is happening. (We could go on forever with this. I'm
+trying to keep it a summary.) I'll end with: Even if it seems your
+project has no formal architectural or design
+stage/AOR/documentaiton, it IS happening whether anyone is
+consciously doing it or not. If no one decides to do architecture,
+then a default one happens that is probably poor. Ditto for design.
+These concepts are almost more important if there are no formal
+stages representing them.</span></i></font></pre>
+<pre class="western"><br>
+</pre>
+</body>
+</html>

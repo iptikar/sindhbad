@@ -1,0 +1,471 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8">
+	<title></title>
+	<meta name="generator" content="LibreOffice 4.2.3.3 (Linux)">
+	<meta name="created" content="0;0">
+	<meta name="changed" content="0;0">
+	<style type="text/css">
+	<!--
+		@page { margin: 0.79in }
+		p { margin-bottom: 0.1in; direction: ltr; color: #00000a; line-height: 120%; text-align: left; widows: 0; orphans: 0 }
+		p.western { font-family: "Liberation Serif", serif; font-size: 12pt; so-language: en-US }
+		p.cjk { font-family: "Droid Sans Fallback"; font-size: 12pt; so-language: zh-CN }
+		p.ctl { font-family: "FreeSans"; font-size: 12pt; so-language: hi-IN }
+		pre { direction: ltr; color: #00000a; text-align: left; widows: 0; orphans: 0 }
+		pre.western { font-family: "Liberation Mono", serif; so-language: en-US }
+		pre.cjk { font-family: "Droid Sans Fallback"; so-language: zh-CN }
+		pre.ctl { font-family: "Liberation Mono"; so-language: hi-IN }
+		a:link { so-language: zxx }
+	-->
+	</style>
+</head>
+<body lang="en-US" text="#00000a" dir="ltr">
+<pre class="western"><b>General Questions:</b></pre>
+<pre class="western"><b>Why does Functional Programming matter? When
+should a functional programming language be used?</b></pre>
+<pre class="western"><i><span style="font-weight: normal">Functional
+languages use a different paradigm than imperative and
+object-oriented languages. They use side-effect-free functions as a
+basic building block in the language. ... So most people never got
+more out of functional programming than calculating a single output
+from a single input.</span></i></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><b>How do companies like Microsoft, Google,
+Opera and Mozilla profit from their browsers?</b></pre>
+<pre class="western"><font color="#000080"><span lang="zxx"><u><a href="https://www.quora.com/How-do-companies-like-Microsoft-Google-and-Mozilla-profit-from-their-browsers"><span style="font-weight: normal">https://www.quora.com/How-do-companies-like-Microsoft-Google-and-Mozilla-profit-from-their-browsers</span></a></u></span></font></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><b>Why does opening a TCP socket have a large
+overhead?</b></pre>
+<pre class="western"><i><span style="font-weight: normal">9</span></i></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><i><span style="font-weight: normal">I believe,
+generally speaking, that opening a TCP connection is considered
+expensive when compared to the ability to reuse already open
+connections by keeping it open. You are correct, opening a connecting
+will take only 3 packets/turns, but that time - 3 x your RTT - is far
+beyond the cost of reusing an already open connection, which is far
+closer to 0. The disparity grows even faster if you're opening and
+closing connections frequently.</span></i></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><i><span style="font-weight: normal">You are
+certainly correct though, when compared to the number of turns you're
+going to see as the application &quot;does it's thing,&quot; those 3
+packets can seem pretty small, but again, it depends on how you want
+to compare the options AND how your application behaves/how many
+times you plan on opening a connection.</span></i></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><i><span style="font-weight: normal">Edit If
+we're talking UDP vs. TCP though, Cheekaleek here is 100% correct -
+the overhead of is massive in the long term when compared to the
+connectionless operations of UDP</span></i></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><b>What is Encapsulation important for?</b></pre>
+<pre class="western"><i><span style="font-weight: normal">Encapsulation
+- The key advantage of using an Object Oriented Programming language
+like Java is that it provides your code - security, flexibility and
+its easy maintainability through encapsulation. ... Encapsulation is
+also useful in hiding the data(instance variables) of a class from an
+illegal direct access.</span></i></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><b>What is a real-time system and how is it
+different from an ordinary system?</b></pre>
+<pre class="western"><i><span style="font-weight: normal">Real time
+OS</span></i></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><i><span style="font-weight: normal">1. A
+real-time operating system is an operating system intended to serve
+real-time applications that process data as it comes in, typically
+without buffer delays.</span></i></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><i><span style="font-weight: normal">2. It is
+deterministic.</span></i></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><i><span style="font-weight: normal">3. It is
+time sensitive.</span></i></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><i><span style="font-weight: normal">4. It can’t
+use virtual memory.</span></i></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><i><span style="font-weight: normal">5. It is
+dedicated to single work.</span></i></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><i><span style="font-weight: normal">6. It has
+flat memory model.</span></i></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><i><span style="font-weight: normal">7. It has
+low interrupt latency.</span></i></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><i><span style="font-weight: normal">Non-real
+time OS</span></i></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><i><span style="font-weight: normal">1. A
+Non-real time OS or General purpose OS is the operating system made
+for high end, general purpose systems like a personal computer, a
+work station, a server system etc.</span></i></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><i><span style="font-weight: normal">2. It is
+not deterministic.</span></i></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><i><span style="font-weight: normal">3. It is
+time insensitive.</span></i></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><i><span style="font-weight: normal">4. It can
+use virtual memory concept.</span></i></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><i><span style="font-weight: normal">5. It is
+used in multi-user environment.</span></i></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><i><span style="font-weight: normal">6. It has
+protected memory model.</span></i></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><i><span style="font-weight: normal">7. It has
+high interrupt latency</span></i></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><b>What's the relationship between real-time
+languages and heap memory allocation?</b></pre>
+<pre class="western"><i><span style="font-weight: normal">Stack is
+used for static memory allocation and Heap for dynamic memory
+allocation, both stored in the computer's RAM . Variables allocated
+on the stack are stored directly to the memory and access to this
+memory is very fast, and it's allocation is dealt with when the
+program is compiled.</span></i></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><i><span style="font-weight: normal">https://stackoverflow.com/questions/79923/what-and-where-are-the-stack-and-heap</span></i></pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><b>Immutability is the practice of setting
+values once, at the moment of their</b></pre>
+<pre class="western"><b>creation, and never changing them. How can
+immutability help write safer code?</b></pre>
+<pre class="western"><i><span style="font-weight: normal">Both
+mutable and immutable objects have their own uses, pros and cons.</span></i></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><i><span style="font-weight: normal">Immutable
+objects do indeed make life simpler in many cases. They are
+especially applicable for value types, where objects don't have an
+identity so they can be easily replaced. And they can make concurrent
+programming way safer and cleaner (most of the notoriously hard to
+find concurrency bugs are ultimately caused by mutable state shared
+between threads). However, for large and/or complex objects, creating
+a new copy of the object for every single change can be very costly
+and/or tedious. And for objects with a distinct identity, changing an
+existing objects is much more simple and intuitive than creating a
+new, modified copy of it.</span></i></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><i><span style="font-weight: normal">Think about
+a game character. In games, speed is top priority, so representing
+your game characters with mutable objects will most likely make your
+game run significantly faster than an alternative implementation
+where a new copy of the game character is spawned for every little
+change.</span></i></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><i><span style="font-weight: normal">Moreover,
+our perception of the real world is inevitably based on mutable
+objects. When you fill up your car with fuel at the gas station, you
+perceive it as the same object all along (i.e. its identity is
+maintained while its state is changing) - not as if the old car with
+an empty tank got replaced with consecutive new car instances having
+their tank gradually more and more full. So whenever we are modeling
+some real-world domain in a program, it is usually more
+straightforward and easier to implement the domain model using
+mutable objects to represent real-world entities.</span></i></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><i><span style="font-weight: normal">Apart from
+all these legitimate reasons, alas, the most probable cause why
+people keep creating mutable objects is inertia of mind, a.k.a.
+resistance to change. Note that most developers of today have been
+trained well before immutability (and the containing paradigm,
+functional programming) became &quot;trendy&quot; in their sphere of
+influence, and don't keep their knowledge up to date about new tools
+and methods of our trade - in fact, many of us humans positively
+resist new ideas and processes. &quot;I have been programming like
+this for nn years and I don't care about the latest stupid fads!&quot;</span></i></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><b>What are the pros and cons of mutable and
+immutable values.</b></pre>
+<pre class="western"><i><span style="font-weight: normal">Many
+functional languages are non pure (allow mutation and side effects).</span></i></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><i><span style="font-weight: normal">f# is for
+example, and if you look at some of the very low level constructs in
+the collections you'll find that several use iteration under the hood
+and quite a few use some mutable state (if you want to take the first
+n elements of a sequence it's so much easier to have a counter for
+example).</span></i></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><i><span style="font-weight: normal">The trick
+is that this is something to generally:</span></i></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><i><span style="font-weight: normal">Use
+sparingly</span></i></pre>
+<pre class="western"><i><span style="font-weight: normal">Draw
+attention to when you do</span></i></pre>
+<pre class="western"><i><span style="font-weight: normal">note how in
+f# you must declare something to be mutable</span></i></pre>
+<pre class="western"><i><span style="font-weight: normal">That it is
+possible to largely avoid mutating state is evidenced by the large
+amount of functional code out there. For people brought up on
+imperative languages this is somewhat hard to get your head round,
+especially writing code previously in loops as recursive functions.
+Even trickier is then writing them, where possible, as tail
+recursive. Knowing how to do this is beneficial and can lead to far
+more expressive solutions that focus on the logic rather than the
+implementation. Good examples are those that deal with collections
+where the 'base cases' of having no, one or many elements are cleanly
+expressed rather than being part of the loop logic.</span></i></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><i><span style="font-weight: normal">It is
+really 2 though that things are better. And this is best done via an
+example:</span></i></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><i><span style="font-weight: normal">Take your
+code base and change every instance variable to readonly[1][2].
+Change back only those ones where you need them to be mutable for
+your code to function (if you only set them once outside the
+constructor consider trying to make them arguments to the constructor
+rather than mutable via something like a property.</span></i></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><i><span style="font-weight: normal">There are
+some code bases this will not work well with, gui/widget heavy code
+and some libraries (notably mutable collections) for example but I
+would say that most reasonable code will allow over 50% of all
+instance fields to be made readonly.</span></i></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><i><span style="font-weight: normal">At this
+point you must ask yourself, &quot;why is mutable the default?&quot;.
+Mutable fields are in fact a complex aspect of your program as their
+interactions, even in a single threaded world, have far more scope
+for differing behaviour; as such they are best highlighted and drawn
+to the attention of the coder rather than left 'naked' to the ravages
+of the world.</span></i></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><i><span style="font-weight: normal">It is
+notable that most functional languages have either no concept of null
+or make it very hard to use because they work, not with variables,
+but with named values whose value is defined at the same time (well
+scope) the name is.</span></i></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><i><span style="font-weight: normal">I find it
+unfortunate that c# did not copy java's concept of immutability with
+local variables too. Being able to assert emphatically that something
+doesn't change helps make intent clear whether a value is on the
+stack or in an object/struct.</span></i></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><i><span style="font-weight: normal">If you have
+NDepend then you can find these with WARN IF Count &gt; 0 IN SELECT
+FIELDS WHERE IsImmutable AND !IsInitOnly</span></i></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><b>What's the Object-Relational impedance
+mismatch?</b></pre>
+<pre class="western"><i><span style="font-weight: normal">The
+object-relational impedance mismatch is a set of conceptual and
+technical difficulties that are often encountered when a relational
+database management system (RDBMS) is being served by an application
+program (or multiple application programs) written in an
+object-oriented programming language or style, …</span></i></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><b>Which principles would you apply to define
+the size of a cache?</b></pre>
+<pre class="western"><font color="#000080"><span lang="zxx"><u><a href="https://www.quora.com/What-are-the-most-important-factors-in-CPU-cache-design"><i><span style="font-weight: normal">https://www.quora.com/What-are-the-most-important-factors-in-CPU-cache-design</span></i></a></u></span></font></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><b>What's the difference between TCP and HTTP?</b></pre>
+<pre class="western"><i><span style="font-weight: normal">HTTP is a
+protocol used mostly for browsing the internet (IE, Firefox, etc). It
+rides on top of TCP which provides a reliable link between two
+computers (if packet get lost - it is re-transmitted). TCP itself
+rides on top of IP, which provides unified addressing to communicate
+between computers. TCP/IP is a basis for internet and 99% of other
+networks.</span></i></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><i><span style="font-weight: normal">Basically
+it means if you are communicating HTTP, you are doing it with TCP/IP
+underneath (but I am sure this is not what your professor meant).</span></i></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><i><span style="font-weight: normal">Arduino
+Nano is not supporting all of those, so you need something in
+between, which will translate Nano signalling to TCP/HTTP
+communication.</span></i></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><i><span style="font-weight: normal">Some of you
+options are:</span></i></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><i><span style="font-weight: normal">Communicating
+with Nano over Serial and making PC translate your Serial protocol to
+HTTP/TCP</span></i></pre>
+<pre class="western"><i><span style="font-weight: normal">Switch Nano
+with some other Arduino board which supports Ethernet/Wifi shield
+extension (Uno/Mega), or choosing a custom board which contains
+Ethernet by itself</span></i></pre>
+<pre class="western"><i><span style="font-weight: normal">Using
+another Arduino (Uno/Mega) with Ethernet shield as an additional
+board which communicates with Nano over Serial or with the help of RF
+modules (I personally implemented this option in past)</span></i></pre>
+<pre class="western"><i><span style="font-weight: normal">Another
+unusual option is to attach Nano to your Android smartphone using
+Audio cable and to use soft-modem library
+(https://code.google.com/p/arms22/issues/detail?id=2), which contains
+implementation for Android and write an application for Android</span></i></pre>
+<pre class="western"><i><span style="font-weight: normal">Web server
+you mention supports HTTP only by definition, so if you want to
+communicate over TCP, you will need to use some TCP server.</span></i></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><i><span style="font-weight: normal">One of the
+existing web services to provide graphs for visualizing Sensor data
+is https://xively.com/, it API is based on REST which rides on top of
+HTTP. But it is not the only one.</span></i></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><b>What are the tradeoffs of client-side
+rendering vs. server-side rendering?</b></pre>
+<pre class="western"><i><span style="font-weight: normal">Your
+content is visible to search engines like Google.</span></i></pre>
+<pre class="western"><i><span style="font-weight: normal">The page
+loads faster. There's no &quot;white page&quot; while the browser
+downloads the rendering code and data and runs the code.</span></i></pre>
+<pre class="western"><i><span style="font-weight: normal">It
+maintains the idea that pages are documents, and if you ask a server
+for a document by URL, you get back the text of the document rather
+than a program that generates that text using a complicated API.</span></i></pre>
+<pre class="western"><i><span style="font-weight: normal">Read More</span></i></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><font color="#000080"><span lang="zxx"><u><a href="https://www.quora.com/What-are-the-tradeoffs-of-client-side-rendering-vs-server-side-rendering"><i><span style="font-weight: normal">https://www.quora.com/What-are-the-tradeoffs-of-client-side-rendering-vs-server-side-rendering</span></i></a></u></span></font></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><b>How could you develop a reliable
+communication protocol based on a non-reliable one?</b></pre>
+<pre class="western"><font color="#000080"><span lang="zxx"><u><a href="http://www.gerhardmueller.de/docs/UnixCommunicationFacilities/ip/node11.html"><i><span style="font-weight: normal">http://www.gerhardmueller.de/docs/UnixCommunicationFacilities/ip/node11.html</span></i></a></u></span></font></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><b>Tony Hoare who invented the null reference
+once said &quot;I call it my billion-dollar mistake&quot; since it
+lead to &quot;innumerable errors, vulnerabilities, and system
+crashes, which have probably caused a billion dollars of pain and
+damage in the last forty years&quot;. Imagine you want to remove the
+possibility to have null references in your preferred language: how
+would you achieve this goal? What consequences could this have?</b></pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><i><span style="font-weight: normal">null is
+evil</span></i></pre>
+<pre class="western"><i><span style="font-weight: normal">There is a
+presentation on InfoQ on this topic: Null References: The Billion
+Dollar Mistake by Tony Hoare</span></i></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><i><span style="font-weight: normal">Option type</span></i></pre>
+<pre class="western"><i><span style="font-weight: normal">The
+alternative from functional programming is using an Option type, that
+can contain SOME value or NONE.</span></i></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><i><span style="font-weight: normal">A good
+article The “Option” Pattern that discuss the Option type and
+provide an implementation of it for Java.</span></i></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><i><span style="font-weight: normal">I have also
+found a bug-report for Java about this issue: Add Nice Option types
+to Java to prevent NullPointerExceptions. The requested feature was
+introduced in Java 8.</span></i></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><br>
+</pre>
+</body>
+</html>

@@ -1,0 +1,442 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8">
+	<title></title>
+	<meta name="generator" content="LibreOffice 4.2.3.3 (Linux)">
+	<meta name="created" content="0;0">
+	<meta name="changed" content="0;0">
+	<style type="text/css">
+	<!--
+		@page { margin: 0.79in }
+		p { margin-bottom: 0.1in; direction: ltr; color: #00000a; line-height: 120%; text-align: left; widows: 0; orphans: 0 }
+		p.western { font-family: "Liberation Serif", serif; font-size: 12pt; so-language: en-US }
+		p.cjk { font-family: "Droid Sans Fallback"; font-size: 12pt; so-language: zh-CN }
+		p.ctl { font-family: "FreeSans"; font-size: 12pt; so-language: hi-IN }
+		pre { direction: ltr; color: #00000a; text-align: left; widows: 0; orphans: 0 }
+		pre.western { font-family: "Liberation Mono", serif; so-language: en-US }
+		pre.cjk { font-family: "Droid Sans Fallback"; so-language: zh-CN }
+		pre.ctl { font-family: "Liberation Mono"; so-language: hi-IN }
+		a:link { so-language: zxx }
+	-->
+	</style>
+</head>
+<body lang="en-US" text="#00000a" dir="ltr">
+<pre class="western"><font face="Arial, serif"><b>What does being
+schema-less mean for a NoSQL Database?</b></font></pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><font face="Arial, serif"><i>Schema-less is a
+bit of a misnomer, it's better to think of it as:</i></font></pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><font face="Arial, serif"><i>SQL = Schema
+enforced by a RDBMS on Write</i></font></pre>
+<pre class="western"><font face="Arial, serif"><i>NoSQL = Partial
+Schema enforced by the DBMS on Write, PLUS schema fully enforced by
+the Application on Read (Externalised schema)</i></font></pre>
+<pre class="western"><font face="Arial, serif"><i>So while a supposed
+Schema-less NoSQL data-store will in theory allow you to store any
+data you like (typically key value pairs, in a document) without
+prior knowledge of the keys, or data types, it will be pointless
+unless you have some mechanism to retrieve and use the data. So
+essentially the schema is partially moved from the RDBMS into the
+application code. I say partially as you'll have added Indexes to
+document collections and or partitioned the data for performance, so
+the NoSQL DBMS will have a partial schema defined locally, and
+possibly enforced via Unique constraints.</i></font></pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><font face="Arial, serif"><i>As to adding
+additional attributes to a document/object in the store. Depending on
+how much padding is around the document (un-used space), in it's
+physical data block, adding a few more key value pairs to the
+documents may result in the document having to be physically moved to
+a larger contiguous block of storage, and the associated indexes
+re-built. If you plan to use the new keys in a frequently utilised
+query then you'll be wanting to also add a suitable new index, which
+will obviously require some physical storage, take a while to
+initially build and possibly lead you to ask the sysadmin to allocate
+more memory to the DBMS, to allow the new index(s) to be cached.</i></font></pre>
+<pre class="western" style="font-style: normal"><br>
+</pre>
+<pre class="western" style="font-style: normal"><br>
+</pre>
+<pre class="western"><font face="Arial, serif"><span style="font-style: normal"><b>When
+to Redis? When to MongoDB? [closed]</b></span></font></pre>
+<pre class="western" style="font-style: normal; font-weight: normal"><br>
+</pre>
+<pre class="western"><font face="Arial, serif"><span style="font-style: normal"><span style="font-weight: normal">votes</span></span></font></pre>
+<pre class="western"><font face="Arial, serif"><i><span style="font-weight: normal">I
+would say, it depends on kind of dev team you are and your
+application needs.</span></i></font></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><font face="Arial, serif"><i><span style="font-weight: normal">For
+example, if you require a lot of querying, that mostly means it would
+be more work for your developers to use Redis, where your data might
+be stored in variety of specialized data structures, customized for
+each type of object for efficiency. In MongoDB the same queries might
+be easier because the structure is more consistent across your data.
+On the other hand, in Redis, sheer speed of the response to those
+queries is the payoff for the extra work of dealing with the variety
+of structures your data might be stored with.</span></i></font></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><font face="Arial, serif"><i><span style="font-weight: normal">MongoDB
+offers simplicity, much shorter learning curve for developers with
+traditional DB and SQL experience. However, Redis's non-traditional
+approach requires more effort to learn, but greater flexibility.</span></i></font></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><font face="Arial, serif"><i><span style="font-weight: normal">Eg.
+A cache layer can probably be better implemented in Redis. For more
+schema-able data, MongoDB is better. [Note: both MongoDB and Redis
+are technically schemaless]</span></i></font></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><font face="Arial, serif"><i><span style="font-weight: normal">If
+you ask me, my personal choice is Redis for most requirements.</span></i></font></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><font face="Arial, serif"><i><span style="font-weight: normal">Lastly,
+I hope by now you have seen
+http://antirez.com/post/MongoDB-and-Redis.html</span></i></font></pre>
+<pre class="western" style="font-style: normal; font-weight: normal"><br>
+</pre>
+<pre class="western"><font face="Arial, serif"><span style="font-style: normal"><b>MongoDB
+relationships: embed or reference?</b></span></font></pre>
+<pre class="western" style="font-style: normal"><br>
+</pre>
+<pre class="western"><font face="Arial, serif"><i><span style="font-weight: normal">This
+is more an art than a science. The Mongo Documentation on Schemas is
+a good reference, but here are some things to consider:</span></i></font></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><font face="Arial, serif"><i><span style="font-weight: normal">Put
+as much in as possible</span></i></font></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><font face="Arial, serif"><i><span style="font-weight: normal">The
+joy of a Document database is that it eliminates lots of Joins. Your
+first instinct should be to place as much in a single document as you
+can. Because MongoDB documents have structure, and because you can
+efficiently query within that structure (this means that you can take
+the part of the document that you need, so document size shouldn't
+worry you much) there is no immediate need to normalize data like you
+would in SQL. In particular any data that is not useful apart from
+its parent document should be part of the same document.</span></i></font></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><font face="Arial, serif"><i><span style="font-weight: normal">Separate
+data that can be referred to from multiple places into its own
+collection.</span></i></font></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><font face="Arial, serif"><i><span style="font-weight: normal">This
+is not so much a &quot;storage space&quot; issue as it is a &quot;data
+consistency&quot; issue. If many records will refer to the same data
+it is more efficient and less error prone to update a single record
+and keep references to it in other places.</span></i></font></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><font face="Arial, serif"><i><span style="font-weight: normal">Document
+size considerations</span></i></font></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><font face="Arial, serif"><i><span style="font-weight: normal">MongoDB
+imposes a 4MB (16MB with 1.8) size limit on a single document. In a
+world of GB of data this sounds small, but it is also 30 thousand
+tweets or 250 typical Stack Overflow answers or 20 flicker photos. On
+the other hand, this is far more information than one might want to
+present at one time on a typical web page. First consider what will
+make your queries easier. In many cases concern about document sizes
+will be premature optimization.</span></i></font></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><font face="Arial, serif"><i><span style="font-weight: normal">Complex
+data structures:</span></i></font></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><font face="Arial, serif"><i><span style="font-weight: normal">MongoDB
+can store arbitrary deep nested data structures, but cannot search
+them efficiently. If your data forms a tree, forest or graph, you
+effectively need to store each node and its edges in a separate
+document. (Note that there are data stores specifically designed for
+this type of data that one should consider as well)</span></i></font></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><font face="Arial, serif"><i><span style="font-weight: normal">It
+has also been pointed out than it is impossible to return a subset of
+elements in a document. If you need to pick-and-choose a few bits of
+each document, it will be easier to separate them out.</span></i></font></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><font face="Arial, serif"><i><span style="font-weight: normal">Data
+Consistency</span></i></font></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><font face="Arial, serif"><i><span style="font-weight: normal">MongoDB
+makes a trade off between efficiency and consistency. The rule is
+changes to a single document are always atomic, while updates to
+multiple documents should never be assumed to be atomic. There is
+also no way to &quot;lock&quot; a record on the server (you can build
+this into the client's logic using for example a &quot;lock&quot;
+field). When you design your schema consider how you will keep your
+data consistent. Generally, the more that you keep in a document the
+better.</span></i></font></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><font face="Arial, serif"><i><span style="font-weight: normal">For
+what you are describing, I would embed the comments, and give each
+comment an id field with an ObjectID. The ObjectID has a time stamp
+embedded in it so you can use that instead of created at if you like.</span></i></font></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><font face="Arial, serif"><i><b>Where does
+mongodb stand in the CAP theorem?</b></i></font></pre>
+<pre class="western"><font face="Arial, serif"><i><span style="font-weight: normal">MongoDB
+is strongly consistent by default - if you do a write and then do a
+read, assuming the write was successful you will always be able to
+read the result of the write you just read. This is because MongoDB
+is a single-master system and all reads go to the primary by default.
+If you optionally enable reading from the secondaries then MongoDB
+becomes eventually consistent where it's possible to read out-of-date
+results.</span></i></font></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><font face="Arial, serif"><i><span style="font-weight: normal">MongoDB
+also gets high-availability through automatic failover in replica
+sets: </span></i></font><font color="#000080"><span lang="zxx"><u><a href="http://www.mongodb.org/display/DOCS/Replica+Sets"><font face="Arial, serif"><i><span style="font-weight: normal">http://www.mongodb.org/display/DOCS/Replica+Sets</span></i></font></a></u></span></font></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><font face="Arial, serif"><i><b>How to check if
+a field contains a substring?</b></i></font></pre>
+<pre class="western"><font face="Arial, serif"><i><span style="font-weight: normal">db.users.findOne({&quot;username&quot;
+: {$regex : &quot;.*son.*&quot;}});</span></i></font></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><font face="Arial, serif"><i><b>What are
+alternatives to MongoDB?</b></i></font></pre>
+<pre class="western"><font face="Arial, serif"><i><span style="font-weight: normal">There
+are a number of NoSQL alternatives such as Redis, CouchDB, and
+Cassandra. Alternatively, you could turn to a relational database
+management system such as MySQL, Oracle, or SQL Server.</span></i></font></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><font face="Arial, serif"><i><b>Update MongoDB
+field using value of another field</b></i></font></pre>
+<pre class="western"><font face="Arial, serif"><i><span style="font-weight: normal">The
+best way to do this is to use the aggregation framework to compute
+our new field.</span></i></font></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><font face="Arial, serif"><i><span style="font-weight: normal">MongoDB
+3.4</span></i></font></pre>
+<pre class="western"><font face="Arial, serif"><i><span style="font-weight: normal">The
+most efficient solution is in MongoDB 3.4 using the $addFields and
+the $out aggregation pipeline operators.</span></i></font></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><font face="Arial, serif"><i><span style="font-weight: normal">db.collection.aggregate(</span></i></font></pre>
+<pre class="western">    <font face="Arial, serif"><i><span style="font-weight: normal">[</span></i></font></pre>
+<pre class="western">        <font face="Arial, serif"><i><span style="font-weight: normal">{
+&quot;$addFields&quot;: { </span></i></font>
+</pre>
+<pre class="western">            <font face="Arial, serif"><i><span style="font-weight: normal">&quot;name&quot;:
+{ &quot;$concat&quot;: [ &quot;$firstName&quot;, &quot; &quot;,
+&quot;$lastName&quot; ] } </span></i></font>
+</pre>
+<pre class="western">        <font face="Arial, serif"><i><span style="font-weight: normal">}},</span></i></font></pre>
+<pre class="western">        <font face="Arial, serif"><i><span style="font-weight: normal">{
+&quot;$out&quot;: &quot;collection&quot; }</span></i></font></pre>
+<pre class="western">    <font face="Arial, serif"><i><span style="font-weight: normal">]</span></i></font></pre>
+<pre class="western"><font face="Arial, serif"><i><span style="font-weight: normal">)</span></i></font></pre>
+<pre class="western"><font face="Arial, serif"><i><span style="font-weight: normal">Note
+that this does not update your collection but instead replace the
+existing collection or create a new one. Also for update operations
+that require &quot;type casting&quot; you will need client side
+processing, and depending on the operation, you may need to use the
+find() method instead of the .aggreate() method.</span></i></font></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><font face="Arial, serif"><i><b>Explain what is
+horizontal scalability?</b></i></font></pre>
+<pre class="western"><font face="Arial, serif"><i><span style="font-weight: normal">Horizontal
+scaling means that you scale by adding more machines into your pool
+of resources whereas Vertical scaling means that you scale by adding
+more power (CPU, RAM) to an existing machine.</span></i></font></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><font face="Arial, serif"><i><b>What are the
+differences between MongoDB and MySQL?</b></i></font></pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><font face="Arial, serif"><i><span style="font-weight: normal">My
+SQL:</span></i></font></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><font face="Arial, serif"><i><span style="font-weight: normal">Written
+in: c or c++</span></i></font></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><font face="Arial, serif"><i><span style="font-weight: normal">Type:
+RDBMS</span></i></font></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><font face="Arial, serif"><i><span style="font-weight: normal">Main
+points: Table, Row or column</span></i></font></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><font face="Arial, serif"><i><span style="font-weight: normal">License:
+GPL V2</span></i></font></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><font face="Arial, serif"><i><span style="font-weight: normal">Schemas:
+Strict</span></i></font></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><font face="Arial, serif"><i><span style="font-weight: normal">Scaling:
+vertically</span></i></font></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><font face="Arial, serif"><i><span style="font-weight: normal">Key
+features: Full-text searching and indexing, Triggers, SSL support,
+Unicode support, Query cashing, Integrated replication support</span></i></font></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><font face="Arial, serif"><i><span style="font-weight: normal">Risk:
+Risk of SQL injection attacks</span></i></font></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><font face="Arial, serif"><i><span style="font-weight: normal">Analysis:
+a great choice if you have a structure data and need a traditional
+relational database</span></i></font></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><font face="Arial, serif"><i><span style="font-weight: normal">Data
+structure: Structure data with clear schema</span></i></font></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><font face="Arial, serif"><i><span style="font-weight: normal">Developer:
+Microsoft</span></i></font></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><font face="Arial, serif"><i><span style="font-weight: normal">Initial
+release: 1989</span></i></font></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><font face="Arial, serif"><i><span style="font-weight: normal">License:
+commercial</span></i></font></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><font face="Arial, serif"><i><span style="font-weight: normal">Server
+operating systems: Linux, windows</span></i></font></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><font face="Arial, serif"><i><span style="font-weight: normal">Server-side
+scripts: Transact SQL and .NET languages</span></i></font></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><font face="Arial, serif"><i><span style="font-weight: normal">Triggers:
+Yes</span></i></font></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><font face="Arial, serif"><i><span style="font-weight: normal">Map-reduce:
+No</span></i></font></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><font face="Arial, serif"><i><span style="font-weight: normal">MongoDB:</span></i></font></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><font face="Arial, serif"><i><span style="font-weight: normal">Written
+in: c , c++ and javascript</span></i></font></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><font face="Arial, serif"><i><span style="font-weight: normal">Type:
+Document oriented</span></i></font></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><font face="Arial, serif"><i><span style="font-weight: normal">Main
+points: Collection,Document, and field</span></i></font></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><font face="Arial, serif"><i><span style="font-weight: normal">License:
+GNU AGPL V3.0</span></i></font></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><font face="Arial, serif"><i><span style="font-weight: normal">Schemas:
+dynamic</span></i></font></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><font face="Arial, serif"><i><span style="font-weight: normal">Scaling:
+Horizontally</span></i></font></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><font face="Arial, serif"><i><span style="font-weight: normal">Key
+features: Native replication, In memory speed, embedded data models
+support, Rich query language support</span></i></font></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><font face="Arial, serif"><i><span style="font-weight: normal">Risk:
+Less risk of attack due to design</span></i></font></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><font face="Arial, serif"><i><span style="font-weight: normal">Analysis:
+a great choice if you have a structured or unstructured data with the
+potential for rapid growth.</span></i></font></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><font face="Arial, serif"><i><span style="font-weight: normal">Data
+Structure: No schema definition is required</span></i></font></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><font face="Arial, serif"><i><span style="font-weight: normal">Developer:
+MongoDB, INC</span></i></font></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><font face="Arial, serif"><i><span style="font-weight: normal">Initial
+release: 2009</span></i></font></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><font face="Arial, serif"><i><span style="font-weight: normal">License:
+open source</span></i></font></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><font face="Arial, serif"><i><span style="font-weight: normal">Server
+operating systems: Linux, Windows,Solaris</span></i></font></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><font face="Arial, serif"><i><span style="font-weight: normal">Server-side
+scripts: javascript</span></i></font></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><font face="Arial, serif"><i><span style="font-weight: normal">Triggers:
+No</span></i></font></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><font face="Arial, serif"><i><span style="font-weight: normal">Map-reduce:
+yes</span></i></font></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><font face="Arial, serif"><i><span style="font-weight: normal">Read
+more: Difference between MySQL and MongoDB | Comparing MongoDB with
+MySQL</span></i></font></pre>
+</body>
+</html>

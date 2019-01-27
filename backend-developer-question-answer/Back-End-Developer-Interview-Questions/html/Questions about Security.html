@@ -1,0 +1,283 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8">
+	<title></title>
+	<meta name="generator" content="LibreOffice 4.2.3.3 (Linux)">
+	<meta name="created" content="0;0">
+	<meta name="changed" content="0;0">
+	<style type="text/css">
+	<!--
+		@page { margin: 0.79in }
+		p { margin-bottom: 0.1in; direction: ltr; color: #00000a; line-height: 120%; text-align: left; widows: 0; orphans: 0 }
+		p.western { font-family: "Liberation Serif", serif; font-size: 12pt; so-language: en-US }
+		p.cjk { font-family: "Droid Sans Fallback"; font-size: 12pt; so-language: zh-CN }
+		p.ctl { font-family: "FreeSans"; font-size: 12pt; so-language: hi-IN }
+		pre { direction: ltr; color: #00000a; text-align: left; widows: 0; orphans: 0 }
+		pre.western { font-family: "Liberation Mono", serif; so-language: en-US }
+		pre.cjk { font-family: "Droid Sans Fallback"; so-language: zh-CN }
+		pre.ctl { font-family: "Liberation Mono"; so-language: hi-IN }
+		a:link { so-language: zxx }
+	-->
+	</style>
+</head>
+<body lang="en-US" text="#00000a" dir="ltr">
+<pre class="western"><b>How do you write secure code? In your
+opinion, is it one of the developer's duties, or does it require a
+specialized role in the company? And why?</b></pre>
+<pre class="western"><i><span style="font-weight: normal">Secure code
+is such that has little or no vulnerabilities that can be exploited
+by malicious users.</span></i></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><i><span style="font-weight: normal">Obfuscated
+code is code that is intentionally made hard to read.</span></i></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><i><span style="font-weight: normal">Obscure
+code is code that is unintentionally hard to read and also probably
+insecure.</span></i></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><i><span style="font-weight: normal">User
+followting </span></i><font color="#000080"><span lang="zxx"><u><a href="http://www.javascriptobfuscator.com/default.aspx"><i><span style="font-weight: normal">http://www.javascriptobfuscator.com/default.aspx</span></i></a></u></span></font></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><b>Why is it said that cryptography is not
+something you should try to invent or design yourself?</b></pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><i><span style="font-weight: normal">You can
+roll your own, but you probably will make a major security mistake if
+you are not an expert in security/cryptography or have had your
+scheme analyzed by multiple experts. I'm more willing to bet on an
+open-source publicly known encryption scheme that's out there for all
+to see and analyze. More eyes means more likely that the current
+version doesn't have major vulnerabilities, as opposed to something
+developed in-house by non-experts.</span></i></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><i><span style="font-weight: normal">From Phil
+Zimmermann's (PGP creator) Introduction to Cryptography (Page 54):</span></i></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><i><span style="font-weight: normal">When I was
+in college in the early 70s, I devised what I believed was a
+brilliant encryption scheme. A simple pseudorandom number stream was
+added to the plaintext stream to create ciphertext. This would
+seemingly thwart any frequency analysis of the ciphertext, and would
+be uncrackable even to the most resourceful government intelligence
+agencies. I felt so smug about my achievement.</span></i></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><i><span style="font-weight: normal">Years
+later, I discovered this same scheme in several introductory
+cryptography texts and tutorial papers. How nice. Other
+cryptographers had thought of the same scheme. Unfortunately, the
+scheme was presented as a simple homework assignment on how to use
+elementary cryptanalytic techniques to trivially crack it. So much
+for my brilliant scheme.</span></i></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><i><span style="font-weight: normal">From this
+humbling experience I learned how easy it is to fall into a false
+sense of security when devising an encryption algorithm. Most people
+don’t realize how fiendishly difficult it is to devise an
+encryption algorithm that can withstand a prolonged and determined
+attack by a resourceful opponent.</span></i></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><i><span style="font-weight: normal">Read
+Continue
+</span></i><font color="#000080"><span lang="zxx"><u><a href="https://security.stackexchange.com/questions/18197/why-shouldnt-we-roll-our-own"><i><span style="font-weight: normal">https://security.stackexchange.com/questions/18197/why-shouldnt-we-roll-our-own</span></i></a></u></span></font></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><b>What is two factor authentication? How would
+you implement it in an existing web application?</b></pre>
+<pre class="western"><i><span style="font-weight: normal">Seems like
+a valid mechanism. But what if the SMS device is not in a service
+area? Or dead battery?</span></i></pre>
+<pre class="western"><i><span style="font-weight: normal">Talking
+about email or sms.</span></i></pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><b>If not carefully handled, there is always a
+risk of logs containing sensitive information, such as passwords. How
+would you deal with this?</b></pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><i><span style="font-weight: normal">There are
+several best practices that you should consider when dealing with
+sensitive data.</span></i></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><i><span style="font-weight: normal">First of
+all, minimize all of the sensitive data that you transfer at all. By
+hashing the password as early as possible in the architecture, you
+can ensure that any downstream components never even run the risk of
+exposing sensitive data.</span></i></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><i><span style="font-weight: normal">Second,
+which is associated to the prior point, you should constrain/isolate
+the components that ever receive this sensitive information. For a
+password, only the authentication server would ever need this
+information - the rest of the components should really only deal with
+an authorization token (or something of the same ilk.) With regards
+to a credit card, this should likely only ever be associated with
+those services that would ever need it - for example the
+checkout/billing component of your system.</span></i></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><i><span style="font-weight: normal">Third, for
+those systems that actually do need to get the actual value of the
+sensitive information for logic (e.g. credit card), you should
+consider creating/using a token-like system. This would basically be
+a place where you can store the sensitive information and provide an
+ID reference that replaces the original sensitive data element (e.g.
+exchange a credit card number for a credit card number id).</span></i></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><i><span style="font-weight: normal">To close
+out the solution, exchange the sensitive data as close to the edge as
+possible (e.g. where you captured the credit card) in exchange for
+this token. Exchange this token for the sensitive information value
+(with the right authorization) to get the value back and then use it
+at the very latest possible moment. Finally, audit the logging that
+is done at those sensitive points to make sure that it's not logged
+in the clear.</span></i></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><i><span style="font-weight: normal">This design
+pattern how some of the biggest e-commerce sites in the world do it.
+(Sorry, I am not allowed to disclose whom.) Hope it helps!</span></i></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><font color="#000080"><span lang="zxx"><u><a href="https://stackoverflow.com/questions/33671027/logging-security-considerations-and-sensitive-data"><i><span style="font-weight: normal">https://stackoverflow.com/questions/33671027/logging-security-considerations-and-sensitive-data</span></i></a></u></span></font></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><b>Write down a snippet of code affected by SQL
+Injection and fix it.</b></pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><i><span style="font-weight: normal">Write
+simple sql query for login without escaping data etc.</span></i></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><b>How would it be possible to detect SQL
+Injection via static code analysis? I don't expect you to write an
+algorithm capable of doing this, as it is probably a huge topic, but
+let's discuss a general approach.</b></pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><i><span style="font-weight: normal">Source Code
+Analysis Tools</span></i></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><i><span style="font-weight: normal">The OWASP
+Foundation came online on December 1st, 2001 it was established as a
+not-for-profit charitable organization in the United States on April
+21, 2004, to ensure the ongoing availability and support for our work
+at OWASP. OWASP is an international organization and the OWASP
+Foundation supports OWASP efforts around the world. OWASP is an open
+community dedicated to enabling organizations to conceive, develop,
+acquire, operate, and maintain applications that can be trusted. All
+of the OWASP tools, documents, forums, and chapters are free and open
+to anyone interested in improving application security. We advocate
+approaching application security as a people, process, and technology
+problem because the most effective approaches to application security
+include improvements in all of these areas. We can be found at
+</span></i><font color="#000080"><span lang="zxx"><u><a href="http://www.owasp.org/"><i><span style="font-weight: normal">www.owasp.org</span></i></a></u></span></font><i><span style="font-weight: normal">.</span></i></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><font color="#000080"><span lang="zxx"><u><a href="https://www.owasp.org/index.php/About_The_Open_Web_Application_Security_Project"><i><span style="font-weight: normal">https://www.owasp.org/index.php/About_The_Open_Web_Application_Security_Project</span></i></a></u></span></font></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><b>What do you know about Cross-Site Scripting?
+If you don't remember it, let's review online its definition and
+let's discuss about it.</b></pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><i><span style="font-weight: normal">Cross-Site
+Scripting (XSS) attacks are a type of injection, in which malicious
+scripts are injected into otherwise benign and trusted websites. XSS
+attacks occur when an attacker uses a web application to send
+malicious code, generally in the form of a browser side script, to a
+different end user. Flaws that allow these attacks to succeed are
+quite widespread and occur anywhere a web application uses input from
+a user within the output it generates without validating or encoding
+it.</span></i></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><i><span style="font-weight: normal">An attacker
+can use XSS to send a malicious script to an unsuspecting user. The
+end user’s browser has no way to know that the script should not be
+trusted, and will execute the script. Because it thinks the script
+came from a trusted source, the malicious script can access any
+cookies, session tokens, or other sensitive information retained by
+the browser and used with that site. These scripts can even rewrite
+the content of the HTML page. For more details on the different types
+of XSS flaws, see: Types of Cross-Site Scripting.</span></i></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><font color="#000080"><span lang="zxx"><u><a href="https://www.owasp.org/index.php/Cross-site_Scripting_(XSS"><i><span style="font-weight: normal">https://www.owasp.org/index.php/Cross-site_Scripting_(XSS</span></i></a></u></span></font><i><span style="font-weight: normal">)</span></i></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><b>What do you know about Cross-Site Forgery
+Attack? If you don't remember it, let's review online its definition
+and let's discuss about it.</b></pre>
+<pre class="western"><b>How does HTTPS work?</b></pre>
+<pre class="western"><i><span style="font-weight: normal">Cross-Site
+Request Forgery (CSRF) is an attack that forces an end user to
+execute unwanted actions on a web application in which they're
+currently authenticated. CSRF attacks specifically target
+state-changing requests, not theft of data, since the attacker has no
+way to see the response to the forged request.</span></i></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><i><span style="font-weight: normal">https://www.owasp.org/index.php/Cross-Site_Request_Forgery_(CSRF)</span></i></pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><b>What's a Man-in-the-middle Attack, and why
+does HTTPS help protect against it?</b></pre>
+<pre class="western"><b>How can you prevent the user's session from
+being stolen? Chances are you remember what Session or Cookie
+Hijacking is, otherwise let's read its Wikipedia page together.</b></pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><i><span style="font-weight: normal">In
+cryptography and computer security, a man-in-the-middle attack is an
+attack where the attacker secretly relays and possibly alters the
+communication between two parties who believe they are directly
+communicating with each other. Wikipedia</span></i></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><i><span style="font-weight: normal">https://us.norton.com/internetsecurity-wifi-what-is-a-man-in-the-middle-attack.html</span></i></pre>
+</body>
+</html>

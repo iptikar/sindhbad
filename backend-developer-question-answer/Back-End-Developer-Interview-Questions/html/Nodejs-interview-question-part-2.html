@@ -1,0 +1,99 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8">
+	<title></title>
+	<meta name="generator" content="LibreOffice 4.2.3.3 (Linux)">
+	<meta name="created" content="0;0">
+	<meta name="changed" content="0;0">
+	<style type="text/css">
+	<!--
+		@page { margin: 0.79in }
+		p { margin-bottom: 0.1in; direction: ltr; color: #00000a; line-height: 120%; text-align: left; widows: 0; orphans: 0 }
+		p.western { font-family: "Liberation Serif", serif; font-size: 12pt; so-language: en-US }
+		p.cjk { font-family: "Droid Sans Fallback"; font-size: 12pt; so-language: zh-CN }
+		p.ctl { font-family: "FreeSans"; font-size: 12pt; so-language: hi-IN }
+		pre { direction: ltr; color: #00000a; text-align: left; widows: 0; orphans: 0 }
+		pre.western { font-family: "Liberation Mono", serif; so-language: en-US }
+		pre.cjk { font-family: "Droid Sans Fallback"; so-language: zh-CN }
+		pre.ctl { font-family: "Liberation Mono"; so-language: hi-IN }
+		a:link { so-language: zxx }
+	-->
+	</style>
+</head>
+<body lang="en-US" text="#00000a" dir="ltr">
+<pre class="western"><b>What is the purpose of Node.js module.exports
+and how do you use it?</b></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><i><span style="font-weight: normal">1478</span></i></pre>
+<pre class="western"><i><span style="font-weight: normal">down vote</span></i></pre>
+<pre class="western"><i><span style="font-weight: normal">accepted</span></i></pre>
+<pre class="western"><i><span style="font-weight: normal">module.exports
+is the object that's actually returned as the result of a require
+call.</span></i></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><i><span style="font-weight: normal">The exports
+variable is initially set to that same object (i.e. it's a shorthand
+&quot;alias&quot;), so in the module code you would usually write
+something like this:</span></i></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><i><span style="font-weight: normal">var myFunc1
+= function() { ... };</span></i></pre>
+<pre class="western"><i><span style="font-weight: normal">var myFunc2
+= function() { ... };</span></i></pre>
+<pre class="western"><i><span style="font-weight: normal">exports.myFunc1
+= myFunc1;</span></i></pre>
+<pre class="western"><i><span style="font-weight: normal">exports.myFunc2
+= myFunc2;</span></i></pre>
+<pre class="western"><i><span style="font-weight: normal">to export
+(or &quot;expose&quot;) the internally scoped functions myFunc1 and
+myFunc2.</span></i></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><i><span style="font-weight: normal">And in the
+calling code you would use:</span></i></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><i><span style="font-weight: normal">var m =
+require('./mymodule');</span></i></pre>
+<pre class="western"><i><span style="font-weight: normal">m.myFunc1();</span></i></pre>
+<pre class="western"><i><span style="font-weight: normal">where the
+last line shows how the result of require is (usually) just a plain
+object whose properties may be accessed.</span></i></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><i><span style="font-weight: normal">NB: if you
+overwrite exports then it will no longer refer to module.exports. So
+if you wish to assign a new object (or a function reference) to
+exports then you should also assign that new object to module.exports</span></i></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><i><span style="font-weight: normal">It's worth
+noting that the name added to the exports object does not have to be
+the same as the module's internally scoped name for the value that
+you're adding, so you could have:</span></i></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><i><span style="font-weight: normal">var
+myVeryLongInternalName = function() { ... };</span></i></pre>
+<pre class="western"><i><span style="font-weight: normal">exports.shortName
+= myVeryLongInternalName;</span></i></pre>
+<pre class="western"><i><span style="font-weight: normal">// add
+other objects, functions, as required</span></i></pre>
+<pre class="western"><i><span style="font-weight: normal">followed
+by:</span></i></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><i><span style="font-weight: normal">var m =
+require('./mymodule');</span></i></pre>
+<pre class="western"><i><span style="font-weight: normal">m.shortName();
+//</span></i></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><br>
+</pre>
+</body>
+</html>

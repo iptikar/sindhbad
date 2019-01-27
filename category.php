@@ -568,6 +568,7 @@ $obj = new MarketPlace();
                               <!-- /ko -->
                            </div>
                             
+                            <!--
                            <div id="sm_filterproducts_1523715229935215894" class="block products-sidebar">
                               <div class="block-title filter-title"><strong>Featured Product</strong></div>
                               <div class="block-content block-content-products">
@@ -629,6 +630,8 @@ $obj = new MarketPlace();
                               
                               
                               </div>
+                          -->
+
                            </div>
                           
                           

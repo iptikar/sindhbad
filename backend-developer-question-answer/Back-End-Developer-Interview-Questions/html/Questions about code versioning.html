@@ -1,0 +1,173 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8">
+	<title></title>
+	<meta name="generator" content="LibreOffice 4.2.3.3 (Linux)">
+	<meta name="created" content="0;0">
+	<meta name="changed" content="0;0">
+	<style type="text/css">
+	<!--
+		@page { margin: 0.79in }
+		p { margin-bottom: 0.1in; direction: ltr; color: #00000a; line-height: 120%; text-align: left; widows: 0; orphans: 0 }
+		p.western { font-family: "Liberation Serif", serif; font-size: 12pt; so-language: en-US }
+		p.cjk { font-family: "Droid Sans Fallback"; font-size: 12pt; so-language: zh-CN }
+		p.ctl { font-family: "FreeSans"; font-size: 12pt; so-language: hi-IN }
+		pre { direction: ltr; color: #00000a; text-align: left; widows: 0; orphans: 0 }
+		pre.western { font-family: "Liberation Mono", serif; so-language: en-US }
+		pre.cjk { font-family: "Droid Sans Fallback"; so-language: zh-CN }
+		pre.ctl { font-family: "Liberation Mono"; so-language: hi-IN }
+		a:link { so-language: zxx }
+	-->
+	</style>
+</head>
+<body lang="en-US" text="#00000a" dir="ltr">
+<pre class="western"><b>Questions about code versioning:</b></pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><b>Why is branching with Mercurial or git easier
+than with SVN?</b></pre>
+<pre class="western"><font color="#000080"><span lang="zxx"><u><a href="https://mentormate.com/blog/differences-git-svn/"><span style="font-weight: normal">https://mentormate.com/blog/differences-git-svn/</span></a></u></span></font></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><b>What are the pros and cons of Distributed
+Version Control Systems like Git over Centralized ones like SVN?</b></pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><i><span style="font-weight: normal">28</span></i></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><i><span style="font-weight: normal">I don't
+have a lot of experience with git, but:</span></i></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><i><span style="font-weight: normal">Pros:</span></i></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><i><span style="font-weight: normal">It's really
+quick</span></i></pre>
+<pre class="western"><i><span style="font-weight: normal">Local
+commits rock</span></i></pre>
+<pre class="western"><i><span style="font-weight: normal">Quick to
+start a new repository (no configuration etc)</span></i></pre>
+<pre class="western"><i><span style="font-weight: normal">github is
+easy to use</span></i></pre>
+<pre class="western"><i><span style="font-weight: normal">(I haven't
+really &quot;needed&quot; the distributed side of things yet, beyond
+being able to have a local repository and push to a public one.)</span></i></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><i><span style="font-weight: normal">Cons:</span></i></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><i><span style="font-weight: normal">Windows
+support is still lagging behind, I believe - and you can't just use
+it from a normal command prompt</span></i></pre>
+<pre class="western"><i><span style="font-weight: normal">Lack of IDE
+and Explorer integration</span></i></pre>
+<pre class="western"><i><span style="font-weight: normal">It took me
+a while to find a good introductory text along the lines of the
+redbean book.</span></i></pre>
+<pre class="western"><i><span style="font-weight: normal">The fact
+that &quot;adding&quot; a changed file only adds the contents at that
+point of time (so it can show up as staged for commit and still have
+modifications which require another git add) took a while to grasp</span></i></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><b>Could you describe GitHub Flow and GitFlow
+workflows?</b></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><font color="#000080"><span lang="zxx"><u><a href="https://stackoverflow.com/questions/18188492/what-are-the-pros-and-cons-of-git-flow-vs-github-flow"><i><span style="font-weight: normal">https://stackoverflow.com/questions/18188492/what-are-the-pros-and-cons-of-git-flow-vs-github-flow</span></i></a></u></span></font></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><i><span style="font-weight: normal">As
+discussed in GitMinutes episode 17, by Nicholas Zakas in his article
+on &quot;GitHub workflows inside of a company&quot;:</span></i></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><i><span style="font-weight: normal">Git-flow is
+a process for managing changes in Git that was created by Vincent
+Driessen and accompanied by some Git extensions for managing that
+flow.</span></i></pre>
+<pre class="western"><i><span style="font-weight: normal">The general
+idea behind git-flow is to have several separate branches that always
+exist, each for a different purpose: master, develop, feature,
+release, and hotfix.</span></i></pre>
+<pre class="western"><i><span style="font-weight: normal">The process
+of feature or bug development flows from one branch into another
+before it’s finally released.</span></i></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><i><span style="font-weight: normal">Some of the
+respondents indicated that they use git-flow in general.</span></i></pre>
+<pre class="western"><i><span style="font-weight: normal">Some
+started out with git-flow and moved away from it.</span></i></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><i><span style="font-weight: normal">The primary
+reason for moving away is that the git-flow process is hard to deal
+with in a continuous (or near-continuous) deployment model.</span></i></pre>
+<pre class="western"><i><span style="font-weight: normal">The general
+feeling is that git-flow works well for products in a more
+traditional release model, where releases are done once every few
+weeks, but that this process breaks down considerably when you’re
+releasing once a day or more.</span></i></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><i><span style="font-weight: normal">In short:</span></i></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><i><span style="font-weight: normal">Start with
+a model as simple as possible (like GitHub flow tends to be), and
+move towards a more complex model if you need to.</span></i></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><i><span style="font-weight: normal">You can see
+an interesting illustration of a simple workflow, based on
+GitHub-Flow at:</span></i></pre>
+<pre class="western"><i><span style="font-weight: normal">&quot;A
+simple git branching model&quot;, with the main elements being:</span></i></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><i><span style="font-weight: normal">master must
+always be deployable.</span></i></pre>
+<pre class="western"><i><span style="font-weight: normal">all changes
+made through feature branches (pull-request + merge)</span></i></pre>
+<pre class="western"><i><span style="font-weight: normal">rebase to
+avoid/resolve conflicts; merge in to master</span></i></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><b>What's a rebase?</b></pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><i><span style="font-weight: normal">In Git,
+there are two main ways to integrate changes from one branch into
+another: the merge and the rebase. In this section you’ll learn
+what rebasing is, how to do it, why it’s a pretty amazing tool, and
+in what cases you won’t want to use it.</span></i></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><b>Why merges are easier with Mercurial and git
+than with SVN and CVS?</b></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><font color="#000080"><span lang="zxx"><u><a href="https://stackoverflow.com/questions/43995/why-is-branching-and-merging-easier-in-mercurial-than-in-subversion"><i><span style="font-weight: normal">https://stackoverflow.com/questions/43995/why-is-branching-and-merging-easier-in-mercurial-than-in-subversion</span></i></a></u></span></font></pre>
+<pre class="western"><br>
+</pre>
+</body>
+</html>

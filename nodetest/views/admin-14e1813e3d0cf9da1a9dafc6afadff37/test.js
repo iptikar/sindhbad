@@ -1,5 +1,1 @@
- var eachItem = result[i];
-
-                                                    var shipping_address = JSON.parse(result[i]['shipping_address']);
-                                                    
-                                                    var billing_address = JSON.parse(result[i]['billing_address']);
+var billing_address = result[i]['billing_address'] == '' ? null : JSON.parse(result[i]['billing_address']);

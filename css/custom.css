@@ -1,4 +1,16 @@
 
+.footer{
+
+display:block;
+
+background: #FFF;
+    border-bottom: 1px solid #e9ecf3;
+    text-align: center;
+    padding: 10px 20px 15px;
+    font-size: 13px;
+    height: 33px;
+}
+
 
 .additional-info25 {
 

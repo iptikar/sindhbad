@@ -33,16 +33,16 @@ if ($count > 0)
 
 }
 
-//echo $mostFrequentChar . ' ' . $maxFreq;
+echo $mostFrequentChar . ' ' . $maxFreq;
 
 
 /*
  * Another way 
  * */
  
-$string =  "aaabababbbbbaaaaabbbbbbbbaa";
+//$string =  "aaabababbbbbaaaaabbbbbbbbaa";
 
-preg_match_all('#(\w)\1+#',$string,$matches);
+//preg_match_all('#(\w)\1+#',$string,$matches);
 
 //echo "<pre>";
 //print_r($matches{0});

@@ -1,0 +1,454 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8">
+	<title></title>
+	<meta name="generator" content="LibreOffice 4.2.3.3 (Linux)">
+	<meta name="created" content="0;0">
+	<meta name="changed" content="0;0">
+	<style type="text/css">
+	<!--
+		@page { margin: 0.79in }
+		p { margin-bottom: 0.1in; direction: ltr; color: #00000a; line-height: 120%; text-align: left; widows: 0; orphans: 0 }
+		p.western { font-family: "Liberation Serif", serif; font-size: 12pt; so-language: en-US }
+		p.cjk { font-family: "Droid Sans Fallback"; font-size: 12pt; so-language: zh-CN }
+		p.ctl { font-family: "FreeSans"; font-size: 12pt; so-language: hi-IN }
+		pre { direction: ltr; color: #00000a; text-align: left; widows: 0; orphans: 0 }
+		pre.western { font-family: "Liberation Mono", serif; so-language: en-US }
+		pre.cjk { font-family: "Droid Sans Fallback"; so-language: zh-CN }
+		pre.ctl { font-family: "Liberation Mono"; so-language: hi-IN }
+		a:link { so-language: zxx }
+	-->
+	</style>
+</head>
+<body lang="en-US" text="#00000a" dir="ltr">
+<pre class="western"><b>Difference between cluster and child_process
+modules?</b></pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><i>cluser.fork is implemented on top of
+child_process.fork. The extra stuff that cluster.fork brings is that,
+it will enable you to listen on a shared port. If you don't want it,
+just use child_process.fork. So yeah, use cluster for web servers and
+child_process for workers.</i></pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><b>What does emitter do and what is dispatcher?</b></pre>
+<pre class="western"><i>The scalability referred to here is more
+about scaling the codebase than scaling in terms of how fast the
+software is. Data in flux systems is easy to trace because every
+store is registered to every action, and the actions define every
+app-wide event that can happen in the system. Each store can
+determine how it needs to update itself in response to each action,
+without the programmer needing to decide which stores to wire up to
+which actions, and in most cases, you can change or read the code for
+a store without needing to worrying about how it affects any other
+store.</i></pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><i>Since v6.0.X Node.js has included the cluster
+module straight out of the box, which makes it easy to set up
+multiple node workers that can listen on a single port. Note that
+this is NOT the same as the older learnboost &quot;cluster&quot;
+module available through npm.</i></pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><i><span style="font-weight: normal">const
+cluster = require('cluster');</span></i></pre>
+<pre class="western"><i><span style="font-weight: normal">const http
+= require('http');</span></i></pre>
+<pre class="western"><i><span style="font-weight: normal">const
+numCPUs = require('os').cpus().length;</span></i></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><i><span style="font-weight: normal">if
+(cluster.isMaster) {</span></i></pre>
+<pre class="western">  <i><span style="font-weight: normal">console.log(`Master
+${process.pid} is running`);</span></i></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western">  <i><span style="font-weight: normal">// Fork
+workers.</span></i></pre>
+<pre class="western">  <i><span style="font-weight: normal">for (let
+i = 0; i &lt; numCPUs; i++) {</span></i></pre>
+<pre class="western">    <i><span style="font-weight: normal">cluster.fork();</span></i></pre>
+<pre class="western">  <i><span style="font-weight: normal">}</span></i></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western">  <i><span style="font-weight: normal">cluster.on('exit',
+(worker, code, signal) =&gt; {</span></i></pre>
+<pre class="western">    <i><span style="font-weight: normal">console.log(`worker
+${worker.process.pid} died`);</span></i></pre>
+<pre class="western">  <i><span style="font-weight: normal">});</span></i></pre>
+<pre class="western"><i><span style="font-weight: normal">} else {</span></i></pre>
+<pre class="western">  <i><span style="font-weight: normal">//
+Workers can share any TCP connection</span></i></pre>
+<pre class="western">  <i><span style="font-weight: normal">// In
+this case it is an HTTP server</span></i></pre>
+<pre class="western">  <i><span style="font-weight: normal">http.createServer((req,
+res) =&gt; {</span></i></pre>
+<pre class="western">    <i><span style="font-weight: normal">res.writeHead(200);</span></i></pre>
+<pre class="western">    <i><span style="font-weight: normal">res.end('hello
+world\n');</span></i></pre>
+<pre class="western">  <i><span style="font-weight: normal">}).listen(8000);</span></i></pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><font color="#000080"><span lang="zxx"><u><a href="https://stackoverflow.com/questions/2387724/node-js-on-multi-core-machines"><i><b>https://stackoverflow.com/questions/2387724/node-js-on-multi-core-machines</b></i></a></u></span></font></pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><span style="font-style: normal"><b>How to
+deploy Node.js in cloud for high availability using multi-core,
+reverse-proxy, and SSL</b></span></pre>
+<pre class="western"><i><span style="font-weight: normal">It's been
+several months since I asked this question and not a lot of answer
+flow. Both Samyak Bhuta and nponeccop had good suggestions, but I
+wanted to discuss the answers I've found to my questions.</span></i></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><i><span style="font-weight: normal">Here is
+what I've settled on at this point for a production system, but
+further improvements are always being made. I hope it helps anyone in
+a similar scenario.</span></i></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><i><span style="font-weight: normal">Use Cluster
+to spawn as many child processes as you desire to handle incoming
+requests on multi-core virtual or physical machines. This binds to a
+single port and makes maintenance easier. My rule of thumb is n - 1
+Cluster workers. You don't need Forever on this, as Cluster respawns
+worker processes that die. To have resiliency even at the Cluster
+parent level, ensure that you use an Upstart script (or equivalent)
+to daemonize the Node.js application, and use Monit (or equivalent)
+to watch the PID of the Cluster parent and respawn it if it dies. You
+can try using the respawn feature of Upstart, but I prefer having
+Monit watching things, so rather than split responsibilities, I find
+it's best to let Monit handle the respawn as well.</span></i></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><i><span style="font-weight: normal">Use 1 nginx
+per app server running on port 80, simply reverse proxying to your
+Cluster on whatever port you bound to in (1). node-http-proxy can be
+used, but nginx is more mature, more featureful, and faster at
+serving static files. Run nginx lean (don't log, don't gzip tiny
+files) to minimize it's overhead.</span></i></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><i><span style="font-weight: normal">Have
+minimum 2x servers as described above in a minimum of 2 availability
+zones, and if in AWS, use an ELB that terminates HTTPS/SSL on port
+443 and communicates on HTTP port 80 to the node.js app servers. ELBs
+are simple and, if you desire, make it somewhat easier to auto-scale.
+You could run multiple nginx either sharing an IP or round-robin
+balanced themselves by your DNS provider, but I found this overkill
+for now. At that point, you'd remove the nginx instance on each app
+server.</span></i></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><i><span style="font-weight: normal">I have not
+needed WebSockets so nginx continues to be suitable and I'll revisit
+this issue when WebSockets come into the picture.</span></i></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><i><span style="font-weight: normal">Feedback is
+welcome.</span></i></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><i><b>Writing files in Node.js</b></i></pre>
+<pre class="western"><i><span style="font-weight: normal">There are a
+lot of details in the filesystem API. The most common way (as far as
+I know) is:</span></i></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><i><span style="font-weight: normal">var fs =
+require('fs');</span></i></pre>
+<pre class="western"><i><span style="font-weight: normal">fs.writeFile(&quot;/tmp/test&quot;,
+&quot;Hey there!&quot;, function(err) {</span></i></pre>
+<pre class="western">    <i><span style="font-weight: normal">if(err)
+{</span></i></pre>
+<pre class="western">        <i><span style="font-weight: normal">return
+console.log(err);</span></i></pre>
+<pre class="western">    <i><span style="font-weight: normal">}</span></i></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western">    <i><span style="font-weight: normal">console.log(&quot;The
+file was saved!&quot;);</span></i></pre>
+<pre class="western"><i><span style="font-weight: normal">}); </span></i>
+</pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><span style="font-style: normal"><b>In Node.js,
+I want to read a file, and then console.log() each line of the file
+separated by \n. How can I do that?</b></span></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><i><span style="font-weight: normal">var
+fs=require('fs');</span></i></pre>
+<pre class="western"><i><span style="font-weight: normal">fs.readFile('/path/to/file','utf8',
+function (err, data) {</span></i></pre>
+<pre class="western">  <i><span style="font-weight: normal">if (err)
+throw err;</span></i></pre>
+<pre class="western">  <i><span style="font-weight: normal">var
+arr=data.split('\n');</span></i></pre>
+<pre class="western">  <i><span style="font-weight: normal">arr.forEach(function(v){</span></i></pre>
+<pre class="western">    <i><span style="font-weight: normal">console.log(v);</span></i></pre>
+<pre class="western">  <i><span style="font-weight: normal">});</span></i></pre>
+<pre class="western"><i><span style="font-weight: normal">});</span></i></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><span style="font-style: normal"><b>How do I
+include a JavaScript file in another JavaScript file?</b></span></pre>
+<pre class="western"><i><span style="font-weight: normal">The old
+versions of JavaScript had no import, include, or require, so many
+different approaches to this problem have been developed.</span></i></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><i><span style="font-weight: normal">But since
+2015 (ES6), JavaScript has had the ES6 modules standard to import
+modules in Node.js, which is also supported by most modern browsers.</span></i></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><i><span style="font-weight: normal">For
+compatibility with older browsers, build and/or transpilation tools
+can be used.</span></i></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><i><span style="font-weight: normal">ES6 Modules</span></i></pre>
+<pre class="western"><i><span style="font-weight: normal">ECMAScript
+(ES6) modules have been supported in Node.js since v8.5, with the
+--experimental-modules flag. All files involved must have the .mjs
+extension.</span></i></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><i><span style="font-weight: normal">//
+module.mjs</span></i></pre>
+<pre class="western"><i><span style="font-weight: normal">export
+function hello() {</span></i></pre>
+<pre class="western">  <i><span style="font-weight: normal">return
+&quot;Hello&quot;;</span></i></pre>
+<pre class="western"><i><span style="font-weight: normal">}</span></i></pre>
+<pre class="western"><i><span style="font-weight: normal">// main.mjs</span></i></pre>
+<pre class="western"><i><span style="font-weight: normal">import {
+hello } from 'module'; // or '.</span></i></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><span style="font-style: normal"><b>var
+functionName = function() {} vs function functionName() {} different</b></span></pre>
+<pre class="western"><i><span style="font-weight: normal">The
+difference is that functionOne is a function expression and so only
+defined when that line is reached, whereas functionTwo is a function
+declaration and is defined as soon as its surrounding function or
+script is executed (due to hoisting).</span></i></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><i><span style="font-weight: normal">For
+example, a function expression:</span></i></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><i><span style="font-weight: normal">//
+TypeError: functionOne is not a function</span></i></pre>
+<pre class="western"><i><span style="font-weight: normal">functionOne();</span></i></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><i><span style="font-weight: normal">var
+functionOne = function() {</span></i></pre>
+<pre class="western">  <i><span style="font-weight: normal">console.log(&quot;Hello!&quot;);</span></i></pre>
+<pre class="western"><i><span style="font-weight: normal">};</span></i></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><font color="#000080"><span lang="zxx"><u><a href="https://stackoverflow.com/questions/336859/var-functionname-function-vs-function-functionname?rq=1"><i><span style="font-weight: normal">https://stackoverflow.com/questions/336859/var-functionname-function-vs-function-functionname?rq=1</span></i></a></u></span></font></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><i><b>What's the difference between using “let”
+and “var” to declare a variable in JavaScript?</b></i></pre>
+<pre class="western"><i><span style="font-weight: normal">The
+difference is scoping. var is scoped to the nearest function block
+and let is scoped to the nearest enclosing block, which can be
+smaller than a function block. Both are global if outside any block.</span></i></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><i><span style="font-weight: normal">Also,
+variables declared with let are not accessible before they are
+declared in their enclosing block. As seen in the demo, this will
+throw a ReferenceError exception.</span></i></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><i><span style="font-weight: normal">Demo:</span></i></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><i><span style="font-weight: normal">Show code
+snippet</span></i></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><i><span style="font-weight: normal">Global:</span></i></pre>
+<pre class="western"><i><span style="font-weight: normal">They are
+very similar when used like this outside a function block.</span></i></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><i><span style="font-weight: normal">let me =
+'go';  // globally scoped</span></i></pre>
+<pre class="western"><i><span style="font-weight: normal">var i =
+'able'; // globally scoped</span></i></pre>
+<pre class="western"><i><span style="font-weight: normal">However,
+global variables defined with let will not be added as properties on
+the global window object like those defined with var.</span></i></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><i><span style="font-weight: normal">console.log(window.me);
+// undefined</span></i></pre>
+<pre class="western"><i><span style="font-weight: normal">console.log(window.i);
+// 'able'</span></i></pre>
+<pre class="western"><i><span style="font-weight: normal">Function:</span></i></pre>
+<pre class="western"><i><span style="font-weight: normal">They are
+identical when used like this in a function block.</span></i></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><i><span style="font-weight: normal">function
+ingWithinEstablishedParameters() {</span></i></pre>
+<pre class="western">    <i><span style="font-weight: normal">let
+terOfRecommendation = 'awesome worker!'; //function block scoped</span></i></pre>
+<pre class="western">    <i><span style="font-weight: normal">var
+sityCheerleading = 'go!'; //function block scoped</span></i></pre>
+<pre class="western"><i><span style="font-weight: normal">}</span></i></pre>
+<pre class="western"><i><span style="font-weight: normal">Block:</span></i></pre>
+<pre class="western"><i><span style="font-weight: normal">Here is the
+difference. let is only visible in the for() loop and var is visible
+to the whole function.</span></i></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><i><span style="font-weight: normal">function
+allyIlliterate() {</span></i></pre>
+<pre class="western">    <i><span style="font-weight: normal">//tuce
+is *not* visible out here</span></i></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western">    <i><span style="font-weight: normal">for(
+let tuce = 0; tuce &lt; 5; tuce++ ) {</span></i></pre>
+<pre class="western">        <i><span style="font-weight: normal">//tuce
+is only visible in here (and in the for() parentheses)</span></i></pre>
+<pre class="western">        <i><span style="font-weight: normal">//and
+there is a separate tuce variable for each iteration of the loop</span></i></pre>
+<pre class="western">    <i><span style="font-weight: normal">}</span></i></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western">    <i><span style="font-weight: normal">//tuce
+is *not* visible out here</span></i></pre>
+<pre class="western"><i><span style="font-weight: normal">}</span></i></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><i><span style="font-weight: normal">function
+byE40() {</span></i></pre>
+<pre class="western">    <i><span style="font-weight: normal">//nish
+*is* visible out here</span></i></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western">    <i><span style="font-weight: normal">for(
+var nish = 0; nish &lt; 5; nish++ ) {</span></i></pre>
+<pre class="western">        <i><span style="font-weight: normal">//nish
+is visible to the whole function</span></i></pre>
+<pre class="western">    <i><span style="font-weight: normal">}</span></i></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western">    <i><span style="font-weight: normal">//nish
+*is* visible out here</span></i></pre>
+<pre class="western"><i><span style="font-weight: normal">}</span></i></pre>
+<pre class="western"><i><span style="font-weight: normal">Redeclaration:</span></i></pre>
+<pre class="western"><i><span style="font-weight: normal">Assuming
+strict mode, var will let you re-declare the same variable in the
+same scope. On the other hand, let will not:</span></i></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><i><span style="font-weight: normal">'use
+strict';</span></i></pre>
+<pre class="western"><i><span style="font-weight: normal">let me =
+'foo';</span></i></pre>
+<pre class="western"><i><span style="font-weight: normal">let me =
+'bar'; // SyntaxError: Identifier 'me' has already been declared</span></i></pre>
+<pre class="western"><i><span style="font-weight: normal">'use
+strict';</span></i></pre>
+<pre class="western"><i><span style="font-weight: normal">var me =
+'foo';</span></i></pre>
+<pre class="western"><i><span style="font-weight: normal">var me =
+'bar'; // No problem, `me` is replaced.</span></i></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><i><b>How do I debug Node.js applications?</b></i></pre>
+<pre class="western"><i><span style="font-weight: normal">node-inspector
+could save the day! Use it from any browser supporting WebSocket.
+Breakpoints, profiler, livecoding, etc... It is really awesome.</span></i></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><i><span style="font-weight: normal">Install it
+with:</span></i></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><i><span style="font-weight: normal">npm install
+-g node-inspector</span></i></pre>
+<pre class="western"><i><span style="font-weight: normal">Then run:</span></i></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><i><span style="font-weight: normal">node-debug
+app.js</span></i></pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><b>Node.js Control Flow and Callbacks</b></pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><i><span style="font-weight: normal">You should
+be using promises. Bluebird is a great promise library. Faster than
+native and comes with great features. With promises you can chain
+together functions, and know that one will not be called until the
+previous function resolves. No need to set timeouts or delays.
+Although you can if you'd like. Below is example of a delay. Function
+B wont run until 6 seconds after A finishes. If you remove .delay(ms)
+B will run immediately after A finishes.</span></i></pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><i><span style="font-weight: normal">var Promise
+= require(&quot;bluebird&quot;);</span></i></pre>
+<pre class="western"><i><span style="font-weight: normal">console.time('tracked');</span></i></pre>
+<pre class="western"><i><span style="font-weight: normal">console.time('first');</span></i></pre>
+<pre class="western"><i><span style="font-weight: normal">function a
+(){</span></i></pre>
+<pre class="western">    <i><span style="font-weight: normal">console.log('hello');</span></i></pre>
+<pre class="western">    <i><span style="font-weight: normal">console.timeEnd('first');</span></i></pre>
+<pre class="western">    <i><span style="font-weight: normal">return
+Promise.resolve();</span></i></pre>
+<pre class="western"><i><span style="font-weight: normal">}</span></i></pre>
+<pre class="western"><i><span style="font-weight: normal">function b
+(){</span></i></pre>
+<pre class="western">    <i><span style="font-weight: normal">console.log('world');</span></i></pre>
+<pre class="western">    <i><span style="font-weight: normal">console.timeEnd('tracked');</span></i></pre>
+<pre class="western"><i><span style="font-weight: normal">}</span></i></pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><i><span style="font-weight: normal">a().delay(6000)</span></i></pre>
+<pre class="western">    <i><span style="font-weight: normal">.then(b)</span></i></pre>
+<pre class="western">    <i><span style="font-weight: normal">.catch(Promise.TimeoutError,
+function(e) {</span></i></pre>
+<pre class="western">        <i><span style="font-weight: normal">console.log('Something
+messed up yo', e);</span></i></pre>
+<pre class="western">    <i><span style="font-weight: normal">});</span></i></pre>
+</body>
+</html>

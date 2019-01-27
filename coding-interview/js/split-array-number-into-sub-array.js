@@ -17,7 +17,8 @@ Array.prototype.shuffle = function(){
 function groupPlayers(a,n){
   var result = [],
     remnants = a.shuffle().splice(-(a.length % n) || a.length); // the ones out in the cold
-  for (var i = 0, len = a.length; i < len; i += len/n ) result.push(a.slice(i,i + len/n));
+  for (var i = 0, len = a.length; i < len; i += len/n ) 
+    result.push(a.slice(i,i + len/n));
   return remnants.reduce((res,e,i,a) => (res[res.length-1-i].push(e),res),result); // finding a home for remnants
 }
 

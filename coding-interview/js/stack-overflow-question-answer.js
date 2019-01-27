@@ -46,7 +46,10 @@ console.log(a.subtract(b));
  * Create ArrayList from array
  * */
  
-new ArrayList<>(Arrays.asList(array))
+var array = [];
+
+
+array.push(value);
 
 
 /*
@@ -570,3 +573,20 @@ function containsObject(obj, list) {
 
     return false;
 }
+
+
+var array = [1,2,3,4,5,6,7,8,9,10,11,12,13,14];
+
+var i,j,temparray = [],chunk = 10;
+
+for (i=0,j=array.length; i<j; i+=chunk) {
+
+    temparray.push(array.slice(i,i+chunk));
+    // do whatever
+}
+
+
+console.log(temparray);
+
+ //result = groupPlayers(arr,3);
+//console.log(result);

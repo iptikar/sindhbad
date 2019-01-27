@@ -1,0 +1,143 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8">
+	<title></title>
+	<meta name="generator" content="LibreOffice 4.2.3.3 (Linux)">
+	<meta name="created" content="0;0">
+	<meta name="changed" content="0;0">
+	<style type="text/css">
+	<!--
+		@page { margin: 0.79in }
+		p { margin-bottom: 0.1in; direction: ltr; color: #00000a; line-height: 120%; text-align: left; widows: 0; orphans: 0 }
+		p.western { font-family: "Liberation Serif", serif; font-size: 12pt; so-language: en-US }
+		p.cjk { font-family: "Droid Sans Fallback"; font-size: 12pt; so-language: zh-CN }
+		p.ctl { font-family: "FreeSans"; font-size: 12pt; so-language: hi-IN }
+		pre { direction: ltr; color: #00000a; text-align: left; widows: 0; orphans: 0 }
+		pre.western { font-family: "Liberation Mono", serif; so-language: en-US }
+		pre.cjk { font-family: "Droid Sans Fallback"; so-language: zh-CN }
+		pre.ctl { font-family: "Liberation Mono"; so-language: hi-IN }
+		a:link { so-language: zxx }
+	-->
+	</style>
+</head>
+<body lang="en-US" text="#00000a" dir="ltr">
+<pre class="western"><b>Questions about Service Oriented Architecture
+and Microservices:</b></pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><b>Why, in a SOA, long-lived transactions are
+discouraged and Sagas are suggested instead?</b></pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><i><span style="font-weight: normal">https://blog.bernd-ruecker.com/saga-how-to-implement-complex-business-transactions-without-two-phase-commit-e00aa41a1b1b</span></i></pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><b>What are the differences between Soa and
+Microservices?</b></pre>
+<pre class="western"><i><span style="font-weight: normal">The other
+microservices will continue to handle requests. ... Last but not
+least, the main difference between SOA and microservices lies in the
+size and scope. Microservice has to be significantly smaller than
+what SOA tends to be and mainly is a small(er) independently
+deployable service.</span></i></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><b>Let's talk about web services versioning,
+version compatibility and breaking changes.</b></pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><i><span style="font-weight: normal">Web
+services are bound to change and evolve over time. ... Introduce
+different patterns that can be considered for Web services
+versioning. Provide guidelines for applying those patterns in
+real-world solutions.</span></i></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><i><span style="font-weight: normal">I prefer
+the Salesforce.com method of versioning. Each version of the Web
+Services gets a distinct URL in the format of:</span></i></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><i><span style="font-weight: normal">http://api.salesforce.com/{version}/{serviceName}</span></i></pre>
+<pre class="western"><i><span style="font-weight: normal">So you'll
+have Web Service URLs that look like:</span></i></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><i><span style="font-weight: normal">http://api.salesforce.com/14/Lead</span></i></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><i><span style="font-weight: normal">http://api.salesforce.com/15/Lead</span></i></pre>
+<pre class="western"><i><span style="font-weight: normal">and so
+on...</span></i></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><i><span style="font-weight: normal">With this
+method, you get the benefits of:</span></i></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><i><span style="font-weight: normal">You always
+know which version you're talking to.</span></i></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><i><span style="font-weight: normal">Backwards
+compatibility is maintained.</span></i></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><i><span style="font-weight: normal">You don't
+have to worry about dependency issues. Each version has the complete
+set of services. You just have to make sure you don't mix versions
+between calls (but that's up to the consumer of the service, not you
+as the developer).</span></i></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><b>What's the difference between a transaction
+and a compensation operation in a saga, in SOA?</b></pre>
+<pre class="western"><font color="#000080"><span lang="zxx"><u><a href="https://medium.com/@tomasz_96685/saga-pattern-and-microservices-architecture-d4b46071afcf"><i><span style="font-weight: normal">https://medium.com/@tomasz_96685/saga-pattern-and-microservices-architecture-d4b46071afcf</span></i></a></u></span></font></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><b>When is a Microservice too micro?</b></pre>
+<pre class="western"><font color="#000080"><span lang="zxx"><u><a href="https://www.altoros.com/blog/over-engineering-when-microservices-are-too-micro/"><i><span style="font-weight: normal">https://www.altoros.com/blog/over-engineering-when-microservices-are-too-micro/</span></i></a></u></span></font></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><b>What are the pros and cons of MicroService
+architecture?</b></pre>
+<pre class="western"><i><span style="font-weight: normal">Pros:</span></i></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><i><span style="font-weight: normal">It is
+easier to deploy individual Microservice compared to a monolith.</span></i></pre>
+<pre class="western"><i><span style="font-weight: normal">It is
+easier to develop a Microservice for a specific task.</span></i></pre>
+<pre class="western"><i><span style="font-weight: normal">It is much
+easier to change the underlying implementation of a Microservice.</span></i></pre>
+<pre class="western"><i><span style="font-weight: normal">It is
+easier to scale a Microservice.</span></i></pre>
+<pre class="western"><i><span style="font-weight: normal">It is
+easier to debug any issues with a specific Microservice.</span></i></pre>
+<pre class="western"><i><span style="font-weight: normal">Cons:</span></i></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><i><span style="font-weight: normal">It is very
+difficult to maintain multiple Microservices.</span></i></pre>
+<pre class="western"><i><span style="font-weight: normal">It is very
+difficult to maintain versioning among Microservices.</span></i></pre>
+<pre class="western"><i><span style="font-weight: normal">It is
+extremely difficult to find good architects for creating Microservice
+architecture in right way.</span></i></pre>
+<pre class="western"><br>
+</pre>
+</body>
+</html>

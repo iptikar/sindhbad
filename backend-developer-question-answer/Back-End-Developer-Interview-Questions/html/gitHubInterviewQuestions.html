@@ -1,0 +1,384 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8">
+	<title></title>
+	<meta name="generator" content="LibreOffice 4.2.3.3 (Linux)">
+	<meta name="created" content="0;0">
+	<meta name="changed" content="0;0">
+	<style type="text/css">
+	<!--
+		@page { margin: 0.79in }
+		p { margin-bottom: 0.1in; direction: ltr; color: #00000a; line-height: 120%; text-align: left; widows: 0; orphans: 0 }
+		p.western { font-family: "Liberation Serif", serif; font-size: 12pt; so-language: en-US }
+		p.cjk { font-family: "Droid Sans Fallback"; font-size: 12pt; so-language: zh-CN }
+		p.ctl { font-family: "FreeSans"; font-size: 12pt; so-language: hi-IN }
+		pre { direction: ltr; color: #00000a; text-align: left; widows: 0; orphans: 0 }
+		pre.western { font-family: "Liberation Mono", serif; so-language: en-US }
+		pre.cjk { font-family: "Droid Sans Fallback"; so-language: zh-CN }
+		pre.ctl { font-family: "Liberation Mono"; so-language: hi-IN }
+		a:link { so-language: zxx }
+	-->
+	</style>
+</head>
+<body lang="en-US" text="#00000a" dir="ltr">
+<pre class="western"><font face="Arial, serif"><b>How to get the
+current branch name in Git?</b></font></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><font face="Arial, serif"><i><span style="font-weight: normal">Ans:
+git branch</span></i></font></pre>
+<pre class="western"><font face="Arial, serif"><i><span style="font-weight: normal">should
+show all the local branches of your repo. The starred branch is your
+current branch.</span></i></font></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><font face="Arial, serif"><i><span style="font-weight: normal">If
+you want to retrieve only the name of the branch you are on, you can
+do:</span></i></font></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><font face="Arial, serif"><i><span style="font-weight: normal">git
+branch | grep \* | cut -d ' ' -f2</span></i></font></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><font face="Arial, serif"><span style="font-style: normal"><b>How
+can I delete all Git branches which have been merged?</b></span></font></pre>
+<pre class="western"><font face="Arial, serif"><i><span style="font-weight: normal">UPDATE:</span></i></font></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><font face="Arial, serif"><i><span style="font-weight: normal">You
+can add other branches to exclude like master and dev if your
+workflow has those as a possible ancestor. Usually I branch off of a
+&quot;sprint-start&quot; tag and master, dev and qa are not
+ancestors.</span></i></font></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><font face="Arial, serif"><i><span style="font-weight: normal">To
+delete all local branches that are already merged into the currently
+checked out branch:</span></i></font></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><font face="Arial, serif"><i><span style="font-weight: normal">git
+branch --merged | egrep -v &quot;(^\*|master|dev)&quot; | xargs git
+branch -d</span></i></font></pre>
+<pre class="western"><font face="Arial, serif"><i><span style="font-weight: normal">You
+can see that master and dev are excluded in case they are an
+ancestor.</span></i></font></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><font face="Arial, serif"><i><span style="font-weight: normal">You
+can delete a merged local branch with:</span></i></font></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><font face="Arial, serif"><i><span style="font-weight: normal">git
+branch -d branchname</span></i></font></pre>
+<pre class="western"><font face="Arial, serif"><i><span style="font-weight: normal">If
+it's not merged, use:</span></i></font></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><font face="Arial, serif"><i><span style="font-weight: normal">git
+branch -D branchname</span></i></font></pre>
+<pre class="western"><font face="Arial, serif"><i><span style="font-weight: normal">To
+delete it from the remote in old versions of Git use:</span></i></font></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><font face="Arial, serif"><i><span style="font-weight: normal">git
+push origin :branchname</span></i></font></pre>
+<pre class="western"><font face="Arial, serif"><i><span style="font-weight: normal">In
+more recent versions of Git use:</span></i></font></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><font face="Arial, serif"><i><span style="font-weight: normal">git
+push --delete origin branchname</span></i></font></pre>
+<pre class="western"><font face="Arial, serif"><i><span style="font-weight: normal">Once
+you delete the branch from the remote, you can prune to get rid of
+remote tracking branches with:</span></i></font></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><font face="Arial, serif"><i><span style="font-weight: normal">git
+remote prune origin</span></i></font></pre>
+<pre class="western"><font face="Arial, serif"><i><span style="font-weight: normal">or
+prune individual remote tracking branches, as the other answer
+suggests, with:</span></i></font></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><font face="Arial, serif"><i><span style="font-weight: normal">git
+branch -dr branchname</span></i></font></pre>
+<pre class="western"><font face="Arial, serif"><i><span style="font-weight: normal">Hope
+this helps.</span></i></font></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><font face="Arial, serif"><i><span style="font-weight: normal">Share</span></i></font></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><font face="Arial, serif"><span style="font-style: normal"><b>Finding
+what branch a git commit came from</b></span></font></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><font face="Arial, serif"><i><span style="font-weight: normal">686</span></i></font></pre>
+<pre class="western"><font face="Arial, serif"><i><span style="font-weight: normal">down
+vote</span></i></font></pre>
+<pre class="western"><font face="Arial, serif"><i><span style="font-weight: normal">accepted</span></i></font></pre>
+<pre class="western"><font face="Arial, serif"><i><span style="font-weight: normal">+50</span></i></font></pre>
+<pre class="western"><font face="Arial, serif"><i><span style="font-weight: normal">While
+Dav is correct that the information isn't directly stored, that
+doesn't mean you can't ever find out. Here are a few things you can
+do.</span></i></font></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><font face="Arial, serif"><i><span style="font-weight: normal">Find
+branches the commit is on</span></i></font></pre>
+<pre class="western"><font face="Arial, serif"><i><span style="font-weight: normal">git
+branch --contains &lt;commit&gt;</span></i></font></pre>
+<pre class="western"><font face="Arial, serif"><i><span style="font-weight: normal">This
+will tell you all branches which have the given commit in their
+history. Obviously this is less useful if the commit's already been
+merged.</span></i></font></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><font face="Arial, serif"><i><span style="font-weight: normal">Search
+the reflogs</span></i></font></pre>
+<pre class="western"><font face="Arial, serif"><i><span style="font-weight: normal">If
+you are working in the repository in which the commit was made, you
+can search the reflogs for the line for that commit. Reflogs older
+than 90 days are pruned by git-gc, so if the commit's too old, you
+won't find it. That said, you can do this:</span></i></font></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><font face="Arial, serif"><i><span style="font-weight: normal">git
+reflog show --all | grep a871742</span></i></font></pre>
+<pre class="western"><font face="Arial, serif"><i><span style="font-weight: normal">to
+find commit a871742. The output should be something like this:</span></i></font></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><font face="Arial, serif"><i><span style="font-weight: normal">a871742
+refs/heads/completion@{0}: commit (amend): mpc-completion: total
+rewrite</span></i></font></pre>
+<pre class="western"><font face="Arial, serif"><i><span style="font-weight: normal">indicating
+that the commit was made on the branch &quot;completion&quot;. The
+default output shows abbreviated commit hashes, so be sure not to
+search for the full hash or you won't find anything.</span></i></font></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><font face="Arial, serif"><i><span style="font-weight: normal">git
+reflog show is actually just an alias for git log -g --abbrev-commit
+--pretty=oneline, so if you want to fiddle with the output format to
+make different things available to grep for, that's your starting
+point!</span></i></font></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><font face="Arial, serif"><i><span style="font-weight: normal">If
+you're not working in the repository where the commit was made, the
+best you can do in this case is examine the reflogs and find when the
+commit was first introduced to your repo; with any luck, you fetched
+the branch it was committed to. This is a bit more complex, because
+you can't walk both the commit tree and reflogs simultaneously. You'd
+want to parse the reflog output, examining each hash to see if it
+contains the desired commit or not.</span></i></font></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><font face="Arial, serif"><i><span style="font-weight: normal">Find
+a subsequent merge commit</span></i></font></pre>
+<pre class="western"><font face="Arial, serif"><i><span style="font-weight: normal">This
+is workflow-dependent, but with good workflows, commits are made on
+development branches which are then merged in. You could do this:</span></i></font></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><font face="Arial, serif"><i><span style="font-weight: normal">git
+log --merges &lt;commit&gt;..</span></i></font></pre>
+<pre class="western"><font face="Arial, serif"><i><span style="font-weight: normal">to
+see merge commits that have the given commit as an ancestor. (If the
+commit was only merged once, the first one should be the merge you're
+after; otherwise you'll have to examine a few, I suppose.) The merge
+commit message should contain the branch name that was merged.</span></i></font></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><font face="Arial, serif"><i><span style="font-weight: normal">If
+you want to be able to count on doing this, you may want to use the
+--no-ff option to git merge to force merge commit creation even in
+the fast-forward case. (Don't get too eager, though, that could
+become obfuscating if overused.) VonC's answer to a related question
+helpfully elaborates on this topic.</span></i></font></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><font face="Arial, serif"><i><b>Listing each
+branch and its last revision's date in git</b></i></font></pre>
+<pre class="western" style="font-style: normal; font-weight: normal"><br>
+</pre>
+<pre class="western"><font face="Arial, serif"><span style="font-style: normal"><span style="font-weight: normal">142</span></span></font></pre>
+<pre class="western"><font face="Arial, serif"><span style="font-style: normal"><span style="font-weight: normal">down
+vote</span></span></font></pre>
+<pre class="western"><font face="Arial, serif"><span style="font-style: normal"><span style="font-weight: normal">accepted</span></span></font></pre>
+<pre class="western"><font face="Arial, serif"><span style="font-style: normal"><span style="font-weight: normal">commandlinefu
+has 2 interesting propositions:</span></span></font></pre>
+<pre class="western" style="font-style: normal; font-weight: normal"><br>
+</pre>
+<pre class="western"><font face="Arial, serif"><span style="font-style: normal"><span style="font-weight: normal">for
+k in `git branch | perl -pe s/^..//`; do echo -e `git show
+--pretty=format:&quot;%Cgreen%ci %Cblue%cr%Creset&quot; $k -- | head
+-n 1`\\t$k; done | sort -r</span></span></font></pre>
+<pre class="western"><font face="Arial, serif"><span style="font-style: normal"><span style="font-weight: normal">or:</span></span></font></pre>
+<pre class="western" style="font-style: normal; font-weight: normal"><br>
+</pre>
+<pre class="western"><font face="Arial, serif"><span style="font-style: normal"><span style="font-weight: normal">for
+k in `git branch | sed s/^..//`; do echo -e `git log -1
+--pretty=format:&quot;%Cgreen%ci %Cblue%cr%Creset&quot; $k
+--`\\t&quot;$k&quot;;done | sort</span></span></font></pre>
+<pre class="western"><font face="Arial, serif"><span style="font-style: normal"><span style="font-weight: normal">That
+is for local branches, in a Unix syntax. Using git branch -r, you can
+similarly show remote branches:</span></span></font></pre>
+<pre class="western" style="font-style: normal; font-weight: normal"><br>
+</pre>
+<pre class="western"><font face="Arial, serif"><span style="font-style: normal"><span style="font-weight: normal">for
+k in `git branch -r | perl -pe 's/^..(.*?)( -&gt;.*)?$/\1/'`; do echo
+-e `git show --pretty=format:&quot;%Cgreen%ci %Cblue%cr%Creset&quot;
+$k -- | head -n 1`\\t$k; done | sort -r</span></span></font></pre>
+<pre class="western" style="font-style: normal; font-weight: normal"><br>
+</pre>
+<pre class="western" style="font-style: normal; font-weight: normal"><br>
+</pre>
+<pre class="western"><font face="Arial, serif"><span style="font-style: normal"><b>How
+to automatically push after committing in git?</b></span></font></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><font face="Arial, serif"><i><span style="font-weight: normal">112</span></i></font></pre>
+<pre class="western"><font face="Arial, serif"><i><span style="font-weight: normal">down
+vote</span></i></font></pre>
+<pre class="western"><font face="Arial, serif"><i><span style="font-weight: normal">accepted</span></i></font></pre>
+<pre class="western"><font face="Arial, serif"><i><span style="font-weight: normal">First,
+make sure that you can push manually without providing your password.
+If you are pushing over HTTP or HTTPS, that will be a case of either
+creating a .netrc file with the login details or adding your username
+and password into the URL for the remote. If you're using SSH, you
+can either create a keypair where the private key doesn't have a
+password, or use ssh-agent to cache your private key.</span></i></font></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><font face="Arial, serif"><i><span style="font-weight: normal">Then
+you should create an executable (chmod +x) file in
+.git/hooks/post-commit that contains the following:</span></i></font></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><font face="Arial, serif"><i><span style="font-weight: normal">#!/bin/sh</span></i></font></pre>
+<pre class="western"><font face="Arial, serif"><i><span style="font-weight: normal">git
+push origin master</span></i></font></pre>
+<pre class="western"><font face="Arial, serif"><i><span style="font-weight: normal">...
+customizing that line if you want to push to a remote other than
+origin, or push a branch other than master. Make sure that you make
+that file executable.</span></i></font></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><font face="Arial, serif"><i><b>How to remove
+local (untracked) files from the current Git working tree?</b></i></font></pre>
+<pre class="western"><font face="Arial, serif"><i><span style="font-weight: normal">As
+per the Git Documentation git clean</span></i></font></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><font face="Arial, serif"><i><span style="font-weight: normal">Remove
+untracked files from the working tree</span></i></font></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><font face="Arial, serif"><i><span style="font-weight: normal">Step
+1 is to show what will be deleted by using the -n option:</span></i></font></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><font face="Arial, serif"><i><span style="font-weight: normal">git
+clean -n</span></i></font></pre>
+<pre class="western"><font face="Arial, serif"><i><span style="font-weight: normal">Clean
+Step - beware: this will delete files:</span></i></font></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><font face="Arial, serif"><i><span style="font-weight: normal">git
+clean -f</span></i></font></pre>
+<pre class="western"><font face="Arial, serif"><i><span style="font-weight: normal">To
+remove directories, run git clean -f -d or git clean -fd</span></i></font></pre>
+<pre class="western"><font face="Arial, serif"><i><span style="font-weight: normal">To
+remove ignored files, run git clean -f -X or git clean -fX</span></i></font></pre>
+<pre class="western"><font face="Arial, serif"><i><span style="font-weight: normal">To
+remove ignored and non-ignored files, run git clean -f -x or git
+clean -fx</span></i></font></pre>
+<pre class="western"><font face="Arial, serif"><i><span style="font-weight: normal">Note
+the case difference on the X for the two latter commands.</span></i></font></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><font face="Arial, serif"><i><span style="font-weight: normal">If
+clean.requireForce is set to &quot;true&quot; (the default) in your
+configuration, one needs to specify -f otherwise nothing will
+actually happen.</span></i></font></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><font face="Arial, serif"><i><b>How do I delete
+a Git branch both locally and remotely?</b></i></font></pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><font face="Arial, serif"><i><span style="font-weight: normal">Executive
+Summary</span></i></font></pre>
+<pre class="western"><font face="Arial, serif"><i><span style="font-weight: normal">$
+git push --delete &lt;remote_name&gt; &lt;branch_name&gt;</span></i></font></pre>
+<pre class="western"><font face="Arial, serif"><i><span style="font-weight: normal">$
+git branch -d &lt;branch_name&gt;</span></i></font></pre>
+<pre class="western"><font face="Arial, serif"><i><span style="font-weight: normal">Note
+that in most cases the remote name is origin.</span></i></font></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><font face="Arial, serif"><i><span style="font-weight: normal">Delete
+Local Branch</span></i></font></pre>
+<pre class="western"><font face="Arial, serif"><i><span style="font-weight: normal">To
+delete the local branch use one of the following:</span></i></font></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><font face="Arial, serif"><i><span style="font-weight: normal">$
+git branch -d branch_name</span></i></font></pre>
+<pre class="western"><font face="Arial, serif"><i><span style="font-weight: normal">$
+git branch -D branch_name</span></i></font></pre>
+<pre class="western"><font face="Arial, serif"><i><span style="font-weight: normal">Note:
+The -d option is an alias for --delete, which only deletes the branch
+if it has already been fully merged in its upstream branch. You could
+also use -D, which is an alias for --delete --force, which deletes
+the branch &quot;irrespective of its merged status.&quot; [Source:
+man git-branch]</span></i></font></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><font face="Arial, serif"><i><span style="font-weight: normal">Delete
+Remote Branch [Updated on 8-Sep-2017]</span></i></font></pre>
+<pre class="western"><font face="Arial, serif"><i><span style="font-weight: normal">As
+of Git v1.7.0, you can delete a remote branch using</span></i></font></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><font face="Arial, serif"><i><span style="font-weight: normal">$
+git push &lt;remote_name&gt; --delete &lt;branch_name&gt;</span></i></font></pre>
+<pre class="western"><font face="Arial, serif"><i><span style="font-weight: normal">which
+might be easier to remember than</span></i></font></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><font face="Arial, serif"><i><span style="font-weight: normal">$
+git push &lt;remote_name&gt; :&lt;branch_name&gt;</span></i></font></pre>
+<pre class="western"><font face="Arial, serif"><i><span style="font-weight: normal">which
+was added in Git v1.5.0 &quot;to delete a remote branch or a tag.&quot;</span></i></font></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><font face="Arial, serif"><i><span style="font-weight: normal">Starting
+on Git v2.8.0 you can also use git push with the -d option as an
+alias for --delete.</span></i></font></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><font face="Arial, serif"><i><span style="font-weight: normal">Therefore,
+the version of Git you have installed will dictate whether you need
+to use the easier or harder syntax.</span></i></font></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><br>
+</pre>
+</body>
+</html>

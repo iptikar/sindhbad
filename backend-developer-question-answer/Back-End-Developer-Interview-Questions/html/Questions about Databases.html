@@ -1,0 +1,497 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8">
+	<title></title>
+	<meta name="generator" content="LibreOffice 4.2.3.3 (Linux)">
+	<meta name="created" content="0;0">
+	<meta name="changed" content="0;0">
+	<style type="text/css">
+	<!--
+		@page { margin: 0.79in }
+		p { margin-bottom: 0.1in; direction: ltr; color: #00000a; line-height: 120%; text-align: left; widows: 0; orphans: 0 }
+		p.western { font-family: "Liberation Serif", serif; font-size: 12pt; so-language: en-US }
+		p.cjk { font-family: "Droid Sans Fallback"; font-size: 12pt; so-language: zh-CN }
+		p.ctl { font-family: "FreeSans"; font-size: 12pt; so-language: hi-IN }
+		pre { direction: ltr; color: #00000a; text-align: left; widows: 0; orphans: 0 }
+		pre.western { font-family: "Liberation Mono", serif; so-language: en-US }
+		pre.cjk { font-family: "Droid Sans Fallback"; so-language: zh-CN }
+		pre.ctl { font-family: "Liberation Mono"; so-language: hi-IN }
+		a:link { so-language: zxx }
+	-->
+	</style>
+</head>
+<body lang="en-US" text="#00000a" dir="ltr">
+<pre class="western"><b>Questions about Databases:</b></pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><b>How would you migrate an application from a
+database to another, for example from MySQL to PostgreSQL? If you had
+to manage that project, which issues would you expect to face?</b></pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><i><span style="font-weight: normal">My
+experience with MySQL -&gt; Postgresql migration wasn't really
+pleasant, so I'd have to second Daniel's suggestion about CSV files.</span></i></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><i><span style="font-weight: normal">In my case,
+I recreated the schema by hands and then imported all tables,
+one-by-one, using mysqldump and pg_restore.</span></i></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><i><span style="font-weight: normal">So, while
+this dump/restore may work for the data, you are most likely out of
+luck with schema. I haven't tried any commercial solutions, so see
+what other people say and... good luck!</span></i></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><i><span style="font-weight: normal">UPDATE: I
+looked at the code the process left behind and here is how I actually
+did it.</span></i></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><i><span style="font-weight: normal">I had a
+little different schema in my PostgreSQL db, so some tables were
+joined, some were split. This is why straightforward import was not
+an option and my case is probably more complex than what you describe
+and this solution may be an overkill.</span></i></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><i><span style="font-weight: normal">For each
+table in PG database I wrote a query that selects the relevant data
+from MySQL database. In case the table is basically the same in both
+databases, and there are no joins it can be as simple as this</span></i></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><i><span style="font-weight: normal">select *
+from mysql_table_name</span></i></pre>
+<pre class="western"><i><span style="font-weight: normal">Then I
+exported results of this query to XML, to do this you need to run it
+like this:</span></i></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><i><span style="font-weight: normal">echo
+&quot;select * from mysql_table_name&quot; | mysql [CONNECTION
+PARAMETERS] -X --default-character-set=utf8 &gt; mysql_table_name.xml</span></i></pre>
+<pre class="western"><i><span style="font-weight: normal">This will
+create a simple XML file with the following structure:</span></i></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><i><span style="font-weight: normal">&lt;resultset
+statement=&quot;select * from mysql_table_name&quot;&gt;</span></i></pre>
+<pre class="western">  <i><span style="font-weight: normal">&lt;row&gt;</span></i></pre>
+<pre class="western">    <i><span style="font-weight: normal">&lt;field
+name=&quot;some_field&quot;&gt;field_value&lt;/field&gt;</span></i></pre>
+<pre class="western">    <i><span style="font-weight: normal">...</span></i></pre>
+<pre class="western">  <i><span style="font-weight: normal">&lt;/row&gt;</span></i></pre>
+<pre class="western">  <i><span style="font-weight: normal">...</span></i></pre>
+<pre class="western"><i><span style="font-weight: normal">&lt;/resultset&gt;</span></i></pre>
+<pre class="western"><i><span style="font-weight: normal">Then, I
+wrote a script, that produces INSERT statement for each row element
+in this XML file. The name of the table, where to insert the data was
+given as a command line parameter to this script. Python script, in
+case you need it.</span></i></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><i><span style="font-weight: normal">These sql
+statements were written to a file, and then fed to psql like this:</span></i></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><i><span style="font-weight: normal">psql
+[CONNECTION PARAMETERS] -f FILENAME -1</span></i></pre>
+<pre class="western"><i><span style="font-weight: normal">The only
+trick there was in XML -&gt; SQL transformation is to recognize
+numbers, and unquote them.</span></i></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><i><span style="font-weight: normal">To sum it
+up: mysql can produce query results as XML and you can use it.</span></i></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><font color="#000080"><span lang="zxx"><u><a href="https://stackoverflow.com/questions/4756825/mysql-to-postgresql-migration"><i><span style="font-weight: normal">https://stackoverflow.com/questions/4756825/mysql-to-postgresql-migration</span></i></a></u></span></font></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><b>Why databases treat null as a so special
+case? For example, why in SQL SELECT * FROM table WHERE field = null
+does not match records with null field?</b></pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><i><span style="font-weight: normal">SQL NULL's
+special, and you have to do WHERE field IS NULL, as NULL cannot be
+equal to anything,</span></i></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><b>ACID is an acronym that refers to Atomicity,
+Consistency, Isolation and Durability, 4 properties guaranteed by a
+database transaction in most of the database engines. What do you
+know about this topic? Would you like to elaborate?</b></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><i><span style="font-weight: normal">261</span></i></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><i><span style="font-weight: normal">ACID is a
+set of properties that you would like to apply when modifying a
+database.</span></i></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><i><span style="font-weight: normal">Atomicity</span></i></pre>
+<pre class="western"><i><span style="font-weight: normal">Consistency</span></i></pre>
+<pre class="western"><i><span style="font-weight: normal">Isolation</span></i></pre>
+<pre class="western"><i><span style="font-weight: normal">Durability</span></i></pre>
+<pre class="western"><i><span style="font-weight: normal">A
+transaction is a set of related changes which is used to achieve some
+of the ACID properties. Transactions are tools to achieve the ACID
+properties.</span></i></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><i><span style="font-weight: normal">Atomicity
+means that you can guarantee that all of a transaction happens, or
+none of it does; you can do complex operations as one single unit,
+all or nothing, and a crash, power failure, error, or anything else
+won't allow you to be in a state in which only some of the related
+changes have happened.</span></i></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><i><span style="font-weight: normal">Consistency
+means that you guarantee that your data will be consistent; none of
+the constraints you have on related data will ever be violated.</span></i></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><i><span style="font-weight: normal">Isolation
+means that one transaction cannot read data from another transaction
+that is not yet completed. If two transactions are executing
+concurrently, each one will see the world as if they were executing
+sequentially, and if one needs to read data that is written by
+another, it will have to wait until the other is finished.</span></i></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><i><span style="font-weight: normal">Durability
+means that once a transaction is complete, it is guaranteed that all
+of the changes have been recorded to a durable medium (such as a hard
+disk), and the fact that the transaction has been completed is
+likewise recorded.</span></i></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><i><span style="font-weight: normal">So,
+transactions are a mechanism for guaranteeing these properties; they
+are a way of grouping related actions together such that as a whole,
+a group of operations can be atomic, produce consistent results, be
+isolated from other operations, and be durably recorded.</span></i></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><font color="#000080"><span lang="zxx"><u><a href="https://stackoverflow.com/questions/3740280/acid-and-database-transactions"><b>https://stackoverflow.com/questions/3740280/acid-and-database-transactions</b></a></u></span></font></pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><b>How would you manage database schema
+migrations, that is, how would you automate the changes a database
+schema is affected to, as the application evolve, version after
+version?</b></pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><i><span style="font-weight: normal">I have a
+&quot;Schema&quot; object that I use - but you could do the same
+without classes..</span></i></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><i><span style="font-weight: normal">What you
+want to do is create a 'db_schema_versions' table:</span></i></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><i><span style="font-weight: normal">CREATE
+TABLE db_schema_versions (</span></i></pre>
+<pre class="western">  <i><span style="font-weight: normal">`table`
+varchar(255) NOT NULL PRIMARY KEY, </span></i>
+</pre>
+<pre class="western">  <i><span style="font-weight: normal">`version`
+INT NOT NULL</span></i></pre>
+<pre class="western"><i><span style="font-weight: normal">)</span></i></pre>
+<pre class="western"><i><span style="font-weight: normal">After your
+database can track what version # it is on - it can do SQL upgrades
+automatically.</span></i></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><i><span style="font-weight: normal">You should
+lock your schema table while upgrading schema. This way you wont have
+two requests at the same moment trying to upgrade your schema.</span></i></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><i><span style="font-weight: normal">So - keep
+track of the version you are upgrading from - build a big switch -
+something like this:</span></i></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><i><span style="font-weight: normal">class
+SNTrack_Db_Schema extends MW_Db_Schema_Abstract {</span></i></pre>
+<pre class="western">  <i><span style="font-weight: normal">protected
+$table = &quot;sntrack_db_schema&quot;;</span></i></pre>
+<pre class="western">  <i><span style="font-weight: normal">protected
+$version = 5;</span></i></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western">  <i><span style="font-weight: normal">protected
+function upgrade($fromVersion) {</span></i></pre>
+<pre class="western">    <i><span style="font-weight: normal">//
+don't break</span></i></pre>
+<pre class="western">    <i><span style="font-weight: normal">switch($fromVersion)
+{</span></i></pre>
+<pre class="western">      <i><span style="font-weight: normal">case
+0:</span></i></pre>
+<pre class="western">        <i><span style="font-weight: normal">$this-&gt;db-&gt;query('CREATE
+TABLE sntrack_inbound_shipment (</span></i></pre>
+<pre class="western">            <i><span style="font-weight: normal">`id`
+INT NOT NULL PRIMARY KEY AUTO_INCREMENT,</span></i></pre>
+<pre class="western">            <i><span style="font-weight: normal">`from`
+VARCHAR(255) NOT NULL,</span></i></pre>
+<pre class="western">            <i><span style="font-weight: normal">`date`
+DATE NOT NULL,</span></i></pre>
+<pre class="western">            <i><span style="font-weight: normal">`invoice`
+VARCHAR(255) NOT NULL,</span></i></pre>
+<pre class="western">            <i><span style="font-weight: normal">`notes`
+TEXT</span></i></pre>
+<pre class="western">          <i><span style="font-weight: normal">)');</span></i></pre>
+<pre class="western">        <i><span style="font-weight: normal">$this-&gt;setVersion(1);</span></i></pre>
+<pre class="western">      <i><span style="font-weight: normal">case
+1:</span></i></pre>
+<pre class="western">        <i><span style="font-weight: normal">$this-&gt;db-&gt;query('ALTER
+TABLE sntrack_details ADD `shipment_id` INT');</span></i></pre>
+<pre class="western">        <i><span style="font-weight: normal">$this-&gt;db-&gt;query('ALTER
+TABLE sntrack_product ADD `inventory` INT NOT NULL DEFAULT 0');</span></i></pre>
+<pre class="western">        <i><span style="font-weight: normal">$this-&gt;db-&gt;query('CREATE
+TABLE sntrack_inventory_shipment (</span></i></pre>
+<pre class="western">            <i><span style="font-weight: normal">`shipment_id`
+INT NOT NULL,</span></i></pre>
+<pre class="western">            <i><span style="font-weight: normal">`product_id`
+INT NOT NULL,</span></i></pre>
+<pre class="western">            <i><span style="font-weight: normal">`qty`
+INT NOT NULL,</span></i></pre>
+<pre class="western">            <i><span style="font-weight: normal">PRIMARY
+KEY (`shipment_id`, `product_id`)</span></i></pre>
+<pre class="western">          <i><span style="font-weight: normal">)');</span></i></pre>
+<pre class="western">        <i><span style="font-weight: normal">$this-&gt;setVersion(2);</span></i></pre>
+<pre class="western"><i><span style="font-weight: normal">...etc</span></i></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><font color="#000080"><span lang="zxx"><u><a href="https://stackoverflow.com/questions/825787/how-to-automate-migration-schema-and-data-for-php-mysql-application"><i><span style="font-weight: normal">https://stackoverflow.com/questions/825787/how-to-automate-migration-schema-and-data-for-php-mysql-application</span></i></a></u></span></font></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><b>How is Lazy Loading achieved? When is it
+useful? What are its pitfalls?</b></pre>
+<pre class="western"><i><span style="font-weight: normal">Lazy
+loading is a design pattern commonly used in computer programming to
+defer initialization of an object until the point at which it is
+needed. It can contribute to efficiency in the program's operation if
+properly and appropriately used. The opposite of lazy loading is
+eager loading.</span></i></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><i><span style="font-weight: normal">It's called
+lazy loading because, like a lazy person, you are putting off doing
+something you don't want to. The opposite is Eager Loading, where you
+load something right away, long before you need it.</span></i></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><i><span style="font-weight: normal">If you are
+curious why people might use lazy loading, consider an application
+that takes a LOOOOONG time to start. This application is probably
+doing a lot of eager loading... loading things from disk, and doing
+calculations and whatnot long before it is ever needed.</span></i></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><i><span style="font-weight: normal">Compare
+this to lazy loading, the application would start much faster, but
+then the first time you need to do something that requires some long
+running load, there may be a slight pause while it is loaded for the
+first time. Thus, with lazy loading, you are amortizing the load time
+throughout the course of running your application... and you may
+actually save from loading things that the user may never intend to
+use.</span></i></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><b>The so called &quot;N + 1 problem&quot; is an
+issue that occurs when the code needs to load the children of a
+parent-child relationship with a ORMs that have lazy-loading enabled,
+and that therefore issue a query for the parent record, and then one
+query for each child record. How to fix it?</b></pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><i><span style="font-weight: normal">The N + 1
+problem is a performance anti-pattern in which an application makes N
++ 1 database calls (where N is the number of objects fetched). Like
+most antipatterns, this isn’t necessarily a problem in itself, but
+under certain circumstances (where N is large, for example) it will
+cause performance to degrade by making hundreds or even thousands of
+database calls for a single business transaction.</span></i></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><font color="#000080"><span lang="zxx"><u><a href="https://blog.appdynamics.com/product/common-application-problems-and-how-to-fix-them-the-select-n-1-problem/"><i><span style="font-weight: normal">https://blog.appdynamics.com/product/common-application-problems-and-how-to-fix-them-the-select-n-1-problem/</span></i></a></u></span></font></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><b>How would you find the most expensive queries
+in an application?</b></pre>
+<pre class="western"><b>In your opinion, is it always needed to use
+database normalization? When is it advisable to use denormalized
+databases?</b></pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><i><span style="font-weight: normal">Denormalization
+is a time-space trade-off. Normalized data takes less space, but may
+require join to construct the desired result set, hence more time. If
+it's denormalized, data are replicated in several places. It then
+takes more space, but the desired view of the data is readily
+available.</span></i></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><i><span style="font-weight: normal">There are
+other time-space optimizations, such as</span></i></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><i><span style="font-weight: normal">denormalized
+view</span></i></pre>
+<pre class="western"><i><span style="font-weight: normal">precomputed
+columns</span></i></pre>
+<pre class="western"><i><span style="font-weight: normal">As with any
+of such approach, this improves reading data (because they are
+readily available), but updating data becomes more costly (because
+you need to update the replicated or precomputed data).</span></i></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><i><span style="font-weight: normal">Pros and
+Cons of a Normalized database design.</span></i></pre>
+<pre class="western"><i><span style="font-weight: normal">Normalized
+databases fair very well under conditions where the applications are
+write-intensive and the write-load is more than the read-load. This
+is because of the following reasons:</span></i></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><i><span style="font-weight: normal">Normalized
+tables are usually smaller and have a smaller foot-print because the
+data is divided vertically among many tables. This allows them to
+perform better as they are small enough to get fit into the buffer.</span></i></pre>
+<pre class="western"><i><span style="font-weight: normal">The updates
+are very fast because the data to be updated is located at a single
+place and there are no duplicates.</span></i></pre>
+<pre class="western"><i><span style="font-weight: normal">Similarly
+the inserts are very fast because the data has to be inserted at a
+single place and does not have to be duplicated.</span></i></pre>
+<pre class="western"><i><span style="font-weight: normal">The selects
+are fast in cases where data has to be fetched from a single table,
+because normally normalized tables are small enough to get fit into
+the buffer.</span></i></pre>
+<pre class="western"><i><span style="font-weight: normal">Because the
+data is not duplicated so there is less need for heavy duty group by
+or distinct queries.</span></i></pre>
+<pre class="western"><i><span style="font-weight: normal">Although
+there seems to be much in favor of normalized tables, with all the
+pros outlined above, but the main cause of concern with fully
+normalized tables is that normalized data means joins between tables.
+And this joining means that read operations have to suffer because
+indexing strategies do not go well with table joins.</span></i></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><i><span style="font-weight: normal">Now lets
+have a look at the pros and cons of a denormalized database design.</span></i></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><i><span style="font-weight: normal">Pros and
+cons of denormalized database design.</span></i></pre>
+<pre class="western"><i><span style="font-weight: normal">Denormalized
+databases fair well under heavy read-load and when the application is
+read intensive. This is because of the following reasons:</span></i></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><i><span style="font-weight: normal">The data is
+present in the same table so there is no need for any joins, hence
+the selects are very fast.</span></i></pre>
+<pre class="western"><i><span style="font-weight: normal">A single
+table with all the required data allows much more efficient index
+usage. If the columns are indexed properly, then results can be
+filtered and sorted by utilizing the same index. While in the case of
+a normalized table, since the data would be spread out in different
+tables, this would not be possible.</span></i></pre>
+<pre class="western"><i><span style="font-weight: normal">Although
+for reasons mentioned above selects can be very fast on denormalized
+tables, but because the data is duplicated, the updates and inserts
+become complex and costly.</span></i></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><i><span style="font-weight: normal">Having said
+that neither one of the approach can be entirely neglected, because a
+real world application is going to have both read-loads and
+write-loads. Hence the correct way would be to utilize both the
+normalized and denormalized approaches depending on situations.</span></i></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><i><span style="font-weight: normal">http://www.ovaistariq.net/199/databases-normalization-or-denormalization-which-is-the-better-technique/#.XDsfS1Uzbec</span></i></pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><b>Of of the Continuous Integration's techniques
+is called Blue-Green Deployment: it consists in having two production
+environments, as identical as possible, and in performing the
+deployment in one of them while the other one is still operating, and
+than in safely switching the traffic to the second one after some
+convenient testing. This technique becomes more complicated when the
+deployment includes changes to the database structure or content. I'd
+like to discuss this topic with you.</b></pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><i><span style="font-weight: normal">Why and How
+Database Changes Should Be Included in the Deployment Pipeline</span></i></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><i><span style="font-weight: normal">Databases,
+although different from applications, can and should be included in
+the same development process as applications. We call this database
+shift left.</span></i></pre>
+<pre class="western"><i><span style="font-weight: normal">When all
+database changes are described with scripts, source control can be
+applied and the database development process can include continuous
+integration and continuous delivery activities, namely taking part in
+the deployment pipeline.</span></i></pre>
+<pre class="western"><i><span style="font-weight: normal">Automation
+is the special ingredient that powers up the deployment pipeline
+making it repeatable, reliable and fast, reducing fear for database
+changes.</span></i></pre>
+<pre class="western"><i><span style="font-weight: normal">Migrations-based
+and state-based are two different approaches to describing a database
+change. Independently of the choice, small batches are always a good
+choice.</span></i></pre>
+<pre class="western"><i><span style="font-weight: normal">The
+deployment pipeline is a technical and cultural tool where DevOps
+values and practices should be reflected according to the needs of
+each organization. </span></i>
+</pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><i><span style="font-weight: normal">https://www.infoq.com/articles/deployment-pipeline-database-changes</span></i></pre>
+</body>
+</html>

@@ -118,3 +118,22 @@ var newCar = new Car('Honda', 'City', 2007);
 console.log(newCar instanceof Car); // returns true
 
 
+
+
+var array = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15];
+
+var howmany = 3;
+
+var elements = array.length / 3;
+
+// Broked 
+var borked = [];
+
+
+for( var i = 0; i < howmany; i++) {
+
+  borked.push(array.splice(0, elements));
+}
+
+console.log(borked);
+

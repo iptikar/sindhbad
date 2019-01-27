@@ -1,0 +1,1930 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8">
+	<title></title>
+	<meta name="generator" content="LibreOffice 4.2.3.3 (Linux)">
+	<meta name="created" content="20181111;113333000000000">
+	<meta name="changed" content="0;0">
+	<style type="text/css">
+	<!--
+		@page { margin: 0.79in }
+		p { margin-bottom: 0.1in; direction: ltr; color: #00000a; line-height: 120%; text-align: left; widows: 0; orphans: 0 }
+		p.western { font-family: "Liberation Serif", serif; font-size: 12pt; so-language: en-US }
+		p.cjk { font-family: "Droid Sans Fallback"; font-size: 12pt; so-language: zh-CN }
+		p.ctl { font-family: "FreeSans"; font-size: 12pt; so-language: hi-IN }
+		a:link { so-language: zxx }
+	-->
+	</style>
+</head>
+<body lang="en-US" text="#00000a" dir="ltr">
+<p class="western"><b>Q: What is npm?	</b></p>
+<p class="western"> <i>npm is a package manager for the JavaScript
+programming language. It is the default package manager for the
+JavaScript runtime environment Node.js. It consists of a command line
+client, also called npm, and an online database of public and
+paid-for private packages, called the npm registry. Wikipedia</i></p>
+<p class="western">	 	</p>
+<p class="western"><b>Q: What is Node.js?	</b></p>
+<p class="western"><i>Node.js is an open-source, cross-platform
+JavaScript run-time environment that executes JavaScript code outside
+of a browser.</i></p>
+<p class="western"> 	</p>
+<p class="western"><b>Q: What are the two types of API functions in
+Node.js?</b>	</p>
+<p class="western"> <i>Asynchronous, Non-blocking functions.</i></p>
+<p class="western"><i>Synchronous, Blocking functions.</i></p>
+<p class="western"><br><br>
+</p>
+<p class="western"><b>Q: List out the differences between AngularJS
+and NodeJS?</b>	</p>
+<p class="western"> <i>AngularJS is a JavaScript framework created by
+Google to make life easier for creating reactive client side
+applications with JavaScript.</i></p>
+<p class="western"><br><br>
+</p>
+<p class="western"><i>NodeJS, on the other hand, is JavaScript + a
+set of libraries that make use of Google's V8 engine to run on the
+back end of a web application.</i></p>
+<p class="western"> 	</p>
+<p class="western"><b>Q: What is global installation of
+dependencies?	</b></p>
+<p class="western"> <i>Installing a package globally allows you to
+use the code in the package as a set of tools on your local computer.</i></p>
+<p class="western"><i>To download and install packages globally, on
+the command line, run the following command:</i></p>
+<p class="western"><i>npm install -g &lt;package_name&gt;</i></p>
+<p class="western"><br><br>
+</p>
+<p class="western"><b>Q: What are the core modules of Node,js?	</b></p>
+<p class="western"> <i>Node.js Core Modules. Node.js is a light
+weight framework. The core modules include bare minimum
+functionalities of Node.js. These core modules are compiled into its
+binary distribution and load automatically when Node.js process
+starts.</i></p>
+<p class="western"><b>Q: What is an error-first callback?	</b></p>
+<p class="western"><i>Error-first callbacks# Most asynchronous
+methods exposed by the Node.js core API follow an idiomatic pattern
+referred to as an error-first callback. With this pattern, a callback
+function is passed to the method as an argument.</i></p>
+<p class="western"> 		 	</p>
+<p class="western">Q: How you can monitor a file for modifications in
+Node.js ?	</p>
+<p class="western"> <i>Using fs.watchfile</i></p>
+<p class="western"><span dir="ltr" style="float: left; width: 5.64in; height: 2.7in; border: none; padding: 0.05in 0.1in; background: #ffffff">
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#008000">const</font><font color="#000000">
+	fs </font><font color="#666666">=</font><font color="#000000">
+	require(</font><font color="#ba2121">'fs'</font><font color="#000000">);</font></p>
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000">require(</font><font color="#ba2121">'log-timestamp'</font><font color="#000000">);</font></p>
+	<p style="margin-bottom: 0in; line-height: 100%"><br>
+	</p>
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#008000">const</font><font color="#000000">
+	buttonPressesLogFile </font><font color="#666666">=</font><font color="#000000">
+	</font><font color="#ba2121">'./button-presses.log'</font><font color="#000000">;</font></p>
+	<p style="margin-bottom: 0in; line-height: 100%"><br>
+	</p>
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000">console.log(</font><font color="#ba2121">`Watching
+	for file changes on </font><font color="#bb6688">${</font><font color="#000000">buttonPressesLogFile</font><font color="#bb6688">}</font><font color="#ba2121">`</font><font color="#000000">);</font></p>
+	<p style="margin-bottom: 0in; line-height: 100%"><br>
+	</p>
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000">fs.watchFile(buttonPressesLogFile,
+	(curr, prev) =&gt; {</font></p>
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000">
+	 console.log(</font><font color="#ba2121">`</font><font color="#bb6688">${</font><font color="#000000">buttonPressesLogFile</font><font color="#bb6688">}</font><font color="#ba2121">
+	file Changed`</font><font color="#000000">);</font></p>
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000">});</font></p>
+</span><br><br>
+</p>
+<p class="western"><br><br>
+</p>
+<p class="western"><br><br>
+</p>
+<p class="western"><br><br>
+</p>
+<p class="western"><br><br>
+</p>
+<p class="western"><br><br>
+</p>
+<p class="western"><br><br>
+</p>
+<p class="western"><br><br>
+</p>
+<p class="western"><br><br>
+</p>
+<p class="western">Q: Could we run an external process with Node.js?	</p>
+<p class="western"><br><br>
+</p>
+<p class="western"><span dir="ltr" style="float: left; width: 5.62in; height: 1.43in; border: none; padding: 0.05in 0.1in; background: #ffffff">
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#008000"><font size="3" style="font-size: 12pt">var</font></font><font color="#000000"><font size="3" style="font-size: 12pt">
+	exec </font></font><font color="#666666"><font size="3" style="font-size: 12pt">=</font></font><font color="#000000"><font size="3" style="font-size: 12pt">
+	require(</font></font><font color="#ba2121"><font size="3" style="font-size: 12pt">'child_process'</font></font><font color="#000000"><font size="3" style="font-size: 12pt">).exec;</font></font></p>
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000"><font size="3" style="font-size: 12pt">exec(</font></font><font color="#ba2121"><font size="3" style="font-size: 12pt">'pwd'</font></font><font color="#000000"><font size="3" style="font-size: 12pt">,
+	</font></font><font color="#008000"><font size="3" style="font-size: 12pt">function</font></font><font color="#000000"><font size="3" style="font-size: 12pt">
+	callback(error, stdout, stderr){</font></font></p>
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000">
+	   </font><font color="#408080"><font size="3" style="font-size: 12pt">//
+	result</font></font></p>
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000"><font size="3" style="font-size: 12pt">});</font></font></p>
+	<p style="margin-bottom: 0in; line-height: 100%"><br>
+	</p>
+	<p style="margin-bottom: 0in; line-height: 100%"><br>
+	</p>
+	<p style="margin-bottom: 0in; line-height: 100%"><br>
+	</p>
+</span><br><br>
+</p>
+<p class="western"><br><br>
+</p>
+<p class="western"><br><br>
+</p>
+<p class="western"><br><br>
+</p>
+<p class="western"><br><br>
+</p>
+<p class="western"><b>Q: What's the difference between operational
+and programmer errors?	</b></p>
+<p class="western"><i>Error handling</i></p>
+<p class="western"><i>Errors can be divided into two main parts:
+operational errors and programmer errors.</i></p>
+<p class="western"><br><br>
+</p>
+<p class="western"><i><b>Operational errors</b></i></p>
+<p class="western"><i>Operational errors can happen in well-written
+applications as well, because they are not bugs, but problems with
+the system / a remote service, like:</i></p>
+<p class="western"><br><br>
+</p>
+<p class="western"><i>request timeout</i></p>
+<p class="western"><i>system is out of memory</i></p>
+<p class="western"><i>failed to connect to a remote service</i></p>
+<p class="western"><i>Handling operational errors</i></p>
+<p class="western"><i>Depending on the type of the operational error,
+you can do the followings:</i></p>
+<p class="western"><br><br>
+</p>
+<p class="western"><i>Try to solve the error - if a file is missing,
+you may need to create one first</i></p>
+<p class="western"><i>Retry the operation, when dealing with network
+communication</i></p>
+<p class="western"><i>Tell the client, that something is not ok - can
+be used, when handling user inputs</i></p>
+<p class="western"><i>Crash the process, when the error condition is
+unlikely to change on its own, like the application cannot read its
+configuration file</i></p>
+<p class="western"><i>Also, it is true for all the above: log
+everything.</i></p>
+<p class="western"><br><br>
+</p>
+<p class="western"><i><b>Programmer errors</b></i></p>
+<p class="western"><i><b>Programmer errors are bugs. This is the
+thing you can avoid, like:</b></i></p>
+<p class="western"><br><br>
+</p>
+<p class="western"><i>called an async function without a callback</i></p>
+<p class="western"><i>cannot read property of undefined</i></p>
+<p class="western"><i>Handling programmer errors</i></p>
+<p class="western"><i>Crash immediately - as these errors are bugs,
+you won't know in which state your application is. A process control
+system should restart the application when it happens, like:
+supervisord or monit.</i></p>
+<p class="western"><br><br>
+</p>
+<p class="western"><b>Q: What are the benefits of using Node.js?	</b></p>
+<p class="western"><i>Node.js is an open source, cross-platform built
+on Chrome's JavaScript runtime for fast and scalable server-side and
+networking applications. Being an interface to the V8 JavaScript
+runtime, it enables event-driven programming to the web servers
+through super-fast JavaScript interpreter that runs in the Chrome
+browser.</i></p>
+<p class="western"> 		 	</p>
+<p class="western"><u><b>Q: What is the difference between Nodejs,
+AJAX, and jQuery?	</b></u></p>
+<p class="western"><i>The only similarity between AJAX and Node.js is
+that they are both JavaScript; yet they both serve completely
+different purposes. AJAX (short for Asynchronous Javascript and XML)
+is a client-side technology, often used for updating the contents of
+a page without refreshing it.</i></p>
+<p class="western"> 		 	</p>
+<p class="western"><b>Q: How to make Post request in Node.js?	</b></p>
+<p class="western"> 		 	</p>
+<p class="western"><br><br>
+</p>
+<p class="western"><br><br>
+</p>
+<p class="western"><br><br>
+</p>
+<p class="western"><br><br>
+</p>
+<p class="western"><br><br>
+</p>
+<p class="western"><br><br>
+</p>
+<p class="western"><br><br>
+</p>
+<p class="western"><br><br>
+</p>
+<p class="western"><br><br>
+</p>
+<p class="western"><br><br>
+</p>
+<p class="western"><br><br>
+</p>
+<p class="western"><br><br>
+</p>
+<p class="western"><br><br>
+</p>
+<p class="western"><br><br>
+</p>
+<p class="western"><br><br>
+</p>
+<p class="western"><br><br>
+</p>
+<p class="western"><br><br>
+</p>
+<p class="western"><br><br>
+</p>
+<p class="western"><br><br>
+</p>
+<p class="western"><br><br>
+</p>
+<p class="western"><br><br>
+</p>
+<p class="western"><br><br>
+</p>
+<p class="western"><br><br>
+</p>
+<p class="western"><span dir="ltr" style="float: left; width: 8.11in; height: 10.56in; border: none; padding: 0.05in 0.1in; background: #ffffff">
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000">
+	 </font><font color="#008000">var</font><font color="#000000">
+	post_data </font><font color="#666666">=</font><font color="#000000">
+	querystring.stringify({</font></p>
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000">
+	     </font><font color="#ba2121">'compilation_level'</font><font color="#000000">
+	</font><font color="#666666">:</font><font color="#000000">
+	</font><font color="#ba2121">'ADVANCED_OPTIMIZATIONS'</font><font color="#000000">,</font></p>
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000">
+	     </font><font color="#ba2121">'output_format'</font><font color="#666666">:</font><font color="#000000">
+	</font><font color="#ba2121">'json'</font><font color="#000000">,</font></p>
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000">
+	     </font><font color="#ba2121">'output_info'</font><font color="#666666">:</font><font color="#000000">
+	</font><font color="#ba2121">'compiled_code'</font><font color="#000000">,</font></p>
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000">
+	       </font><font color="#ba2121">'warning_level'</font><font color="#000000">
+	</font><font color="#666666">:</font><font color="#000000"> </font><font color="#ba2121">'QUIET'</font><font color="#000000">,</font></p>
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000">
+	       </font><font color="#ba2121">'js_code'</font><font color="#000000">
+	</font><font color="#666666">:</font><font color="#000000">
+	codestring</font></p>
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000">
+	 });</font></p>
+	<p style="margin-bottom: 0in; line-height: 100%"><br>
+	</p>
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000">
+	 </font><font color="#408080">// An object of options to indicate
+	where to post to</font></p>
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000">
+	 </font><font color="#008000">var</font><font color="#000000">
+	post_options </font><font color="#666666">=</font><font color="#000000">
+	{</font></p>
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000">
+	     host</font><font color="#666666">:</font><font color="#000000">
+	</font><font color="#ba2121">'closure-compiler.appspot.com'</font><font color="#000000">,</font></p>
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000">
+	     port</font><font color="#666666">:</font><font color="#000000">
+	</font><font color="#ba2121">'80'</font><font color="#000000">,</font></p>
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000">
+	     path</font><font color="#666666">:</font><font color="#000000">
+	</font><font color="#ba2121">'/compile'</font><font color="#000000">,</font></p>
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000">
+	     method</font><font color="#666666">:</font><font color="#000000">
+	</font><font color="#ba2121">'POST'</font><font color="#000000">,</font></p>
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000">
+	     headers</font><font color="#666666">:</font><font color="#000000">
+	{</font></p>
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000">
+	         </font><font color="#ba2121">'Content-Type'</font><font color="#666666">:</font><font color="#000000">
+	</font><font color="#ba2121">'application/x-www-form-urlencoded'</font><font color="#000000">,</font></p>
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000">
+	         </font><font color="#ba2121">'Content-Length'</font><font color="#666666">:</font><font color="#000000">
+	Buffer.byteLength(post_data)</font></p>
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000">
+	     }</font></p>
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000">
+	 };</font></p>
+	<p style="margin-bottom: 0in; line-height: 100%"><br>
+	</p>
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000">
+	 </font><font color="#408080">// Set up the request</font></p>
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000">
+	 </font><font color="#008000">var</font><font color="#000000">
+	post_req </font><font color="#666666">=</font><font color="#000000">
+	http.request(post_options, </font><font color="#008000">function</font><font color="#000000">(res)
+	{</font></p>
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000">
+	     res.setEncoding(</font><font color="#ba2121">'utf8'</font><font color="#000000">);</font></p>
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000">
+	     res.on(</font><font color="#ba2121">'data'</font><font color="#000000">,
+	</font><font color="#008000">function</font><font color="#000000">
+	(chunk) {</font></p>
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000">
+	         console.log(</font><font color="#ba2121">'Response: '</font><font color="#000000">
+	</font><font color="#666666">+</font><font color="#000000"> chunk);</font></p>
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000">
+	     });</font></p>
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000">
+	 });</font></p>
+	<p style="margin-bottom: 0in; line-height: 100%"><br>
+	</p>
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000">
+	 </font><font color="#408080">// post the data</font></p>
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000">
+	 post_req.write(post_data);</font></p>
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000">
+	 post_req.end();</font></p>
+	<p style="margin-bottom: 0in; line-height: 100%"><br>
+	</p>
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000">}</font></p>
+	<p style="margin-bottom: 0in; line-height: 100%"><br>
+	</p>
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#408080">//
+	This is an async file read</font></p>
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000">fs.readFile(</font><font color="#ba2121">'LinkedList.js'</font><font color="#000000">,
+	</font><font color="#ba2121">'utf-8'</font><font color="#000000">,
+	</font><font color="#008000">function</font><font color="#000000">
+	(err, data) {</font></p>
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000">
+	 </font><font color="#008000">if</font><font color="#000000"> (err)
+	{</font></p>
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000">
+	   </font><font color="#408080">// If this were just a small part of
+	the application, you would</font></p>
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000">
+	   </font><font color="#408080">// want to handle this differently,
+	maybe throwing an exception</font></p>
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000">
+	   </font><font color="#408080">// for the caller to handle. Since
+	the file is absolutely essential</font></p>
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000">
+	   </font><font color="#408080">// to the program's functionality,
+	we're going to exit with a fatal</font></p>
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000">
+	   </font><font color="#408080">// error instead.</font></p>
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000">
+	   console.log(</font><font color="#ba2121">&quot;FATAL An error
+	occurred trying to read in the file: &quot;</font><font color="#000000">
+	</font><font color="#666666">+</font><font color="#000000"> err);</font></p>
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000">
+	   process.exit(</font><font color="#666666">-2</font><font color="#000000">);</font></p>
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000">
+	 }</font></p>
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000">
+	 </font><font color="#408080">// Make sure there's data before we
+	post it</font></p>
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000">
+	 </font><font color="#008000">if</font><font color="#000000">(data)
+	{</font></p>
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000">
+	   PostCode(data);</font></p>
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000">
+	 }</font></p>
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000">
+	 </font><font color="#008000">else</font><font color="#000000"> {</font></p>
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000">
+	   console.log(</font><font color="#ba2121">&quot;No data to post&quot;</font><font color="#000000">);</font></p>
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000">
+	   process.exit(</font><font color="#666666">-1</font><font color="#000000">);</font></p>
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000">
+	 }</font></p>
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000">});</font></p>
+</span><br><br>
+</p>
+<p class="western"><br><br>
+</p>
+<p class="western"><br><br>
+</p>
+<p class="western"><br><br>
+</p>
+<p class="western"><br><br>
+</p>
+<p class="western"><br><br>
+</p>
+<p class="western"><br><br>
+</p>
+<p class="western"><br><br>
+</p>
+<p class="western"><br><br>
+</p>
+<p class="western"><br><br>
+</p>
+<p class="western"><br><br>
+</p>
+<p class="western"><br><br>
+</p>
+<p class="western"><br><br>
+</p>
+<p class="western"><br><br>
+</p>
+<p class="western"><br><br>
+</p>
+<p class="western"><br><br>
+</p>
+<p class="western"><br><br>
+</p>
+<p class="western"><br><br>
+</p>
+<p class="western"><br><br>
+</p>
+<p class="western"><br><br>
+</p>
+<p class="western"><br><br>
+</p>
+<p class="western"><br><br>
+</p>
+<p class="western"><br><br>
+</p>
+<p class="western"><br><br>
+</p>
+<p class="western"><br><br>
+</p>
+<p class="western"><br><br>
+</p>
+<p class="western"><br><br>
+</p>
+<p class="western"><br><br>
+</p>
+<p class="western"><br><br>
+</p>
+<p class="western"><b>Q: If Node.js is single threaded then how it
+handles concurrency?	</b></p>
+<p class="western">
+<font color="#000080"><span lang="zxx"><u><a href="https://blog.jayway.com/2015/04/13/600k-concurrent-websocket-connections-on-aws-using-node-js/">https://blog.jayway.com/2015/04/13/600k-concurrent-websocket-connections-on-aws-using-node-js/</a></u></span></font></p>
+<p class="western"><font color="#000080"><span lang="zxx"><u><a href="https://60devs.com/synchronization-of-concurrent-http-requests-in-node.html">https://60devs.com/synchronization-of-concurrent-http-requests-in-node.html</a></u></span></font></p>
+<p class="western"><br><br>
+</p>
+<p class="western"><br><br>
+</p>
+<p class="western"><b>Q: Is Node a single threaded application?	</b></p>
+<p class="western"> <span dir="ltr" style="float: left; width: 7.12in; height: 5.36in; border: none; padding: 0.05in 0.1in; background: #ffffff">
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#008000">const</font><font color="#000000">
+	cluster </font><font color="#666666">=</font><font color="#000000">
+	require(</font><font color="#ba2121">'cluster'</font><font color="#000000">);</font></p>
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#008000">const</font><font color="#000000">
+	http </font><font color="#666666">=</font><font color="#000000">
+	require(</font><font color="#ba2121">'http'</font><font color="#000000">);</font></p>
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#008000">const</font><font color="#000000">
+	numCPUs </font><font color="#666666">=</font><font color="#000000">
+	require(</font><font color="#ba2121">'os'</font><font color="#000000">).cpus().length;</font></p>
+	<p style="margin-bottom: 0in; line-height: 100%"><br>
+	</p>
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#008000">if</font><font color="#000000">
+	(cluster.isMaster) {</font></p>
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000">
+	 console.log(</font><font color="#ba2121">`Master </font><font color="#bb6688">${</font><font color="#000000">process.pid</font><font color="#bb6688">}</font><font color="#ba2121">
+	is running`</font><font color="#000000">);</font></p>
+	<p style="margin-bottom: 0in; line-height: 100%"><br>
+	</p>
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000">
+	 </font><font color="#408080">// Fork workers.</font></p>
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000">
+	 </font><font color="#008000">for</font><font color="#000000"> (</font><font color="#008000">let</font><font color="#000000">
+	i </font><font color="#666666">=</font><font color="#000000"> </font><font color="#666666">0</font><font color="#000000">;
+	i </font><font color="#666666">&lt;</font><font color="#000000">
+	numCPUs; i</font><font color="#666666">++</font><font color="#000000">)
+	{</font></p>
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000">
+	   cluster.fork();</font></p>
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000">
+	 }</font></p>
+	<p style="margin-bottom: 0in; line-height: 100%"><br>
+	</p>
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000">
+	 cluster.on(</font><font color="#ba2121">'exit'</font><font color="#000000">,
+	(worker, code, signal) =&gt; {</font></p>
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000">
+	   console.log(</font><font color="#ba2121">`worker
+	</font><font color="#bb6688">${</font><font color="#000000">worker.process.pid</font><font color="#bb6688">}</font><font color="#ba2121">
+	died`</font><font color="#000000">);</font></p>
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000">
+	 });</font></p>
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000">}
+	</font><font color="#008000">else</font><font color="#000000"> {</font></p>
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000">
+	 </font><font color="#408080">// Workers can share any TCP
+	connection</font></p>
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000">
+	 </font><font color="#408080">// In this case it is an HTTP server</font></p>
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000">
+	 http.createServer((req, res) =&gt; {</font></p>
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000">
+	   res.writeHead(</font><font color="#666666">200</font><font color="#000000">);</font></p>
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000">
+	   res.end(</font><font color="#ba2121">'hello world\n'</font><font color="#000000">);</font></p>
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000">
+	 }).listen(</font><font color="#666666">8000</font><font color="#000000">);</font></p>
+	<p style="margin-bottom: 0in; line-height: 100%"><br>
+	</p>
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000">
+	 console.log(</font><font color="#ba2121">`Worker </font><font color="#bb6688">${</font><font color="#000000">process.pid</font><font color="#bb6688">}</font><font color="#ba2121">
+	started`</font><font color="#000000">);</font></p>
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000">}</font></p>
+	<p style="margin-bottom: 0in; line-height: 100%"><br>
+	</p>
+</span>
+</p>
+<p class="western"><br><br>
+</p>
+<p class="western"><br><br>
+</p>
+<p class="western"><br><br>
+</p>
+<p class="western"><br><br>
+</p>
+<p class="western"><br><br>
+</p>
+<p class="western"><br><br>
+</p>
+<p class="western"><br><br>
+</p>
+<p class="western"><br><br>
+</p>
+<p class="western"><br><br>
+</p>
+<p class="western"><br><br>
+</p>
+<p class="western"><br><br>
+</p>
+<p class="western"><br><br>
+</p>
+<p class="western"><br><br>
+</p>
+<p class="western"><br><br>
+</p>
+<p class="western"><br><br>
+</p>
+<p class="western"><br><br>
+</p>
+<p class="western"><br><br>
+</p>
+<p class="western"><br><br>
+</p>
+<p class="western"><br><br>
+</p>
+<p class="western"><b>Q: What are the key features of Node.js?	</b></p>
+<p class="western"> <i>Asynchronous and Event Driven – it means
+that API call doesn't wait for results and doesn't block other calls.
+After it finish executing it will run an callback or notify about
+certain execution parts using events. Even though Node.js is running
+on single thread with event looping, it can handle more requests
+than, for example Apache HTTP server, because of using asynchronous
+non-blocking way of handling code execution.</i></p>
+<p class="western"><i>It's (very) fast – it's based on Google
+Chrome's V8 JavaScript Engine, which is very fast in executing
+JavaScript code..</i></p>
+<p class="western"><i>High scalability - Thanks to the event
+mechanism Node.js can be easily scalable.</i></p>
+<p class="western"><i>NPM (The Node Package Manager) - it's a tool
+that handles installing and updating of reusable modules from online
+collection. It also takes care of version and dependency management
+of reusable modules from online collection. NPM can be compared to
+Ruby Gems.</i></p>
+<p class="western"><i>Community - there are a lots of community
+tutorials, resources or shared code. Node,js is very popular now and
+it became one of most of used technolgies used nowadays.</i></p>
+<p class="western"><br><br>
+</p>
+<p class="western"><br><br>
+</p>
+<p class="western"><b>Q: What is control flow function?	</b></p>
+<p class="western"><br><br>
+</p>
+<p class="western"><i>A control flow function is a lightweight,
+generic piece of code which runs in between several asynchronous
+function calls and which take care of the necessary housekeeping to:
+control the order of execution, collect data, limit concurrency and</i></p>
+<p class="western"><br><br>
+</p>
+<p class="western"><i>You should be using promises. Bluebird is a
+great promise library. Faster than native and comes with great
+features. With promises you can chain together functions, and know
+that one will not be called until the previous function resolves. No
+need to set timeouts or delays. Although you can if you'd like. Below
+is example of a delay. Function B wont run until 6 seconds after A
+finishes. If you remove .delay(ms) B will run immediately after A
+finishe</i>s.</p>
+<p class="western"><br><br>
+</p>
+<p class="western"><br><br>
+</p>
+<p class="western"><br><br>
+</p>
+<p class="western"><br><br>
+</p>
+<p class="western"><span dir="ltr" style="float: left; width: 7.49in; height: 5.06in; border: none; padding: 0.05in 0.1in; background: #ffffff">
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#008000">var</font><font color="#000000">
+	</font><font color="#008000">Promise</font><font color="#000000"> </font><font color="#666666">=</font><font color="#000000">
+	require(</font><font color="#ba2121">&quot;bluebird&quot;</font><font color="#000000">);</font></p>
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000">console.time(</font><font color="#ba2121">'tracked'</font><font color="#000000">);</font></p>
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000">console.time(</font><font color="#ba2121">'first'</font><font color="#000000">);</font></p>
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#008000">function</font><font color="#000000">
+	a (){</font></p>
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000">
+	   console.log(</font><font color="#ba2121">'hello'</font><font color="#000000">);</font></p>
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000">
+	   console.timeEnd(</font><font color="#ba2121">'first'</font><font color="#000000">);</font></p>
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000">
+	   </font><font color="#008000">return</font><font color="#000000">
+	</font><font color="#008000">Promise</font><font color="#000000">.resolve();</font></p>
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000">}</font></p>
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#008000">function</font><font color="#000000">
+	b (){</font></p>
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000">
+	   console.log(</font><font color="#ba2121">'world'</font><font color="#000000">);</font></p>
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000">
+	   console.timeEnd(</font><font color="#ba2121">'tracked'</font><font color="#000000">);</font></p>
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000">}</font></p>
+	<p style="margin-bottom: 0in; line-height: 100%"><br>
+	</p>
+	<p style="margin-bottom: 0in; line-height: 100%"><br>
+	</p>
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000">a().delay(</font><font color="#666666">6000</font><font color="#000000">)</font></p>
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000">
+	   .then(b)</font></p>
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000">
+	   .</font><font color="#008000">catch</font><font color="#000000">(</font><font color="#008000">Promise</font><font color="#000000">.TimeoutError,
+	</font><font color="#008000">function</font><font color="#000000">(e)
+	{</font></p>
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000">
+	       console.log(</font><font color="#ba2121">'Something messed up
+	yo'</font><font color="#000000">, e);</font></p>
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000">
+	   });</font></p>
+	<p style="margin-bottom: 0in; line-height: 100%"><br>
+	</p>
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000">
+	node test.js</font></p>
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000">hello</font></p>
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000">first</font><font color="#666666">:</font><font color="#000000">
+	</font><font color="#666666">1.278</font><font color="#000000">ms</font></p>
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000">world</font></p>
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000">tracked</font><font color="#666666">:</font><font color="#000000">
+	</font><font color="#666666">6009.422</font><font color="#000000">ms</font></p>
+</span><br><br>
+</p>
+<p class="western"><br><br>
+</p>
+<p class="western"><br><br>
+</p>
+<p class="western"><br><br>
+</p>
+<p class="western"><br><br>
+</p>
+<p class="western"><br><br>
+</p>
+<p class="western"><br><br>
+</p>
+<p class="western"><br><br>
+</p>
+<p class="western"><br><br>
+</p>
+<p class="western"><br><br>
+</p>
+<p class="western"><br><br>
+</p>
+<p class="western"><br><br>
+</p>
+<p class="western"><br><br>
+</p>
+<p class="western"><br><br>
+</p>
+<p class="western"><br><br>
+</p>
+<p class="western"><b>Q: What do you mean by Asynchronous API?	</b></p>
+<p class="western"> <i>Asynchronous requests are useful in
+maintaining functionality in an application rather than tie up
+application resources waiting on a request. An API may be synchronous
+where data or service availability, resources and connectivity are
+high and low latency is a requirement.</i></p>
+<p class="western"><br><br>
+</p>
+<p class="western"><br><br>
+</p>
+<p class="western"><br><br>
+</p>
+<p class="western"><b>Q: What is the purpose of setTimeout function?	</b></p>
+<p class="western"> <i>setTimeout is a native JavaScript function
+(although it can be used with a library such as jQuery, as we'll see
+later on), which calls a function or executes a code snippet after a
+specified delay (in milliseconds).</i></p>
+<p class="western"> 	</p>
+<p class="western"><b>Q: What is REPL in context of Node?	</b></p>
+<p class="western"> <i>The repl module provides a
+Read-Eval-Print-Loop (REPL) implementation that is available both as
+a standalone program or includible in other applications. It can be
+accessed using:</i></p>
+<p class="western"><br><br>
+</p>
+<p class="western"><b>Q: How can you avoid callback hells?	</b></p>
+<p class="western"> <i>Don't nest functions. Give them names and
+place them at the top level of your program</i></p>
+<p class="western"><i>Use function hoisting to your advantage to move
+functions 'below the fold'</i></p>
+<p class="western"><i>Handle every single error in every one of your
+callbacks. Use a linter like standard to help you with this.</i></p>
+<p class="western"><i>Create reusable functions and place them in a
+module to reduce the cognitive load required to understand your code.
+Splitting your code into small pieces like this also helps you handle
+errors, write tests, forces you to create a stable and documented
+public API for your code, and helps with refactoring.</i>	</p>
+<p class="western"> 	</p>
+<p class="western"><b>Q: What is Callback?	</b></p>
+<p class="western"> <i>Callback is an asynchronous equivalent for a
+function. A callback function is called at the completion of a given
+task. Node makes heavy use of callbacks. All the APIs of Node are
+written in such a way that they support callbacks.</i></p>
+<p class="western"> 	</p>
+<p class="western"><b>Q: What is a blocking code?	</b></p>
+<p class="western"> <i>In coding theory, block codes are a large and
+important family of error-correcting codes that encode data in
+blocks. ... The term block code may also refer to any
+error-correcting code that acts on a block of k bits of input data to
+produce n bits of output data (n,k). Consequently, the block coder is
+a memoryless device.</i>	 	</p>
+<p class="western"> 	</p>
+<p class="western"><b>Q: How Node prevents blocking code?	</b></p>
+<p class="western"><a name="__DdeLink__1753_403162352"></a>
+https://nodejs.org/en/docs/guides/dont-block-the-event-loop/	</p>
+<p class="western"> 	</p>
+<p class="western"><b>Q: What is Event Loop?	</b></p>
+<p class="western"> <i>Node.js - Event Loop. Node.js is a
+single-threaded application, but it can support concurrency via the
+concept of event and callbacks. ... Node uses observer pattern. Node
+thread keeps an event loop and whenever a task gets completed, it
+fires the corresponding event which signals the event-listener
+function to execute.</i>	 	</p>
+<p class="western"> 	</p>
+<p class="western"><b>Q: What is stream and what are types of streams
+available in Node.js?</b>	</p>
+<p class="western"> <i>There are four fundamental stream types within
+Node.js: Writable - streams to which data can be written (for
+example, fs.createWriteStream() ). Readable - streams from which data
+can be read (for example, fs.createReadStream() ). Duplex - streams
+that are both Readable and Writable (for example, net.Socket ).</i></p>
+<p class="western">	 	</p>
+<p class="western"> 	</p>
+<p class="western"><b>Q: What is Event Emmitter?	</b></p>
+<p class="western"> <i>Much of the Node.js core API is built around
+an idiomatic asynchronous event-driven architecture in which certain
+kinds of objects (called &quot;emitters&quot;) emit named events that
+cause Function objects (&quot;listeners&quot;) to be called. ... All
+objects that emit events are instances of the EventEmitter class.</i></p>
+<p class="western">	</p>
+<p class="western"> 	</p>
+<p class="western"><b>Q: How to avoid callback hell in Node.js?	</b></p>
+<p class="western"><i>This is about as simple as it gets, and
+assumes:</i></p>
+<p class="western"><i>You are using Express or similar as your route
+handler, and you can return a promise instead of using the callback</i></p>
+<p class="western"><i>You are using Mongoose or similar as the DB,
+and can return a promise instead of using the callback.</i></p>
+<p class="western"><i>Check your versions for Promise support.</i></p>
+<p class="western"><i>You appear to be missing some query parameters
+for Banner at least, and you need to work out if any of these are
+dependent or, as illustrated, they can be run in parallel.</i></p>
+<p class="western"><br><br>
+</p>
+<p class="western"><br><br>
+</p>
+<p class="western"><br><br>
+</p>
+<p class="western"><br><br>
+</p>
+<p class="western"><img src="data:" align="left" hspace="6"><span dir="ltr" style="float: left; width: 7.43in; height: 3.4in; border: none; padding: 0.05in 0.1in; background: #ffffff">
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000">router.get(</font><font color="#ba2121">'/'</font><font color="#000000">,
+	(req, res) =&gt; {</font></p>
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000">
+	 </font><font color="#008000">return</font><font color="#000000">
+	</font><font color="#008000">Promise</font><font color="#000000">.all([</font></p>
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000">
+	   Account.find(),</font></p>
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000">
+	   Banner.findOne(),</font></p>
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000">
+	   Account.findOne({ accType</font><font color="#666666">:</font><font color="#000000">
+	</font><font color="#ba2121">'Awaiting'</font><font color="#000000">
+	}),</font></p>
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000">
+	 ]).then(([ col, banner, doc ]) =&gt; {</font></p>
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000">
+	   res.render(</font><font color="#ba2121">'admin/'</font><font color="#000000">,
+	{</font></p>
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000">
+	     title</font><font color="#666666">:</font><font color="#000000">
+	</font><font color="#ba2121">'Admin pannel'</font><font color="#000000">,</font></p>
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000">
+	     user</font><font color="#666666">:</font><font color="#000000">
+	req.user,</font></p>
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000">
+	     employers</font><font color="#666666">:</font><font color="#000000">
+	col,</font></p>
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000">
+	     areAwaiting</font><font color="#666666">:</font><font color="#000000">
+	awaiting,</font></p>
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000">
+	     banner</font><font color="#666666">:</font><font color="#000000">
+	banner,</font></p>
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000">
+	   );</font></p>
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000">
+	 }).</font><font color="#008000">catch</font><font color="#000000">(e
+	=&gt; { console.error(e) });</font></p>
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000">});</font></p>
+</span><br><br>
+</p>
+<p class="western"> 	</p>
+<p class="western"> 	</p>
+<p class="western"><br><br>
+</p>
+<p class="western"><br><br>
+</p>
+<p class="western"><br><br>
+</p>
+<p class="western"><br><br>
+</p>
+<p class="western"><br><br>
+</p>
+<p class="western"><br><br>
+</p>
+<p class="western"><br><br>
+</p>
+<p class="western"><br><br>
+</p>
+<p class="western"><br><br>
+</p>
+<p class="western"><br><br>
+</p>
+<p class="western"><b>Q: What is purpose of Buffer class in Node?	</b></p>
+<p class="western"> <i>Pure javascript, while great with
+unicode-encoded strings, does not handle straight binary data very
+well. This is fine on the browser, where most data is in the form of
+strings. However, node.js servers have to also deal with TCP streams
+and reading and writing to the filesystem, both which make it
+necessary to deal with purely binary streams of data.</i></p>
+<p class="western"><br><br>
+</p>
+<p class="western"><i>One way to handle this problem is to just use
+strings anyway, which is exactly what Node.js did at first. However,
+this approach is extremely problematic to work with; It's slow, makes
+you work with an API designed for strings and not binary data, and
+has a tendency to break in strange and mysterious ways.</i></p>
+<p class="western"><span dir="ltr" style="float: left; width: 7.35in; height: 1.85in; border: none; padding: 0.05in 0.1in; background: #ffffff">
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#666666">&gt;</font><font color="#000000">
+	</font><font color="#008000">var</font><font color="#000000"> frosty
+	</font><font color="#666666">=</font><font color="#000000"> </font><font color="#008000">new</font><font color="#000000">
+	Buffer(</font><font color="#666666">24</font><font color="#000000">)</font></p>
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#666666">&gt;</font><font color="#000000">
+	</font><font color="#008000">var</font><font color="#000000">
+	snowman </font><font color="#666666">=</font><font color="#000000">
+	</font><font color="#008000">new</font><font color="#000000">
+	Buffer(</font><font color="#ba2121">&quot;☃&quot;</font><font color="#000000">,
+	</font><font color="#ba2121">&quot;utf-8&quot;</font><font color="#000000">)</font></p>
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#666666">&gt;</font><font color="#000000">
+	frosty.write(</font><font color="#ba2121">&quot;Happy birthday! &quot;</font><font color="#000000">,
+	</font><font color="#ba2121">&quot;utf-8&quot;</font><font color="#000000">)</font></p>
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#666666">16</font></p>
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#666666">&gt;</font><font color="#000000">
+	snowman.copy(frosty, </font><font color="#666666">16</font><font color="#000000">)</font></p>
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#666666">3</font></p>
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#666666">&gt;</font><font color="#000000">
+	frosty.toString(</font><font color="#ba2121">&quot;utf-8&quot;</font><font color="#000000">,
+	</font><font color="#666666">0</font><font color="#000000">, </font><font color="#666666">19</font><font color="#000000">)</font></p>
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#ba2121">'Happy
+	birthday! ☃'</font></p>
+</span><br><br>
+</p>
+<p class="western"><br><br>
+</p>
+<p class="western"><br><br>
+</p>
+<p class="western"><br><br>
+</p>
+<p class="western"><br><br>
+</p>
+<p class="western"><br><br>
+</p>
+<p class="western"><br><br>
+</p>
+<p class="western"><br><br>
+</p>
+<p class="western"><br><br>
+</p>
+<p class="western"><i>Don't use binary strings. Use buffers instead!</i></p>
+<p class="western"> 	</p>
+<p class="western"><b>Q: When should I use EventEmitter?	</b></p>
+<p class="western"><i><span style="font-weight: normal">All objects
+that emit events are instances of the EventEmitter class. These
+objects expose an eventEmitter.on() function that allows one or more
+functions to be attached to named events emitted by the object.
+Typically, event names are camel-cased strings but any valid
+JavaScript property key can be used.</span></i></p>
+<p class="western"> <i>Whenever it makes sense for code to SUBSCRIBE
+to something rather than get a callback from something. The typical
+use case would be that there's multiple blocks of code in your
+application that may need to do something when an event happens.</i></p>
+<p class="western"><font color="#000080"><span lang="zxx"><u><a href="https://nodejs.org/api/events.html"><i>https://nodejs.org/api/events.html</i></a></u></span></font></p>
+<p class="western"><br><br>
+</p>
+<p class="western"><br><br>
+</p>
+<p class="western"><i>For example, let's say you are creating a
+ticketing system. The common way to handle things might be like this:</i></p>
+<p class="western"><font color="#000080"><span lang="zxx"><u><i><a href="https://stackoverflow.com/questions/38881170/when-should-i-use-eventemitter">https://stacko</a><a href="https://stackoverflow.com/questions/38881170/when-should-i-use-eventemitter">e</a><a href="https://stackoverflow.com/questions/38881170/when-should-i-use-eventemitter">vrflow.com/questions/38881170/when-should-i-use-eventemitter</a></i></u></span></font></p>
+<p class="western"><br><br>
+</p>
+<p class="western"><b>Q: What is difference between synchronous and
+asynchronous method of fs module?	</b></p>
+<p class="western"> <i>The difference is that in the first example,
+the program will block in the first line. The next line (console.log)
+will have to wait.</i></p>
+<p class="western"><br><br>
+</p>
+<p class="western"><i>In the second example, the console.log will be
+executed WHILE the query is being processed. That is, the query will
+be processed in the background, while your program is doing other
+things, and once the query data is ready, you will do whatever you
+want with it.</i></p>
+<p class="western"><br><br>
+</p>
+<p class="western"><i>So, in a nutshell: The first example will
+block, while the second won't</i></p>
+<p class="western"><font color="#000080"><span lang="zxx"><u><a href="https://stackoverflow.com/questions/16336367/what-is-the-difference-between-synchronous-and-asynchronous-programming-in-node">https://stackoverflow.com/questions/16336367/what-is-the-difference-between-synchronous-and-asynchronous-programming-in-node</a></u></span></font><br><br><br>
+</p>
+<p class="western"><br><br>
+</p>
+<p class="western"><br><br>
+</p>
+<p class="western"> 	</p>
+<p class="western"><b>Q: What are streams?	</b></p>
+<p class="western"> <i>Streams are collections of data — just
+like arrays or strings. The difference is that streams might not be
+available all at once, and they don’t have to fit in memory. This
+makes streams really powerful when working with large amounts of
+data, or data that’s coming from an external source one chunk at a
+time.</i></p>
+<p class="western"><i>https://medium.freecodecamp.org/node-js-streams-everything-you-need-to-know-c9141306be93</i>
+	</p>
+<p class="western"> 	</p>
+<p class="western"><b>Q: What is the preferred method of resolving
+unhandled exceptions in Node.js?	</b></p>
+<p class="western"> <i>As you know Node js is a part of Javascript.
+To handle exception we can have try and catch block.</i></p>
+<p class="western"><i>ut good practice says, you should use Process.</i></p>
+<p class="western"><br><br>
+</p>
+<p class="western"><i>Process is a global object that provides
+information about the current Node.js process.</i></p>
+<p class="western"><br><br>
+</p>
+<p class="western"><i>Process is a listener function that is always
+listening to events.</i></p>
+<p class="western"><i>Few events are :</i></p>
+<p class="western"><i>Exit</i></p>
+<p class="western"><i>disconnect</i></p>
+<p class="western"><i>unhandledException</i></p>
+<p class="western"><i>rejectionHandled</i></p>
+<p class="western"><i>If any uncaught exception occurs in your code
+flow, that exception will be caught in code shown below:</i></p>
+<p class="western"><span dir="ltr" style="float: left; width: 6.5in; height: 1.06in; border: none; padding: 0.05in 0.1in; background: #ffffff">
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000">
+	<font size="3" style="font-size: 12pt">process.on(</font></font><font color="#ba2121"><font size="3" style="font-size: 12pt">'uncaughtException'</font></font><font color="#000000"><font size="3" style="font-size: 12pt">,
+	</font></font><font color="#008000"><font size="3" style="font-size: 12pt">function</font></font><font color="#000000"><font size="3" style="font-size: 12pt">(err)
+	{</font></font></p>
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000">
+	   </font><font color="#408080"><font size="3" style="font-size: 12pt">//
+	handle the error safely</font></font></p>
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000">
+	   <font size="3" style="font-size: 12pt">console.log(err)</font></font></p>
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000"><font size="3" style="font-size: 12pt">})</font></font></p>
+	<p style="margin-bottom: 0in; line-height: 100%"><br>
+	</p>
+</span><br><br>
+</p>
+<p class="western"><br><br>
+</p>
+<p class="western"><br><br>
+</p>
+<p class="western"><br><br>
+</p>
+<p class="western"><br><br>
+</p>
+<p class="western"><b>Q: When should we use Node.js?	</b></p>
+<p class="western"> <i>You did a great job of summarizing what's
+awesome about Node.js. My feeling is that Node.js is especially
+suited for applications where you'd like to maintain a persistent
+connection from the browser back to the server. Using a technique
+known as &quot;long-polling&quot;, you can write an application that
+sends updates to the user in real time. Doing long polling on many of
+the web's giants, like Ruby on Rails or Django, would create immense
+load on the server, because each active client eats up one server
+process. This situation amounts to a tarpit attack. When you use
+something like Node.js, the server has no need of maintaining
+separate threads for each open connection.</i></p>
+<p class="western"><br><br>
+</p>
+<p class="western"><i>This means you can create a browser-based chat
+application in Node.js that takes almost no system resources to serve
+a great many clients. Any time you want to do this sort of
+long-polling, Node.js is a great option.</i></p>
+<p class="western"><br><br>
+</p>
+<p class="western"><i>It's worth mentioning that Ruby and Python both
+have tools to do this sort of thing (eventmachine and twisted,
+respectively), but that Node.js does it exceptionally well, and from
+the ground up. JavaScript is exceptionally well situated to a
+callback-based concurrency model, and it excels here. Also, being
+able to serialize and deserialize with JSON native to both the client
+and the server is pretty nifty.</i></p>
+<p class="western"><br><br>
+</p>
+<p class="western"><i>I look forward to reading other answers here,
+this is a fantastic question.</i></p>
+<p class="western"><br><br>
+</p>
+<p class="western"><i>It's worth pointing out that Node.js is also
+great for situations in which you'll be reusing a lot of code across
+the client/server gap. The Meteor framework makes this really easy,
+and a lot of folks are suggesting this might be the future of web
+development. I can say from experience that it's a whole lot of fun
+to write code in Meteor, and a big part of this is spending less time
+thinking about how you're going to restructure your data, so the code
+that runs in the browser can easily manipulate it and pass it back.</i></p>
+<p class="western"><br><br>
+</p>
+<p class="western"><i>Here's an article on Pyramid and long-polling,
+which turns out to be very easy to set up with a little help from
+gevent: TicTacToe and Long Polling with Pyramid</i></p>
+<p class="western"><br><br>
+</p>
+<p class="western"> 	</p>
+<p class="western"><b>Q: How to use Buffer in Node.js?	</b></p>
+<p class="western"> <i>31</i></p>
+<p class="western"><i>down vote</i></p>
+<p class="western"><i>accepted</i></p>
+<p class="western"><i>A Buffer is a chunk of memory, just like you
+would have it in C/C++. You can interpret this memory as an array of
+integer or floating point numbers of various lengths, or as a binary
+string. Unlike higher-level data structures like arrays, a buffer is
+not resizable.</i></p>
+<p class="western"><br><br>
+</p>
+<p class="western">onst buf = Buffer.from('hello world', 'ascii');</p>
+<p class="western"><br><br>
+</p>
+<p class="western">console.log(buf.toString('hex'));</p>
+<p class="western">// Prints: 68656c6c6f20776f726c64</p>
+<p class="western">console.log(buf.toString('base64'));</p>
+<p class="western">// Prints: aGVsbG8gd29ybGQ=</p>
+<p class="western"><br><br>
+</p>
+<p class="western">console.log(Buffer.from('fhqwhgads', 'ascii'));</p>
+<p class="western">// Prints: &lt;Buffer 66 68 71 77 68 67 61 64 73&gt;</p>
+<p class="western">console.log(Buffer.from('fhqwhgads', 'utf16le'));</p>
+<p class="western">// Prints: &lt;Buffer 66 00 68 00 71 00 77 00 68
+00 67 00 61 00 64 00 73 00&gt;</p>
+<p class="western"><br><br>
+</p>
+<p class="western"><i>It corresponds roughly to:</i></p>
+<p class="western"><br><br>
+</p>
+<p class="western"><i>char* or char[] in C/C++</i></p>
+<p class="western"><i>byte[] in Java</i></p>
+<p class="western"><i>A mutable bytes or a non-resizable bytearray in
+Python</i></p>
+<p class="western"><br><br>
+</p>
+<p class="western"><br><br>
+</p>
+<p class="western"><i>Strings in php if they were mutable</i>	 	</p>
+<p class="western"> 	</p>
+<p class="western"><b>Q: What is Chaining in Node?	</b></p>
+<p class="western"><br><br>
+</p>
+<p class="western"> <i>Node.js Streams, Pipe and chaining. Posted on
+December 7, 2015 January 1, 2016 by Naeem. A stream is an abstract
+interface implemented by various objects in Node.js. Due to
+asynchronous and event driven nature Node.js is very good at handling
+I/O bound tasks/streams, streams are actually unix pipes</i></p>
+<p class="western"><br><br>
+</p>
+<p class="western"> 	</p>
+<p class="western"><b>Q: What are the global objects of Node.js?	</b></p>
+<p class="western"> <i>Node.js - Global Objects. Node.js global
+objects are global in nature and they are available in all modules.
+We do not need to include these objects in our application, rather we
+can use them directly. These objects are modules, functions, strings
+and object itself as explained below.</i></p>
+<p class="western"> 	</p>
+<p class="western"><b>Q: Explain how does Node.js work?	</b></p>
+<p class="western"><a name="__DdeLink__1441_261649576"></a> <i>Node.js®
+is a JavaScript runtime built on Chrome's V8 JavaScript engine.
+Node.js uses an event-driven, non-blocking I/O model that makes it
+lightweight and efficient. Node.js' package ecosystem, npm, is the
+largest ecosystem of open source libraries in the world.</i></p>
+<p class="western"> 	</p>
+<p class="western"><b>Q: How does Node.js handle child threads?	</b></p>
+<p class="western">https://nodejs.org/dist/latest-v8.x/docs/api/cluster.html#cluster_cluster</p>
+<p class="western"> 	</p>
+<p class="western"><b>Q: How can you listen on port 80 with Node?</b>	</p>
+<p class="western"> sudo iptables -t nat -A PREROUTING -i eth0 -p tcp
+--dport 80 -j REDIRECT --to-port 3000	 	</p>
+<p class="western">
+<font color="#000080"><span lang="zxx"><u><a href="https://stackoverflow.com/questions/16573668/best-practices-when-running-node-js-with-port-80-ubuntu-linode">https://stackoverflow.com/questions/16573668/best-practices-when-running-node-js-with-port-80-ubuntu-linode</a></u></span></font></p>
+<p class="western"><br><br>
+</p>
+<p class="western">Q: When to not use Node.js?	</p>
+<p class="western">  	</p>
+<p class="western"> 	</p>
+<p class="western">Q: Is Node.js entirely based on a single-thread?	</p>
+<p class="western"> No	</p>
+<p class="western"> 	</p>
+<p class="western">Q: Does Node.js support multi-core platforms? And
+is it capable of utilizing all the cores?	</p>
+<p class="western"> Yes</p>
+<p class="western"> 	</p>
+<p class="western"><a name="__DdeLink__705_1644813178"></a><b>Q: Why
+to use Buffers instead of binary strings to handle binary data ?	</b></p>
+<p class="western"><i><span style="font-weight: normal">You can have
+PHP store all output into a buffer and output all of it at once
+improving network performance.</span></i></p>
+<p class="western"><i><span style="font-weight: normal">You can
+access the buffer content without sending it back to browser in
+certain situations.</span></i></p>
+<p class="western"> https://nodejs.org/api/buffer.html	</p>
+<p class="western"> 	</p>
+<p class="western"><b>Q: What's a stub? Name a use case.	</b></p>
+<p class="western"> <i>This isn’t a node.js, or a js-specific
+thing. Stubbing is the process of creating fake endpoints in code so
+that you can delay writing complex code, or to isolate what you are
+testing (see below re: mocks). Say you have a method that you know is
+going to be complex to write, but the results that are returned are
+relatively simple, you could write a stub that returns a reasonable
+value, while keeping track of that for implementation later. You’ve
+gone to the trouble of figuring out exactly what method you need, so
+the interface (or contract) is complete (or likely complete, subject
+to changing requirements).</i></p>
+<p class="western"><font color="#000080"><span lang="zxx"><u><a href="https://www.quora.com/What-is-the-stub-in-Node-js"><i>https://www.quora.com/What-is-the-stub-in-Node-js</i></a></u></span></font></p>
+<p class="western">	 	</p>
+<p class="western"> 	</p>
+<p class="western"><b>Q: What tools can be used to assure consistent
+code style?</b>	</p>
+<p class="western"><i>You have plenty of options to do so:</i></p>
+<p class="western"><i>JSLint by Douglas Crockford</i></p>
+<p class="western"><i>JSHint</i></p>
+<p class="western"><i>ESLint</i></p>
+<p class="western"><i>JSCS</i>	 	</p>
+<p class="western"> 	</p>
+<p class="western">Q: How to gracefully Shutdown Node.js Server?	</p>
+<p class="western">
+<font color="#000080"><span lang="zxx"><u><a href="https://hackernoon.com/graceful-shutdown-in-nodejs-2f8f59d1c357">https://hackernoon.com/graceful-shutdown-in-nodejs-2f8f59d1c357</a></u></span></font></p>
+<p class="western"><span dir="ltr" style="float: left; width: 7.07in; height: 1.95in; border: none; padding: 0.05in 0.1in; background: #ffffff">
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#008000">const</font><font color="#000000">
+	server </font><font color="#666666">=</font><font color="#000000">
+	app.listen(</font><font color="#666666">3000</font><font color="#000000">,
+	() =&gt; console.log(</font><font color="#ba2121">'Example app
+	listening on port 3000!'</font><font color="#000000">));</font></p>
+	<p style="margin-bottom: 0in; line-height: 100%"><br>
+	</p>
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000">process.on(</font><font color="#ba2121">'SIGTERM'</font><font color="#000000">,
+	() =&gt; {</font></p>
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000">
+	 console.info(</font><font color="#ba2121">'SIGTERM signal
+	received.'</font><font color="#000000">);</font></p>
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000">
+	 console.log(</font><font color="#ba2121">'Closing http server.'</font><font color="#000000">);</font></p>
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000">
+	 server.close(() =&gt; {</font></p>
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000">
+	   console.log(</font><font color="#ba2121">'Http server closed.'</font><font color="#000000">);</font></p>
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000">
+	 });</font></p>
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000">})</font></p>
+</span><br><br>
+</p>
+<p class="western"><br><br>
+</p>
+<p class="western"><br><br>
+</p>
+<p class="western"><br><br>
+</p>
+<p class="western"><br><br>
+</p>
+<p class="western"><br><br>
+</p>
+<p class="western"><br><br>
+</p>
+<p class="western"><br><br>
+</p>
+<p class="western">	 	</p>
+<p class="western"> 	</p>
+<p class="western">Q: Is Node.js entirely based on a single-thread?	</p>
+<p class="western"> No</p>
+<p class="western"> 	</p>
+<p class="western">Q: <b>What is the purpose of __dirname variable?	</b></p>
+<p class="western"> <i>The directory name of the current module. This
+is the same as the path.dirname() of the __filename.</i>		 	</p>
+<p class="western"> 	</p>
+<p class="western"><b>Q: What is the purpose of __filename variable?	</b></p>
+<p class="western"> <i>The file name of the current module. This is
+the resolved absolute path of the current module file.</i></p>
+<p class="western"><br><br>
+</p>
+<p class="western"><i>For a main program this is not necessarily the
+same as the file name used in the command line.</i></p>
+<p class="western"><br><br>
+</p>
+<p class="western"><i>See __dirname for the directory name of the
+current module.</i></p>
+<p class="western"> 	</p>
+<p class="western"><b>Q: What are the timing features of Node.js?	</b></p>
+<p class="western"><b>https://www.quora.com/What-are-the-timing-features-of-Node-js</b></p>
+<p class="western"><i>Extremely quick: Node.js is based on Google
+Chrome's V8 JavaScript Engine, so its library is quick in code
+execution.</i></p>
+<p class="western"><br><br>
+</p>
+<p class="western"><i>I/O is Asynchronous and Event Driven: All APIs
+of Node.js library are offbeat i.e. non-blocking. So a Node.js based
+server never sits tight for an API to return information. The server
+moves to the following API subsequent to calling it and a warning
+instrument of Events of Node.js encourages the server to get a
+reaction from the past API call. It is likewise a reason that it is
+quick.</i></p>
+<p class="western"><br><br>
+</p>
+<p class="western"><i>Single Threaded: Node.js pursues a solitary
+strung model with occasion circling.</i></p>
+<p class="western"><i>Very Scalable: Node.js is profoundly versatile
+in light of the fact that occasion system causes the server to react
+in a non-blocking way.</i></p>
+<p class="western"><br><br>
+</p>
+<p class="western"><i>No buffering: Node.js chops down the general
+preparing time while transferring sound and video records. Node.js
+applications never support any information. These applications
+essentially yield the information in lumps.</i></p>
+<p class="western"><br><br>
+</p>
+<p class="western"><i>Open source: Node.js has an open source network
+which has delivered numerous amazing modules to add extra capacities
+to Node.js applications. We are Providing The Online Training To
+Cover The All Topics. It is One Of Topic Read More Info On</i></p>
+<p class="western"> 		 	</p>
+<p class="western"> 	</p>
+<p class="western"><b>Q: Name some of the events fired by streams.	</b></p>
+<p class="western"> <i><span style="font-weight: normal">Event:
+'close'</span></i></p>
+<p class="western"> <i><span style="font-weight: normal">Event:
+'data'</span></i></p>
+<p class="western"> <i><span style="font-weight: normal">Event: 'end'</span></i></p>
+<p class="western"> <i><span style="font-weight: normal">Event:
+'error'</span></i></p>
+<p class="western"> <i><span style="font-weight: normal">Event:
+'readable'</span></i></p>
+<p class="western"><font color="#000080"><u>
+<span lang="zxx">https://nodejs.org/api/stream.html#stream_class_stream_readable</u></span></font></p>
+<p class="western"> 	</p>
+<p class="western"> 	</p>
+<p class="western"><b>Q: What is Piping in Node?	</b></p>
+<p class="western"> <i>Streams are unix pipes that let you easily
+read data from a source and pipe it to a destination. ... For
+example, in a Node.js based HTTP server, request is a readable stream
+and response is a writable stream. You might have used fs module
+which lets you work with both readable and writable file streams</i></p>
+<p class="western"> 	</p>
+<p class="western"><b>Q: Explain usage of NODE_ENV	</b></p>
+<p class="western"><i>NODE_ENV is an environment variable made
+popular by the express webserver framework. When a node application
+is run, it can check the value of the environment variable and do
+different things based on the value. NODE_ENV specifically is used
+(by convention) to state whether a particular environment is a
+production or a development environment. A common use-case is running
+additional debugging or logging code if running in a development
+environment.</i></p>
+<p class="western"><i>var environment = process.env.NODE_ENV1</i></p>
+<p class="western">	 	</p>
+<p class="western"> 	<span dir="ltr" style="float: left; width: 7.05in; height: 2.38in; border: none; padding: 0.05in 0.1in; background: #ffffff">
+	<p style="margin-bottom: 0in; line-height: 100%">{</p>
+	<p style="margin-bottom: 0in; line-height: 100%">    &quot;development&quot;:
+	{</p>
+	<p style="margin-bottom: 0in; line-height: 100%">       
+	&quot;config_id&quot;: &quot;development&quot;,</p>
+	<p style="margin-bottom: 0in; line-height: 100%">        &quot;app_name&quot;:
+	&quot;my app&quot;,</p>
+	<p style="margin-bottom: 0in; line-height: 100%">        &quot;app_desc&quot;:
+	&quot;my app desc&quot;,</p>
+	<p style="margin-bottom: 0in; line-height: 100%">       
+	&quot;node_port&quot;: 3000,</p>
+	<p style="margin-bottom: 0in; line-height: 100%">       
+	&quot;json_indentation&quot;: 4,</p>
+	<p style="margin-bottom: 0in; line-height: 100%">        &quot;database&quot;:
+	&quot;my-app-db-dev&quot;</p>
+	<p style="margin-bottom: 0in; line-height: 100%">    },</p>
+	<p style="margin-bottom: 0in; line-height: 100%">    &quot;testing&quot;:
+	{</p>
+	<p style="margin-bottom: 0in; line-height: 100%">       
+	&quot;config_id&quot;: &quot;testing&quot;,</p>
+	<p style="margin-bottom: 0in; line-height: 100%">        &quot;database&quot;:
+	&quot;my-app-db-test&quot;</p>
+	<p style="margin-bottom: 0in; line-height: 100%">    },</p>
+	<p style="margin-bottom: 0in; line-height: 100%">    &quot;staging&quot;:
+	{</p>
+	<p style="margin-bottom: 0in; line-height: 100%">       
+	&quot;config_id&quot;: &quot;staging&quot;,</p>
+	<p style="margin-bottom: 0in; line-height: 100%">       
+	&quot;node_port&quot;: 8080,</p>
+	<p style="margin-bottom: 0in; line-height: 100%">        &quot;database&quot;:
+	&quot;my-app-db-stag&quot;</p>
+	<p style="margin-bottom: 0in; line-height: 100%">    },</p>
+	<p style="margin-bottom: 0in; line-height: 100%">    &quot;production&quot;:
+	{</p>
+	<p style="margin-bottom: 0in; line-height: 100%">       
+	&quot;config_id&quot;: &quot;production&quot;,</p>
+	<p style="margin-bottom: 0in; line-height: 100%">       
+	&quot;node_port&quot;: 8080,</p>
+	<p style="margin-bottom: 0in; line-height: 100%">        &quot;database&quot;:
+	&quot;my-app-db-prod&quot;</p>
+	<p style="margin-bottom: 0in; line-height: 100%">    }</p>
+	<p style="margin-bottom: 0in; line-height: 100%">}</p>
+</span>
+</p>
+<p class="western">Q: Provide some example of config file separation
+for dev and prod environments	</p>
+<p class="western"><font color="#000080"><span lang="zxx"><u><a href="https://stackoverflow.com/questions/5869216/how-to-store-node-js-deployment-settings-configuration-files">`</a>https://codeburst.io/node-js-best-practices-smarter-ways-to-manage-config-files-and-variables-893eef56cbef</u></span></font></p>
+<p class="western"><br><br>
+</p>
+<p class="western"><br><br>
+</p>
+<p class="western"><br><br>
+</p>
+<p class="western"><br><br>
+</p>
+<p class="western"><br><br>
+</p>
+<p class="western"><br><br>
+</p>
+<p class="western"><br><br>
+</p>
+<p class="western"><br><br>
+</p>
+<p class="western"><br><br>
+</p>
+<p class="western"><br><br>
+</p>
+<p class="western"><br><br>
+</p>
+<p class="western"><br><br>
+</p>
+<p class="western"><br><br>
+</p>
+<p class="western"><br><br>
+</p>
+<p class="western"><br><br>
+</p>
+<p class="western" style="font-weight: normal"><br><br>
+</p>
+<p class="western"><b>And save all your npm using –save flast to
+json with it's version  and using in production npm install</b></p>
+<p class="western"><br><br>
+</p>
+<p class="western"><b>Q. Explain some javascript keyworlds </b>
+</p>
+<p class="western"><font color="#000080"><span lang="zxx"><u><a href="http://www.javascripter.net/faq/reserved.htm"><b>http://www.javascripter.net/faq/reserved.htm</b></a></u></span></font></p>
+<p class="western"><br><br>
+</p>
+<p class="western"><br><br>
+</p>
+<p class="western"><b>Q: How would you handle errors for async code
+in Node.js?	</b></p>
+<p class="western"><a name="__DdeLink__1748_241871316"></a>
+<font color="#000080"><span lang="zxx"><u><a href="https://stackoverflow.com/questions/39655038/node-js-best-practice-exception-handling-after-async-await">https://stackoverflow.com/questions/39655038/node-js-best-practice-exception-handling-after-async-await</a></u></span></font></p>
+<p class="western"><br><br>
+</p>
+<p class="western"><i>You can use process 'uncaughtException' and
+'unhandledRejection' events.</i></p>
+<p class="western"><br><br>
+</p>
+<p class="western"><i>Also remember that it is not safe to resume
+normal operation after 'uncaughtException', because the system
+becomes corrupted:</i></p>
+<p class="western"><br><br>
+</p>
+<p class="western"><i>The correct use of 'uncaughtException' is to
+perform synchronous cleanup of allocated resources (e.g. file
+descriptors, handles, etc) before shutting down the process.</i></p>
+<p class="western"><br><br>
+</p>
+<p class="western"><i>process</i></p>
+<p class="western">  <i>.on('unhandledRejection', (reason, p) =&gt; {</i></p>
+<p class="western">    <i>console.error(reason, 'Unhandled Rejection
+at Promise', p);</i></p>
+<p class="western">  <i>})</i></p>
+<p class="western">  <i>.on('uncaughtException', err =&gt; {</i></p>
+<p class="western">    <i>console.error(err, 'Uncaught Exception
+thrown');</i></p>
+<p class="western">    <i>process.exit(1);</i></p>
+<p class="western">  <i>});</i></p>
+<p class="western"> 	</p>
+<p class="western"><b>Q: Explain what is Reactor Pattern in Node.js?</b>	</p>
+<p class="western"> <i>Enter Reactor Pattern- Heart of Node.js.
+Reactor Pattern is an idea of non-blocking I/O operations in Node.js.
+... This demultiplexer is a notification interface that is used to
+handle concurrency in non-blocking I/O mode and collects every
+request in form of an event and queues each event in a queue</i></p>
+<p class="western"><br><br>
+</p>
+<p class="western"><b>Q: Rewrite the code sample without try/catch
+block	</b></p>
+<p class="western"> 
+</p>
+<p class="western"><span dir="ltr" style="float: left; width: 6.65in; height: 2.05in; border: none; padding: 0.05in 0.1in; background: #ffffff">
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#008000">var</font><font color="#000000">
+	validateObject </font><font color="#666666">=</font><font color="#000000">
+	</font><font color="#008000">function</font><font color="#000000">
+	(obj, callback) {</font></p>
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000">
+	   </font><font color="#008000">if</font><font color="#000000">
+	(</font><font color="#008000">typeof</font><font color="#000000">
+	obj </font><font color="#666666">!==</font><font color="#000000">
+	</font><font color="#ba2121">'object'</font><font color="#000000">)
+	{</font></p>
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000">
+	       </font><font color="#008000">return</font><font color="#000000">
+	callback(</font><font color="#008000">new</font><font color="#000000">
+	</font><font color="#008000">Error</font><font color="#000000">(</font><font color="#ba2121">'Invalid
+	object'</font><font color="#000000">));</font></p>
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000">
+	   }</font></p>
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000">
+	   </font><font color="#008000">return</font><font color="#000000">
+	callback();</font></p>
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000">};</font></p>
+	<p style="margin-bottom: 0in; line-height: 100%"><br>
+	</p>
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000">validateObject(</font><font color="#ba2121">'123'</font><font color="#000000">,
+	</font><font color="#008000">function</font><font color="#000000">
+	(err) {</font></p>
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000">
+	   console.log(</font><font color="#ba2121">'Callback: '</font><font color="#000000">
+	</font><font color="#666666">+</font><font color="#000000">
+	err.message);</font></p>
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000">});</font></p>
+</span><br><br>
+</p>
+<p class="western"><br><br>
+</p>
+<p class="western"><br><br>
+</p>
+<p class="western"><br><br>
+</p>
+<p class="western"><br><br>
+</p>
+<p class="western">	 	</p>
+<p class="western"> 	</p>
+<p class="western">Q: Consider following code snippet	</p>
+<p class="western"> 		 	</p>
+<p class="western"> 	</p>
+<p class="western">Q: Explain some Error Handling approaches in
+Node.js you know about. Which one will you use?	</p>
+<p class="western"> 
+</p>
+<p class="western"> 	</p>
+<p class="western"><span dir="ltr" style="float: left; width: 6.95in; height: 3.04in; border: none; padding: 0.05in 0.1in; background: #ffffff">
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#008000">function</font><font color="#000000">
+	myApiFunc(callback) {</font></p>
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000">
+	 </font><font color="#408080">/*</font></p>
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#408080">
+	  * This pattern does NOT work!</font></p>
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#408080">
+	  */</font></p>
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000">
+	 </font><font color="#008000">try</font><font color="#000000"> {</font></p>
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000">
+	   doSomeAsynchronousOperation((err) =&gt; {</font></p>
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000">
+	     </font><font color="#008000">if</font><font color="#000000">
+	(err) {</font></p>
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000">
+	       </font><font color="#008000">throw</font><font color="#000000">
+	(err);</font></p>
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000">
+	     }</font></p>
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000">
+	     </font><font color="#408080">/* continue as normal */</font></p>
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000">
+	   });</font></p>
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000">
+	 } </font><font color="#008000">catch</font><font color="#000000">
+	(ex) {</font></p>
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000">
+	   callback(ex);</font></p>
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000">
+	 }</font></p>
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000">}</font></p>
+</span><br><br>
+</p>
+<p class="western"><br><br>
+</p>
+<p class="western"><br><br>
+</p>
+<p class="western"><br><br>
+</p>
+<p class="western"><br><br>
+</p>
+<p class="western"><br><br>
+</p>
+<p class="western"><br><br>
+</p>
+<p class="western"><br><br>
+</p>
+<p class="western"><br><br>
+</p>
+<p class="western"><b>Reference:
+https://www.joyent.com/node-js/production/design/errors</b></p>
+<p class="western"><br><br>
+</p>
+<p class="western"><br><br>
+</p>
+<p class="western"><b>Q: How would you scale Node application?	</b></p>
+<p class="western"><i>Horizontally scaling a Node.js application</i></p>
+<p class="western"><i>Multiple processes on same machine</i></p>
+<p class="western"><i>Native cluster mode</i></p>
+<p class="western"><i>PM2 Cluster mode</i></p>
+<p class="western"><i>Multiple machines with network load balancing</i></p>
+<p class="western"><i>https://medium.com/iquii/good-practices-for-high-performance-and-scalable-node-js-applications-part-1-3-bb06b6204197</i></p>
+<p class="western"><br><br>
+</p>
+<p class="western"> <b>Q: What is LTS releases of Node.js why should
+you care?	</b></p>
+<p class="western"> <i>LTS: LTS is an acronym for Long-Term Support,
+and is applied to release lines (yes, that's plural) that will be
+supported and maintained by the Node.js project for an extended
+period of time.May 16, 2018</i></p>
+<p class="western"> 	</p>
+<p class="western"><b>Q: Why should you separate Express 'app' and
+'server'?</b>	</p>
+<p class="western"><br><br>
+</p>
+<p class="western">In production it is standard to expose your client
+app with an http server which is better in serving static files, e.g.
+nginx.</p>
+<p class="western"><br><br>
+</p>
+<p class="western">1</p>
+<p class="western"><br><br>
+</p>
+<p class="western">All you're doing is serving files with express as
+though its a standard HTTP server. Its popular to serve these files
+with something like Nginx instead of relying on express to serve the
+files. Nginx scales better for this kind of thing. Its also possible
+to use a CDN to distribute your content to get it closer to your end
+user.</p>
+<p class="western"><br><br>
+</p>
+<p class="western">Either way, using express isn't horrible, but if
+you plan to scale its probably easier to scale the backend
+independent from the frontend because the backend is going to be a
+lot more resource hungry than a process serving static files.</p>
+<p class="western"><br><br>
+</p>
+<p class="western"><br><br>
+</p>
+<p class="western"> <i>You can instantiate a connect (the guts of
+express) server instance when starting both the server and the client
+from the same script and have it route the requests to node-static
+when the url starts with public and to connect otherwise.</i></p>
+<p class="western"><br><br>
+</p>
+<p class="western"><i>Having all of that in app.js will get out of
+hand very quickly, even more so once you have more models than just
+user.</i></p>
+<p class="western"><br><br>
+</p>
+<p class="western"><i>Also note that this isn't the only way to
+organize your routes/models/views nor is it the &quot;best&quot; way
+for all cases. You'll have you decide for yourself what will work
+best in each application.</i></p>
+<p class="western"><br><br>
+</p>
+<p class="western"><i>Note, the code in the sample is of course all
+just sample code that probably won't work. My model methods were
+based off of mongoose model methods.</i></p>
+<p class="western"><i>var AllRoutes =
+require('./app/routes/index.js');</i></p>
+<p class="western"><i>app.use('/', AllRoutes);</i></p>
+<p class="western"><i>Something like</i></p>
+<p class="western"><i>var connect = require('connect');</i></p>
+<p class="western"><i>server = connect.createServer();</i></p>
+<p class="western"><i>server.use('/public', client.handler_function);</i></p>
+<p class="western"><i>server.use(server.express_handler_function);</i></p>
+<p class="western"> 	</p>
+<p class="western"><b>Q: Can Node.js use other engines than V8?	</b></p>
+<p class="western">MEAN stack, reorganized from back to front:</p>
+<p class="western"><i>MongoDB: data persistence, stores data for
+later retrieval</i></p>
+<p class="western"><i>Node.js: web application server, responds to
+requests from clients</i></p>
+<p class="western"><i>Express: web application framework, reduces
+Node boilerplate</i></p>
+<p class="western"><i>Angular.js: browser framework</i></p>
+<p class="western"><i>So Node.js does not &quot;work on Firefox&quot;
+(it doesn't work on Google Chrome either): its a server-side
+technology. Think of it as a replacement for Python/Ruby/Java in that
+role. So it can/does respond to requests from all sorts of clients
+(like Google Chrome and Firefox).</i></p>
+<p class="western"><br><br>
+</p>
+<p class="western"><i>What the &quot;built on V8&quot; means is that
+it uses the same JavaScript interpreter/just-in-time compiler as
+Google Chrome. But the similarities with chrome pretty much stop
+there: Node has no rendering engine/css parser/DOM but does have
+things you need in a server like an HTTP library and a filesystem
+API.</i></p>
+<p class="western"><br><br>
+</p>
+<p class="western"><i>Also, and I mean no offence: we all started
+where you are, the fact that you are even asking the question (which
+again is not a bad thing!) means that building on a stack like MEAN
+is over your head. The documentation is going to assume that you know
+things you seem to not know. I strongly recommend furthering your
+understanding of JavaScript and Node through some tutorials and
+barebones test apps before trying to throw databases and frameworks
+into the mix.</i></p>
+<p class="western"><br><br>
+</p>
+<p class="western"><br><br>
+</p>
+<p class="western"><b>W</b><i><b>hat is the relationship between
+Node.js and V8?</b></i></p>
+<p class="western"><i>V8 is the Javascript engine inside of node.js
+that parses and runs your Javascript. The same V8 engine is used
+inside of Chrome to run javascript in the Chrome browser. Google
+open-sourced the V8 engine and the builders of node.js used it to run
+Javascript in node.js.</i></p>
+<p class="western"><br><br>
+</p>
+<p class="western"><i><b>Can Node.js work without V8?</b></i></p>
+<p class="western"><i>No. The current node.js binary cannot work
+without V8. It would have no Javascript engine and thus no ability to
+run code which would obviously render it non-functional. Node.js was
+not designed to run with any other Javascript engine and, in fact,
+all the native code bindings that come with node.js (such as the fs
+module or the net module) all rely on the specific V8 interface
+between C++ and Javascript.</i></p>
+<p class="western"><br><br>
+</p>
+<p class="western"><i>There is an effort by Microsoft to allow the
+Chakra Javascript engine (that's the engine in Edge) to be used with
+node.js. They build a V8 shim on top of Chakra so that the node.js
+binary code that expects to be talking to V8 can continue to do what
+it was doing, but actually end up talking to the Chakra engine
+underneath. From what I've read this is particularly targeted at
+Microsoft platforms that already have the Chakra engine and do not
+have the V8 engine running on them, though presumably you could use
+it on Windows too.</i></p>
+<p class="western">		 	</p>
+<p class="western"> <b>Q: What is the difference between
+process.nextTick() and setImmediate() ?	</b></p>
+<p class="western"><i>Use setImmediate if you want to queue the
+function behind whatever I/O event callbacks that are already in the
+event queue. Use process.nextTick to effectively queue the function
+at the head of the event queue so that it executes immediately after
+the current function completes.</i></p>
+<p class="western"><br><br>
+</p>
+<p class="western"><i>So in a case where you're trying to break up a
+long running, CPU-bound job using recursion, you would now want to
+use setImmediate rather than process.nextTick to queue the next
+iteration as otherwise any I/O event callbacks wouldn't get the
+chance to run between iterations.</i></p>
+<p class="western"> 	</p>
+<p class="western"><b>Q: How to solve &quot;Process out of Memory
+Exception&quot; in Node.js ?	</b></p>
+<p class="western"><font color="#000080"><span lang="zxx"><u><a href="https://github.com/mysqljs/mysql#pooling-connections">https://github.com/mysqljs/mysql#pooling-connections</a></u></span></font></p>
+<p class="western"><br><br>
+</p>
+<p class="western"><i>'ll summarize my comments since they sent you
+on the correct path to address your issue.</i></p>
+<p class="western"><br><br>
+</p>
+<p class="western"><i>First, you have to establish whether the issue
+is caused by your database or not. The simplest way to do that is to
+comment out the database portion and see how high you can scale. If
+you get into the thousands without a memory or CPU issue, then your
+focus can shift to figuring out why adding the database code into the
+mix causes the problem.</i></p>
+<p class="western"><br><br>
+</p>
+<p class="western"><i>Assuming the issues is caused by your database,
+then you need to start understanding how it is handling things when
+there are lots of active database requests. Oftentimes, the first
+thing to use with a busy database is connection pooling. This gives
+you three main things that can help with scale.</i></p>
+<p class="western"><br><br>
+</p>
+<p class="western"><i>It gives you fast reuse of previously opened
+connections so you don't have every single operation creating its own
+connection and then closing it.</i></p>
+<p class="western"><i>It lets you specify the max number of
+simultaneous database connections in the pool you want at the same
+time (controlling the max load you throw at the database and also
+probably limiting the max amount of memory it will use). Connections
+beyond that limit will be queued (which is usually what you want in
+high load situations so you don't overwhelm the resources you have).</i></p>
+<p class="western"><i>It makes it easier to see if you have a
+connection leak problem as rather than just leak connections until
+you run out of some resource, the pool will quickly be empty in
+testing and your server will not be able to process any more
+transactions (so you are much more likely to see the problem in
+testing).</i></p>
+<p class="western"><i>Then, you probably also want to look at the
+transaction times for your database connections to see how fast they
+can handle any given transaction. You know how many transactions/sec
+you are trying to process so you need to see if your database and the
+way it's configured and resourced (memory, CPU, speed of disk,
+etc...) is capable of keeping up with the load you want to throw at
+it.</i></p>
+<p class="western"> 	</p>
+<p class="western"><b>How does Node.js support multi-processor
+platforms, and does it fully utilize all processor resources?</b></p>
+<p class="western"><span style="font-weight: normal">Since Node.js is
+by default a single thread application, it will run on a single
+processor core and will not take full advantage of multiple core
+resources. However, Node.js provides support for deployment on
+multiple-core systems, to take greater advantage of the hardware. The
+Cluster module is one of the core Node.js modules and it allows
+running multiple Node.js worker processes that will share the same
+port.</span></p>
+<p class="western" style="font-weight: normal"><br><br>
+</p>
+<p class="western"><b>What is typically the first argument passed to
+a Node.js callback handler?</b></p>
+<p class="western"><span style="font-weight: normal">Node.js core
+modules, as well as most of the community-published ones, follow a
+pattern whereby the first argument to any callback handler is an
+optional error object. If there is no error, the argument will be
+null or undefined.</span></p>
+<p class="western" style="font-weight: normal"><br><br>
+</p>
+<p class="western"><span style="font-weight: normal">A typical
+callback handler could therefore perform error handling as follows:</span></p>
+<p class="western" style="font-weight: normal"><br><br>
+</p>
+<p class="western"><span style="font-weight: normal">function
+callback(err, results) {</span></p>
+<p class="western"><span style="font-weight: normal">// usually we'll
+check for the error before handling results</span></p>
+<p class="western"><span style="font-weight: normal">if(err) {</span></p>
+<p class="western"><span style="font-weight: normal">// handle error
+somehow and return</span></p>
+<p class="western"><span style="font-weight: normal">}</span></p>
+<p class="western"><span style="font-weight: normal">// no error,
+perform standard callback handling</span></p>
+<p class="western"><span style="font-weight: normal">}</span></p>
+<p class="western" style="font-weight: normal"><br><br>
+</p>
+<p class="western" style="font-weight: normal"><br><br>
+</p>
+<p class="western"><b>Consider following code snippet:  {    
+console.time(&quot;loop&quot;);     for (var i = 0; i &lt; 1000000; i
++= 1){         // Do nothing     }     console.timeEnd(&quot;loop&quot;);
+} The time required to run this code in Google Chrome is considerably
+more than the time required to run it in Node.js. Explain why this is
+so, even though both use the v8 JavaScript Engine.</b></p>
+<p class="western"><br><br>
+</p>
+<p class="western"><span style="font-weight: normal">Within a web
+browser such as Chrome, declaring the variable i outside of any
+function’s scope makes it global and therefore binds it as a
+property of the window object. As a result, running this code in a
+web browser requires repeatedly resolving the property i within the
+heavily populated window namespace in each iteration of the for loop.</span></p>
+<p class="western" style="font-weight: normal"><br><br>
+</p>
+<p class="western"><span style="font-weight: normal">In Node.js,
+however, declaring any variable outside of any function’s scope
+binds it only to the module’s own scope (not the window object)
+which therefore makes it much easier and faster to resolve.</span></p>
+<p class="western" style="font-weight: normal"><br><br>
+</p>
+<p class="western" style="font-weight: normal"><br><br>
+</p>
+<p class="western"><b>What's a test pyramid? How can you implement it
+when talking about HTTP APIs?</b></p>
+<p class="western"><span style="font-weight: normal">The &quot;Test
+Pyramid&quot; is a metaphor that tells us to group software tests
+into buckets of different granularity. It also gives an idea of how
+many tests we should have in each of these groups. Although the
+concept of the Test Pyramid has been around for a while, teams still
+struggle to put it into practice properly. This article revisits the
+original concept of the Test Pyramid and shows how you can put this
+into practice. It shows which kinds of tests you should be looking
+for in the different levels of the pyramid and gives practical
+examples on how these can be implemented.</span></p>
+<p class="western"><font color="#000080"><span lang="zxx"><u><a href="https://martinfowler.com/articles/practical-test-pyramid.html"><span style="font-weight: normal">https://martinfowler.com/articles/practical-test-pyramid.html</span></a></u></span></font></p>
+<p class="western" style="font-weight: normal"><br><br>
+</p>
+<p class="western" style="font-weight: normal"><br><br>
+</p>
+<p class="western"><b>Pro and Cons of Nodejs </b>
+</p>
+<p class="western"><b>Node.JS Pros:</b></p>
+<p class="western" style="font-weight: normal"><br><br>
+</p>
+<p class="western"><span style="font-weight: normal">Powerful
+underlying libraries. libuv, the library behind Node that handles
+non-blocking I/O, is super awesome. If your application involves
+interacting at a low level with other processes running on the
+machine, this by itself is a reason to choose Node.</span></p>
+<p class="western"><span style="font-weight: normal">Package
+management. In my opinion, npm is better than gem. For example,
+dependencies are installed locally rather than globally, regardless
+of how your Node.JS installation is set up. There are other reasons
+why npm is better than gem, but that's a topic for another thread.</span></p>
+<p class="western"><span style="font-weight: normal">Ecosystem.
+Because it is a newer platform, most of the community-driven
+libraries are also newer. It's really easy to fall into the trap of
+using a library in Rails that is no longer actively maintained.
+However, Node's ecosystem is also mature enough that I've never not
+been able to find a library to do something I wanted.</span></p>
+<p class="western"><span style="font-weight: normal">WebSockets.
+JavaScript was written to handle asynchronous requests, like those
+seen in WebSockets. Support for WebSockets has arrived in Rails 4,
+but it's just not as natural as it is in Node.</span></p>
+<p class="western"><span style="font-weight: normal">Full stack. From
+HTTP server to templating engine, Node.JS is the whole package. Rails
+relies on something like Nginx or Apache with mod_rails (aka
+Passenger) in order to actually work.</span></p>
+<p class="western" style="font-weight: normal"><br><br>
+</p>
+<p class="western"><b>Node.JS Cons:</b></p>
+<p class="western" style="font-weight: normal"><br><br>
+</p>
+<p class="western"><span style="font-weight: normal">Error handling.
+If your application throws an exception, the whole application
+crashes, and you have to rely on a daemon like Forever to restart the
+Node process. For a variety of reasons, Rails doesn't have this
+problem.</span></p>
+<p class="western"><span style="font-weight: normal">Memory
+management. Node.JS is garbage collected by V8. When the application
+performs a memory-intensive operation and triggers the garbage
+collector to run, though, it blocks the thread and causes poor
+performance for all users. This can be a pretty big problem on
+resource-limited machines, like the kind commonly found on shared
+hosts. I am not familiar with how Ruby's GC works and whether or not
+it has the same problem.</span></p>
+<p class="western"><span style="font-weight: normal">Maintainability.
+It's really easy for me to maintain my own code, but if someone else
+came onto my project, they would probably have no idea what's going
+on. Rail's opinionatedness makes this kind of thing not as much of an
+issue.</span></p>
+<p class="western" style="font-weight: normal"><br><br>
+</p>
+<p class="western"><b>Q-15. What Are Globals In Node.Js?</b></p>
+<p class="western"><span style="font-weight: normal">Each module is
+supposed to be independent. The require doesn't cost anything anyways
+after the first one for each module.</span></p>
+<p class="western" style="font-weight: normal"><br><br>
+</p>
+<p class="western"><span style="font-weight: normal">What if you
+wanted to test one module alone? You'd be having a lot of issues
+because it wouldn't recognize some &quot;global&quot; requires that
+you have in your app.</span></p>
+<p class="western" style="font-weight: normal"><br><br>
+</p>
+<p class="western"><span style="font-weight: normal">Yes, globals are
+bad, even in this case. Globals almost always ruin: testability,
+encapsulation and ease of maintenance.</span></p>
+<p class="western"><span style="font-weight: normal">Updated Dec.
+2012</span></p>
+<p class="western" style="font-weight: normal"><br><br>
+</p>
+<p class="western"><span style="font-weight: normal">The global
+object now has the global scope within the application and can be
+used to store any data/functions that need to be accessed from all
+modules.</span></p>
+<p class="western" style="font-weight: normal"><br><br>
+</p>
+<p class="western"><span style="font-weight: normal">Updated Dec.
+2012</span></p>
+<p class="western" style="font-weight: normal"><br><br>
+</p>
+<p class="western"><span style="font-weight: normal">The global
+object now has the global scope within the application and can be
+used to store any data/functions that need to be accessed from all
+modules.</span></p>
+<p class="western" style="font-weight: normal"><br><br>
+</p>
+<p class="western"><br><br>
+</p>
+</body>
+</html>

@@ -1,0 +1,1032 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8">
+	<title></title>
+	<meta name="generator" content="LibreOffice 4.2.3.3 (Linux)">
+	<meta name="created" content="0;0">
+	<meta name="changed" content="0;0">
+	<style type="text/css">
+	<!--
+		@page { margin: 0.79in }
+		p { margin-bottom: 0.1in; direction: ltr; color: #00000a; line-height: 120%; text-align: left; widows: 0; orphans: 0 }
+		p.western { font-family: "Liberation Serif", serif; font-size: 12pt; so-language: en-US }
+		p.cjk { font-family: "Droid Sans Fallback"; font-size: 12pt; so-language: zh-CN }
+		p.ctl { font-family: "FreeSans"; font-size: 12pt; so-language: hi-IN }
+		pre { direction: ltr; color: #00000a; text-align: left; widows: 0; orphans: 0 }
+		pre.western { font-family: "Liberation Mono", serif; so-language: en-US }
+		pre.cjk { font-family: "Droid Sans Fallback"; so-language: zh-CN }
+		pre.ctl { font-family: "Liberation Mono"; so-language: hi-IN }
+		a:link { so-language: zxx }
+	-->
+	</style>
+</head>
+<body lang="en-US" text="#00000a" dir="ltr">
+<pre class="western"><b>Q. Writing files in Node.js</b></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><span style="font-weight: normal">There are a
+lot of details in the filesystem API. The most common way (as far as
+I know) is:</span></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western" style="font-weight: normal"><span dir="ltr" style="float: left; width: 6.08in; height: 1.53in; border: none; padding: 0.05in 0.1in; background: #ffffff">
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#008000">var</font><font color="#000000">
+	fs </font><font color="#666666">=</font><font color="#000000">
+	require(</font><font color="#ba2121">'fs'</font><font color="#000000">);</font></p>
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000">fs.writeFile(</font><font color="#ba2121">&quot;/tmp/test&quot;</font><font color="#000000">,
+	</font><font color="#ba2121">&quot;Hey there!&quot;</font><font color="#000000">,
+	</font><font color="#008000">function</font><font color="#000000">(err)
+	{</font></p>
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000">
+	   </font><font color="#008000">if</font><font color="#000000">(err)
+	{</font></p>
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000">
+	       </font><font color="#008000">return</font><font color="#000000">
+	console.log(err);</font></p>
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000">
+	   }</font></p>
+	<p style="margin-bottom: 0in; line-height: 100%"><br>
+	</p>
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000">
+	   console.log(</font><font color="#ba2121">&quot;The file was
+	saved!&quot;</font><font color="#000000">);</font></p>
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000">})</font></p>
+</span><br>
+</pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><b>Q. Saving XML filen in Node.js [duplicate]</b></pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><i><span style="font-weight: normal">DOM
+implementations like XMLDOM have an XMLSerializer class (Most
+browsers have, too). This is part of the DOM API standard.</span></i></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><i><span style="font-weight: normal">It allows
+to serialize a DOM document/node into an string. You can use the fs
+module to save the string in a file.</span></i></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western" style="font-weight: normal"><span dir="ltr" style="float: left; width: 6.96in; height: 3.45in; border: none; padding: 0.05in 0.1in; background: #ffffff">
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#008000">var</font><font color="#000000">
+	fs </font><font color="#666666">=</font><font color="#000000">
+	require(</font><font color="#ba2121">'fs'</font><font color="#000000">);</font></p>
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#008000">var</font><font color="#000000">
+	serializer </font><font color="#666666">=</font><font color="#000000">
+	</font><font color="#008000">new</font><font color="#000000">
+	(require(</font><font color="#ba2121">'xmldom'</font><font color="#000000">)).XMLSerializer;</font></p>
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#008000">var</font><font color="#000000">
+	implementation </font><font color="#666666">=</font><font color="#000000">
+	</font><font color="#008000">new</font><font color="#000000">
+	(require(</font><font color="#ba2121">'xmldom'</font><font color="#000000">)).DOMImplementation;</font></p>
+	<p style="margin-bottom: 0in; line-height: 100%"><br>
+	</p>
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#008000">var</font><font color="#000000">
+	</font><font color="#008000">document</font><font color="#000000"> </font><font color="#666666">=</font><font color="#000000">
+	implementation.createDocument(</font><font color="#ba2121">''</font><font color="#000000">,
+	</font><font color="#ba2121">''</font><font color="#000000">, </font><font color="#008000">null</font><font color="#000000">);</font></p>
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#008000">document</font><font color="#000000">.appendChild(</font><font color="#008000">document</font><font color="#000000">.createElement(</font><font color="#ba2121">'foo'</font><font color="#000000">));</font></p>
+	<p style="margin-bottom: 0in; line-height: 100%"><br>
+	</p>
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000">fs.writeFile(</font></p>
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000">
+	 </font><font color="#ba2121">&quot;/tmp/test.xml&quot;</font><font color="#000000">,
+	</font>
+	</p>
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000">
+	 serializer.serializeToString(</font><font color="#008000">document</font><font color="#000000">),
+	</font>
+	</p>
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000">
+	 </font><font color="#008000">function</font><font color="#000000">(error)
+	{</font></p>
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000">
+	   </font><font color="#008000">if</font><font color="#000000">
+	(error) {</font></p>
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000">
+	     console.log(error);</font></p>
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000">
+	   } </font><font color="#008000">else</font><font color="#000000">
+	{</font></p>
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000">
+	     console.log(</font><font color="#ba2121">&quot;The file was
+	saved!&quot;</font><font color="#000000">);</font></p>
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000">
+	   }</font></p>
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000">
+	 }</font></p>
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000">);</font>
+		</p>
+</span><br>
+</pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><span style="font-weight: normal">var
+myVeryLongInternalName = function() { ... };</span></pre>
+<pre class="western"><span style="font-weight: normal">exports.shortName
+= myVeryLongInternalName;</span></pre>
+<pre class="western"><span style="font-weight: normal">// add other
+objects, functions, as required</span></pre>
+<pre class="western"><span style="font-weight: normal">followed by:</span></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><span style="font-weight: normal">var m =
+require('./mymodule');</span></pre>
+<pre class="western"><span style="font-weight: normal">m.shortName();</span></pre>
+<pre class="western"><b>Q. module.exports is the object that's
+actually returned as the result of a require call.</b></pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><b>The exports variable is initially set to that
+same object (i.e. it's a shorthand &quot;alias&quot;), so in the
+module code you would usually write something like this:</b></pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><span dir="ltr" style="float: left; width: 6.06in; height: 1.05in; border: none; padding: 0.05in 0.1in; background: #ffffff">
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#008000">var</font><font color="#000000">
+	myFunc1 </font><font color="#666666">=</font><font color="#000000">
+	</font><font color="#008000">function</font><font color="#000000">()
+	{ ... };</font></p>
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#008000">var</font><font color="#000000">
+	myFunc2 </font><font color="#666666">=</font><font color="#000000">
+	</font><font color="#008000">function</font><font color="#000000">()
+	{ ... };</font></p>
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000">exports.myFunc1
+	</font><font color="#666666">=</font><font color="#000000"> myFunc1;</font></p>
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000">exports.myFunc2
+	</font><font color="#666666">=</font><font color="#000000"> myFunc2;</font></p>
+	<p style="margin-bottom: 0in; line-height: 100%"><br>
+	</p>
+</span><br>
+</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><span style="font-weight: normal">to export (or
+&quot;expose&quot;) the internally scoped functions myFunc1 and
+myFunc2.</span></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><span style="font-weight: normal">And in the
+calling code you would use:</span></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><span style="font-weight: normal">var m =
+require('./mymodule');</span></pre>
+<pre class="western"><span style="font-weight: normal">m.myFunc1();</span></pre>
+<pre class="western"><span style="font-weight: normal">where the last
+line shows how the result of require is (usually) just a plain object
+whose properties may be accessed.</span></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><span style="font-weight: normal">NB: if you
+overwrite exports then it will no longer refer to module.exports. So
+if you wish to assign a new object (or a function reference) to
+exports then you should also assign that new object to module.exports</span></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><span style="font-weight: normal">It's worth
+noting that the name added to the exports object does not have to be
+the same as the module's internally scoped name for the value that
+you're adding, so you could have:</span></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><span style="font-weight: normal">var
+myVeryLongInternalName = function() { ... };</span></pre>
+<pre class="western"><span style="font-weight: normal">exports.shortName
+= myVeryLongInternalName;</span></pre>
+<pre class="western"><span style="font-weight: normal">// add other
+objects, functions, as required</span></pre>
+<pre class="western"><span style="font-weight: normal">followed by:</span></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><span style="font-weight: normal">var m =
+require('./mymodule');</span></pre>
+<pre class="western"><span style="font-weight: normal">m.shortName();</span></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><b>Q What does “use strict” do in
+JavaScript, and what is the reasoning behind it?</b></pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><i><span style="font-weight: normal">This
+article about Javascript Strict Mode might interest you: John Resig -
+ECMAScript 5 Strict Mode, JSON, and Morevar myVeryLongInternalName =
+function() { ... };</span></i></pre>
+<pre class="western"><span style="font-weight: normal">exports.shortName
+= myVeryLongInternalName;</span></pre>
+<pre class="western"><span style="font-weight: normal">// add other
+objects, functions, as required</span></pre>
+<pre class="western"><span style="font-weight: normal">followed by:</span></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><span style="font-weight: normal">var m =
+require('./mymodule');</span></pre>
+<pre class="western"><i><span style="font-weight: normal">m.shortName();</span></i></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><i><span style="font-weight: normal">To quote
+some interesting parts:</span></i></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><i><span style="font-weight: normal">Strict Mode
+is a new feature in ECMAScript 5 that allows you to place a program,
+or a function, in a &quot;strict&quot; operating context. This strict
+context prevents certain actions from being taken and throws more
+exceptions.</span></i></pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><i><span style="font-weight: normal">It catches
+some common coding bloopers, throwing exceptions.</span></i></pre>
+<pre class="western"><i><span style="font-weight: normal">It
+prevents, or throws errors, when relatively &quot;unsafe&quot;
+actions are taken (such as gaining access to the global object).</span></i></pre>
+<pre class="western"><i><span style="font-weight: normal">It disables
+features that are confusing or poorly thought out.</span></i></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><i><span style="font-weight: normal">And:</span></i></pre>
+<pre class="western"><span style="font-weight: normal">var
+myVeryLongInternalName = function() { ... };</span></pre>
+<pre class="western"><span style="font-weight: normal">exports.shortName
+= myVeryLongInternalName;</span></pre>
+<pre class="western"><span style="font-weight: normal">// add other
+objects, functions, as required</span></pre>
+<pre class="western"><span style="font-weight: normal">followed by:</span></pre>
+<pre class="western"><br>
+</pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><span style="font-weight: normal">var m =
+require('./mymodule');</span></pre>
+<pre class="western"><i><span style="font-weight: normal">m.shortName();</span></i></pre>
+<pre class="western"><i><span style="font-weight: normal">Strict mode
+helps out in a couple ways:</span></i></pre>
+<pre class="western"><span style="font-weight: normal">var
+myVeryLongInternalName = function(var myVeryLongInternalName =
+function() { ... };var myVeryLongInternalName = function() { ... };</span></pre>
+<pre class="western"><span style="font-weight: normal">exports.shortName
+= myVeryLongInternalName;</span></pre>
+<pre class="western"><span style="font-weight: normal">// add other
+objects, functions, as required</span></pre>
+<pre class="western"><span style="font-weight: normal">followed by:</span></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><span style="font-weight: normal">var m =
+require('./mymodule');</span></pre>
+<pre class="western"><span style="font-weight: normal">m.shortName();</span></pre>
+<pre class="western"><span style="font-weight: normal">exports.shortName
+= myVeryLongInternalName;</span></pre>
+<pre class="western"><span style="font-weight: normal">// add other
+objects, functions, as required</span></pre>
+<pre class="western"><span style="font-weight: normal">followed
+by:var myVeryLongInternalName = function() { ... };</span></pre>
+<pre class="western"><span style="font-weight: normal">exports.shortName
+= myVeryLongInternalName;</span></pre>
+<pre class="western"><span style="font-weight: normal">// add other
+objects, functions, as required</span></pre>
+<pre class="western"><span style="font-weight: normal">followed by:</span></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><span style="font-weight: normal">var m =
+require('./mymodule');</span></pre>
+<pre class="western"><span style="font-weight: normal">m.shortName();</span></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><span style="font-weight: normal">var m =
+require('./mymodule');</span></pre>
+<pre class="western"><span style="font-weight: normal">m.shortName();)
+{ ... };</span></pre>
+<pre class="western"><span style="font-weight: normal">exports.shortName
+= myVeryLongInternalName;</span></pre>
+<pre class="western"><span style="font-weight: normal">// add other
+objects, functions, as required</span></pre>
+<pre class="western"><span style="font-weight: normal">followed by:</span></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><span style="font-weight: normal">var m =
+require('./mymodule');</span></pre>
+<pre class="western"><i><span style="font-weight: normal">m.shortName();</span></i></pre>
+<pre class="western"><i><span style="font-weight: normal">It catches
+some common coding bloopers, throwing exceptions.var
+myVeryLongInternalName = function() { ... };</span></i></pre>
+<pre class="western"><span style="font-weight: normal">exports.shortName
+= myVeryLongInternalName;</span></pre>
+<pre class="western"><span style="font-weight: normal">// add other
+objects, functions, as required</span></pre>
+<pre class="western"><span style="font-weight: normal">followed by:</span></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><span style="font-weight: normal">var m =
+require('./mymodule');</span></pre>
+<pre class="western"><i><span style="font-weight: normal">m.shortName();</span></i></pre>
+<pre class="western"><i><span style="font-weight: normal">It
+prevents, or throws errors, when relatively &quot;unsafe&quot;
+actions are taken (such as gaining access to the global object).</span></i></pre>
+<pre class="western"><i><span style="font-weight: normal">It disables
+features that are confusing or poorly thought out.</span></i></pre>
+<pre class="western"><i><span style="font-weight: normal">Also note
+you can apply &quot;strict mode&quot; to the whole file... Or you can
+use it only for a specific function (still quoting from John Resig's
+article):</span></i></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western" style="font-weight: normal"><span dir="ltr" style="float: left; width: 6.26in; height: 1.73in; border: none; padding: 0.05in 0.1in; background: #ffffff">
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#408080">//
+	Non-strict code...</font></p>
+	<p style="margin-bottom: 0in; line-height: 100%"><br>
+	</p>
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000">(</font><font color="#008000">function</font><font color="#000000">(){</font></p>
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000">
+	 </font><font color="#ba2121">&quot;use strict&quot;</font><font color="#000000">;</font></p>
+	<p style="margin-bottom: 0in; line-height: 100%"><br>
+	</p>
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000">
+	 </font><font color="#408080">// Define your library strictly...</font></p>
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000">})();</font></p>
+	<p style="margin-bottom: 0in; line-height: 100%"><br>
+	</p>
+	<p style="margin-bottom: 0in; line-height: 100%">// Non-strict
+	code... 
+	</p>
+</span><br>
+</pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><i><span style="font-weight: normal">Which might
+be helpful if you have to mix old and new code ;-)</span></i></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><i><span style="font-weight: normal">So, I
+suppose it's a bit like the &quot;use strict&quot; you can use in
+Perl (hence the name?): it helps you make fewer errors, by detecting
+more things that could lead to breakages.</span></i></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><i><span style="font-weight: normal">Currently,
+it's supported by all major browsers (bar IE 9 and below).</span></i></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><i><b>Q. Cluster</b></i></pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><span dir="ltr" style="float: left; width: 7.56in; height: 4.79in; border: none; padding: 0.05in 0.1in; background: #ffffff">
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#008000">const</font><font color="#000000">
+	cluster </font><font color="#666666">=</font><font color="#000000">
+	require(</font><font color="#ba2121">'cluster'</font><font color="#000000">);</font></p>
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#008000">const</font><font color="#000000">
+	http </font><font color="#666666">=</font><font color="#000000">
+	require(</font><font color="#ba2121">'http'</font><font color="#000000">);</font></p>
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#008000">const</font><font color="#000000">
+	numCPUs </font><font color="#666666">=</font><font color="#000000">
+	require(</font><font color="#ba2121">'os'</font><font color="#000000">).cpus().length;</font></p>
+	<p style="margin-bottom: 0in; line-height: 100%"><br>
+	</p>
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#008000">if</font><font color="#000000">
+	(cluster.isMaster) {</font></p>
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000">
+	 console.log(</font><font color="#ba2121">`Master </font><font color="#bb6688">${</font><font color="#000000">process.pid</font><font color="#bb6688">}</font><font color="#ba2121">
+	is running`</font><font color="#000000">);</font></p>
+	<p style="margin-bottom: 0in; line-height: 100%"><br>
+	</p>
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000">
+	 </font><font color="#408080">// Fork workers.</font></p>
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000">
+	 </font><font color="#008000">for</font><font color="#000000"> (</font><font color="#008000">let</font><font color="#000000">
+	i </font><font color="#666666">=</font><font color="#000000"> </font><font color="#666666">0</font><font color="#000000">;
+	i </font><font color="#666666">&lt;</font><font color="#000000">
+	numCPUs; i</font><font color="#666666">++</font><font color="#000000">)
+	{</font></p>
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000">
+	   cluster.fork();</font></p>
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000">
+	 }</font></p>
+	<p style="margin-bottom: 0in; line-height: 100%"><br>
+	</p>
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000">
+	 cluster.on(</font><font color="#ba2121">'exit'</font><font color="#000000">,
+	(worker, code, signal) =&gt; {</font></p>
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000">
+	   console.log(</font><font color="#ba2121">`worker
+	</font><font color="#bb6688">${</font><font color="#000000">worker.process.pid</font><font color="#bb6688">}</font><font color="#ba2121">
+	died`</font><font color="#000000">);</font></p>
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000">
+	 });</font></p>
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000">}
+	</font><font color="#008000">else</font><font color="#000000"> {</font></p>
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000">
+	 </font><font color="#408080">// Workers can share any TCP
+	connection</font></p>
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000">
+	 </font><font color="#408080">// In this case it is an HTTP server</font></p>
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000">
+	 http.createServer((req, res) =&gt; {</font></p>
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000">
+	   res.writeHead(</font><font color="#666666">200</font><font color="#000000">);</font></p>
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000">
+	   res.end(</font><font color="#ba2121">'hello world\n'</font><font color="#000000">);</font></p>
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000">
+	 }).listen(</font><font color="#666666">8000</font><font color="#000000">);</font></p>
+	<p style="margin-bottom: 0in; line-height: 100%"><br>
+	</p>
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000">
+	 console.log(</font><font color="#ba2121">`Worker </font><font color="#bb6688">${</font><font color="#000000">process.pid</font><font color="#bb6688">}</font><font color="#ba2121">
+	started`</font><font color="#000000">);</font></p>
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000">}</font></p>
+</span><br>
+</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><span dir="ltr" style="float: left; width: 7.14in; height: 6.13in; border: none; padding: 0.05in 0.1in; background: #ffffff">
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000">With
+	node.js, module.exports is how one exposes the </font><font color="#008000">public</font><font color="#000000">
+	</font><font color="#008000">interface</font><font color="#000000">
+	</font><font color="#008000">of</font><font color="#000000"> a
+	module.</font></p>
+	<p style="margin-bottom: 0in; line-height: 100%"><br>
+	</p>
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#408080">/*
+	my-module.js */</font></p>
+	<p style="margin-bottom: 0in; line-height: 100%"><br>
+	</p>
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000">exports.coolFunction
+	</font><font color="#666666">=</font><font color="#000000">
+	</font><font color="#008000">function</font><font color="#000000">(callback)
+	{</font></p>
+	<p style="margin-bottom: 0in; line-height: 100%"><br>
+	</p>
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000">
+	   </font><font color="#408080">// stuff &amp; things</font></p>
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000">
+	   callback(whatever);</font></p>
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000">};</font></p>
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000">This
+	</font><font color="#008000">interface</font><font color="#000000">
+	can then be consumed by another module after importing</font><font color="#666666">/</font><font color="#000000">requiring
+	it</font><font color="#666666">:</font></p>
+	<p style="margin-bottom: 0in; line-height: 100%"><br>
+	</p>
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#408080">/*
+	another-module.js */</font></p>
+	<p style="margin-bottom: 0in; line-height: 100%"><br>
+	</p>
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#008000">var</font><font color="#000000">
+	myModule </font><font color="#666666">=</font><font color="#000000">
+	require(</font><font color="#ba2121">'my-module'</font><font color="#000000">);</font></p>
+	<p style="margin-bottom: 0in; line-height: 100%"><br>
+	</p>
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000">myModule.coolFunction(</font><font color="#008000">function</font><font color="#000000">(error)
+	{ ... });</font></p>
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000">Prototypes
+	(a plain Javascript feature), on the other hand, are useful </font><font color="#008000">for</font><font color="#000000">
+	defining shared properties and methods </font><font color="#008000">of</font><font color="#000000">
+	objects instantiated from a constructor </font><font color="#008000">function</font><font color="#000000">.</font></p>
+	<p style="margin-bottom: 0in; line-height: 100%"><br>
+	</p>
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#008000">function</font><font color="#000000">
+	User() {</font></p>
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000">
+	   </font><font color="#008000">this</font><font color="#000000">.name
+	</font><font color="#666666">=</font><font color="#000000"> </font><font color="#008000">null</font><font color="#000000">;</font></p>
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000">}</font></p>
+	<p style="margin-bottom: 0in; line-height: 100%"><br>
+	</p>
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000">User.prototype.printGreeting
+	</font><font color="#666666">=</font><font color="#000000">
+	</font><font color="#008000">function</font><font color="#000000">()
+	{</font></p>
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000">
+	   console.log(</font><font color="#ba2121">'Hello. My name is: '</font><font color="#000000">
+	</font><font color="#666666">+</font><font color="#000000">
+	</font><font color="#008000">this</font><font color="#000000">.name);</font></p>
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000">};</font></p>
+	<p style="margin-bottom: 0in; line-height: 100%"><br>
+	</p>
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#008000">var</font><font color="#000000">
+	user </font><font color="#666666">=</font><font color="#000000"> </font><font color="#008000">new</font><font color="#000000">
+	User();</font></p>
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000">user.name
+	</font><font color="#666666">=</font><font color="#000000"> </font><font color="#ba2121">'Jill'</font><font color="#000000">;</font></p>
+	<p style="margin-bottom: 0in; line-height: 100%"><br>
+	</p>
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000">user.printGreeting();</font></p>
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000">Cheers.</font></p>
+</span><br>
+</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><i><b>Q. Javascript Modules: Prototype vs.
+Export</b></i></pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><img src="data:" align="left" hspace="6"><span style="font-style: normal"><b>Q.
+Common method for calling a node function from Angular Controller</b></span></pre>
+<pre class="western"><i><span style="font-weight: normal">First of
+all nodejs and angularjs all though both are javascript both are two
+different implementation.</span></i></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><i><span style="font-weight: normal">NodeJS
+works on server, on other hand angularjs works on browser.</span></i></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><i><span style="font-weight: normal">initially
+when i was newbie to node i was also having the same problem . i was
+thinking we could directly call the node function from angularjs
+,after all everything is javascript right ! but i was wrong.</span></i></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western" style="font-style: normal; font-weight: normal"><br>
+</pre>
+<pre class="western" style="font-style: normal; font-weight: normal"><br>
+</pre>
+<pre class="western" style="font-style: normal; font-weight: normal"><br>
+</pre>
+<pre class="western" style="font-style: normal; font-weight: normal"><span dir="ltr" style="float: left; width: 7.41in; height: 3.07in; border: none; padding: 0.05in 0.1in; background: #ffffff">
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000"><b>Q.
+	Common method </b></font><font color="#008000"><b>for</b></font><font color="#000000"><b>
+	calling a node </b></font><font color="#008000"><b>function</b></font><font color="#000000"><b>
+	from Angular Controller</b></font></p>
+	<p style="margin-bottom: 0in; line-height: 100%"><br>
+	</p>
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#008000"><span style="font-weight: normal">function</span></font><font color="#000000"><span style="font-weight: normal">
+	MyCtrl($scope, $http) { </span></font>
+	</p>
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#408080"><span style="font-weight: normal">//
+	$http is injected by angular's IOC implementation</span></font></p>
+	<p style="margin-bottom: 0in; line-height: 100%"><br>
+	</p>
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#408080"><span style="font-weight: normal">//
+	other functions and controller stuff is here...    </span></font>
+	</p>
+	<p style="margin-bottom: 0in; line-height: 100%"><br>
+	</p>
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#408080"><span style="font-weight: normal">//
+	this is called when button is clicked</span></font></p>
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000"><span style="font-weight: normal">$scope.batchfile
+	</span></font><font color="#666666"><span style="font-weight: normal">=</span></font><font color="#000000"><span style="font-weight: normal">
+	</span></font><font color="#008000"><span style="font-weight: normal">function</span></font><font color="#000000"><span style="font-weight: normal">()
+	{</span></font></p>
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000">
+	   <span style="font-weight: normal">$http.get(</span></font><font color="#ba2121"><span style="font-weight: normal">'/performbatch'</span></font><font color="#000000"><span style="font-weight: normal">).success(</span></font><font color="#008000"><span style="font-weight: normal">function</span></font><font color="#000000"><span style="font-weight: normal">()
+	{</span></font></p>
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000">
+	       </font><font color="#408080"><span style="font-weight: normal">//
+	url was called successfully, do something </span></font>
+	</p>
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000">
+	       </font><font color="#408080"><span style="font-weight: normal">//
+	maybe indicate in the UI that the batch file is</span></font></p>
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000">
+	       </font><font color="#408080"><span style="font-weight: normal">//
+	executed...</span></font></p>
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000">
+	   <span style="font-weight: normal">});</span></font></p>
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000"><span style="font-weight: normal">}</span></font></p>
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000"><span style="font-weight: normal">}</span></font></p>
+</span><br>
+</pre>
+<pre class="western" style="font-style: normal; font-weight: normal"><br>
+</pre>
+<pre class="western" style="font-style: normal; font-weight: normal"><br>
+</pre>
+<pre class="western" style="font-style: normal; font-weight: normal"><br>
+</pre>
+<pre class="western"><span style="font-style: normal"><b>How do I
+remove a property from a JavaScript object?</b></span></pre>
+<pre class="western" style="font-style: normal"><br>
+</pre>
+<pre class="western" style="font-style: normal"><br>
+</pre>
+<pre class="western" style="font-style: normal"><br>
+</pre>
+<pre class="western" style="font-style: normal"><br>
+</pre>
+<pre class="western" style="font-style: normal"><br>
+</pre>
+<pre class="western" style="font-style: normal"><br>
+</pre>
+<pre class="western" style="font-style: normal"><br>
+</pre>
+<pre class="western" style="font-style: normal"><br>
+</pre>
+<pre class="western" style="font-style: normal"><br>
+</pre>
+<pre class="western" style="font-style: normal"><br>
+</pre>
+<pre class="western" style="font-style: normal"><br>
+</pre>
+<pre class="western" style="font-style: normal"><br>
+</pre>
+<pre class="western" style="font-style: normal"><br>
+</pre>
+<pre class="western" style="font-style: normal"><br>
+</pre>
+<pre class="western" style="font-style: normal"><br>
+</pre>
+<pre class="western" style="font-style: normal"><span dir="ltr" style="float: left; width: 4.82in; height: 3.07in; border: none; padding: 0.05in 0.1in; background: #ffffff">
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#008000">delete</font><font color="#000000">
+	myObject.regex;</font></p>
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#408080">//
+	or,</font></p>
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#008000">delete</font><font color="#000000">
+	myObject[</font><font color="#ba2121">'regex'</font><font color="#000000">];</font></p>
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#408080">//
+	or,</font></p>
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#008000">var</font><font color="#000000">
+	prop </font><font color="#666666">=</font><font color="#000000">
+	</font><font color="#ba2121">&quot;regex&quot;</font><font color="#000000">;</font></p>
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#008000">delete</font><font color="#000000">
+	myObject[prop];</font></p>
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000">Demo</font></p>
+	<p style="margin-bottom: 0in; line-height: 100%"><br>
+	</p>
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#008000">var</font><font color="#000000">
+	myObject </font><font color="#666666">=</font><font color="#000000">
+	{</font></p>
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000">
+	   </font><font color="#ba2121">&quot;ircEvent&quot;</font><font color="#666666">:</font><font color="#000000">
+	</font><font color="#ba2121">&quot;PRIVMSG&quot;</font><font color="#000000">,</font></p>
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000">
+	   </font><font color="#ba2121">&quot;method&quot;</font><font color="#666666">:</font><font color="#000000">
+	</font><font color="#ba2121">&quot;newURI&quot;</font><font color="#000000">,</font></p>
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000">
+	   </font><font color="#ba2121">&quot;regex&quot;</font><font color="#666666">:</font><font color="#000000">
+	</font><font color="#ba2121">&quot;^http://.*&quot;</font></p>
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000">};</font></p>
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#008000">delete</font><font color="#000000">
+	myObject.regex;</font></p>
+	<p style="margin-bottom: 0in; line-height: 100%"><br>
+	</p>
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000">console.log(myObject);</font></p>
+</span><br>
+</pre>
+<pre class="western" style="font-style: normal"><br>
+</pre>
+<pre class="western" style="font-style: normal"><br>
+</pre>
+<pre class="western" style="font-style: normal"><br>
+</pre>
+<pre class="western" style="font-style: normal"><br>
+</pre>
+<pre class="western" style="font-style: normal"><br>
+</pre>
+<pre class="western" style="font-style: normal"><br>
+</pre>
+<pre class="western"><span style="font-style: normal"><b>Q. Node.js
+console.log() in txt file</b></span></pre>
+<pre class="western" style="font-style: normal; font-weight: normal"><br>
+</pre>
+<pre class="western" style="font-style: normal; font-weight: normal"><br>
+</pre>
+<pre class="western" style="font-style: normal; font-weight: normal"><br>
+</pre>
+<pre class="western" style="font-style: normal; font-weight: normal"><br>
+</pre>
+<pre class="western" style="font-style: normal; font-weight: normal"><br>
+</pre>
+<pre class="western" style="font-style: normal; font-weight: normal"><br>
+</pre>
+<pre class="western" style="font-style: normal; font-weight: normal"><br>
+</pre>
+<pre class="western" style="font-style: normal; font-weight: normal"><br>
+</pre>
+<pre class="western" style="font-style: normal; font-weight: normal"><br>
+</pre>
+<pre class="western" style="font-style: normal; font-weight: normal"><br>
+</pre>
+<pre class="western" style="font-style: normal; font-weight: normal"><br>
+</pre>
+<pre class="western" style="font-style: normal; font-weight: normal"><br>
+</pre>
+<pre class="western" style="font-style: normal; font-weight: normal"><br>
+</pre>
+<pre class="western" style="font-style: normal; font-weight: normal"><span dir="ltr" style="float: left; width: 6.95in; height: 4.03in; border: none; padding: 0.05in 0.1in; background: #ffffff">
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000">would
+	use a library instead </font><font color="#008000">of</font><font color="#000000">
+	re</font><font color="#666666">-</font><font color="#000000">inventing
+	the wheel. I looked </font><font color="#008000">for</font><font color="#000000">
+	a log4j</font><font color="#666666">-</font><font color="#000000">type
+	library on npm, and it came up </font><font color="#008000">with</font><font color="#000000">
+	https</font><font color="#666666">:</font><font color="#408080">//github.com/nomiddlename/log4js-node</font></p>
+	<p style="margin-bottom: 0in; line-height: 100%"><br>
+	</p>
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#008000">if</font><font color="#000000">
+	you want to log to the console and to a file</font><font color="#666666">:</font></p>
+	<p style="margin-bottom: 0in; line-height: 100%"><br>
+	</p>
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#008000">var</font><font color="#000000">
+	log4js </font><font color="#666666">=</font><font color="#000000">
+	require(</font><font color="#ba2121">'log4js'</font><font color="#000000">);</font></p>
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000">log4js.configure({</font></p>
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000">
+	 appenders</font><font color="#666666">:</font><font color="#000000">
+	[</font></p>
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000">
+	   { type</font><font color="#666666">:</font><font color="#000000">
+	</font><font color="#ba2121">'console'</font><font color="#000000">
+	},</font></p>
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000">
+	   { type</font><font color="#666666">:</font><font color="#000000">
+	</font><font color="#ba2121">'file'</font><font color="#000000">,
+	filename</font><font color="#666666">:</font><font color="#000000">
+	</font><font color="#ba2121">'logs/cheese.log'</font><font color="#000000">,
+	category</font><font color="#666666">:</font><font color="#000000">
+	</font><font color="#ba2121">'cheese'</font><font color="#000000"> }</font></p>
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000">
+	 ]</font></p>
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000">});</font></p>
+	<p style="margin-bottom: 0in; line-height: 100%"><br>
+	</p>
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000">now
+	your code can create a </font><font color="#008000">new</font><font color="#000000">
+	logger </font><font color="#008000">with</font></p>
+	<p style="margin-bottom: 0in; line-height: 100%"><br>
+	</p>
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#008000">var</font><font color="#000000">
+	logger </font><font color="#666666">=</font><font color="#000000">
+	log4js.getLogger(</font><font color="#ba2121">'cheese'</font><font color="#000000">);
+	</font>
+	</p>
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000">and
+	use the logger </font><font color="#008000">in</font><font color="#000000">
+	your code</font></p>
+	<p style="margin-bottom: 0in; line-height: 100%"><br>
+	</p>
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000">logger.warn(</font><font color="#ba2121">'Cheese
+	is quite smelly.'</font><font color="#000000">);</font></p>
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000">logger.info(</font><font color="#ba2121">'Cheese
+	is Gouda.'</font><font color="#000000">);</font></p>
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000">logger.debug(</font><font color="#ba2121">'Cheese
+	is not a food.'</font><font color="#000000">);</font></p>
+</span><br>
+</pre>
+<pre class="western" style="font-style: normal; font-weight: normal"><br>
+</pre>
+<pre class="western" style="font-style: normal; font-weight: normal"><br>
+</pre>
+<pre class="western" style="font-style: normal; font-weight: normal"><br>
+</pre>
+<pre class="western" style="font-style: normal; font-weight: normal"><br>
+</pre>
+<pre class="western" style="font-style: normal; font-weight: normal"><br>
+</pre>
+<pre class="western" style="font-style: normal; font-weight: normal"><br>
+</pre>
+<pre class="western" style="font-style: normal; font-weight: normal"><br>
+</pre>
+<pre class="western" style="font-style: normal; font-weight: normal"><br>
+</pre>
+<pre class="western" style="font-style: normal; font-weight: normal"><br>
+</pre>
+<pre class="western" style="font-style: normal; font-weight: normal"><br>
+</pre>
+<pre class="western" style="font-style: normal; font-weight: normal"><br>
+</pre>
+<pre class="western" style="font-style: normal; font-weight: normal"><br>
+</pre>
+<pre class="western" style="font-style: normal; font-weight: normal"><br>
+</pre>
+<pre class="western"><span style="font-style: normal"><span style="font-weight: normal"><br><br></span></span><span style="font-style: normal"><b>Q.Upgrading
+Node.js to latest version</b></span></pre>
+<pre class="western"><span style="font-style: normal"><span style="font-weight: normal">The
+module n makes version-management easy:</span></span></pre>
+<pre class="western" style="font-style: normal; font-weight: normal"><br>
+</pre>
+<pre class="western"><span style="font-style: normal"><span style="font-weight: normal">sudo
+npm install n -g</span></span></pre>
+<pre class="western"><span style="font-style: normal"><span style="font-weight: normal">For
+the latest stable version:</span></span></pre>
+<pre class="western" style="font-style: normal; font-weight: normal"><br>
+</pre>
+<pre class="western"><span style="font-style: normal"><span style="font-weight: normal">sudo
+n stable</span></span></pre>
+<pre class="western"><span style="font-style: normal"><span style="font-weight: normal">For
+the latest version:</span></span></pre>
+<pre class="western" style="font-style: normal; font-weight: normal"><br>
+</pre>
+<pre class="western"><span style="font-style: normal"><span style="font-weight: normal">sudo
+n latest</span></span></pre>
+<pre class="western" style="font-style: normal; font-weight: normal"><br>
+</pre>
+<pre class="western" style="font-style: normal; font-weight: normal"><br>
+</pre>
+<pre class="western"><span style="font-style: normal"><b>How do I
+update Node.js?</b></span></pre>
+<pre class="western"><i><span style="font-weight: normal">Use Node
+Version Manager (NVM)</span></i></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><i><span style="font-weight: normal">It's a Bash
+script that lets you download and manage different versions of node.
+Full source code is here.</span></i></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><i><span style="font-weight: normal">There is a
+separate project for nvm for Windows:
+github.com/coreybutler/nvm-windows</span></i></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><br>
+</pre>
+</body>
+</html>
