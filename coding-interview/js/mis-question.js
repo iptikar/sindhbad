@@ -126,6 +126,8 @@ var howmany = 3;
 
 var elements = array.length / 3;
 
+// var item = items[Math.floor(Math.random()*items.length)];
+
 // Broked 
 var borked = [];
 
@@ -136,4 +138,8 @@ for( var i = 0; i < howmany; i++) {
 }
 
 console.log(borked);
+
+
+var array3 = array1.filter(function(obj) { return array2.indexOf(obj) == -1; });
+
 

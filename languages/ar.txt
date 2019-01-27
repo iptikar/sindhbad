@@ -1,0 +1,3 @@
+Repeat email=كرر البريد الإلكتروني
+Email=البريد الإلكتروني
+Account Details=تفاصيل الحساب
