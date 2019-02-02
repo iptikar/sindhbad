@@ -58,5 +58,3 @@ Array.prototype.remove = function() {
     }
     return this;
 };
-
-

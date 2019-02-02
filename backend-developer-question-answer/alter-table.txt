@@ -1,2 +1,0 @@
-ALTER TABLE product_categlog_attributes AUTO_INCREMENT = 1
-ALTER TABLE product_catalogs AUTO_INCREMENT = 1

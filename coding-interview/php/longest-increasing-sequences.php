@@ -99,9 +99,11 @@ function bslis(&$a,&$b){
     $v = end($b);
     for($u=count($b), $v=end($b);$u--;$v=$p[$v]) $b[$u]=$v;
 }
+
+
 $arr = array(10,22,9,33,21,50,41,60,3,40,65,30,70,71,20,40);
 $n = count($arr);
-/*
+
 
 $bt = microtime(true);
 echo "Reclis = ".reclis($arr,$n)."\n";
@@ -114,7 +116,7 @@ $at = microtime(true);
 
 
 echo "Dynamic Programming Algorithm toke ".($at-$bt)." seconds to complete\n";
-*/
+
 $bt = microtime(true);
 $b = array();
 
@@ -127,4 +129,5 @@ echo "Binary Search Algorithm toke ".($at-$bt)." seconds to complete\n";
 echo "LIS: ";
 foreach($b as $i) echo $arr[$i]." ";
 echo "\n";
+
 ?>

@@ -72,6 +72,10 @@ class MarketPlace
     
     // Currency
     public $currency = 'AED';
+
+
+    // public languge 
+    public $lan = 'en';
     
     
     public function __construct()

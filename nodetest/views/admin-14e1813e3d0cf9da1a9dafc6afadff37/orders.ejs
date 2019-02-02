@@ -213,11 +213,20 @@ License: You must have a valid license purchased only from themeforest(the above
                                                     var shipping_address = JSON.parse(result[i]['shipping_address']);
                                                     var billing_address = result[i]['billing_address'] == '' ? null : JSON.parse(result[i]['billing_address']);
                                                 %>
+                                                <%
+                                                var pdate = eachItem['purchase_point'];
+
+                                                
+                                                %>
 
                                                 <tr>
                                                     <td><%= eachItem['order_id'] %></td>
                                                     <td> <%= eachItem['purchase_point']; %> </td>
-                                                    <td class="date"> <%= eachItem['purchase_date']; %> </td>
+                                                    <td class="date"> <%= 
+                                                       
+                                                        eachItem['purchase_date']; %> 
+
+                                                    </td>
                                                     <td class="numeric">
 
                                                         <%= billing_address !== null ? billing_address['first-name'] : ''; %> 

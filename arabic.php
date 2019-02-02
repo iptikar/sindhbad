@@ -11,7 +11,7 @@ $obj = new MarketPlace();
 ?>
 
 <!doctype html>
-<html lang="en" >
+<html lang="ar" class="ln-ar bx-core bx-no-touch bx-no-retina bx-chrome">
 
 <head >
 
@@ -25,7 +25,89 @@ $obj = new MarketPlace();
 <title>Sindhabd, Buy and selle online.</title> 
 
 
+<style>
+	
+	body{
 
+		
+	}
+
+	/*
+ .col-lg-3 {
+    f
+*/
+
+/*
+.header-style-4 .header-bottom .sidebar-megamenu .megamenu-content-sidebar .menu-ver-content {
+    visibility:visible !important;
+    opacity: 1 !important;
+    transition: all 0.2s ease-in-out 0s;
+    -webkit-transition: all 0.2s ease-in-out 0s;
+    position: absolute;
+    left: 0;
+    top: 130%;
+    width: 100%;
+    background-color: #fff;
+    z-index: 666666;
+    direction: rtl !important;
+}
+
+*/
+
+.btn-mobile{
+
+
+}
+
+/*
+
+.navigation-mobile-container {
+
+	display: block !important;
+}
+
+.header-container .navigation-mobile .sm_megamenu_menu>li {
+
+
+}
+
+.header-container .navigation-mobile .sm_megamenu_menu >li{
+    padding:8px 0;
+    border-bottom:1px solid #ddd;
+    
+    position:relative
+}
+
+*/
+
+
+/*
+ .header-style-4 .sidebar-megamenu {
+
+ 	display: none !important;
+ }
+
+*/
+
+.header-style-4 .sidebar-megamenu {
+
+	display: none !important;
+}
+
+
+
+.navigation-mobile-container {
+
+	display: block !important;
+}
+
+
+
+
+
+
+
+</style>
 <?php include 'head-links.php'; ?>
 
 <script type="text/javascript" src = "js/cahce-reload.js"></script>
@@ -44,13 +126,18 @@ $obj = new MarketPlace();
 
 <div class="page-wrapper">
 
-<?php include 'header.php'; ?> 
+<?php include 'header-arabic.php'; ?> 
 
  
  <main id="maincontent" class="page-main">
+
+
+ 	</ul>
 	<a id="contentarea" tabindex="-1"></a>
 	<div class="columns col1-layout">
 	   <div class="container">
+
+	   	
 		  <div class="row">
 			 <div class="col-lg-12 col-md-12">
 				<div class="page messages">

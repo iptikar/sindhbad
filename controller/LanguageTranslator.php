@@ -28,6 +28,8 @@ class Translator {
             if (file_exists($this->language.'.txt')) {
 
                 $strings = array_map(array($this,'splitStrings'),file($this->language.'.txt'));
+
+                
                 foreach ($strings as $k => $v) {
                     $this->lang[$this->language][$v[0]] = $v[1];
                 }

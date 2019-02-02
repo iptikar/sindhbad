@@ -3,7 +3,32 @@
 <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet" />
 <link  rel="stylesheet" type="text/css"  media="all" href="http://localhost/themes/sm_market2/pub/static/_cache/merged/82ea3d4de55c40269ad64bf293fadd23.min.css" />
 <link  rel="stylesheet" type="text/css"  media="screen and (min-width: 768px)" href="http://localhost/themes/sm_market2/pub/static/frontend/Sm/market/en_US/css/styles-l.min.css" />
+
+<?php
+// We will check cookie 
+if(isset($_COOKIE['lang']) && $_COOKIE['lang'] === 'ar')  :?>
+
+<?php endif; ?>
+
+<?php
+$lang = 'ar';
+
+?>
+
+<?php if($lang === 'en') :?>
+
 <link rel="stylesheet" type="text/css" media="all" href="http://localhost/themes/sm_market2/pub/static/frontend/Sm/market/en_US/css/config_4.css" />
+
+<?php else :?>
+
+<link rel="stylesheet" type="text/css" media="all" href="http://localhost/themes/sm_market2/pub/static/frontend/Sm/market/en_US/css/config_4-arabic.css" />
+
+<?php endif; ?>
+
+
+
+
+
 <link rel="stylesheet" type="text/css" media="all" href="http://localhost/css/custom.css" />
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700" />
 <link rel="stylesheet" type="text/css" href="http://localhost/css/easy-responsive-tabs.css" />
