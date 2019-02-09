@@ -118,6 +118,30 @@ $(function () {
 			});
 		})
 	
+	$(".selectpicker").change(function (){
+
+		// Send the ajax request 
+		var data = {lan:$(this).val()};
+
+		var url = 'http://localhost/ajax/setLan.php';
+
+		
+
+			 $.ajax({
+			  type: 'POST',
+			  url: url,
+			  data: data,
+			  dataType: "text",
+			  success: function(resultData) { 
+				  
+			 
+			 window.location.reload();
+			  //$('#cart-msg').html(resultData);
+		 
+		  }
+});
+
+	})
 	
 	
  

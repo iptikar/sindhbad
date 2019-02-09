@@ -8,6 +8,11 @@ date_default_timezone_set ('Asia/Dubai');
 $obj = new MarketPlace();
 
 
+if(isset($_COOKIE['lanSindhbad']))
+    $translate = new Translator($_COOKIE['lanSindhbad']);
+else
+    $translate = new Translator('en');
+
 ?>
 
 <!doctype html>

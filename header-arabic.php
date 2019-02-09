@@ -106,7 +106,7 @@
 
 
 											  <li class="other-toggle  sm_megamenu_lv1 sm_megamenu_drop parent   parent-item">
-                                                <a class="sm_megamenu_head sm_megamenu_drop sm_megamenu_haschild" href="http://localhost/category/women's-Clothing/1" id="sm_megamenu_1"> <span class="icon_items"><img src="http://localhost/themes/sm_market2/pub/media/wysiwyg/mega-menu/icon/womencloth.png" alt="icon items"></span> <span class="sm_megamenu_icon sm_megamenu_nodesc"> <span class="sm_megamenu_title">We</span> </span></a>   
+                                                <a class="sm_megamenu_head sm_megamenu_drop sm_megamenu_haschild" href="http://localhost/category/women's-Clothing/1" id="sm_megamenu_1"> <span class="icon_items"><img src="http://localhost/themes/sm_market2/pub/media/wysiwyg/mega-menu/icon/womencloth.png" alt="icon items"></span> <span class="sm_megamenu_icon sm_megamenu_nodesc"> <span class="sm_megamenu_title">Womans clothings</span> </span></a>   
                                                 <div class="sm-megamenu-child sm_megamenu_dropdown_6columns ">
                                                    <div data-link="http://localhost/themes/sm_market2/argentina/" class="sm_megamenu_col_12 sm_megamenu_firstcolumn    ">
                                                       <div data-link="" class="sm_megamenu_col_3    remove-padding ">

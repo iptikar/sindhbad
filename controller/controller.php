@@ -39,6 +39,7 @@ require_once 'UpdateOrderStatus.php';
 
 require_once 'GetOrderDetailsForClient.php';
 
+require_once 'Translator.php';
 
 
 class MarketPlace

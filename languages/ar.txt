@@ -1,3 +1,9 @@
+Join Free=انضم مجانا
+or=أو
+Sign in=تسجيل الدخول
+My Account=حسابي
+My Wish List=قائمة امنياتي
+Checkout=الدفع
 Repeat email=كرر البريد الإلكتروني
 Email=البريد الإلكتروني
 Account Details=تفاصيل الحساب
