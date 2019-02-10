@@ -10,20 +10,23 @@
 </span>
 
 </span>
-<a href="http://localhost/account" title="Create Your Account" target="_blank"><?php $translate->__('Join Free'); ?></a> or <a href="http://localhost/login" title="Sign In" target="_blank">Sign in</a> 
+<a href="http://localhost/account" title="Create Your Account" target="_blank"><?php $translate->__('Join Free'); ?></a> or <a href="http://localhost/login" title="Sign In" target="_blank">
+<?php $translate->__('Sign in'); ?></a> 
 </div>
 </div>
 <div class="col-lg-6 col-md-6 header-top-links">
 <div class="toplinks-wrapper">
 <ul class="header links">
-<li class="myaccount-link"><a href="http://localhost/account" title="My Account">My Account</a></li>
+<li class="myaccount-link"><a href="http://localhost/account" title="My Account">
+   <?php $translate->__('My Account'); ?>
+</a></li>
 
 
 
 
 <li class="link wishlist" data-bind="scope: 'wishlist'">
 <a href="#">
-   My Wish List <!-- ko if: wishlist().counter --><span data-bind="text: wishlist().counter" class="counter qty"></span> 
+   <?php $translate->__('My Account'); ?> My Wish List <!-- ko if: wishlist().counter --><span data-bind="text: wishlist().counter" class="counter qty"></span> 
 </a>
 </li>
 
@@ -70,8 +73,8 @@
 
 <select class="selectpicker" data-width="fit">
 <option value = "">Language</option>
-<option value = "en" data-content='<span class="flag-icon flag-icon-us"></span> English'>English</option>
-<option  value = "ar" data-content='<span class="flag-icon flag-icon-mx"></span> Español'>Arabic</option>
+<option value = "en" data-content='<span class="flag-icon flag-icon-us"></span> English'><?php $translate->__('English')?></option>
+<option  value = "ar" data-content='<span class="flag-icon flag-icon-mx"></span> Español'><?php $translate->__('Arabic')?></option>
 </select>
 
 
@@ -2461,6 +2464,8 @@ require([
 </script>
 </div>
 
+<?php if(isset($_COOKIE['lanSindhbad']) && $_COOKIE['lanSindhbad'] == 'ar') :?>
+
 <script type="text/javascript">
 require([
 'jquery'
@@ -2470,6 +2475,49 @@ $('.btn-submobile').click(function(){
   $(this).toggleClass('btnsub-active');
   $(this).parent().toggleClass('parent-active');
 });
+
+
+
+function cloneMegaMenu() {
+var breakpoints = $( window ).width();
+  var doc_width = $( window ).width();
+  if(doc_width <= breakpoints){
+      var horizontalMegamenu = $('.sm_megamenu_wrapper_horizontal_menu .horizontal-type');
+      var verticalMegamenu = $('.sm_megamenu_wrapper_vertical_menu .vertical-type');
+      $('#navigation-mobile').append(horizontalMegamenu);
+      $('#navigation-mobile').append(verticalMegamenu);
+  } else {
+      var horizontalMegamenu = $('#navigation-mobile .horizontal-type');
+      var verticalMegamenu = $('#navigation-mobile .vertical-type');
+      $('.sm_megamenu_wrapper_horizontal_menu .sambar-inner .mega-content').append(horizontalMegamenu);
+      $('.sm_megamenu_wrapper_vertical_menu .sambar-inner .mega-content').append(verticalMegamenu);
+  }
+
+
+}
+
+cloneMegaMenu();
+
+$( window ).resize(function() {
+  cloneMegaMenu();
+});
+
+});
+
+</script>
+<?php else :?>
+
+<script type="text/javascript">
+require([
+'jquery'
+], function ($) {
+$('.btn-submobile').click(function(){
+  $(this).prev().slideToggle(200);
+  $(this).toggleClass('btnsub-active');
+  $(this).parent().toggleClass('parent-active');
+});
+
+
 
 function cloneMegaMenu() {
   var breakpoints = 991;
@@ -2485,6 +2533,8 @@ function cloneMegaMenu() {
       $('.sm_megamenu_wrapper_horizontal_menu .sambar-inner .mega-content').append(horizontalMegamenu);
       $('.sm_megamenu_wrapper_vertical_menu .sambar-inner .mega-content').append(verticalMegamenu);
   }
+
+
 }
 
 cloneMegaMenu();
@@ -2495,6 +2545,16 @@ $( window ).resize(function() {
 
 });
 </script>
+
+<?php endif; ?>
+
+
+
+
+
+
+
+
 </div>
 <div class="col-lg-9 col-md-9 searchbox-header">
 <div class="search-cart">
@@ -2620,7 +2680,7 @@ $( window ).resize(function() {
            
            
            
-            <input id="searchbox" type="text" name="q" placeholder="Enter keywords to search..." class="input-text input-searchbox" maxlength="128" role="combobox" aria-haspopup="false" aria-autocomplete="both" autocomplete="off">
+            <input id="searchbox" type="text" name="q" placeholder=" <?php $translate->__('Enter keywords to search...'); ?>" class="input-text input-searchbox" maxlength="128" role="combobox" aria-haspopup="false" aria-autocomplete="both" autocomplete="off">
             <div id="searchbox_autocomplete" class="search-autocomplete"></div>
          </div>
       </div>

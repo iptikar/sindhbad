@@ -8,10 +8,7 @@ date_default_timezone_set ('Asia/Dubai');
 $obj = new MarketPlace();
 
 
-if(isset($_COOKIE['lanSindhbad']))
-    $translate = new Translator($_COOKIE['lanSindhbad']);
-else
-    $translate = new Translator('en');
+
 
 ?>
 
@@ -49,7 +46,19 @@ else
 
 <div class="page-wrapper">
 
+<?php
+// We will check cookie  <?php include 'header-arabic.php'; 
+if(isset($_COOKIE['lanSindhbad']) && $_COOKIE['lanSindhbad'] == 'ar')  :?>
+
+<?php include 'header-arabic.php'; ?> 
+
+<?php else :?>
+
 <?php include 'header.php'; ?> 
+
+<?php endif; ?>
+
+
 
  
  <main id="maincontent" class="page-main">
@@ -332,10 +341,36 @@ else
 							<div class="services-home">
 							   <div class="banner-policy">
 								  <div class="inner">
-									 <div class="policy"><a title="90 days money back" href="#"><em class="fa fa-truck"></em><span>FREE SHIPPING<br>ON ALL ORDER</span></a></div>
-									 <div class="policy"><a title="free shipping on all orders" href="#"><em class="fa fa-recycle"></em><span>Money Back<br>Guarantee</span></a></div>
-									 <div class="policy"><a title="lowest price guarantee" href="#"><em class="fa fa-umbrella"></em><span>SAFE SHOPPING<br>GUARANTEE</span></a></div>
-									 <div class="policy"><a title="Online Support 24h on day" href="#"><em class="fa fa-medkit"></em><span>Online Support<br>24h on day</span></a></div>
+									 <div class="policy"><a title="90 days money back" href="#"><em class="fa fa-truck"></em><span>
+									 	<?php $translate->__('FREE SHIPPING'); ?>
+									 	
+									 	<?php $translate->__('ON ALL ORDER'); ?>
+
+									 </span></a></div>
+									 <div class="policy"><a title="free shipping on all orders" href="#"><em class="fa fa-recycle"></em><span>
+									 	
+									 	<?php $translate->__('Money Back'); ?>
+									 	
+									 	<br>
+									 	<?php $translate->__('Guarantee'); ?>
+
+									 </span>
+
+									 </a></div>
+									 <div class="policy"><a title="lowest price guarantee" href="#"><em class="fa fa-umbrella"></em><span>
+									 	
+									 	<?php $translate->__('SAFE SHOPPING'); ?>
+									 
+									 	<?php $translate->__('GUARANTEE'); ?>
+
+									 </span></a></div>
+									 <div class="policy"><a title="Online Support 24h on day" href="#"><em class="fa fa-medkit"></em><span>
+									 	
+									 	<?php $translate->__('Online Support'); ?>
+									 	<br>
+
+									 	<?php $translate->__('24h on day'); ?>
+									 </span></a></div>
 								  </div>
 							   </div>
 							</div>
@@ -344,7 +379,9 @@ else
 								  <div class="ltabs-loading-css">
 									 <div class="loading-content"></div>
 								  </div>
-								  <div class="title-home-page"><span>Mobile Phones</span></div>
+								  <div class="title-home-page"><span>
+
+								  	<?php $translate->__('MOBILE PHONES'); ?></span></div>
 								  <div class="ltabs-wrap">
 									 <!--Begin Tabs-->
 									 <div class="ltabs-tabs-container">
@@ -482,7 +519,7 @@ else
 																	   
 																	   
 																   
-<button type="submit" title="Add to Cart" class="action tocart primary btn-action btn-cart" data-cart = '{"name" : "<?= $row['name']?>", "sku": "<?= $row['sku']?>", "image": "<?= $img_src_link ?>", "qty": "1", "price" : "<?= $row['discount'] == '0' ? $row['regular_price'] : $row['special_price'];?> ", "id" : <?= $row['id']?>, "seller_email":"<?=base64_encode($row['seller_email']);?>"}' onclick = "SendItemToCart(this)"><span>Add to Cart</span></button>
+<button type="submit" title="<?php $translate->__('Add to Cart'); ?>" class="action tocart primary btn-action btn-cart" data-cart = '{"name" : "<?= $row['name']?>", "sku": "<?= $row['sku']?>", "image": "<?= $img_src_link ?>", "qty": "1", "price" : "<?= $row['discount'] == '0' ? $row['regular_price'] : $row['special_price'];?> ", "id" : <?= $row['id']?>, "seller_email":"<?=base64_encode($row['seller_email']);?>"}' onclick = "SendItemToCart(this)"><span><?php $translate->__('Add to Cart'); ?></span></button>
 
 																   
 																   
@@ -790,7 +827,11 @@ else
 								  <div class="ltabs-loading-css">
 									 <div class="loading-content"></div>
 								  </div>
-								  <div class="title-home-page"><span>New Arrivals</span></div>
+								  <div class="title-home-page"><span>
+
+								  <?php $translate->__('NEW ARRIVALS'); ?>
+
+								</span></div>
 								  <div class="ltabs-wrap">
 									 <!--Begin Tabs-->
 									 <div class="ltabs-tabs-container">
@@ -902,11 +943,11 @@ else
 																      
 																	   
 																   
-																   <button type="submit" title="Add to Cart" class="action tocart primary btn-action btn-cart" data-cart = '{"name" : "<?= $row['name']?>", "sku": "<?= $row['sku']?>", "image": "<?= $img_src_link ?>", "qty": "1", "price" : "<?= $row['discount'] == '0' ? $row['regular_price'] : $row['special_price'];?> ", "id" : <?= $row['id']?>}' onclick = "SendItemToCart(this)"><span>Add to Cart</span></button>
+<button type="submit" title="<?php $translate->__('Add to Cart'); ?>" class="action tocart primary btn-action btn-cart" data-cart = '{"name" : "<?= $row['name']?>", "sku": "<?= $row['sku']?>", "image": "<?= $img_src_link ?>", "qty": "1", "price" : "<?= $row['discount'] == '0' ? $row['regular_price'] : $row['special_price'];?> ", "id" : <?= $row['id']?>}' onclick = "SendItemToCart(this)"><span><?php $translate->__('Add to Cart'); ?></span></button>
+
 																   
 																   
-																   
-																   <a href="#" class="action tocompare btn-action link-compare" title="Add to Compare" aria-label="Add to Compare" data-post='{"action":"http:\/\/magento2.flytheme.net\/themes\/sm_market2\/argentina\/catalog\/product_compare\/add\/","data":{"product":"2245","uenc":"aHR0cDovL21hZ2VudG8yLmZseXRoZW1lLm5ldC90aGVtZXMvc21fbWFya2V0Mi9hcmdlbnRpbmEv"}}' role="button"><span>Add to Compare</span></a> 
+																   <a href="#" class="action tocompare btn-action link-compare" title="Add to Compare" aria-label="Add to Compare" data-post='{"action":"http:\/\/magento2.flytheme.net\/themes\/sm_market2\/argentina\/catalog\/product_compare\/add\/","data":{"product":"2245","uenc":"aHR0cDovL21hZ2VudG8yLmZseXRoZW1lLm5ldC90aGVtZXMvc21fbWFya2V0Mi9hcmdlbnRpbmEv"}}' role="button"><span><?php $translate->__('Add to Compare'); ?></span></a> 
 																</div>
 															 </div>
 														 
@@ -1200,16 +1241,55 @@ else
 							</div>
 							<div class="home-collection">
 							   <div class="collections-wrap">
-								  <div class="title-home-page"><span>Collections</span></div>
+								  <div class="title-home-page"><span>
+
+								  	<?php $translate->__('COLLECTIONS'); ?>
+
+								  	 </span></div>
 								  <div class="collections">
 									 <div class="owl-carousel">
-										<div class="item"><a title="FURNITURE" href="#"> <img src="http://localhost/themes/sm_market2/pub/media/wysiwyg/collection/item-1.png" alt="Collection Image"><span>FURNITURE</span> </a></div>
-										<div class="item"><a title="GIFT IDEA" href="#"> <img src="http://localhost/themes/sm_market2/pub/media/wysiwyg/collection/item-2.png" alt="Collection Image"><span>GIFT IDEA</span> </a></div>
-										<div class="item"><a title="COOL GADGETS" href="#"> <img src="http://localhost/themes/sm_market2/pub/media/wysiwyg/collection/item-3.png" alt="Collection Image"><span>COOL GADGETS</span> </a></div>
-										<div class="item"><a title="OUTDOOR" href="#"> <img src="http://localhost/themes/sm_market2/pub/media/wysiwyg/collection/item-4.png" alt="Collection Image"><span>OUTDOOR</span> </a></div>
-										<div class="item"><a title="Jewelry" href="#"> <img src="http://localhost/themes/sm_market2/pub/media/wysiwyg/collection/item-5.png" alt="Collection Image"><span>Jewelry</span> </a></div>
-										<div class="item"><a title="Men's Fashion" href="#"> <img src="http://localhost/themes/sm_market2/pub/media/wysiwyg/collection/item-6.png" alt="Collection Image"><span>Men's Fashion</span> </a></div>
-										<div class="item"><a title="FURNITURE" href="#"> <img src="http://localhost/themes/sm_market2/pub/media/wysiwyg/collection/item-1.png" alt="Collection Image"><span>FURNITURE</span> </a></div>
+										<div class="item"><a title="FURNITURE" href="#"> <img src="http://localhost/themes/sm_market2/pub/media/wysiwyg/collection/item-1.png" alt="Collection Image"><span>
+										
+										<?php $translate->__('FURNITURE'); ?>
+
+									</span> </a></div>
+										<div class="item"><a title="GIFT IDEA" href="#"> <img src="http://localhost/themes/sm_market2/pub/media/wysiwyg/collection/item-2.png" alt="Collection Image"><span>
+
+										<?php $translate->__('GIFT IDEA'); ?>
+										
+
+									</span> </a></div>
+										<div class="item"><a title="COOL GADGETS" href="#"> <img src="http://localhost/themes/sm_market2/pub/media/wysiwyg/collection/item-3.png" alt="Collection Image"><span>
+
+										<?php $translate->__('Cool Gadgets'); ?>
+
+									</span> </a></div>
+										<div class="item"><a title="OUTDOOR" href="#"> <img src="http://localhost/themes/sm_market2/pub/media/wysiwyg/collection/item-4.png" alt="Collection Image">
+
+											<span>
+											<?php $translate->__('OUTDOOR'); ?>
+												
+
+											</span> 
+
+										</a></div>
+										<div class="item"><a title="Jewelry" href="#"> <img src="http://localhost/themes/sm_market2/pub/media/wysiwyg/collection/item-5.png" alt="Collection Image">
+
+											<span>
+
+											<?php $translate->__('Jewelry'); ?></span> </a>
+
+										</div>
+										<div class="item"><a title="Men's Fashion" href="#"> <img src="http://localhost/themes/sm_market2/pub/media/wysiwyg/collection/item-6.png" alt="Collection Image"><span>
+
+										<?php $translate->__('Mens Fashion'); ?>
+
+									</span> </a></div>
+										<div class="item"><a title="FURNITURE" href="#"> <img src="http://localhost/themes/sm_market2/pub/media/wysiwyg/collection/item-1.png" alt="Collection Image"><span>
+
+										<?php $translate->__('FURNITURE'); ?> 
+
+									</span> </a></div>
 									 </div>
 								  </div>
 								  

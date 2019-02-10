@@ -7,7 +7,22 @@ body {
   background-image: url('');
   background-repeat: repeat-x;
   background-position: left top;
+
 }
+
+.header-style-4 .sidebar-megamenu {
+
+  display: none !important;
+}
+
+
+
+.navigation-mobile-container {
+
+  display: block !important;
+}
+
+
 .label {
   color: #666666;
 }
@@ -1524,6 +1539,7 @@ a.action.primary:hover,
 .btn-mobile {
   display: inline-block;
   float:right;
+  margin-right: 15px;
 }
 
 
@@ -1654,8 +1670,8 @@ a.action.primary:hover,
 .sidebar-type .navigation-mobile {
   position: fixed;
   top: 0;
-  right: -250px;
-  width: 250px;
+  right: -275px;
+  width: 275px;
   height: 100%;
   overflow-y: scroll;
   z-index: 10020;
@@ -1969,6 +1985,7 @@ a.action.primary:hover,
 }
 .header-style-4 .header-middle .logo-header .logo-wrapper .logo-content {
   margin: 0;
+  float:right;
 }
 .header-style-4 .header-middle .logo-header .logo-wrapper .logo-content strong a img {
   vertical-align: top;
@@ -1976,7 +1993,10 @@ a.action.primary:hover,
 .header-style-4 .header-middle .middle-right-content {
   display: table;
   margin-top: 5px;
+  
+  /*
   width: 100%;
+  */
 }
 .header-style-4 .header-middle .middle-right-content .compare-header-wrapper {
   float: right;
@@ -2159,9 +2179,14 @@ a.action.primary:hover,
   width: 100%;
   margin-top: 7px;
 }
+
+
 .header-style-4 .header-bottom .searchbox-header .search-wrapper {
   display: table-cell;
-  width: 100%;
+ 
+
+  width: 81%;
+  
 }
 .header-style-4 .header-bottom .searchbox-header .search-wrapper .block-content {
   position: relative;
@@ -2235,7 +2260,7 @@ a.action.primary:hover,
 }
 .header-style-4 .header-bottom .sm-searchbox .sm-searchbox-content .control .searchbox-cat {
   position: absolute;
-  left: 0;
+  right: 0;
   top: 0;
   height: 36px;
   width: 150px;
@@ -2256,10 +2281,11 @@ a.action.primary:hover,
 /*
   border: none;
 */ 
-  padding-left: 160px;
+  padding-right: 160px;
   height: 36px;
   border-color: #ddd;
   color: #444;
+  text-align:right;
 }
 .header-style-4 .header-bottom .sm-searchbox .sm-searchbox-content .field.searchbox {
   display: table-cell;
@@ -2280,7 +2306,7 @@ a.action.primary:hover,
   display: table-cell;
   vertical-align: top;
   position: relative;
-  padding-left: 30px;
+  padding-left: 5px;
 }
 .header-style-4 .header-bottom .minicart-header .minicart-content .cart-wrapper .minicart-wrapper {
   margin: 0;
@@ -2601,6 +2627,7 @@ a.action.primary:hover,
 }
 .footer-container .footer-top {
   background-color: #f3f4f8;
+  direction: rtl;
 }
 .footer-container .footer-bottom {
   background-color: #f3f4f8;
@@ -2800,6 +2827,7 @@ a.action.primary:hover,
 }
 .list-product-home .owl-carousel .owl-stage-outer {
   overflow: visible;
+
 }
 .layout-boxed .full-wrapper {
   margin-left: 0;
@@ -2822,6 +2850,7 @@ a.action.primary:hover,
 }
 .full-categories .hot-categories-home .sm-categories {
   margin: 0 -15px 0;
+  direction: rtl;
 }
 .top-search {
   display: table;
@@ -3746,6 +3775,7 @@ a.action.primary:hover,
   padding: 25px 0;
   display: table;
   width: 100%;
+  text-align: right;
 }
 .home-page-4 .services-home .banner-policy .inner .policy {
   border-right: 1px solid #eee;
@@ -3753,6 +3783,8 @@ a.action.primary:hover,
   line-height: 19px;
   padding: 7px 35px;
   width: 25%;
+
+
 }
 .home-page-4 .services-home .banner-policy .inner .policy:last-child {
   border-right: none;
@@ -3813,10 +3845,16 @@ a.action.primary:hover,
   padding-bottom: 8px;
   text-transform: uppercase;
 }
+.list-product-home {
+
+  text-align: right;
+}
 .home-page-4 .list-product-home .sm-listing-tabs .owl-controls .owl-nav {
   position: absolute;
   top: -42px;
+  /*
   right: 0;
+  */
 }
 .home-page-4 .list-product-home .sm-listing-tabs .owl-controls .owl-nav div {
   background-color: transparent;
@@ -3856,6 +3894,7 @@ a.action.primary:hover,
 }
 .home-page-4 .home-collection .collections-wrap .title-home-page {
   margin-bottom: 10px;
+  text-align: right;
 }
 .home-page-4 .home-collection .collections {
   border: 1px solid #eee;
@@ -3897,7 +3936,9 @@ a.action.primary:hover,
 .home-page-4 .home-collection .owl-controls .owl-nav {
   position: absolute;
   top: -42px;
+  /*
   right: 0;
+  */
 }
 .home-page-4 .home-collection .owl-controls .owl-nav div {
   background-color: transparent;
@@ -4344,9 +4385,10 @@ a.action.primary:hover,
 .products-grid .item .item-inner .box-image:hover .sm_quickview_handler {
   display: inline-block;
 }
+
 .products-grid .item .item-inner .box-info {
   padding: 10px 20px 30px;
-  text-align: center;
+  text-align: right;
 }
 .products-grid .item .item-inner .box-info .product-name {
   overflow: hidden;

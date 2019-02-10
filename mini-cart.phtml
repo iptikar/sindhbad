@@ -15,7 +15,9 @@ if(!isset($obj)) {
 									<div class="cart-wrapper">
 										<div data-block="minicart" class="minicart-wrapper active">
                      <a class="action showcart active" data-bind="scope: 'minicart_content'" id = "min-cart-triger">
-                        <span class="text"><span class="df-text">Shopping Cart</span><span class="hidden">My Cart - </span></span> 
+                        <span class="text"><span class="df-text">Shopping Cart</span><span class="hidden">
+
+                          <?php $translate->__('My Cart - '); ?></span></span> 
                         <span class="counter qty">
                            <span class="counter-number"></span> 
                            <span class="counter-label">
@@ -24,10 +26,14 @@ if(!isset($obj)) {
 							   <?= $obj->CartTotleQty() == null ? '0' : $obj->CartTotleQty(); ?>
 							   
 							   <?php if($obj->CartTotleQty() > 1 ) :?>
-							   <span>items</span>
+							   <span>
+                
+                 <?= $translate->__('items'); ?> 
+
+               </span>
 							   
 							   <?php else: ?>
-							   <span>item</span>
+							   <span><?= $translate->__('item'); ?> </span>
 							   
 							   <?php endif; ?>
 								   
