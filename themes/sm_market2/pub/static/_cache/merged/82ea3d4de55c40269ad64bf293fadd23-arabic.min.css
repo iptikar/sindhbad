@@ -2491,7 +2491,8 @@ input:focus~.tooltip .tooltip-content,select:focus~.tooltip .tooltip-content{
     color:#a3a3a3;
     margin:0;
     padding:0;
-    list-style:none none
+    list-style:none none;
+    float:right;
 }
 .breadcrumbs .items>li{
     display:inline-block;
@@ -16752,7 +16753,8 @@ h6{
 h1,h2,h3,h4,h5,h6,.h1,.h2,.h3,.h4,.h5,.h6{
     font-weight:400;
     margin-top:0;
-    margin-bottom:0
+    margin-bottom:0;
+    text-align:right;
 }
 input[type=text],input[type=password],input[type=url],input[type=tel],input[type=search],input[type=number],input[type=datetime],input[type=email]{
     height:35px;

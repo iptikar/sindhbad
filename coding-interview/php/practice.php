@@ -1,44 +1,15 @@
 <?php
 
-function max_sum_seq( $sequence ) {
+function getLength($str) {
 
-	// This runs in linear time 
-	$sum_start = 0;
+	if('' === $str) return false;
 
-	$sum = 0;
+	preg_match_all('!(.)\\1*!', $str, $m);
 
-	$max_sum = 0;
-
-	$max_start = 0;
-
-	$max_len = 0;
-
-	for($i = 0; $i < count($sequence); $i += 1) {
-
-		$n = $sequence[$i];
-
-		$sum += $n;
-
-		$sum += $n;
-
-
-		if($sum > $max_sum) {
-
-			$max_sum = $sum;
-			$max_start = $sum_start;
-			$max_len = $i + 1 - $max_start;
-		}
-
-		if($sum < 0) {
-
-			$sum = 0;
-			$sum_start = $i+1;
-		}
-	}
-
-	return array_slice($sequence, $max_start, $max_len);
+	return max(array_map('strlen', $m[0]));
 }
 
-
-
-print_R(max_sum_seq(array(-1, 0, 15, 3, -9, 12, -4)));
+$str1 = 'aabbcccc'; 
+$str2 = 'aabbccccaaaaa';
+echo getLength($str1); //will get 4
+echo getLength($str2); //will get 

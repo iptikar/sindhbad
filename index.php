@@ -201,7 +201,142 @@ if(isset($_COOKIE['lanSindhbad']) && $_COOKIE['lanSindhbad'] == 'ar')  :?>
 					  <body>
 						 <div class="home-style home-page-4">
 							<div class="row">
-							   <div class="col-lg-9 image-slideshow">
+							   
+							<?php if($language === 'ar') :?>
+								<div class="col-lg-3 slider-deal">
+								  <div id="sm_filterproducts_1525586868683927063" class="block products-single">
+									 <div class="block-content block-content-products products-grid">
+										<div class="item product product-item">
+										   <div class="item-inner clearfix">
+											  <div class="product details product-item-details box-info">
+												 <h2 class="product name product-item-name product-name"><a class="product-item-link" href="http://localhost/themes/sm_market2/argentina/electrolux-efls61-washing-machine.html">Philips HR1861 Whole Fruit Juicer</a></h2>
+												 <div class="product-reviews-summary short">
+													<div class="rating-summary">
+													   <span class="label"><span>Rating:</span></span> 
+													   <div class="rating-result" title="80%"><span style="width:80%"><span>80%</span></span></div>
+													</div>
+													<div class="reviews-actions"><a class="action view" href="http://localhost/themes/sm_market2/argentina/electrolux-efls61-washing-machine.html#reviews">1 <span>Review</span></a></div>
+												 </div>
+												 <div class="price-box price-final_price" data-role="priceBox" data-product-id="2275">   <span class="special-price">  <span class="price-container price-final_price tax weee"> <span class="price-label">Special Price</span>  <span id="product-price-2275" data-price-amount="170" data-price-type="finalPrice" class="price-wrapper "><span class="price">$170.00</span></span>  </span></span> <span class="old-price">  <span class="price-container price-final_price tax weee"> <span class="price-label">Regular Price</span>  <span id="old-price-2275" data-price-amount="180" data-price-type="oldPrice" class="price-wrapper "><span class="price">$180.00</span></span>  </span></span>  </div>
+											  </div>
+											  <div class="box-image"><a href="http://localhost/themes/sm_market2/argentina/electrolux-efls61-washing-machine.html" class="product photo product-item-photo" tabindex="-1">  <span class="product-image-container"><span class="product-image-wrapper">
+												  
+												  <img class="product-image-photo lazyload" src="http://localhost/img/blank.png" data-src="http://localhost/img/philips_hr1861_whole_fruit_juicer.jpg" width="300" height="300" alt="Philips HR1861 Whole Fruit Juicer"></span></span></a></div>
+											  
+											  
+											  <div class="deals-countdown" data-timer="2019/03/29 00:00:00">
+												 <div class="deals-time time-day">
+													<div class="num-time"></div>
+													<div class="title-time"></div>
+												 </div>
+												 <div class="deals-time time-hours">
+													<div class="num-time"></div>
+													<div class="title-time"></div>
+												 </div>
+												 <div class="deals-time time-mins">
+													<div class="num-time"></div>
+													<div class="title-time"></div>
+												 </div>
+												 <div class="deals-time time-secs">
+													<div class="num-time"></div>
+													<div class="title-time"></div>
+												 </div>
+											  </div>
+										   </div>
+										</div>
+									 </div>
+								  </div>
+								 
+								 
+								 
+								  <script type="text/javascript">
+									 require([
+										 'jquery'
+									 ], function ($) {
+									 var $element = $('#sm_filterproducts_1525586868683927063');
+									 
+									 function CountDown(date,id){
+									 dateNow = new Date();
+									 amount = date.getTime() - dateNow.getTime();
+									 delete dateNow;
+									 if(amount < 0){
+									 id.html("Now!");
+									 } else{
+									 days=0;hours=0;mins=0;secs=0;out="";
+									 amount = Math.floor(amount/1000);
+									 days=Math.floor(amount/86400);
+									 amount=amount%86400;
+									 hours=Math.floor(amount/3600);
+									 amount=amount%3600;
+									 mins=Math.floor(amount/60);
+									 amount=amount%60;
+									 secs=Math.floor(amount);
+									 $(".time-day .num-time" , id).text(days);
+									 $(".time-day .title-time" , id).text(((days <= 1)? "Day" : "Days"));
+									 $(".time-hours .num-time" , id).text(hours);
+									 $(".time-hours .title-time" , id).text(((hours <= 1)? "Hour" : "Hours"));
+									 $(".time-mins .num-time" , id).text(mins);
+									 $(".time-mins .title-time" , id).text(((mins <= 1)? "Min" : "Mins"));
+									 $(".time-secs .num-time" , id).text(secs);
+									 $(".time-secs .title-time" , id).text(((secs <= 1)? "Sec" : "Secs"));
+									 setTimeout(function(){CountDown(date,id)}, 1000);
+									 }
+									 }
+									 $( ".deals-countdown",$element).each(function() {
+									 var timer = $(this).data('timer');
+									 var data = new Date(timer);
+									 CountDown(data,$(this));
+									 });
+									 });
+								  </script>
+							
+							   </div>
+								<div class="col-lg-9 image-slideshow">
+								  <div class="image-slider-home">
+									 <div class="sm-imageslider">
+										<div class="sm-imageslider-inner">
+										   <div class="sm-imageslider-content owl-carousel owl-theme">
+											  <div class="item"><a title="title" href="#"><img src="http://localhost/img/id4-slide-1.jpg" alt="Slider Image"></a></div>
+											  <div class="item"><a title="title" href="#"><img src="http://localhost/img/id4-slide-2.jpg" alt="Slider Image"></a></div>
+											  <div class="item"><a title="title" href="#"><img src="http://localhost/img/id4-slide-3.jpg" alt="Slider Image"></a></div>
+										   </div>
+										</div>
+									 </div>
+								   
+								   
+								   
+									 <script type="text/javascript">
+										require([
+											'jquery',
+											'owlcarousel'
+										], function ($) {
+											$(".sm-imageslider-content").owlCarousel({
+												items:1,
+												autoplay:true,
+												loop:true,
+												nav : true, 
+												dots: false,
+												autoplaySpeed : 500,
+												navSpeed : 500,
+												dotsSpeed : 500,
+												autoplayHoverPause: true,
+												margin:1,
+											});	  
+										});	
+																		
+													
+									 </script>
+								  
+								  
+								  
+								  
+								  
+								  </div>
+							   </div>
+							   
+
+							<?php else  :?>
+							<div class="col-lg-9 image-slideshow">
 								  <div class="image-slider-home">
 									 <div class="sm-imageslider">
 										<div class="sm-imageslider-inner">
@@ -329,11 +464,15 @@ if(isset($_COOKIE['lanSindhbad']) && $_COOKIE['lanSindhbad'] == 'ar')  :?>
 									 });
 									 });
 								  </script>
-								  
-								  
-							   
-							  
+							
 							   </div>
+
+							<?php endif;?>
+							   
+
+
+
+
 							</div>
 							
 							 
@@ -467,9 +606,28 @@ if(isset($_COOKIE['lanSindhbad']) && $_COOKIE['lanSindhbad'] == 'ar')  :?>
 																	<span class="price-container price-final_price tax weee"> 
 																		
 
+
 <span id="product-price-2245" data-price-amount="470" data-price-type="finalPrice" class="price-wrapper ">
-	
-	<span class="price"><?= $row['discount'] == '0' ? $obj->getPriceFormate($row['regular_price']) : $obj->getPriceFormate($row['special_price']);?> AED</span></span>  
+	<?php if($language === 'ar') :?>
+
+		<?php $translate->__('AED'); ?>
+
+		<span class="price"><?= $row['discount'] == '0' ? $obj->getPriceFormate($row['regular_price']) : $obj->getPriceFormate($row['special_price']);?> 
+
+
+<?php else :?>
+	<span class="price"><?= $row['discount'] == '0' ? $obj->getPriceFormate($row['regular_price']) : $obj->getPriceFormate($row['special_price']);?> 
+	<?php $translate->__('AED'); ?>
+<?php endif; ?>
+
+
+		
+
+
+
+	</span>
+
+	</span>  
 	
 	
 	
@@ -912,7 +1070,17 @@ if(isset($_COOKIE['lanSindhbad']) && $_COOKIE['lanSindhbad'] == 'ar')  :?>
 																		
 																		<span id="product-price-2245" data-price-amount="470" data-price-type="finalPrice" class="price-wrapper ">
 																			
-																			<span class="price"><?= $row['discount'] == '0' ? $obj->getPriceFormate($row['regular_price']) : $obj->getPriceFormate($row['special_price']);?> AED</span></span>  
+																			<?php if($language === 'ar') :?>
+
+		<?php $translate->__('AED'); ?>
+
+		<span class="price"><?= $row['discount'] == '0' ? $obj->getPriceFormate($row['regular_price']) : $obj->getPriceFormate($row['special_price']);?> 
+
+
+<?php else :?>
+	<span class="price"><?= $row['discount'] == '0' ? $obj->getPriceFormate($row['regular_price']) : $obj->getPriceFormate($row['special_price']);?> 
+	<?php $translate->__('AED'); ?>
+<?php endif; ?>  
 																			
 																			
 																			
@@ -1337,7 +1505,9 @@ if(isset($_COOKIE['lanSindhbad']) && $_COOKIE['lanSindhbad'] == 'ar')  :?>
 							</div>
 							<div class="full-categories">
 							   <div class="hot-categories-home">
-								  <div class="title-home-page"><span>Hot categories</span></div>
+								  <div class="title-home-page"><span>
+
+								  	<?php $translate->__('Hot categories'); ?></span></div>
 								  <div class="sm-categories">
 									 <div class="cat-wrap">
 										<div class="item">

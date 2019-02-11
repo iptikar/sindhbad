@@ -8,7 +8,9 @@
                            <div class="row">
                               <div class="col-lg-4 col-md-4">
                                  <div class="socials-wrap">
-                                    <div class="title-follow">Follow Us</div>
+                                    <div class="title-follow">
+
+                                    <?php $translate->__('Follow Us'); ?></div>
                                     <ul>
                                        <li class="li-social facebook-social"><a title="Facebook" href="http://www.facebook.com/#" target="_blank"><span class="fa fa-facebook icon-social"></span><span class="name-social">Facebook</span></a></li>
                                        <li class="li-social twitter-social"><a title="Twitter" href="https://twitter.com/#" target="_blank"><span class="fa fa-twitter icon-social"></span> <span class="name-social">Twitter</span></a></li>
@@ -20,13 +22,13 @@
                               </div>
                               <div class="col-lg-8 col-md-8">
                                  <div class="block-subscribe-footer">
-                                    <div class="title-middle-footer">Sign Up For Newsletter</div>
+                                    <div class="title-middle-footer"><?php $translate->__('Sign Up For Newsletter'); ?> </div>
                                     <form class="form subscribe"  method="post" data-mage-init='{"validation": {"errorClass": "mage-error"}}' id="newsletter-footer-validate-detail">
                                        <div class="newsletter-content">
                                           <div class="input-box">
 											 
-											 <input name="email" type="email" id="newsletter-footer" onfocus="if(this.value=='Your email address') this.value='';" onblur="if(this.value=='') this.value='Your email address';" value="Your email address" data-validate="{required:true, 'validate-email':true}"/></div>
-                                          <div class="action-button"><button class="action subscribe primary" title="Subscribe" type="submit"><span>Subscribe</span></button></div>
+											 <input name="email" type="email" id="newsletter-footer" onfocus="if(this.value=='Your email address') this.value='';" onblur="if(this.value=='') this.value='Your email address';" value="<?php $translate->__('Sign Up For Newsletter'); ?>" data-validate="{required:true, 'validate-email':true}"/></div>
+                                          <div class="action-button"><button class="action subscribe primary" title="Subscribe" type="submit"><span><?php $translate->__('Subscribe'); ?> </span></button></div>
                                        </div>
                                     </form>
                                  </div>
@@ -45,11 +47,15 @@
                                        </div>
                                        <div class="footer-block-content">
                                           <ul class="links-contact">
-                                             <li class="add-icon">Address: Building No.8, M3 Floor U.A.E, <br/>Al Qusaily Tower, Al Falah Street, Abu Dhabi, UAE  </li>
+                                             <li class="add-icon">
+                                                <?php $translate->__('Address: Building No.8, M3 Floor,'); ?>
+                                                 <br/> 
+
+                                                 <?php $translate->__('Al Qusaily Tower, Al Falah Street, Abu Dhabi, UAE'); ?></li>
                                              <li class="email-icon middle-content">
                                               <?php $translate->__('Email: info@sindhbad.com'); ?> </li>
                                              
-                                             <li class="phone-icon"><?php $translate->__('Phone  : +97126424668'); ?><br /></li>
+                                             <li class="phone-icon"><?php $translate->__('Phone : +97126424668'); ?><br /></li>
                                           </ul>
                                       
                                       

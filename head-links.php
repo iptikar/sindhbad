@@ -19,12 +19,20 @@ else
 
 
 <?php
+$language = '';
+
 // We will check cookie 
 if(isset($_COOKIE['lanSindhbad']) && $_COOKIE['lanSindhbad'] == 'ar')  :?>
 
+<?php
+    $language = 'ar';
+
+?>
 <link  rel="stylesheet" type="text/css"  media="all" href="http://localhost/themes/sm_market2/pub/static/_cache/merged/82ea3d4de55c40269ad64bf293fadd23-arabic.min.css" />
 
 <link rel="stylesheet" type="text/css" media="all" href="http://localhost/themes/sm_market2/pub/static/frontend/Sm/market/en_US/css/config_4-arabic.css" />
+
+<link rel="stylesheet" type="text/css" href="http://localhost/css/easy-responsive-tabs-arabic.css" />
 
 
 <?php else :?>
@@ -33,7 +41,7 @@ if(isset($_COOKIE['lanSindhbad']) && $_COOKIE['lanSindhbad'] == 'ar')  :?>
 
 <link rel="stylesheet" type="text/css" media="all" href="http://localhost/themes/sm_market2/pub/static/frontend/Sm/market/en_US/css/config_4.css" />
 
-
+<link rel="stylesheet" type="text/css" href="http://localhost/css/easy-responsive-tabs.css" />
 
 
 
@@ -43,7 +51,7 @@ if(isset($_COOKIE['lanSindhbad']) && $_COOKIE['lanSindhbad'] == 'ar')  :?>
 
 <link rel="stylesheet" type="text/css" media="all" href="http://localhost/css/custom.css" />
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700" />
-<link rel="stylesheet" type="text/css" href="http://localhost/css/easy-responsive-tabs.css" />
+
 
 
 <script  type="text/javascript"  src="http://localhost/themes/sm_market2/pub/static/_cache/merged/1310f31907a737e23ccf73ad22bfc205.min.js"></script>

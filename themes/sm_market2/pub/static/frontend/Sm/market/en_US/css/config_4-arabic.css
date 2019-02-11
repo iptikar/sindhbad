@@ -10,6 +10,11 @@ body {
 
 }
 
+input {
+
+direction:rtl;
+}
+
 .header-style-4 .sidebar-megamenu {
 
   display: none !important;
@@ -2270,6 +2275,7 @@ a.action.primary:hover,
   border-radius: 0;
   -moz-border-radius: 0;
   -webkit-border-radius: 0;
+  direction:rtl;
 }
 .header-style-4 .header-bottom .sm-searchbox .sm-searchbox-content .control .searchbox-cat:hover {
   cursor: pointer;
@@ -2694,6 +2700,7 @@ a.action.primary:hover,
 .footer-container .categories-footer {
   font-size: 91.67%;
   padding: 30px 0;
+  direction:rtl;
 }
 .footer-container .categories-footer .footer-links-w .label-link {
   font-weight: 700;
@@ -5389,20 +5396,26 @@ body .fotorama--fullscreen {
 .product.info.detailed {
   clear: both;
 }
+
+.resp-vtabs ul.resp-tabs-list {
+    float: right;
+    width: 30%;
+}
+
 .product.attribute.overview {
   padding-top: 20px;
   clear: both;
 }
 .media {
   overflow: visible;
-  float: left;
+  float: right;
   width: 50%;
   margin: 0 0 30px;
-  padding-right: 15px;
+  padding-left: 15px;
 }
 .product-info-main {
   width: 50%;
-  float: right;
+  float: left;
   padding-left: 15px;
   margin-bottom: 30px;
 }

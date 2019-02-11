@@ -170,7 +170,19 @@ $details = $obj->getIndividualProduct('name', 'id', 'sku');
       <div class="page-wrapper">
          
          
-        <?php include 'header.php'; ?>
+        <?php
+// We will check cookie  <?php include 'header-arabic.php'; 
+if(isset($_COOKIE['lanSindhbad']) && $_COOKIE['lanSindhbad'] == 'ar')  :?>
+
+<?php include 'header-arabic.php'; ?> 
+
+<?php else :?>
+
+<?php include 'header.php'; ?> 
+
+<?php endif; ?>
+
+
          
          <?php
          $REQUEST_SCHEME = $_SERVER['REQUEST_SCHEME'];
@@ -271,22 +283,6 @@ $details = $obj->getIndividualProduct('name', 'id', 'sku');
          <br/>
          
         
-         <!--
-         <div class="alert alert-danger fadeIn">
-  <strong>Error ! </strong>Please login as buyer.
-  
-  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-    <span aria-hidden="true">&times;</span>
-  </button>
-
-
-</div>
-        
-         <div class="alert alert-success fadeIn">
-  <strong>Error ! </strong>Please login as buyer.
-</div>
-        
-        -->
         
          </div>
          
@@ -296,7 +292,229 @@ $details = $obj->getIndividualProduct('name', 'id', 'sku');
                <div class="container">
                 
                   <div class="row">
-                     <div class="col-lg-9 col-md-9">
+
+                  <div class = "col-md-3">
+                     
+
+                     <div class="services-sidebar">
+                          <ul>
+                                 <li>
+                                 <div class="service-content">
+                                       <div class="service-icon" style="font-size: 30px;"></div>
+                                       <div class="service-info">
+                                          <h4><a title="Free Delivery" href="http://localhost/seller/<?=$details['id'];?>">Sold By: <?= $obj->hashDigitToString($details['id']); ?></a></h4>
+                                         
+                                       </div>
+                                    </div>
+                             
+                                 </li>
+                                 
+                                  <li>
+                                 <div class="service-content">
+                                       <div class="service-icon" style="font-size: 30px;"></div>
+                                       <div class="service-info">
+                                          <h4><a title="Free Delivery" href="http://localhost/seller/<?=$details['id'];?>">Seller type: <?= $details['seller_type']; ?></a></h4>
+                                         
+                                       </div>
+                                    </div>
+                             
+                                 </li>
+                                 
+                                 <li>
+                                 <div class="service-content">
+                                       <div class="service-icon" style="font-size: 30px;"></div>
+                                       <div class="service-info">
+                                          <h4><a title="Free Delivery" href="#parentVerticalTab4" id = "scrolltoen12">Make Inquiries </a></h4>
+                                         
+                                       </div>
+                                    </div>
+                             
+                                 </li>
+                                 
+                                 
+                                 
+                                 </ul>
+                   
+
+<div class="sidebar sidebar-additional">
+                           <div class="services-sidebar">
+                              <ul>
+                                 <li>
+                                    <div class="service-content">
+                                       <div class="service-icon" style="font-size: 30px;"><em class="fa fa-truck"><span class="hidden">Icon</span></em></div>
+                                       <div class="service-info">
+                                          <h4><a title="Free Delivery" href="#">Free Delivery</a></h4>
+                                          <p>From AED 100</p>
+                                       </div>
+                                    </div>
+                                 </li>
+                                 <li>
+                                    <div class="service-content">
+                                       <div class="service-icon" style="font-size: 30px;"><em class="fa fa-support"><span class="hidden">Icon</span></em></div>
+                                       <div class="service-info">
+                                          <h4><a title="Support 24/7" href="#">Support 24/7</a></h4>
+                                          <p>Online 24 hours</p>
+                                       </div>
+                                    </div>
+                                 </li>
+                                 <li>
+                                    <div class="service-content">
+                                       <div class="service-icon" style="font-size: 30px;"><em class="fa fa-refresh"><span class="hidden">Icon</span></em></div>
+                                       <div class="service-info">
+                                          <h4><a title="Free return" href="#">Free return</a></h4>
+                                          <p>365 a day</p>
+                                       </div>
+                                    </div>
+                                 </li>
+                                 <li>
+                                    <div class="service-content">
+                                       <div class="service-icon" style="font-size: 25px; position: relative; top: 4px;"><em class="fa fa-cc-paypal"><span class="hidden">Icon</span></em></div>
+                                       <div class="service-info">
+                                          <h4><a title="payment method" href="#">payment method</a></h4>
+                                          <p>Secure payment</p>
+                                       </div>
+                                    </div>
+                                 </li>
+                              </ul>
+                           </div>
+
+
+                           <!--
+                           <div class="block block-compare" data-bind="scope: 'compareProducts'" data-role="compare-products-sidebar">
+                              <div class="block-title"><strong id="block-compare-heading" role="heading" aria-level="2">Compare Products</strong> <span class="counter qty no-display" data-bind="text: compareProducts().countCaption, css: {'no-display': !compareProducts().count}"></span></div>
+                              
+                              <div class="block-content no-display" aria-labelledby="block-compare-heading" data-bind="css: {'no-display': !compareProducts().count}">
+                                 <ol id="compare-items" class="product-items product-items-names" data-bind="foreach: compareProducts().items">
+                                    <li class="product-item"><input type="hidden" class="compare-item-id" data-bind="value: id"/><strong class="product-item-name"><a data-bind="attr: {href: product_url}, html: name" class="product-item-link"></a></strong> <a href="#" data-bind="attr: {'data-post': remove_url}" title="Remove This Item" class="action delete"><span>Remove This Item</span></a></li>
+                                 </ol>
+                                 <div class="actions-toolbar">
+                                    <div class="primary"><a data-bind="attr: {'href': compareProducts().listUrl}" class="action compare primary"><span>Compare</span></a></div>
+                                    <div class="secondary"><a id="compare-clear-all" href="#" class="action clear" data-post="{&quot;action&quot;:&quot;http:\/\/magento2.flytheme.net\/themes\/sm_market2\/argentina\/catalog\/product_compare\/clear\/&quot;,&quot;data&quot;:{&quot;uenc&quot;:&quot;&quot;,&quot;confirmation&quot;:true,&quot;confirmationMessage&quot;:&quot;Are you sure you want to remove all items from your Compare Products list?&quot;}}"><span>Clear All</span></a></div>
+                                 </div>
+                              </div>
+                            
+                              <div class="empty">You have no items to compare.</div>
+                           -->   
+                           
+                           
+                           </div>
+                          
+                          
+                          
+                          
+                          
+                          
+                          
+                           <p>
+                           <!--    
+                           <div id="sm_filterproducts_1527087197606729505" class="block products-sidebar">
+                              <div class="block-title filter-title"><strong>Featured Product</strong></div>
+                              <div class="block-content block-content-products">
+                                 <div class="item product product-item">
+                                    <div class="item-inner clearfix">
+                                       
+                                       
+                                       <div class="box-image"><a href="http://localhost/themes/sm_market2/argentina/wireless-bluetooth-speaker-sony-x3.html" class="product photo product-item-photo" tabindex="-1">  <span class="product-image-container"><span class="product-image-wrapper"><img class="product-image-photo lazyload"   src="http://magento2.flytheme.net/themes/sm_market2/pub/media/lazyloading/blank.png" data-src="http://magento2.flytheme.net/themes/sm_market2/pub/media/catalog/product/cache/d73a5018306142840707bd616a4ef293/f/u/fuhlen_mouse_for_gamer_1.jpg"  width="300" height="300" alt="Fuhlen Mouse for Gamer"/></span></span></a></div>
+                                       <div class="product details product-item-details box-info">
+                                          <strong class="product name product-name product-item-name"><a class="product-item-link" href="http://localhost/themes/sm_market2/argentina/wireless-bluetooth-speaker-sony-x3.html">Fuhlen Mouse for Gamer</a></strong>    
+                                          <div class="product-reviews-summary short">
+                                             <div class="rating-summary">
+                                                <span class="label"><span>Rating:</span></span> 
+                                                <div class="rating-result" title="87%"><span style="width:87%"><span>87%</span></span></div>
+                                             </div>
+                                             <div class="reviews-actions"><a class="action view" href="http://localhost/themes/sm_market2/argentina/wireless-bluetooth-speaker-sony-x3.html#reviews">1&nbsp;<span>Review</span></a></div>
+                                          </div>
+                                          <div class="price-box price-final_price" data-role="priceBox" data-product-id="2281">     <span class="price-container price-final_price tax weee" > <span  id="product-price-2281"  data-price-amount="250" data-price-type="finalPrice" class="price-wrapper "><span class="price">$250.00</span></span>  </span>  </div>
+                                       </div>
+                                    </div>
+                                 </div>
+                                 <div class="item product product-item">
+                                    <div class="item-inner clearfix">
+                                       <div class="box-image"><a href="http://localhost/themes/sm_market2/argentina/acer-all-in-one-computers.html" class="product photo product-item-photo" tabindex="-1">  <span class="product-image-container"><span class="product-image-wrapper"><img class="product-image-photo lazyload"   src="http://magento2.flytheme.net/themes/sm_market2/pub/media/lazyloading/blank.png" data-src="http://magento2.flytheme.net/themes/sm_market2/pub/media/catalog/product/cache/d73a5018306142840707bd616a4ef293/a/c/acer_aspire_s24_all-in-one_pc_2.jpg"  width="300" height="300" alt="Acer Aspire S24 All In One PC"/></span></span></a></div>
+                                       <div class="product details product-item-details box-info">
+                                          <strong class="product name product-name product-item-name"><a class="product-item-link" href="http://localhost/themes/sm_market2/argentina/acer-all-in-one-computers.html">Acer Aspire S24 All In One PC</a></strong>    
+                                          <div class="product-reviews-summary short">
+                                             <div class="rating-summary">
+                                                <span class="label"><span>Rating:</span></span> 
+                                                <div class="rating-result" title="87%"><span style="width:87%"><span>87%</span></span></div>
+                                             </div>
+                                             <div class="reviews-actions"><a class="action view" href="http://localhost/themes/sm_market2/argentina/acer-all-in-one-computers.html#reviews">1&nbsp;<span>Review</span></a></div>
+                                          </div>
+                                          <div class="price-box price-final_price" data-role="priceBox" data-product-id="2280">   <span class="special-price">  <span class="price-container price-final_price tax weee" > <span class="price-label">Special Price</span>  <span  id="product-price-2280"  data-price-amount="400" data-price-type="finalPrice" class="price-wrapper "><span class="price">$400.00</span></span>  </span></span> <span class="old-price">  <span class="price-container price-final_price tax weee" > <span class="price-label">Regular Price</span>  <span  id="old-price-2280"  data-price-amount="450" data-price-type="oldPrice" class="price-wrapper "><span class="price">$450.00</span></span>  </span></span>  </div>
+                                       </div>
+                                    </div>
+                                 </div>
+                                 <div class="item product product-item">
+                                    <div class="item-inner clearfix">
+                                       <div class="box-image"><a href="http://localhost/themes/sm_market2/argentina/washing-machines-dryers.html" class="product photo product-item-photo" tabindex="-1">  <span class="product-image-container"><span class="product-image-wrapper"><img class="product-image-photo lazyload"   src="http://magento2.flytheme.net/themes/sm_market2/pub/media/lazyloading/blank.png" data-src="http://magento2.flytheme.net/themes/sm_market2/pub/media/catalog/product/cache/d73a5018306142840707bd616a4ef293/w/a/washing_machines_elextrolux.jpg"  width="300" height="300" alt="Washing Machines Elextrolux"/></span></span></a></div>
+                                       <div class="product details product-item-details box-info">
+                                          <strong class="product name product-name product-item-name"><a class="product-item-link" href="http://localhost/themes/sm_market2/argentina/washing-machines-dryers.html">Washing Machines Elextrolux</a></strong>    
+                                          <div class="product-reviews-summary short">
+                                             <div class="rating-summary">
+                                                <span class="label"><span>Rating:</span></span> 
+                                                <div class="rating-result" title="80%"><span style="width:80%"><span>80%</span></span></div>
+                                             </div>
+                                             <div class="reviews-actions"><a class="action view" href="http://localhost/themes/sm_market2/argentina/washing-machines-dryers.html#reviews">1&nbsp;<span>Review</span></a></div>
+                                          </div>
+                                          <div class="price-box price-final_price" data-role="priceBox" data-product-id="2279">     <span class="price-container price-final_price tax weee" > <span  id="product-price-2279"  data-price-amount="185" data-price-type="finalPrice" class="price-wrapper "><span class="price">$185.00</span></span>  </span>  </div>
+                                       </div>
+                                    </div>
+                                 </div>
+                              </div>
+                           -->
+
+                           </div>
+                           
+                           
+                           <script type="text/javascript">
+                              require([
+                                  'jquery'
+                              ], function ($) {
+                              var $element = $('#sm_filterproducts_1527087197606729505');
+                              
+                              function CountDown(date,id){
+                              dateNow = new Date();
+                              amount = date.getTime() - dateNow.getTime();
+                              delete dateNow;
+                              if(amount < 0){
+                              id.html("Now!");
+                              } else{
+                              days=0;hours=0;mins=0;secs=0;out="";
+                              amount = Math.floor(amount/1000);
+                              days=Math.floor(amount/86400);
+                              amount=amount%86400;
+                              hours=Math.floor(amount/3600);
+                              amount=amount%3600;
+                              mins=Math.floor(amount/60);
+                              amount=amount%60;
+                              secs=Math.floor(amount);
+                              $(".time-day .num-time" , id).text(days);
+                              $(".time-day .title-time" , id).text(((days <= 1)? "Day" : "Days"));
+                              $(".time-hours .num-time" , id).text(hours);
+                              $(".time-hours .title-time" , id).text(((hours <= 1)? "Hour" : "Hours"));
+                              $(".time-mins .num-time" , id).text(mins);
+                              $(".time-mins .title-time" , id).text(((mins <= 1)? "Min" : "Mins"));
+                              $(".time-secs .num-time" , id).text(secs);
+                              $(".time-secs .title-time" , id).text(((secs <= 1)? "Sec" : "Secs"));
+                              setTimeout(function(){CountDown(date,id)}, 1000);
+                              }
+                              }
+                              $( ".deals-countdown",$element).each(function() {
+                              var timer = $(this).data('timer');
+                              var data = new Date(timer);
+                              CountDown(data,$(this));
+                              });
+                              });
+                           </script> <script type="text/x-magento-init">
+                              {
+                                  "[data-role=tocart-form], .form.map.checkout": {
+                                      "catalogAddToCart": {}
+                                  }
+                              }
+                           </script> </p>
+                       
+                  </div>
+                  <div class="col-lg-9 col-md-9">
                         <div class="page messages">
                            <div data-placeholder="messages"></div>
                            <div data-bind="scope: 'messages'">
@@ -322,6 +540,8 @@ $details = $obj->getIndividualProduct('name', 'id', 'sku');
                         </div>
                         <?php
                         // Get the first image in json formate data 
+                  
+
                   $images = json_decode($details['images'],true);
                   
                   // Get rest of three images 
@@ -661,7 +881,7 @@ $details = $obj->getIndividualProduct('name', 'id', 'sku');
         <h2>PRODUCT INFORMATION</h2>
         <br/>
         <!--Vertical Tab-->
-        <div id="parentVerticalTab" >
+        <div id="parentVerticalTab"  style = "direction: rtl;">
    <ul class="resp-tabs-list hor_1" id = "enquries-li14">
       <li>SPECIFICATIONS </li>
       <li>DESCRIPTION</li>
@@ -1155,40 +1375,7 @@ $details = $obj->getIndividualProduct('name', 'id', 'sku');
                            </div>
                            <div style="clear: both"></div>
                            
-                           <script data-role="msrp-popup-template" type="text/x-magento-template">
-                              <div id="map-popup-click-for-price" class="map-popup">
-                                  <div class="popup-header">
-                                      <strong class="title" id="map-popup-heading-price"></strong></div>
-                                  <div class="popup-content">
-                                      <div class="map-info-price" id="map-popup-content">
-                                          <div class="price-box">
-                                              <div class="map-msrp" id="map-popup-msrp-box">
-                                                  <span class="label">Price</span>
-                                                  <span class="old-price map-old-price" id="map-popup-msrp">
-                                                      <span class="price"></span></span></div>
-                                              <div class="map-price" id="map-popup-price-box">
-                                                  <span class="label">Actual Price</span>
-                                                  <span id="map-popup-price" class="actual-price"></span></div></div>
-                                          <form action="" method="POST" id="product_addtocart_form_from_popup" class="map-form-addtocart">
-                                              <input type="hidden" name="product" class="product_id" value="" id="map-popup-product-id"/>
-                                              <button type="button"
-                                                      title="Add to Cart"
-                                                      class="action tocart primary"
-                                                      id="map-popup-button">
-                                                  <span>Add to Cart</span></button>
-                                              <div class="additional-addtocart-box">
-                                                  </div></form></div>
-                                      <div class="map-text" id="map-popup-text">
-                                          Our price is lower than the manufacturer&#039;s &quot;minimum advertised price.&quot; As a result, we cannot show you the price in catalog or the product page. <br><br> You have no obligation to purchase the product once you know the price. You can simply remove the item from your cart.</div></div></div>
-                           </script><script data-role="msrp-info-template" type="text/x-magento-template">
-                              <div id="map-popup-what-this" class="map-popup">
-                                  <div class="popup-header">
-                                      <strong class="title" id="map-popup-heading-what-this"></strong></div>
-                                  <div class="popup-content">
-                                      <div class="map-help-text" id="map-popup-text-what-this">
-                                          Our price is lower than the manufacturer&#039;s &quot;minimum advertised price.&quot; As a result, we cannot show you the price in catalog or the product page. <br><br> You have no obligation to purchase the product once you know the price. You can simply remove the item from your cart.</div></div></div>
-                           </script>   
-                        
+                          
                         
                         
                        </div>
@@ -1196,215 +1383,17 @@ $details = $obj->getIndividualProduct('name', 'id', 'sku');
                      <div class="col-lg-3 col-md-3">
                    
                    <div class = "sidebar sidebar-additional">
-                  <div class="services-sidebar">
-                          <ul>
-                                 <li>
-                                 <div class="service-content">
-                                       <div class="service-icon" style="font-size: 30px;"></div>
-                                       <div class="service-info">
-                                          <h4><a title="Free Delivery" href="http://localhost/seller/<?=$details['id'];?>">Sold By: <?= $obj->hashDigitToString($details['id']); ?></a></h4>
-                                         
-                                       </div>
-                                    </div>
-                             
-                                 </li>
-                                 
-                                  <li>
-                                 <div class="service-content">
-                                       <div class="service-icon" style="font-size: 30px;"></div>
-                                       <div class="service-info">
-                                          <h4><a title="Free Delivery" href="http://localhost/seller/<?=$details['id'];?>">Seller type: <?= $details['seller_type']; ?></a></h4>
-                                         
-                                       </div>
-                                    </div>
-                             
-                                 </li>
-                                 
-                                 <li>
-                                 <div class="service-content">
-                                       <div class="service-icon" style="font-size: 30px;"></div>
-                                       <div class="service-info">
-                                          <h4><a title="Free Delivery" href="#parentVerticalTab4" id = "scrolltoen12">Make Inquiries </a></h4>
-                                         
-                                       </div>
-                                    </div>
-                             
-                                 </li>
-                                 
-                                 
-                                 
-                                 </ul>
+                  
+
+                  
+
+
                    </div>
                </div>
                      
-                        <div class="sidebar sidebar-additional">
-                           <div class="services-sidebar">
-                              <ul>
-                                 <li>
-                                    <div class="service-content">
-                                       <div class="service-icon" style="font-size: 30px;"><em class="fa fa-truck"><span class="hidden">Icon</span></em></div>
-                                       <div class="service-info">
-                                          <h4><a title="Free Delivery" href="#">Free Delivery</a></h4>
-                                          <p>From AED 100</p>
-                                       </div>
-                                    </div>
-                                 </li>
-                                 <li>
-                                    <div class="service-content">
-                                       <div class="service-icon" style="font-size: 30px;"><em class="fa fa-support"><span class="hidden">Icon</span></em></div>
-                                       <div class="service-info">
-                                          <h4><a title="Support 24/7" href="#">Support 24/7</a></h4>
-                                          <p>Online 24 hours</p>
-                                       </div>
-                                    </div>
-                                 </li>
-                                 <li>
-                                    <div class="service-content">
-                                       <div class="service-icon" style="font-size: 30px;"><em class="fa fa-refresh"><span class="hidden">Icon</span></em></div>
-                                       <div class="service-info">
-                                          <h4><a title="Free return" href="#">Free return</a></h4>
-                                          <p>365 a day</p>
-                                       </div>
-                                    </div>
-                                 </li>
-                                 <li>
-                                    <div class="service-content">
-                                       <div class="service-icon" style="font-size: 25px; position: relative; top: 4px;"><em class="fa fa-cc-paypal"><span class="hidden">Icon</span></em></div>
-                                       <div class="service-info">
-                                          <h4><a title="payment method" href="#">payment method</a></h4>
-                                          <p>Secure payment</p>
-                                       </div>
-                                    </div>
-                                 </li>
-                              </ul>
-                           </div>
-                           <div class="block block-compare" data-bind="scope: 'compareProducts'" data-role="compare-products-sidebar">
-                              <div class="block-title"><strong id="block-compare-heading" role="heading" aria-level="2">Compare Products</strong> <span class="counter qty no-display" data-bind="text: compareProducts().countCaption, css: {'no-display': !compareProducts().count}"></span></div>
-                              <!-- ko if: compareProducts().count -->
-                              <div class="block-content no-display" aria-labelledby="block-compare-heading" data-bind="css: {'no-display': !compareProducts().count}">
-                                 <ol id="compare-items" class="product-items product-items-names" data-bind="foreach: compareProducts().items">
-                                    <li class="product-item"><input type="hidden" class="compare-item-id" data-bind="value: id"/><strong class="product-item-name"><a data-bind="attr: {href: product_url}, html: name" class="product-item-link"></a></strong> <a href="#" data-bind="attr: {'data-post': remove_url}" title="Remove This Item" class="action delete"><span>Remove This Item</span></a></li>
-                                 </ol>
-                                 <div class="actions-toolbar">
-                                    <div class="primary"><a data-bind="attr: {'href': compareProducts().listUrl}" class="action compare primary"><span>Compare</span></a></div>
-                                    <div class="secondary"><a id="compare-clear-all" href="#" class="action clear" data-post="{&quot;action&quot;:&quot;http:\/\/magento2.flytheme.net\/themes\/sm_market2\/argentina\/catalog\/product_compare\/clear\/&quot;,&quot;data&quot;:{&quot;uenc&quot;:&quot;&quot;,&quot;confirmation&quot;:true,&quot;confirmationMessage&quot;:&quot;Are you sure you want to remove all items from your Compare Products list?&quot;}}"><span>Clear All</span></a></div>
-                                 </div>
-                              </div>
-                              <!-- /ko --><!-- ko ifnot: compareProducts().count -->
-                              <div class="empty">You have no items to compare.</div>
-                              <!-- /ko -->
-                           </div>
-                          
-                          
-                          
-                          
-                          
-                          
-                          
-                           <p>    
-                           <div id="sm_filterproducts_1527087197606729505" class="block products-sidebar">
-                              <div class="block-title filter-title"><strong>Featured Product</strong></div>
-                              <div class="block-content block-content-products">
-                                 <div class="item product product-item">
-                                    <div class="item-inner clearfix">
-                                       
-                                       
-                                       <div class="box-image"><a href="http://localhost/themes/sm_market2/argentina/wireless-bluetooth-speaker-sony-x3.html" class="product photo product-item-photo" tabindex="-1">  <span class="product-image-container"><span class="product-image-wrapper"><img class="product-image-photo lazyload"   src="http://magento2.flytheme.net/themes/sm_market2/pub/media/lazyloading/blank.png" data-src="http://magento2.flytheme.net/themes/sm_market2/pub/media/catalog/product/cache/d73a5018306142840707bd616a4ef293/f/u/fuhlen_mouse_for_gamer_1.jpg"  width="300" height="300" alt="Fuhlen Mouse for Gamer"/></span></span></a></div>
-                                       <div class="product details product-item-details box-info">
-                                          <strong class="product name product-name product-item-name"><a class="product-item-link" href="http://localhost/themes/sm_market2/argentina/wireless-bluetooth-speaker-sony-x3.html">Fuhlen Mouse for Gamer</a></strong>    
-                                          <div class="product-reviews-summary short">
-                                             <div class="rating-summary">
-                                                <span class="label"><span>Rating:</span></span> 
-                                                <div class="rating-result" title="87%"><span style="width:87%"><span>87%</span></span></div>
-                                             </div>
-                                             <div class="reviews-actions"><a class="action view" href="http://localhost/themes/sm_market2/argentina/wireless-bluetooth-speaker-sony-x3.html#reviews">1&nbsp;<span>Review</span></a></div>
-                                          </div>
-                                          <div class="price-box price-final_price" data-role="priceBox" data-product-id="2281">     <span class="price-container price-final_price tax weee" > <span  id="product-price-2281"  data-price-amount="250" data-price-type="finalPrice" class="price-wrapper "><span class="price">$250.00</span></span>  </span>  </div>
-                                       </div>
-                                    </div>
-                                 </div>
-                                 <div class="item product product-item">
-                                    <div class="item-inner clearfix">
-                                       <div class="box-image"><a href="http://localhost/themes/sm_market2/argentina/acer-all-in-one-computers.html" class="product photo product-item-photo" tabindex="-1">  <span class="product-image-container"><span class="product-image-wrapper"><img class="product-image-photo lazyload"   src="http://magento2.flytheme.net/themes/sm_market2/pub/media/lazyloading/blank.png" data-src="http://magento2.flytheme.net/themes/sm_market2/pub/media/catalog/product/cache/d73a5018306142840707bd616a4ef293/a/c/acer_aspire_s24_all-in-one_pc_2.jpg"  width="300" height="300" alt="Acer Aspire S24 All In One PC"/></span></span></a></div>
-                                       <div class="product details product-item-details box-info">
-                                          <strong class="product name product-name product-item-name"><a class="product-item-link" href="http://localhost/themes/sm_market2/argentina/acer-all-in-one-computers.html">Acer Aspire S24 All In One PC</a></strong>    
-                                          <div class="product-reviews-summary short">
-                                             <div class="rating-summary">
-                                                <span class="label"><span>Rating:</span></span> 
-                                                <div class="rating-result" title="87%"><span style="width:87%"><span>87%</span></span></div>
-                                             </div>
-                                             <div class="reviews-actions"><a class="action view" href="http://localhost/themes/sm_market2/argentina/acer-all-in-one-computers.html#reviews">1&nbsp;<span>Review</span></a></div>
-                                          </div>
-                                          <div class="price-box price-final_price" data-role="priceBox" data-product-id="2280">   <span class="special-price">  <span class="price-container price-final_price tax weee" > <span class="price-label">Special Price</span>  <span  id="product-price-2280"  data-price-amount="400" data-price-type="finalPrice" class="price-wrapper "><span class="price">$400.00</span></span>  </span></span> <span class="old-price">  <span class="price-container price-final_price tax weee" > <span class="price-label">Regular Price</span>  <span  id="old-price-2280"  data-price-amount="450" data-price-type="oldPrice" class="price-wrapper "><span class="price">$450.00</span></span>  </span></span>  </div>
-                                       </div>
-                                    </div>
-                                 </div>
-                                 <div class="item product product-item">
-                                    <div class="item-inner clearfix">
-                                       <div class="box-image"><a href="http://localhost/themes/sm_market2/argentina/washing-machines-dryers.html" class="product photo product-item-photo" tabindex="-1">  <span class="product-image-container"><span class="product-image-wrapper"><img class="product-image-photo lazyload"   src="http://magento2.flytheme.net/themes/sm_market2/pub/media/lazyloading/blank.png" data-src="http://magento2.flytheme.net/themes/sm_market2/pub/media/catalog/product/cache/d73a5018306142840707bd616a4ef293/w/a/washing_machines_elextrolux.jpg"  width="300" height="300" alt="Washing Machines Elextrolux"/></span></span></a></div>
-                                       <div class="product details product-item-details box-info">
-                                          <strong class="product name product-name product-item-name"><a class="product-item-link" href="http://localhost/themes/sm_market2/argentina/washing-machines-dryers.html">Washing Machines Elextrolux</a></strong>    
-                                          <div class="product-reviews-summary short">
-                                             <div class="rating-summary">
-                                                <span class="label"><span>Rating:</span></span> 
-                                                <div class="rating-result" title="80%"><span style="width:80%"><span>80%</span></span></div>
-                                             </div>
-                                             <div class="reviews-actions"><a class="action view" href="http://localhost/themes/sm_market2/argentina/washing-machines-dryers.html#reviews">1&nbsp;<span>Review</span></a></div>
-                                          </div>
-                                          <div class="price-box price-final_price" data-role="priceBox" data-product-id="2279">     <span class="price-container price-final_price tax weee" > <span  id="product-price-2279"  data-price-amount="185" data-price-type="finalPrice" class="price-wrapper "><span class="price">$185.00</span></span>  </span>  </div>
-                                       </div>
-                                    </div>
-                                 </div>
-                              </div>
-                           </div>
-                           
-                           
-                           <script type="text/javascript">
-                              require([
-                                  'jquery'
-                              ], function ($) {
-                              var $element = $('#sm_filterproducts_1527087197606729505');
-                              
-                              function CountDown(date,id){
-                              dateNow = new Date();
-                              amount = date.getTime() - dateNow.getTime();
-                              delete dateNow;
-                              if(amount < 0){
-                              id.html("Now!");
-                              } else{
-                              days=0;hours=0;mins=0;secs=0;out="";
-                              amount = Math.floor(amount/1000);
-                              days=Math.floor(amount/86400);
-                              amount=amount%86400;
-                              hours=Math.floor(amount/3600);
-                              amount=amount%3600;
-                              mins=Math.floor(amount/60);
-                              amount=amount%60;
-                              secs=Math.floor(amount);
-                              $(".time-day .num-time" , id).text(days);
-                              $(".time-day .title-time" , id).text(((days <= 1)? "Day" : "Days"));
-                              $(".time-hours .num-time" , id).text(hours);
-                              $(".time-hours .title-time" , id).text(((hours <= 1)? "Hour" : "Hours"));
-                              $(".time-mins .num-time" , id).text(mins);
-                              $(".time-mins .title-time" , id).text(((mins <= 1)? "Min" : "Mins"));
-                              $(".time-secs .num-time" , id).text(secs);
-                              $(".time-secs .title-time" , id).text(((secs <= 1)? "Sec" : "Secs"));
-                              setTimeout(function(){CountDown(date,id)}, 1000);
-                              }
-                              }
-                              $( ".deals-countdown",$element).each(function() {
-                              var timer = $(this).data('timer');
-                              var data = new Date(timer);
-                              CountDown(data,$(this));
-                              });
-                              });
-                           </script> <script type="text/x-magento-init">
-                              {
-                                  "[data-role=tocart-form], .form.map.checkout": {
-                                      "catalogAddToCart": {}
-                                  }
-                              }
-                           </script> </p>
+                        
+
+
                         </div>
                      </div>
                   </div>
@@ -1412,15 +1401,15 @@ $details = $obj->getIndividualProduct('name', 'id', 'sku');
             </div>
          <div id = "myDiv"></div>
          
-         <div id  = "test56"></div>
+
          </main>
-         <div class="container">
+         
             
       
       <div class="row">
-         <div class="col-sm-7">
+         <div class="col-sm-12" >
             <hr/>
-            <div class="review-block">
+            <div class="review-block" style = "direction:rtl;">
                <div class="row">
                   <div class="col-sm-3">
                      <img src="http://dummyimage.com/60x60/666/ffffff&text=No+Image" class="img-rounded">
@@ -1509,7 +1498,9 @@ $details = $obj->getIndividualProduct('name', 'id', 'sku');
                </div>
             </div>
          </div>
-      </div>
+   
+
+
       
 </div>
 

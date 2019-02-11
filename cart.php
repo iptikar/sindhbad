@@ -36,7 +36,17 @@
      
       <div class="page-wrapper">
       
-       <?php include 'header.php'; ?>
+       <?php
+// We will check cookie  <?php include 'header-arabic.php'; 
+if(isset($_COOKIE['lanSindhbad']) && $_COOKIE['lanSindhbad'] == 'ar')  :?>
+
+<?php include 'header-arabic.php'; ?> 
+
+<?php else :?>
+
+<?php include 'header.php'; ?> 
+
+<?php endif; ?>
 			
 		<div class="breadcrumbs">
             <div class="container">
