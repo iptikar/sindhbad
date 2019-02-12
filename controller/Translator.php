@@ -5,10 +5,10 @@ class Translator {
     private $language   = 'en';
     private $lang       = array();
 
-    private $directory = 'languages/';
+    private $directory = 'languages';
 
     public function __construct($language){
-        $this->language = $this->directory.$language;
+        $this->language = $_SERVER['DOCUMENT_ROOT'].'/'.$this->directory.'/'.$language;
     }
 
     private function findString($str) {

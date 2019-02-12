@@ -1890,14 +1890,15 @@ table>caption{
 }
 .message.success{
     margin:0 0 10px;
-    padding:10px 20px;
+    padding:10px 30px;
     display:block;
     line-height:1.2em;
     font-size:1.3rem;
     background:#e5efe5;
     color:#006400;
     padding-left:40px;
-    position:relative
+    position:relative;
+    direction:rtl;
 }
 .message.success a{
     color:#1979c3
@@ -1922,7 +1923,7 @@ table>caption{
     font-weight:400;
     overflow:hidden;
     speak:none;
-    left:0;
+    right:0;
     top:18px;
     width:40px;
     position:absolute;
@@ -2481,7 +2482,9 @@ input:focus~.tooltip .tooltip-content,select:focus~.tooltip .tooltip-content{
     margin-bottom:0
 }
 .actions-toolbar>.primary:last-child,.actions-toolbar>.secondary:last-child{
-    margin-bottom:0
+    margin-bottom:0;
+    display: inline-block;
+    float: right;
 }
 .breadcrumbs{
     margin:0 0 20px
@@ -3500,7 +3503,7 @@ body._has-modal-custom .modal-custom-overlay{
 }
 .cart.table-wrapper .product-item-photo{
     display:block;
-    left:0;
+    right:0;
     max-width:60px;
     padding:0;
     position:absolute;
@@ -18754,7 +18757,8 @@ legend{
     background:0 0;
     border:1px solid #ddd;
     padding:25px;
-    top:auto !important
+    top:auto !important;
+    float:left;
 }
 .cart-container .cart-summary .summary.title{
     margin-top:0;
@@ -18785,7 +18789,8 @@ legend{
     background-color:#333
 }
 .cart-container .form.form-cart{
-    width:67%
+    width:67%;
+    float:right;
 }
 .cart-container .cart.main.actions .action{
     border:none;
@@ -18819,7 +18824,7 @@ legend{
     border-top:none
 }
 .cart-container .cart.table-wrapper .actions-toolbar{
-    text-align:right
+    text-align:left;
 }
 .cart-container .cart.table-wrapper .actions-toolbar .action-edit,.cart-container .cart.table-wrapper .actions-toolbar .action-delete{
     background:0 0;

@@ -97,8 +97,8 @@ $(function () {
 			  dataType: "text",
 			  success: function(resultData) { 
 				  
-			 
-			  $('#cart-msg').html(resultData);
+			 $('#cart-msg').css('visibility', 'visible');
+			  $('#cart-msg1').text(resultData);
 		 
 		  }
 });

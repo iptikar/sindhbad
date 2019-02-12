@@ -1,6 +1,6 @@
 <?php
 
-if(isset($_COOKIE['lanSindhbad']))
+if(isset($_COOKIE['lanSindhbad']) && $_COOKIE['lanSindhbad'] === 'ar')
     $translate = new Translator($_COOKIE['lanSindhbad']);
 else
     $translate = new Translator('en');

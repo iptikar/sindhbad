@@ -56,9 +56,9 @@
       <div class="language-wrapper">
          <select class="selectpicker" data-width="fit">
             <option value = ""><?= $translate->__('Language')?></option>
-            <option data-content='<span class="flag-icon flag-icon-us"></span> English'>
+            <option value = "en" data-content='<span class="flag-icon flag-icon-us"></span> English'>
                <?= $translate->__('English')?></option>
-            <option  data-content='<span class="flag-icon flag-icon-mx"></span> Español'>
+            <option  value = "ar" data-content='<span class="flag-icon flag-icon-mx"></span> Español'>
                <?= $translate->__('Arabic')?></option>
          </select>
       </div>
@@ -443,7 +443,11 @@
                            <span class="btn-submobile"></span> 
                         </li>
                         <li class="other-toggle  sm_megamenu_lv1 sm_megamenu_drop parent   parent-item">
-                           <a class="sm_megamenu_head sm_megamenu_drop sm_megamenu_haschild" href="http://localhost/category/men's-Clothing/2" id="sm_megamenu_2"> <span class="icon_items"><img src="http://localhost/themes/sm_market2/pub/media/wysiwyg/mega-menu/icon/mencloth.png" alt="icon items"></span> <span class="sm_megamenu_icon sm_megamenu_nodesc"> <span class="sm_megamenu_title">Men's Clothing</span> </span></a>   
+                           <a class="sm_megamenu_head sm_megamenu_drop sm_megamenu_haschild" href="http://localhost/category/men's-Clothing/2" id="sm_megamenu_2"> <span class="icon_items"><img src="http://localhost/themes/sm_market2/pub/media/wysiwyg/mega-menu/icon/mencloth.png" alt="icon items"></span> <span class="sm_megamenu_icon sm_megamenu_nodesc"> <span class="sm_megamenu_title">
+
+                           <?= $translate->__('Mens Clothing'); ?> 
+
+                        </span> </span></a>   
                            <div class="sm-megamenu-child sm_megamenu_dropdown_6columns ">
                               <div data-link="http://localhost/themes/sm_market2/argentina/" class="sm_megamenu_col_12 sm_megamenu_firstcolumn    ">
                                  <div data-link="" class="sm_megamenu_col_3    remove-padding ">
@@ -457,14 +461,45 @@
                                                          <div class="sm_megamenu_title  ">
                                                             <a class="sm_megamenu_nodrop " href="http://localhost/themes/sm_market2/argentina/smartphones-tablets/camping-hiking-gear.html"></a>
                                                             <div class="sm_megamenu_title">
-                                                               <h3 class="sm_megamenu_nodrop  title-cat" id="sm_megamenu_2.1">Hot Sale</h3>
+                                                               <h3 class="sm_megamenu_nodrop  title-cat" id="sm_megamenu_2.1">
+
+                                                                  <?= $translate->__('Hot Sale'); ?>  
+
+
+                                                            </h3>
                                                             </div>
-                                                            <div class="sm_megamenu_title " id="sm_megamenu_2.1.1"><a class="sm_megamenu_nodrop" href="http://localhost/category/hoodies-and-sweartshirts/211"><span class="sm_megamenu_title_lv-4">Hoodies &amp; Sweatshirts</span></a></div>
-                                                            <div class="sm_megamenu_title " id="sm_megamenu_2.1.2"><a class="sm_megamenu_nodrop" href="http://localhost/category/jackets/212"><span class="sm_megamenu_title_lv-4">Jackets</span></a></div>
-                                                            <div class="sm_megamenu_title " id="sm_megamenu_2.1.3"><a class="sm_megamenu_nodrop" href="http://localhost/category/t-shirts/213"><span class="sm_megamenu_title_lv-4">T-Shirts</span></a></div>
-                                                            <div class="sm_megamenu_title " id="sm_megamenu_2.1.4"><a class="sm_megamenu_nodrop" href="http://localhost/categoryshirts/214"><span class="sm_megamenu_title_lv-4">Shirts</span></a></div>
-                                                            <div class="sm_megamenu_title " id="sm_megamenu_2.1.5"><a class="sm_megamenu_nodrop" href="http://localhost/category/sweaters/215"><span class="sm_megamenu_title_lv-4">Sweaters</span></a></div>
-                                                            <div class="sm_megamenu_title " id="sm_megamenu_2.1.6"><a class="sm_megamenu_nodrop" href="http://localhost/category/socks/216"><span class="sm_megamenu_title_lv-4">Socks</span></a></div>
+                                                            <div class="sm_megamenu_title " id="sm_megamenu_2.1.1"><a class="sm_megamenu_nodrop" href="http://localhost/category/hoodies-and-sweartshirts/211"><span class="sm_megamenu_title_lv-4">
+
+                                                            
+                                                               <?= $translate->__('Hoodies & Sweatshirts'); ?> 
+
+                                                         </span></a></div>
+                                                            <div class="sm_megamenu_title " id="sm_megamenu_2.1.2"><a class="sm_megamenu_nodrop" href="http://localhost/category/jackets/212"><span class="sm_megamenu_title_lv-4">
+
+                                                            <?= $translate->__('Jackets'); ?>  
+
+                                                         </span></a></div>
+                                                            <div class="sm_megamenu_title " id="sm_megamenu_2.1.3"><a class="sm_megamenu_nodrop" href="http://localhost/category/t-shirts/213"><span class="sm_megamenu_title_lv-4">
+
+                                                             <?= $translate->__('T-Shirts'); ?>  
+
+                                                         </span></a></div>
+                                                            <div class="sm_megamenu_title " id="sm_megamenu_2.1.4"><a class="sm_megamenu_nodrop" href="http://localhost/categoryshirts/214"><span class="sm_megamenu_title_lv-4">
+
+                                                             <?= $translate->__('Shirts'); ?>  
+
+                                                         </span></a></div>
+                                                            <div class="sm_megamenu_title " id="sm_megamenu_2.1.5"><a class="sm_megamenu_nodrop" href="http://localhost/category/sweaters/215"><span class="sm_megamenu_title_lv-4">
+
+                                                            <?= $translate->__('Sweaters'); ?>  
+                                                            
+
+                                                         </span></a></div>
+                                                            <div class="sm_megamenu_title " id="sm_megamenu_2.1.6"><a class="sm_megamenu_nodrop" href="http://localhost/category/socks/216"><span class="sm_megamenu_title_lv-4">
+
+                                                            Socks
+
+                                                         </span></a></div>
                                                          </div>
                                                       </div>
                                                    </div>

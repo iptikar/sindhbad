@@ -18,7 +18,7 @@ $details = $obj->getIndividualProduct('name', 'id', 'sku');
 ?>
 <!doctype html>
 
-<html lang="en">
+<html lang="ar">
    <head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# product: http://ogp.me/ns/product#">
   
       <meta charset="utf-8"/>
@@ -143,7 +143,7 @@ $details = $obj->getIndividualProduct('name', 'id', 'sku');
             
                
       
-      
+   
 </div> <!-- /container -->
 
   
@@ -279,14 +279,16 @@ if(isset($_COOKIE['lanSindhbad']) && $_COOKIE['lanSindhbad'] == 'ar')  :?>
             </div>
          </div>
          
-         <div class = "container" id = "cart-msg">
+         <div class = "container" id = "cart-msg" style = "visibility: hidden;">
          <br/>
          
-        
-        
-         </div>
+       <div class="message success" id = "cart-msg1">
          
-         <main id="maincontent" class="page-main">
+      </div>
+        
+      </div>
+         
+         <main id="maincontent" class="page-main" dir = "rtl">
             <a id="contentarea" tabindex="-1"></a>
             <div class="columns col2-layout">
                <div class="container">
@@ -302,7 +304,11 @@ if(isset($_COOKIE['lanSindhbad']) && $_COOKIE['lanSindhbad'] == 'ar')  :?>
                                  <div class="service-content">
                                        <div class="service-icon" style="font-size: 30px;"></div>
                                        <div class="service-info">
-                                          <h4><a title="Free Delivery" href="http://localhost/seller/<?=$details['id'];?>">Sold By: <?= $obj->hashDigitToString($details['id']); ?></a></h4>
+                                          <h4><a title="Free Delivery" href="http://localhost/seller/<?=$details['id'];?>">
+
+                                             <?php $translate->__('Sold By:'); ?> 
+
+                                             <?= $obj->hashDigitToString($details['id']); ?></a></h4>
                                          
                                        </div>
                                     </div>
@@ -313,7 +319,11 @@ if(isset($_COOKIE['lanSindhbad']) && $_COOKIE['lanSindhbad'] == 'ar')  :?>
                                  <div class="service-content">
                                        <div class="service-icon" style="font-size: 30px;"></div>
                                        <div class="service-info">
-                                          <h4><a title="Free Delivery" href="http://localhost/seller/<?=$details['id'];?>">Seller type: <?= $details['seller_type']; ?></a></h4>
+                                          <h4><a title="Free Delivery" href="http://localhost/seller/<?=$details['id'];?>">
+                                             
+                                             <?php $translate->__('Seller type:'); ?> 
+
+                                             <?= $details['seller_type']; ?></a></h4>
                                          
                                        </div>
                                     </div>
@@ -324,7 +334,8 @@ if(isset($_COOKIE['lanSindhbad']) && $_COOKIE['lanSindhbad'] == 'ar')  :?>
                                  <div class="service-content">
                                        <div class="service-icon" style="font-size: 30px;"></div>
                                        <div class="service-info">
-                                          <h4><a title="Free Delivery" href="#parentVerticalTab4" id = "scrolltoen12">Make Inquiries </a></h4>
+                                          <h4><a title="Free Delivery" href="#parentVerticalTab4" id = "scrolltoen12">
+                                             <?php $translate->__('Make Inquiries:'); ?> </a></h4>
                                          
                                        </div>
                                     </div>
@@ -343,8 +354,14 @@ if(isset($_COOKIE['lanSindhbad']) && $_COOKIE['lanSindhbad'] == 'ar')  :?>
                                     <div class="service-content">
                                        <div class="service-icon" style="font-size: 30px;"><em class="fa fa-truck"><span class="hidden">Icon</span></em></div>
                                        <div class="service-info">
-                                          <h4><a title="Free Delivery" href="#">Free Delivery</a></h4>
-                                          <p>From AED 100</p>
+                                          <h4><a title="Free Delivery" href="#">
+
+                                             <?php $translate->__('Free Delivery'); ?>  </a></h4>
+                                          <p>
+
+                                          
+                                          <?php $translate->__('From AED 100'); ?> 
+                                       </p>
                                        </div>
                                     </div>
                                  </li>
@@ -352,8 +369,16 @@ if(isset($_COOKIE['lanSindhbad']) && $_COOKIE['lanSindhbad'] == 'ar')  :?>
                                     <div class="service-content">
                                        <div class="service-icon" style="font-size: 30px;"><em class="fa fa-support"><span class="hidden">Icon</span></em></div>
                                        <div class="service-info">
-                                          <h4><a title="Support 24/7" href="#">Support 24/7</a></h4>
-                                          <p>Online 24 hours</p>
+                                          <h4><a title="Support 24/7" href="#">
+                                         
+                                         <?php $translate->__('Support 24/7'); ?>  
+
+                                       </a></h4>
+                                          <p>
+
+                                         <?php $translate->__('Online 24 hours'); ?>    
+
+                                       </p>
                                        </div>
                                     </div>
                                  </li>
@@ -361,8 +386,16 @@ if(isset($_COOKIE['lanSindhbad']) && $_COOKIE['lanSindhbad'] == 'ar')  :?>
                                     <div class="service-content">
                                        <div class="service-icon" style="font-size: 30px;"><em class="fa fa-refresh"><span class="hidden">Icon</span></em></div>
                                        <div class="service-info">
-                                          <h4><a title="Free return" href="#">Free return</a></h4>
-                                          <p>365 a day</p>
+                                          <h4><a title="Free return" href="#">
+
+                                          <?php $translate->__('Free return'); ?>    
+
+                                       </a></h4>
+                                          <p>
+
+                                             <?php $translate->__('365 a day'); ?>   
+                                          
+                                       </p>
                                        </div>
                                     </div>
                                  </li>
@@ -370,8 +403,16 @@ if(isset($_COOKIE['lanSindhbad']) && $_COOKIE['lanSindhbad'] == 'ar')  :?>
                                     <div class="service-content">
                                        <div class="service-icon" style="font-size: 25px; position: relative; top: 4px;"><em class="fa fa-cc-paypal"><span class="hidden">Icon</span></em></div>
                                        <div class="service-info">
-                                          <h4><a title="payment method" href="#">payment method</a></h4>
-                                          <p>Secure payment</p>
+                                          <h4><a title="payment method" href="#">
+                                         
+                                         <?php $translate->__('payment method'); ?>    
+
+                                       </a></h4>
+                                          <p>
+
+                                          
+
+                                       <?php $translate->__('Secure payment'); ?>    </p>
                                        </div>
                                     </div>
                                  </li>
@@ -570,11 +611,11 @@ if(isset($_COOKIE['lanSindhbad']) && $_COOKIE['lanSindhbad'] == 'ar')  :?>
                               <!-- Check that product is in stock -->
                               <?php if($details['avaibility'] == '0'):?>
                               
-                              <span>In stock</span>
+                              <span><?php $translate->__('In stock'); ?></span>
                               
                               <?php elseif($details['avaibility'] == '1'):?>
                               
-                              <span>Out of stock</span>
+                              <span><?php $translate->__('Out of stock'); ?> </span>
                               
                               <?php endif; ?>
                               
@@ -591,10 +632,20 @@ if(isset($_COOKIE['lanSindhbad']) && $_COOKIE['lanSindhbad'] == 'ar')  :?>
                                  </div>
                                  <div class="product-reviews-summary" itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating">
                                     <div class="rating-summary">
-                                       <span class="label"><span>Rating:</span></span> 
+                                       <span class="label"><span>
+                                      <?php $translate->__('Rating:'); ?> 
+
+                                    </span></span> 
                                        <div class="rating-result" title="80%"><span style="width:80%"><span> <span itemprop="ratingValue">80</span>% of <span itemprop="bestRating">100</span></span></span></div>
                                     </div>
-                                    <div class="reviews-actions"><a class="action view" href="#"><span itemprop="reviewCount">1</span>&nbsp; <span>Review</span></a> <a class="action add" href="#">Add Your Review</a></div>
+                                    <div class="reviews-actions"><a class="action view" href="#"><span itemprop="reviewCount">1</span>&nbsp; <span>
+                                    
+                                    <?php $translate->__('Review'); ?> 
+
+                                 </span></a> <a class="action add" href="#">
+                                 <?php $translate->__('Add Your Review'); ?> 
+
+                              </a></div>
                                  </div>
                                  <div class="price-box price-final_price" data-role="priceBox" data-product-id="2276">
                                     <span class="special-price">
@@ -607,12 +658,16 @@ if(isset($_COOKIE['lanSindhbad']) && $_COOKIE['lanSindhbad'] == 'ar')  :?>
                            
                                          
                                           
-                                          <span   data-price-type="finalPrice" class="price-wrapper "><span class="price"><?= $obj->getPriceFormate($details['regular_price']); ?> AED</span></span>   
+                                          <span   data-price-type="finalPrice" class="price-wrapper "><span class="price"><?= $obj->getPriceFormate($details['regular_price']); ?> 
+                                       <?php $translate->__('AED'); ?> 
+                                    </span></span>   
                                           
                               <?php else:?>
                               
                                 
-                                          <span   data-price-type="finalPrice" class="price-wrapper "><span class="price"><?= $obj->getPriceFormate($details['special_price']); ?> AED</span></span>   
+                                          <span   data-price-type="finalPrice" class="price-wrapper "><span class="price"><?= $obj->getPriceFormate($details['special_price']); ?> 
+                                      <?php $translate->__('AED'); ?>  
+                                    </span></span>   
                                           
                               
                                       <?php endif; ?>
@@ -670,7 +725,10 @@ if(isset($_COOKIE['lanSindhbad']) && $_COOKIE['lanSindhbad'] == 'ar')  :?>
                                     <div class="box-tocart">
                                        <div class="fieldset">
                                           <div class="field qty">
-                                             <label class="label" for="qty"><span>Qty</span></label> 
+                                             <label class="label" for="qty"><span>
+                                             <?php $translate->__('Qty'); ?> 
+
+                                          </span></label> 
                                              <div class="control control-qty-cart">
                                                 <input type="number" name="qty" id="qty" maxlength="12" value="1" title="Qty" class="qty-default input-text qty" data-validate="{&quot;required-number&quot;:true,&quot;validate-item-quantity&quot;:{&quot;minAllowed&quot;:1}}" />
                                                 
@@ -699,7 +757,11 @@ if(isset($_COOKIE['lanSindhbad']) && $_COOKIE['lanSindhbad'] == 'ar')  :?>
                                              </div>
                                           </div>
                                           <div class="actions">
-                                             <button type="submit" title="Add to Cart" class="action primary tocart" id = "add-to-cart-btn" ><span>Add to Cart</span></button>   
+                                             <button type="submit" title="Add to Cart" class="action primary tocart" id = "add-to-cart-btn" ><span>
+
+                                             
+                                          <?php $translate->__('Add to Cart'); ?>
+                                          </span></button>   
                                             
                                           
                                             
@@ -745,7 +807,15 @@ if(isset($_COOKIE['lanSindhbad']) && $_COOKIE['lanSindhbad'] == 'ar')  :?>
                               <div class="product-social-links">
                                  <div class="product-addto-links" data-role="add-to-links">  
                             
-                            <a title="Add to Wish List" href="#" class="action towishlist"  data-action="add-to-wishlist"><span>Add to Wish List</span></a>    <a title="Add to Compare" href="#" data-post='' data-role="add-to-links" class="action tocompare"><span>Add to Compare</span></a> </div>
+                            <a title="Add to Wish List" href="#" class="action towishlist"  data-action="add-to-wishlist"><span>
+                           
+                            <?php $translate->__('Add to Wish List'); ?>
+
+                         </span></a>    <a title="Add to Compare" href="#" data-post='' data-role="add-to-links" class="action tocompare"><span>
+
+                          <?php $translate->__('Add to Compare'); ?>
+
+                      </span></a> </div>
                                 
                                 
                                 
@@ -772,11 +842,15 @@ if(isset($_COOKIE['lanSindhbad']) && $_COOKIE['lanSindhbad'] == 'ar')  :?>
                              
                               <div class = "row">
                         <div class = "col-md-4 custom120">
-                        <span class = "title32"> <b >Return policy</b> </span>
+                        <span class = "title32"> <b >
+
+                        <?php $translate->__('Return policy'); ?>
+
+                     </b> </span>
                         
                         </div>
                         <div class = "col-md-8">
-                           Returns accepted if product not as described, seller pays return shipping; or keep the product & agree refund with seller
+                           <?php $translate->__('Returns accepted if product not as described, seller pays return shipping; or keep the product & agree refund with seller.'); ?>
                         </div>
                              </div>
                         
@@ -784,7 +858,8 @@ if(isset($_COOKIE['lanSindhbad']) && $_COOKIE['lanSindhbad'] == 'ar')  :?>
                      <div class = "row">
                         <div class = "col-md-4">
                         
-                        <b class = "title32">Minimum Order</b>
+                        <b class = "title32">
+                           <?php $translate->__('Minimum Order'); ?></b>
                         </div>
                         <div class = "col-md-8">
                            <?= $details['minimun_order'] === '' ?  'Not Provided ': $details['minimun_order'].' '. $details['product_unite'];?>
@@ -795,7 +870,8 @@ if(isset($_COOKIE['lanSindhbad']) && $_COOKIE['lanSindhbad'] == 'ar')  :?>
                              <div class = "row">
                         <div class = "col-md-4 custom120 ">
                         
-                        <b class = "title32">Seller Guarantee</b>
+                        <b class = "title32">
+                           <?php $translate->__('Seller Guarantee'); ?> </b>
                         </div>
                         <div class = "col-md-8">
                            <?= $details['warranty']; ?>
@@ -805,7 +881,8 @@ if(isset($_COOKIE['lanSindhbad']) && $_COOKIE['lanSindhbad'] == 'ar')  :?>
                              <div class = "row">
                         <div class = "col-md-4">
                         
-                        <b class = "title32">Payment</b>
+                        <b class = "title32">
+                           <?php $translate->__('Payment'); ?> </b>
                         </div>
                         <div class = "col-md-8">
                            <i class = "fa fa-cc-mastercard custom203"></i> 
@@ -878,15 +955,15 @@ if(isset($_COOKIE['lanSindhbad']) && $_COOKIE['lanSindhbad'] == 'ar')  :?>
         
 
 
-        <h2>PRODUCT INFORMATION</h2>
+        <h2><?php $translate->__('PRODUCT INFORMATION'); ?>  </h2>
         <br/>
         <!--Vertical Tab-->
         <div id="parentVerticalTab"  style = "direction: rtl;">
    <ul class="resp-tabs-list hor_1" id = "enquries-li14">
-      <li>SPECIFICATIONS </li>
-      <li>DESCRIPTION</li>
-      <li>REVIEWS</li>
-      <li >Enquries</li>
+      <li><?php $translate->__('SPECIFICATIONS'); ?>  </li>
+      <li><?php $translate->__('DESCRIPTION'); ?> </li>
+      <li><?php $translate->__('REVIEWS'); ?>  </li>
+      <li ><?php $translate->__('Enquries'); ?>  </li>
    </ul>
    <div class="resp-tabs-container hor_1">
       <div>
@@ -943,7 +1020,8 @@ if(isset($_COOKIE['lanSindhbad']) && $_COOKIE['lanSindhbad'] == 'ar')  :?>
             }
             ?>
          <table class="data table additional-attributes" id="product-attribute-specs-table">
-      <caption class="table-caption">More Information</caption>
+      <caption class="table-caption">
+         <?php $translate->__('More Information'); ?> </caption>
       <tbody>
      
       <?= $getSpecification;?>
@@ -956,7 +1034,8 @@ if(isset($_COOKIE['lanSindhbad']) && $_COOKIE['lanSindhbad'] == 'ar')  :?>
       <div>
          <div class="additional-attributes-wrapper table-wrapper">
             
-               <caption class="table-caption">More Information</caption>
+               <caption class="table-caption">
+                  <?php $translate->__('More Information'); ?> </caption>
               
               <?= $details['discription'];?>
             
@@ -968,7 +1047,9 @@ if(isset($_COOKIE['lanSindhbad']) && $_COOKIE['lanSindhbad'] == 'ar')  :?>
       <div>
          <div id="product-review-container" data-role="product-review">
             <div class="block review-list" id="customer-reviews">
-               <div class="block-title"><strong>Customer Reviews</strong></div>
+               <div class="block-title"><strong>
+
+                  <?php $translate->__('Customer Reviews'); ?></strong></div>
                
                <div class="block-content">
                   <div class="toolbar review-toolbar">
@@ -1000,7 +1081,7 @@ if(isset($_COOKIE['lanSindhbad']) && $_COOKIE['lanSindhbad'] == 'ar')  :?>
           <div class="row">
          <div class="col-sm-6">
             <div class="rating-block">
-               <h4>Average user rating</h4>
+               <h4><?php $translate->__('Average user rating'); ?> </h4>
                <h2 class="bold padding-bottom-7">4.3 <small>/ 5</small></h2>
                <button type="button" class="btn btn-warning btn-sm" aria-label="Left Align">
                  <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
@@ -1020,7 +1101,7 @@ if(isset($_COOKIE['lanSindhbad']) && $_COOKIE['lanSindhbad'] == 'ar')  :?>
             </div>
          </div>
          <div class="col-sm-6">
-            <h4>Rating breakdown</h4>
+            <h4> <?php $translate->__('Rating breakdown'); ?> </h4>
             <div class="pull-left">
                <div class="pull-left" style="width:35px; line-height:1;">
                   <div style="height:9px; margin:5px 0;">5 <span class="glyphicon glyphicon-star"></span></div>
@@ -1094,7 +1175,7 @@ if(isset($_COOKIE['lanSindhbad']) && $_COOKIE['lanSindhbad'] == 'ar')  :?>
          <div class="col-sm-6">
          <div class="block-title">
             
-            <h1>Write You Review</h1></div>
+            <h1><?php $translate->__('Write You Review'); ?> </h1></div>
             <div class="block-content">
 
               <fieldset class="fieldset review-fieldset" data-hasrequired="* Required Fields">
@@ -1106,7 +1187,8 @@ if(isset($_COOKIE['lanSindhbad']) && $_COOKIE['lanSindhbad'] == 'ar')  :?>
         <div class="field choice review-field-rating">
          
          <hr />
-            <label class="label" id="Price_rating_label">Write you reviews</span></label>
+            <label class="label" id="Price_rating_label">
+               <?php $translate->__('Write you reviews'); ?> </span></label>
 
             <div class="control review-control-vote" id = "write-review10" data-href = "http://localhost/reviews?action=reviewForm&id_item=<?= urlencode($_GET['sku']) ;?>&id=<?= urlencode($_GET['id'])?>&name=<?= urlencode($details['name'])?>&img=<?= urlencode($img_src_link) ?>">
                 
@@ -1191,7 +1273,9 @@ if(isset($_COOKIE['lanSindhbad']) && $_COOKIE['lanSindhbad'] == 'ar')  :?>
                   <input name="form_key" type="hidden" value="f64vD6orRjO7Hseg">  
                   <fieldset class="fieldset review-fieldset" data-hasrequired="* Required Fields">
                
-               <div class="alert alert-info" role="alert"> <a href="#" class="alert-link">Make enquire for the product <?= $details['name']; ?> </a>.
+               <div class="alert alert-info" role="alert"> <a href="#" class="alert-link">
+
+                  <?php $translate->__('Make enquire for the product'); ?>  <?= $details['name']; ?> </a>
 </div><div style = "color:green;" id = "msg-id56">
 
 </div>
@@ -1199,7 +1283,8 @@ if(isset($_COOKIE['lanSindhbad']) && $_COOKIE['lanSindhbad'] == 'ar')  :?>
                    <div style = "color:green;" id = "msg-id56"></div>
 
                      <div class="field review-field-summary required">
-                        <label for="msg-subject" class="label"><span>Subject</span></label> 
+                        <label for="msg-subject" class="label"><span>
+                       <?php $translate->__('Subject'); ?> </span></label> 
                         <div class="control">
                      
                   <input type="text" name="subject" id="msg-subject" class="input-text" data-validate="{required:true}" data-bind="value: review().title" aria-required="true"></div>
@@ -1208,7 +1293,8 @@ if(isset($_COOKIE['lanSindhbad']) && $_COOKIE['lanSindhbad'] == 'ar')  :?>
                      
                      
                      <div class="field review-field-text required">
-                        <label for="msg-product" class="label"><span>Message</span></label> 
+                        <label for="msg-product" class="label"><span>
+                           <?php $translate->__('Message'); ?> </span></label> 
                         <div class="control">
                      
                      <textarea name="msg-product" id="msg-product" cols="5" rows="3" data-validate="{required:true}" data-bind="value: review().detail" aria-required="true"></textarea></div>
@@ -1217,7 +1303,9 @@ if(isset($_COOKIE['lanSindhbad']) && $_COOKIE['lanSindhbad'] == 'ar')  :?>
                   <div class="actions-toolbar review-form-actions">
                      <div class="primary actions-primary">
 
-                   <button type="submit" class="action submit primary" id = "btn-p-inqueri"><span>Submit Message</span></button></div>
+                   <button type="submit" class="action submit primary" id = "btn-p-inqueri"><span>
+
+                     <?php $translate->__('Submit Message'); ?> </span></button></div>
                   </div>
    
    </div>

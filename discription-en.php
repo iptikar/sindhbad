@@ -1,17 +1,4 @@
 <?php
-// We will check cookie  <?php include 'header-arabic.php'; 
-if(isset($_COOKIE['lanSindhbad']) && $_COOKIE['lanSindhbad'] == 'ar')  :?>
-
-<?php include 'discription-arabic.php'; ?>
-
-<?php else :?>
-
-
-
-
-
-
-<?php
 // Start ouput buffering 
 ob_start();
 
@@ -280,14 +267,28 @@ $details = $obj->getIndividualProduct('name', 'id', 'sku');
             </div>
          </div>
          
-         <div class = "container" id = "cart-msg" style = "visibility: hidden;">
-         
+         <div class = "container" id = "cart-msg">
          <br/>
-       <div class="message success" id = "cart-msg1">
          
-      </div>
         
-      </div>
+         <!--
+         <div class="alert alert-danger fadeIn">
+  <strong>Error ! </strong>Please login as buyer.
+  
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+
+
+</div>
+        
+         <div class="alert alert-success fadeIn">
+  <strong>Error ! </strong>Please login as buyer.
+</div>
+        
+        -->
+        
+         </div>
          
          <main id="maincontent" class="page-main">
             <a id="contentarea" tabindex="-1"></a>
@@ -1516,7 +1517,7 @@ $details = $obj->getIndividualProduct('name', 'id', 'sku');
         
         <?php include ('footer.php');?>
         
-        <?php endif; ?>
+        
      
      
       

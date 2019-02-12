@@ -1,11 +1,3 @@
-<?php
-// We will check cookie  <?php include 'header-arabic.php'; 
-if(isset($_COOKIE['lanSindhbad']) && $_COOKIE['lanSindhbad'] == 'ar')  :?>
-
-<?php include 'cart-arabic.php'; ?>
-
-<?php else :?>
-
 <?php 
  // Require the controller 
  require 'controller/controller.php';
@@ -483,5 +475,5 @@ if(isset($_COOKIE['lanSindhbad']) && $_COOKIE['lanSindhbad'] == 'ar')  :?>
 			include ('footer.php');
          ?>
       
-<?php endif; ?>
+
 	
