@@ -83,7 +83,7 @@ Client ID
          </div>
       </noscript>
       <div class="page-wrapper">
-         <?php include 'header.php'; ?>
+         <?php include 'header-arabic.php'; ?>
          <main id="maincontent" class="page-main">
             <a id="contentarea" tabindex="-1"></a>
             
@@ -112,7 +112,7 @@ Client ID
                            <div id="checkout" data-bind="scope:'checkout'" class="checkout-container">
                               
                               
-                              
+                               <!--
                               <div class="authentication-wrapper" data-block="authentication" data-bind="visible: isActive()">
                                  <button type="button" class="action action-auth-toggle" data-trigger="authentication">
                                  <span data-bind="i18n: 'Sign In'">Sign In</span>
@@ -155,7 +155,7 @@ Client ID
                               
                               
                               
-                              <!--
+                             
                               <ul class="opc-progress-bar">
                                  
                                  <li class="opc-progress-bar-item _active" data-bind="css: item.isVisible() ? '_active' : ($parent.isProcessed(item) ? '_complete' : '')">
@@ -193,13 +193,150 @@ Client ID
                                  
                               </div>
                               
-                              <?php
-                              //echo "<pre>";
-                              
-                              //print_R($_POST);
-                              
-                              //echo "</pre>";
-                              ?>
+                             <aside role="dialog" class="modal-custom opc-sidebar opc-summary-wrapper
+                                 custom-slide
+                                 " aria-describedby="modal-content-14" data-role="modal" data-type="custom" tabindex="0">
+                                 <div data-role="focusable-start" tabindex="0"></div>
+                                 <div class="modal-inner-wrap" data-role="focusable-scope">
+                                    <header class="modal-header">
+                                       <button class="action-close" data-role="closeBtn" type="button">
+                                       <span>Close</span>
+                                       </button>
+                                    </header>
+                                    <div id="modal-content-14" class="modal-content" data-role="content">
+                                       <div id="opc-sidebar" >
+                                          
+                                          
+                                          <div class="opc-block-summary" data-bind="blockLoader: isLoading">
+                                             <span data-bind="i18n: 'Order Summary'" class="title">Order Summary</span>
+                                             
+                                             
+                                             
+                                             
+                                             
+                                             
+                                             
+                                             <script>
+                                                $(document).ready(function(){
+                                                  
+                                                  // Check on click function 
+                                                  $('#cart-item-1266').click(function() {
+                                                    
+                                                    
+                                                    $('#hidden-cart-12').slideToggle( "slow", function() {
+                                                      // Animation complete.
+                                                    });
+                                                  })
+                                                })
+                                             </script>
+                                             
+                                             <div id = "cart-item-1266" class="block items-in-cart" data-bind="mageInit: {'collapsible':{'openedState': 'active', 'active': isItemsBlockExpanded()}}" data-collapsible="true" role="tablist">
+                                                <div class="title" data-role="title" role="tab" aria-selected="false" aria-expanded="false" tabindex="0">
+                                                   <strong role="heading">
+                                                      
+                                                      
+                                                      <span data-bind="text: getCartLineItemsCount()"><?= $obj->CartTotleQty() == null ? '0' : $obj->CartTotleQty(); ?></span>
+                                                      
+                                                      <span>Items in Cart</span>
+                                                      
+                                                   </strong>
+                                                </div>
+                                                
+                                                <!-- If cart is not returning null then --->
+                      <?php if ($obj->GetCart() !== NULL && count($obj->GetCart()) > 0) :?>
+                                                <div id = "hidden-cart-12" class="content minicart-items" data-role="content" role="tabpanel" aria-hidden="true" style="display: none;">
+                                                   <div class="minicart-items-wrapper overflowed">
+                                                      <ol class="minicart-items">
+                                                         
+                                                         
+                                                         <?php foreach($obj->GetCart() as $item) :?> 
+                                                         
+                                                         <li class="product-item">
+                                                            <div class="product">
+                                                               
+                                                               
+                                                               
+                                                               <span class="product-image-container" data-bind="attr: {'style': 'height: ' + getHeight($parents[1]) + 'px; width: ' + getWidth($parents[1]) + 'px;' }" style="height: 80px; width: 80px;">
+                                                               <span class="product-image-wrapper">
+                                                               <img data-bind="attr: {'src': getSrc($parents[1]), 'width': getWidth($parents[1]), 'height': getHeight($parents[1]), 'alt': getAlt($parents[1]) }" src="<?= $item['image']; ?>" width="80" height="80" alt="Outdoor Crossbody Bag">
+                                                               </span>
+                                                               </span>
+                                                               
+                                                               
+                                                               <div class="product-item-details">
+                                                                  <div class="product-item-inner">
+                                                                     <div class="product-item-name-block">
+                                                                        <strong class="product-item-name" data-bind="text: $parent.name"><?= $item['name'] ?></strong>
+                                                                        <div class="details-qty">
+                                                                           <span class="label">
+                                                                              <span>Qty</span>
+                                                                           </span>
+                                                                           <span class="value" data-bind="text: $parent.qty"><?=  $item['qty']; ?></span>
+                                                                        </div>
+                                                                     </div>
+                                                                     
+                                                                     
+                                                                     <div class="subtotal">
+                                                                        
+                                                                        
+                                                                        
+                                                                        
+                                                                        <span class="price-excluding-tax" data-bind="attr:{'data-label': $t('Excl. Tax')}" data-label="Excl. Tax">
+                                                                           
+                                                                           
+                                                                           
+                                                                           
+                                                                           <span class="cart-price">
+                                                                           <span class="price">AED <?= $obj->getPriceFormate( $item['price']); ?></span>
+                                                                           </span>
+                                                                           
+                                                                           
+                                                                           
+                                                                           
+                                                                        </span>
+                                                                        
+                                                                     </div>
+                                                                     
+                                                                     
+                                                                  </div>
+                                                                  
+                                                               </div>
+                                                               
+                                                            </div>
+                                                         </li>
+                                                        
+                                                         <?php endforeach; ?>
+                                                         
+                                                      </ol>
+                                                   </div>
+                                                </div>
+                                               
+                                             <?php else: ?>
+                                              <div id = "hidden-cart-12" class="content minicart-items" data-role="content" role="tabpanel" aria-hidden="true" style="display: none;">
+                                              Cart is empty
+                                              </div>
+                                             <?php endif; ?> 
+                                             </div>
+                                             
+                                             
+                                             
+                                             
+                                             
+                                          </div>
+                                          
+                                          
+                                          <div class="opc-block-shipping-information">
+                                             
+                                             
+                                             
+                                             
+                                             
+                                          </div>
+                                       </div>
+                                    </div>
+                                 </div>
+                                 <div data-role="focusable-end" tabindex="0"></div>
+                              </aside>
                               <div class="opc-wrapper">
                                  <ol class="opc" id="checkoutSteps">
 										
@@ -1125,150 +1262,7 @@ Client ID
                               
                               
                               
-                              <aside role="dialog" class="modal-custom opc-sidebar opc-summary-wrapper
-                                 custom-slide
-                                 " aria-describedby="modal-content-14" data-role="modal" data-type="custom" tabindex="0">
-                                 <div data-role="focusable-start" tabindex="0"></div>
-                                 <div class="modal-inner-wrap" data-role="focusable-scope">
-                                    <header class="modal-header">
-                                       <button class="action-close" data-role="closeBtn" type="button">
-                                       <span>Close</span>
-                                       </button>
-                                    </header>
-                                    <div id="modal-content-14" class="modal-content" data-role="content">
-                                       <div id="opc-sidebar" >
-                                          
-                                          
-                                          <div class="opc-block-summary" data-bind="blockLoader: isLoading">
-                                             <span data-bind="i18n: 'Order Summary'" class="title">Order Summary</span>
-                                             
-                                             
-                                             
-                                             
-                                             
-                                             
-                                             
-                                             <script>
-                                                $(document).ready(function(){
-                                                	
-                                                	// Check on click function 
-                                                	$('#cart-item-1266').click(function() {
-                                                		
-                                                		
-                                                		$('#hidden-cart-12').slideToggle( "slow", function() {
-                                                			// Animation complete.
-                                                		});
-                                                	})
-                                                })
-                                             </script>
-                                             
-                                             <div id = "cart-item-1266" class="block items-in-cart" data-bind="mageInit: {'collapsible':{'openedState': 'active', 'active': isItemsBlockExpanded()}}" data-collapsible="true" role="tablist">
-                                                <div class="title" data-role="title" role="tab" aria-selected="false" aria-expanded="false" tabindex="0">
-                                                   <strong role="heading">
-                                                      
-                                                      
-                                                      <span data-bind="text: getCartLineItemsCount()"><?= $obj->CartTotleQty() == null ? '0' : $obj->CartTotleQty(); ?></span>
-                                                      
-                                                      <span>Items in Cart</span>
-                                                      
-                                                   </strong>
-                                                </div>
-                                                
-                                                <!-- If cart is not returning null then --->
-											<?php if ($obj->GetCart() !== NULL && count($obj->GetCart()) > 0) :?>
-                                                <div id = "hidden-cart-12" class="content minicart-items" data-role="content" role="tabpanel" aria-hidden="true" style="display: none;">
-                                                   <div class="minicart-items-wrapper overflowed">
-                                                      <ol class="minicart-items">
-                                                         
-                                                         
-                                                         <?php foreach($obj->GetCart() as $item) :?> 
-                                                         
-                                                         <li class="product-item">
-                                                            <div class="product">
-                                                               
-                                                               
-                                                               
-                                                               <span class="product-image-container" data-bind="attr: {'style': 'height: ' + getHeight($parents[1]) + 'px; width: ' + getWidth($parents[1]) + 'px;' }" style="height: 80px; width: 80px;">
-                                                               <span class="product-image-wrapper">
-                                                               <img data-bind="attr: {'src': getSrc($parents[1]), 'width': getWidth($parents[1]), 'height': getHeight($parents[1]), 'alt': getAlt($parents[1]) }" src="<?= $item['image']; ?>" width="80" height="80" alt="Outdoor Crossbody Bag">
-                                                               </span>
-                                                               </span>
-                                                               
-                                                               
-                                                               <div class="product-item-details">
-                                                                  <div class="product-item-inner">
-                                                                     <div class="product-item-name-block">
-                                                                        <strong class="product-item-name" data-bind="text: $parent.name"><?= $item['name'] ?></strong>
-                                                                        <div class="details-qty">
-                                                                           <span class="label">
-                                                                              <span>Qty</span>
-                                                                           </span>
-                                                                           <span class="value" data-bind="text: $parent.qty"><?=  $item['qty']; ?></span>
-                                                                        </div>
-                                                                     </div>
-                                                                     
-                                                                     
-                                                                     <div class="subtotal">
-                                                                        
-                                                                        
-                                                                        
-                                                                        
-                                                                        <span class="price-excluding-tax" data-bind="attr:{'data-label': $t('Excl. Tax')}" data-label="Excl. Tax">
-                                                                           
-                                                                           
-                                                                           
-                                                                           
-                                                                           <span class="cart-price">
-                                                                           <span class="price">AED <?= $obj->getPriceFormate( $item['price']); ?></span>
-                                                                           </span>
-                                                                           
-                                                                           
-                                                                           
-                                                                           
-                                                                        </span>
-                                                                        
-                                                                     </div>
-                                                                     
-                                                                     
-                                                                  </div>
-                                                                  
-                                                               </div>
-                                                               
-                                                            </div>
-                                                         </li>
-                                                        
-                                                         <?php endforeach; ?>
-                                                         
-                                                      </ol>
-                                                   </div>
-                                                </div>
-                                               
-                                             <?php else: ?>
-                                              <div id = "hidden-cart-12" class="content minicart-items" data-role="content" role="tabpanel" aria-hidden="true" style="display: none;">
-                                              Cart is empty
-                                              </div>
-                                             <?php endif; ?> 
-                                             </div>
-                                             
-                                             
-                                             
-                                             
-                                             
-                                          </div>
-                                          
-                                          
-                                          <div class="opc-block-shipping-information">
-                                             
-                                             
-                                             
-                                             
-                                             
-                                          </div>
-                                       </div>
-                                    </div>
-                                 </div>
-                                 <div data-role="focusable-end" tabindex="0"></div>
-                              </aside>
+                              
                            </div>
                      
 					  
