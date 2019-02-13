@@ -14,7 +14,7 @@ else
 
 
 
-
+<link  rel="stylesheet" type="text/css"  media="screen and (min-width: 768px)" href="http://localhost/themes/sm_market2/pub/static/frontend/Sm/market/en_US/css/styles-l.min.css" />
 
 
 
