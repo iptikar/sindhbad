@@ -113,6 +113,9 @@ $obj = new MarketPlace();
                         </div>
                         <div class="page messages">
                            <div data-placeholder="messages"> 
+                            
+
+                            
                            <?php
 							echo $obj->login('username', 'password');
                            ?>

@@ -2,6 +2,10 @@
 //echo $_COOKIE['lanSindhbad'];
 
 
+echo "<pre>";
+print_R($_SERVER);
+echo "</pre>";
+/*
 // Open the file 
 $en = fopen('languages/categories/categories.txt', 'r');
 $ar = fopen('languages/categories/arabic-category.txt', 'r');
@@ -32,6 +36,7 @@ fwrite($enar, $data);
 
 fclose($en);
 fclose($ar);
+*/
 
 //echo $enlen;
 //echo "<br/>";
