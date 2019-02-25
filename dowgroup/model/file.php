@@ -21,12 +21,18 @@ class File {
 		// Writing sql to create table 
 			$sql = "CREATE TABLE IF NOT EXISTS $tablename(
 				id int(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY, 
+<<<<<<< HEAD
 				cagtegory_id int(6), 
 				name text NOT NULL,
 				about text null,
 				 created date not null,
 				 updated date not null,
 				 FOREIGN KEY (cagtegory_id) REFERENCES file_categories(id)
+=======
+				name varchar(50) NOT NULL,
+				 created date not null,
+				 updated date not null
+>>>>>>> 5d8c4809778abca623285086c9c8e91046f04d18
 				)ENGINE  =  INNODB DEFAULT CHARSET =  utf8";
                     
                 // Execute the code 
@@ -37,6 +43,7 @@ class File {
 
 
 	}
+<<<<<<< HEAD
 
 	public static function AlterTables() {
 
@@ -67,3 +74,9 @@ class File {
 echo File::createFileTable ();
 
 echo File::AlterTables ();
+=======
+}
+
+
+File::createFileTable ();
+>>>>>>> 5d8c4809778abca623285086c9c8e91046f04d18

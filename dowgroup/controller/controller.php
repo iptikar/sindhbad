@@ -6,6 +6,7 @@ require 'SelectStoreProcedure.php';
 
 class DowGroup {
 
+<<<<<<< HEAD
     // Session key 
 	protected $key1 = '3vmigUCQdJGRrvG';
 
@@ -14,14 +15,28 @@ class DowGroup {
 
 
     // Adding something in the object 
+=======
+
+	protected $key1 = '3vmigUCQdJGRrvG';
+
+	public $dir = 'public';
+
+
+>>>>>>> 5d8c4809778abca623285086c9c8e91046f04d18
 	public function __construct() {
 
 		$this->dir = $_SERVER['DOCUMENT_ROOT'].'/dowgroup/public';
 	}
 
 
+<<<<<<< HEAD
     // Method login paramaters username , password 
 	 public function login($username, $password)  {
+=======
+	 public function login($username, $password)
+	
+    {
+>>>>>>> 5d8c4809778abca623285086c9c8e91046f04d18
         
         
         // If post the username and password
@@ -140,15 +155,23 @@ class DowGroup {
             } elseif ($usertype === 'agent') {
                 $_SESSION[$this->key1.'-username-agent'] = $username;
                 $_SESSION[$this->key1.'-password-agent'] = $password;
+<<<<<<< HEAD
                 
+=======
+                $_SESSION[$this->key1.'-usertype'] = 'agent';
+                $_SESSION[$this->key1.'-time-agent'] = time();
+>>>>>>> 5d8c4809778abca623285086c9c8e91046f04d18
             
                 // Clean (erase) the output buffer and turn off output buffering
                 ob_end_clean();
                 
                 // Redirect to the user different interface
                 header('Location: http://'.$_SERVER['HTTP_HOST'].'/dowgroup/agent');
+<<<<<<< HEAD
 
                 //ob_end_clean();
+=======
+>>>>>>> 5d8c4809778abca623285086c9c8e91046f04d18
             }
         }
     }
@@ -164,9 +187,16 @@ class DowGroup {
         if ($this->IsUserLoggedInSeller() === true) {
             
                 // Unset the all session from this broweser
+<<<<<<< HEAD
             unset($_SESSION['3vmigUCQdJGRrvG-username-agent']);
             unset($_SESSION['3vmigUCQdJGRrvG-password-agent']);
            
+=======
+            unset($_SESSION['3vmigUCQdJGRrvG-username']);
+            unset($_SESSION['3vmigUCQdJGRrvG-password']);
+            unset($_SESSION['3vmigUCQdJGRrvG-usertype']);
+            unset($_SESSION['3vmigUCQdJGRrvG-time']);
+>>>>>>> 5d8c4809778abca623285086c9c8e91046f04d18
                 
             // Clean (erase) the output buffer and turn off output buffering
             ob_end_clean();
@@ -176,6 +206,7 @@ class DowGroup {
     }
 
 
+<<<<<<< HEAD
     public function LogOutAgent()
     {
         
@@ -198,6 +229,8 @@ class DowGroup {
     }
 
 
+=======
+>>>>>>> 5d8c4809778abca623285086c9c8e91046f04d18
      public function IsUserLoggedInSeller()
     {
         if (isset($_SESSION['3vmigUCQdJGRrvG-username']) &&
@@ -295,11 +328,17 @@ class DowGroup {
 			$_POST['updated'] = date('Y-m-d');
 
 
+<<<<<<< HEAD
 
             $password = password_hash($password , PASSWORD_DEFAULT);
 			// Inser t
 			 $query = $mysqli->query("INSERT INTO users(firstname, lastname, phone,email, country, city, password, created, updated)VALUES('$firstname', '$lastname', '$phone', '$email', '$country', '$city
 			 	', '$password', NOW(), NOW())");
+=======
+			// Inser t
+			 $query = $mysqli->query("INSERT INTO users(firstname, lastname, phone,email, country, city, password)VALUES('$firstname', '$lastname', '$phone', '$email', '$country', '$city
+			 	', '$password')");
+>>>>>>> 5d8c4809778abca623285086c9c8e91046f04d18
 
 
 			 if(!$query) {
@@ -308,8 +347,13 @@ class DowGroup {
 			 }
 
 			 // Send the notification to the user 
+<<<<<<< HEAD
 			  $headers = 'From: info@dowgroup.com' . "\r\n" .
             'Reply-To: info@dowgroup.com' . "\r\n" .
+=======
+			  $headers = 'From: info@sindhbad.com' . "\r\n" .
+            'Reply-To: info@sindhbad.com' . "\r\n" .
+>>>>>>> 5d8c4809778abca623285086c9c8e91046f04d18
             'X-Mailer: PHP/' . phpversion();
             
         	$headers .= "MIME-Version: 1.0\r\n";
@@ -317,6 +361,7 @@ class DowGroup {
 
         	// Set the subject
         	$subject = "User has been created.";
+<<<<<<< HEAD
         	
 
              // Get template 
@@ -325,6 +370,9 @@ class DowGroup {
             $content = $this->GetEmailTemplate($url, $_POST);
 
             $message = $content;
+=======
+        	$message = "Username: $email <br/> Password: $password";
+>>>>>>> 5d8c4809778abca623285086c9c8e91046f04d18
         
         	// Check if mail failed then
         	if (!mail($email, $subject, $message, $headers)) {
@@ -342,10 +390,17 @@ class DowGroup {
 
     public function uploadFiles($filename) {
 
+<<<<<<< HEAD
         
 
     	if(isset($_FILES[$filename]['name'])) {
 
+=======
+
+    	if(isset($_FILES[$filename]['name'])) {
+
+
+>>>>>>> 5d8c4809778abca623285086c9c8e91046f04d18
     		$name = $_FILES[$filename]["name"];
             
             /* Get the temporory file name */
@@ -392,12 +447,16 @@ class DowGroup {
 
 		$mysqli = $db->getConnection();
 
+<<<<<<< HEAD
         // Post discription 
       
         $about = $_POST['about'] ?? '';
 
 
 		$sql = "INSERT INTO files(name, about, created, updated) VALUES('$newfilename', '$about', NOW(), NOW())";
+=======
+		$sql = "INSERT INTO files(name, created, updated) VALUES('$newfilename', NOW(), NOW())";
+>>>>>>> 5d8c4809778abca623285086c9c8e91046f04d18
 
 		$result = $mysqli->query($sql);
 
@@ -405,7 +464,12 @@ class DowGroup {
 
 			return $mysqli->error;
 		}
+<<<<<<< HEAD
         
+=======
+
+
+>>>>>>> 5d8c4809778abca623285086c9c8e91046f04d18
         if(!move_uploaded_file($tmp, "$dir/$newfilename")) {
 
         	return 'Can not upload the file';
@@ -416,6 +480,7 @@ class DowGroup {
 
     	}
     	
+<<<<<<< HEAD
     }
 
     public function FinalUploadFiles($filename)
@@ -599,6 +664,13 @@ class DowGroup {
    
 
 
+=======
+
+
+    }
+
+
+>>>>>>> 5d8c4809778abca623285086c9c8e91046f04d18
     public function GetUsers() {
 
     	
@@ -637,7 +709,11 @@ class DowGroup {
 
 		$mysqli = $db->getConnection();
 
+<<<<<<< HEAD
 		$sql = "select files.name as files, files.title as title, files.id, files.cagtegory_id, file_categories.name from files INNER JOIN file_categories ON files.cagtegory_id = file_categories.id";
+=======
+		$sql = "select * from files";
+>>>>>>> 5d8c4809778abca623285086c9c8e91046f04d18
 
 		$result = $mysqli->query($sql);
 
@@ -653,6 +729,7 @@ class DowGroup {
 
     public function assignDoc() {
 
+<<<<<<< HEAD
 
 if(!isset($_POST['assign-files'])) {
 
@@ -701,6 +778,40 @@ if(count($_POST['files']) < 1) {
 
 
         echo $filelink;
+=======
+    	// Need email address and file id to assign 
+
+    	if(!isset($_GET['email'])) {
+
+    		return false;
+    	}
+
+
+
+    	$email = $_GET['email'];
+
+    	if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+
+                return "Please enter valid email address.";
+            }
+
+
+
+    	if(!isset($_POST['assign_file'])) return false;
+    	// Check assignment 
+    	if(count($_POST['assign_file']) < 1) {
+
+    		return 'Please assign the file';
+    	}
+
+    	$values  = '';
+    	// Multiple value 
+    	foreach($_POST['assign_file'] as $key => $value) {
+
+    		$values .= "('".$_GET['email']."','$value', '".date('Y-m-d')."', '".date('Y-m-d')."'),";
+    	}
+
+>>>>>>> 5d8c4809778abca623285086c9c8e91046f04d18
 
     	$values = rtrim($values, ',');
 
@@ -712,6 +823,7 @@ if(count($_POST['files']) < 1) {
 
 		$mysqli = $db->getConnection();
 
+<<<<<<< HEAD
         $users = $_POST['users'] ?? '';
         $files = $_POST['files'] ?? '';
 
@@ -1161,4 +1273,42 @@ if(count($_POST['files']) < 1) {
             return $option;
 
         }
+=======
+		$sql = "INSERT INTO assignments(email, file_id, updated, created)VALUES 
+		$values";
+
+		$result = $mysqli->query($sql);
+
+		if(!$result) {
+
+			return $mysqli->error;
+		}
+
+		// Send the notification to the user 
+			  $headers = 'From: info@sindhbad.com' . "\r\n" .
+            'Reply-To: info@sindhbad.com' . "\r\n" .
+            'X-Mailer: PHP/' . phpversion();
+            
+        	$headers .= "MIME-Version: 1.0\r\n";
+        	$headers .= "Content-Type: text/html; charset=ISO-8859-1\r\n";
+
+        	// Set the subject
+        	$subject = "New Assignment.";
+        	$message = "Administrator has made new assigment to you.";
+
+
+			// Send mail to the user 
+			// Check if mail failed then
+			if (!mail($email, $subject, $message, $headers)) {
+
+				// Return false
+				//return false;
+			 }
+				return true;
+		}
+
+
+
+
+>>>>>>> 5d8c4809778abca623285086c9c8e91046f04d18
 }

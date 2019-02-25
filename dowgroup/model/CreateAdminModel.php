@@ -58,7 +58,11 @@ class CreateAdminModel {
 			$password = password_hash('dowgroup', PASSWORD_DEFAULT);
 			
 			$sql = "INSERT INTO admin_user (user_id, firstname, lastname, email, username, password, created, modified, logdate, lognum, reload_acl_flag, is_active, extra, rp_token, rp_token_created_at, interface_locale, failures_num, first_failure, lock_expires, refresh_token) VALUES
+<<<<<<< HEAD
 (1, 'dowgroup', 'dowgroup', 'admin@dowgroup.com', 'admin', '$password', '2018-09-16 10:19:04', '2018-09-30 09:44:27', '2018-09-30 09:44:27', 5, 0, 1, NULL, NULL, NULL, 'en_US', 0, NULL, NULL, NULL);
+=======
+(1, 'dowgroup', 'dowgroup', 'admin@dowgroup', 'admin', '$password', '2018-09-16 10:19:04', '2018-09-30 09:44:27', '2018-09-30 09:44:27', 5, 0, 1, NULL, NULL, NULL, 'en_US', 0, NULL, NULL, NULL);
+>>>>>>> 5d8c4809778abca623285086c9c8e91046f04d18
 ";
 
 			// Get the connection 

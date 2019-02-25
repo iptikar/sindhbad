@@ -43,10 +43,73 @@ $obj = new DowGroup();
   <div id="wrapper">
 
     <!-- Sidebar -->
+<<<<<<< HEAD
     <?php include 'side-menu.php' ;?>
 
 
 
+=======
+    <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+
+      <!-- Sidebar - Brand -->
+      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+        <div class="sidebar-brand-icon rotate-n-15">
+          <i class="fas fa-laugh-wink"></i>
+        </div>
+        <div class="sidebar-brand-text mx-3">SB Admin <sup>2</sup></div>
+      </a>
+
+      <!-- Divider -->
+      <hr class="sidebar-divider my-0">
+
+      <!-- Nav Item - Dashboard -->
+      <li class="nav-item active">
+        <a class="nav-link" href="index.html">
+          <i class="fas fa-fw fa-tachometer-alt"></i>
+          <span>Dashboard</span></a>
+      </li>
+
+      <!-- Divider -->
+      <hr class="sidebar-divider">
+
+      <!-- Heading -->
+      <div class="sidebar-heading">
+        Interface
+      </div>
+
+      <!-- Nav Item - Pages Collapse Menu -->
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+          <i class="fas fa-fw fa-plus"></i>
+          <span>Add User</span>
+        </a>
+      </li>
+
+
+       <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+          <i class="fas fa-fw fa-file"></i>
+          <span>Upload File</span>
+        </a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+          <i class="fas fa-fw fa-users"></i>
+          <span>Users</span>
+        </a>
+      </li>
+
+    
+
+      <!-- Divider -->
+      <hr class="sidebar-divider">
+
+      <!-- Heading -->
+      
+
+    </ul>
+>>>>>>> 5d8c4809778abca623285086c9c8e91046f04d18
     <!-- End of Sidebar -->
 
     <!-- Content Wrapper -->
@@ -55,7 +118,107 @@ $obj = new DowGroup();
       <!-- Main Content -->
       <div id="content">
 
+<<<<<<< HEAD
 <?php include 'header.php' ;?>
+=======
+<nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+
+          <!-- Sidebar Toggle (Topbar) -->
+          <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+            <i class="fa fa-bars"></i>
+          </button>
+
+          <!-- Topbar Search -->
+          
+
+          <!-- Topbar Navbar -->
+          <ul class="navbar-nav ml-auto">
+
+            <!-- Nav Item - Search Dropdown (Visible Only XS) -->
+            
+
+            
+
+            <!-- Nav Item - Messages -->
+            <li class="nav-item dropdown no-arrow mx-1">
+              <a class="nav-link dropdown-toggle" href="#" id="messagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="fas fa-envelope fa-fw"></i>
+                <!-- Counter - Messages -->
+                <span class="badge badge-danger badge-counter">7</span>
+              </a>
+              <!-- Dropdown - Messages -->
+              <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="messagesDropdown">
+                <h6 class="dropdown-header">
+                  Message Center
+                </h6>
+                <a class="dropdown-item d-flex align-items-center" href="#">
+                  <div class="dropdown-list-image mr-3">
+                    <img class="rounded-circle" src="https://source.unsplash.com/fn_BT9fwg_E/60x60" alt="">
+                    <div class="status-indicator bg-success"></div>
+                  </div>
+                  <div class="font-weight-bold">
+                    <div class="text-truncate">Hi there! I am wondering if you can help me with a problem I've been having.</div>
+                    <div class="small text-gray-500">Emily Fowler · 58m</div>
+                  </div>
+                </a>
+                <a class="dropdown-item d-flex align-items-center" href="#">
+                  <div class="dropdown-list-image mr-3">
+                    <img class="rounded-circle" src="https://source.unsplash.com/AU4VPcFN4LE/60x60" alt="">
+                    <div class="status-indicator"></div>
+                  </div>
+                  <div>
+                    <div class="text-truncate">I have the photos that you ordered last month, how would you like them sent to you?</div>
+                    <div class="small text-gray-500">Jae Chun · 1d</div>
+                  </div>
+                </a>
+                <a class="dropdown-item d-flex align-items-center" href="#">
+                  <div class="dropdown-list-image mr-3">
+                    <img class="rounded-circle" src="https://source.unsplash.com/CS2uCrpNzJY/60x60" alt="">
+                    <div class="status-indicator bg-warning"></div>
+                  </div>
+                  <div>
+                    <div class="text-truncate">Last month's report looks great, I am very happy with the progress so far, keep up the good work!</div>
+                    <div class="small text-gray-500">Morgan Alvarez · 2d</div>
+                  </div>
+                </a>
+                <a class="dropdown-item d-flex align-items-center" href="#">
+                  <div class="dropdown-list-image mr-3">
+                    <img class="rounded-circle" src="https://source.unsplash.com/Mv9hjnEUHR4/60x60" alt="">
+                    <div class="status-indicator bg-success"></div>
+                  </div>
+                  <div>
+                    <div class="text-truncate"></div>
+                    <div class="small text-gray-500">Chicken the Dog · 2w</div>
+                  </div>
+                </a>
+                <a class="dropdown-item text-center small text-gray-500" href="#">Read More Messages</a>
+              </div>
+            </li>
+
+            <div class="topbar-divider d-none d-sm-block"></div>
+
+            <!-- Nav Item - User Information -->
+            <li class="nav-item dropdown no-arrow">
+              <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Administrator</span>
+                <img class="img-profile rounded-circle" src="https://source.unsplash.com/QAB-WJcbgJk/60x60">
+              </a>
+              <!-- Dropdown - User Information -->
+              
+              <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
+                
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="logout.php" data-toggle="modal" data-target="#logoutModal">
+                  <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                  Logout
+                </a>
+              </div>
+            </li>
+
+          </ul>
+
+        </nav>
+>>>>>>> 5d8c4809778abca623285086c9c8e91046f04d18
         <!-- Topbar -->
         
         <!-- End of Topbar -->
@@ -84,7 +247,10 @@ $obj = new DowGroup();
                 <div class="card-body">
                   
                   <?php if(isset($_POST['submit'])) :?>
+<<<<<<< HEAD
 
+=======
+>>>>>>> 5d8c4809778abca623285086c9c8e91046f04d18
                   <?php if($obj->CreateUser('submit') === true) :?>
 <div class="alert alert-success">
   <strong>Success!</strong> User has been created.
@@ -103,33 +269,53 @@ $obj = new DowGroup();
                    <form action = "<?php echo $_SERVER['PHP_SELF'];?>" method = "post">
                    <div class="form-group">
     <label for="firstname">First Name</label>
+<<<<<<< HEAD
     <input name = "firstname" type="text" class="form-control" id="firstname" aria-describedby="emailHelp" placeholder="Enter first name" required
+=======
+    <input name = "firstname" type="text" class="form-control" id="firstname" aria-describedby="emailHelp" placeholder="Enter first name" #565656
+>>>>>>> 5d8c4809778abca623285086c9c8e91046f04d18
     >
   </div>
 
 
     <div class="form-group">
     <label for="lastname">Last Name</label>
+<<<<<<< HEAD
     <input name = "lastname" type="text" class="form-control" id="lastname" aria-describedby="emailHelp" placeholder="Enter last name" required>
+=======
+    <input name = "lastname" type="text" class="form-control" id="lastname" aria-describedby="emailHelp" placeholder="Enter last name" #565656>
+>>>>>>> 5d8c4809778abca623285086c9c8e91046f04d18
   </div>
 
 
     <div class="form-group">
     <label for="phone">Phone No.</label>
+<<<<<<< HEAD
     <input name = "phone" type="" class="form-control" id="phone" aria-describedby="emailHelp" placeholder="Enter phone" required>
+=======
+    <input name = "phone" type="" class="form-control" id="phone" aria-describedby="emailHelp" placeholder="Enter phone" #565656>
+>>>>>>> 5d8c4809778abca623285086c9c8e91046f04d18
   </div>
 
 
                    <div class="form-group">
     <label for="email">Email address</label>
+<<<<<<< HEAD
     <input name = "email" type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter email address" required>
+=======
+    <input name = "email" type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter email address" #565656>
+>>>>>>> 5d8c4809778abca623285086c9c8e91046f04d18
   </div>
 
 <div class="form-group">
     <label for="country">country</label>
     
 
+<<<<<<< HEAD
     <select class = "form-control" name = "country" id = "country" required>
+=======
+    <select class = "form-control" name = "country" id = "country" #565656>
+>>>>>>> 5d8c4809778abca623285086c9c8e91046f04d18
       <option value="" selected="">Select Country</option>
                                                          <option value="AF">Afghanistan</option>
                                                          <option value="AX">Åland Islands</option>
@@ -387,18 +573,30 @@ $obj = new DowGroup();
 
   <div class="form-group">
     <label for="city">City</label>
+<<<<<<< HEAD
     <input name = "city" type="text" class="form-control" id="City" aria-describedby="emailHelp" placeholder="Enter city" required>
+=======
+    <input name = "city" type="text" class="form-control" id="City" aria-describedby="emailHelp" placeholder="Enter city" #565656>
+>>>>>>> 5d8c4809778abca623285086c9c8e91046f04d18
   </div>
 
 
   <div class="form-group">
     <label for="city">Password</label>
+<<<<<<< HEAD
     <input name = "password" type="password" class="form-control" id="password" aria-describedby="emailHelp" placeholder="Enter password" required>
+=======
+    <input name = "password" type="password" class="form-control" id="password" aria-describedby="emailHelp" placeholder="Enter password" #565656>
+>>>>>>> 5d8c4809778abca623285086c9c8e91046f04d18
   </div>
 
   <div class="form-group">
     <label for="city">Confirm Password</label>
+<<<<<<< HEAD
     <input name = "confirm-password" type="password" class="form-control" id="confirm-password" aria-describedby="emailHelp" placeholder="confirm password" required>
+=======
+    <input name = "confirm-password" type="password" class="form-control" id="confirm-password" aria-describedby="emailHelp" placeholder="confirm password" #565656>
+>>>>>>> 5d8c4809778abca623285086c9c8e91046f04d18
   </div>
 
   <button name = "submit" type="submit" class="btn btn-primary">Submit</button>
@@ -415,7 +613,41 @@ $obj = new DowGroup();
             </div>
 
             <!-- Pie Chart -->
+<<<<<<< HEAD
            
+=======
+            <div class="col-xl-4 col-lg-5">
+              <div class="card shadow mb-4">
+                <!-- Card Header - Dropdown -->
+                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                  <h6 class="m-0 font-weight-bold text-primary">Upload File</h6>
+                  <div class="dropdown no-arrow">
+                   
+                    <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" aria-labelledby="dropdownMenuLink">
+                      
+                    </div>
+
+
+
+
+                  </div>
+                </div>
+                <!-- Card Body -->
+                <div class="card-body">
+                  
+                  <div class="mt-4 text-center small">
+                   
+                    <input type = "file" name = "file" />
+
+
+                  </div>
+
+                  
+
+                </div>
+              </div>
+            </div>
+>>>>>>> 5d8c4809778abca623285086c9c8e91046f04d18
           
 
           </div>
@@ -488,6 +720,7 @@ $(document).ready(function (){
 
 $('input[name=file]').change(function () {
       
+<<<<<<< HEAD
     
   var discription = $('#file-discription').val();
 
@@ -500,6 +733,8 @@ $('input[name=file]').change(function () {
 
   }
 
+=======
+>>>>>>> 5d8c4809778abca623285086c9c8e91046f04d18
     var file = this.files[0];
     
       
@@ -508,9 +743,12 @@ $('input[name=file]').change(function () {
       
       
     formData.append('file', file);
+<<<<<<< HEAD
     formData.append('about', discription);
    
     
+=======
+>>>>>>> 5d8c4809778abca623285086c9c8e91046f04d18
    
     
     
@@ -526,8 +764,11 @@ $('input[name=file]').change(function () {
     //Ajax events
     success: function(result){
         
+<<<<<<< HEAD
         $("input[type=text], textarea, input[type=file]").val("");
         //$('input').val('');
+=======
+>>>>>>> 5d8c4809778abca623285086c9c8e91046f04d18
         alert(result);
         
          

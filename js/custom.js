@@ -97,8 +97,13 @@ $(function () {
 			  dataType: "text",
 			  success: function(resultData) { 
 				  
+<<<<<<< HEAD
 			 
 			  $('#cart-msg').html(resultData);
+=======
+			 $('#cart-msg').css('visibility', 'visible');
+			  $('#cart-msg1').text(resultData);
+>>>>>>> 5d8c4809778abca623285086c9c8e91046f04d18
 		 
 		  }
 });
@@ -118,6 +123,33 @@ $(function () {
 			});
 		})
 	
+<<<<<<< HEAD
+=======
+	$(".selectpicker").change(function (){
+
+		// Send the ajax request 
+		var data = {lan:$(this).val()};
+
+		var url = 'http://localhost/ajax/setLan.php';
+
+		
+
+			 $.ajax({
+			  type: 'POST',
+			  url: url,
+			  data: data,
+			  dataType: "text",
+			  success: function(resultData) { 
+				  
+			 
+			 window.location.reload();
+			  //$('#cart-msg').html(resultData);
+		 
+		  }
+});
+
+	})
+>>>>>>> 5d8c4809778abca623285086c9c8e91046f04d18
 	
 	
  

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 function getParameterByName(name, url) {
 
 	if(!url) url = window.location.href;
@@ -67,3 +68,59 @@ Array.prototype.remvoe = function () {
 
 	return this;
 }
+=======
+function arr_diff(a1, a2) {
+
+	var a = [], diff = [];
+
+	for( var i = 0; i < a1.length; i++){
+
+		a[a1[i]] = true;
+	}
+
+
+	for( var i = 0; i < a2.length; i++) {
+
+		if(a[a2[i]]) {
+
+			delete a[a2[i]];
+		} else {
+
+			a[a2[i]] = true;
+		}
+	}
+
+	for(var k in a) {
+
+		diff.push(k);
+	}
+
+	return diff;
+}
+
+
+// Subtract array from array 
+Array.prototype.subtract = function (array ) {
+
+	array = array.slice();
+
+	return this.filter( function (e) {
+
+		var p = array.indexOf(e);
+
+		if(p === -1) {
+
+			return true;
+		}
+
+		array.splice(p, 1);
+	})
+}
+
+
+var a = [1, 2, 2, 3, 3, 3],
+    b = [1, 2, 3];
+
+console.log(a.subtract(b));
+
+>>>>>>> 5d8c4809778abca623285086c9c8e91046f04d18

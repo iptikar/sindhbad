@@ -23,7 +23,10 @@ class Assignment {
 				id int(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY, 
 				email VARCHAR(225),
 				file_id int(6) UNSIGNED,
+<<<<<<< HEAD
 				comments text null,
+=======
+>>>>>>> 5d8c4809778abca623285086c9c8e91046f04d18
 				 created date not null,
 				 updated date not null,
 				 FOREIGN KEY (email) REFERENCES users(email),

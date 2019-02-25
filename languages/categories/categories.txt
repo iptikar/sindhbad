@@ -1,0 +1,8 @@
+Items(s)
+Discount
+Tax
+Order Total
+Qty
+Price
+Item                     
+Proceed to Checkout

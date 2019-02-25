@@ -37,10 +37,13 @@ $obj = new DowGroup();
   <!-- Custom styles for this page -->
   <link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
 
+<<<<<<< HEAD
 <link href="https://cdn.jsdelivr.net/gh/mar10/fancytree@2/dist/skin-win8/ui.fancytree.min.css" rel="stylesheet">
   
  
 
+=======
+>>>>>>> 5d8c4809778abca623285086c9c8e91046f04d18
 </head>
 
 <body id="page-top">
@@ -49,7 +52,70 @@ $obj = new DowGroup();
   <div id="wrapper">
 
     <!-- Sidebar -->
+<<<<<<< HEAD
    <?php include 'side-menu.php'; ?>
+=======
+    <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+
+      <!-- Sidebar - Brand -->
+      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+        <div class="sidebar-brand-icon rotate-n-15">
+          <i class="fas fa-laugh-wink"></i>
+        </div>
+        <div class="sidebar-brand-text mx-3">SB Admin <sup>2</sup></div>
+      </a>
+
+      <!-- Divider -->
+      <hr class="sidebar-divider my-0">
+
+      <!-- Nav Item - Dashboard -->
+      <li class="nav-item active">
+        <a class="nav-link" href="index.html">
+          <i class="fas fa-fw fa-tachometer-alt"></i>
+          <span>Dashboard</span></a>
+      </li>
+
+      <!-- Divider -->
+      <hr class="sidebar-divider">
+
+      <!-- Heading -->
+      <div class="sidebar-heading">
+        Interface
+      </div>
+
+      <!-- Nav Item - Pages Collapse Menu -->
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+          <i class="fas fa-fw fa-plus"></i>
+          <span>Add User</span>
+        </a>
+      </li>
+
+
+       <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+          <i class="fas fa-fw fa-file"></i>
+          <span>Upload File</span>
+        </a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+          <i class="fas fa-fw fa-users"></i>
+          <span>Users</span>
+        </a>
+      </li>
+
+    
+
+      <!-- Divider -->
+      <hr class="sidebar-divider">
+
+      <!-- Heading -->
+      
+
+    </ul>
+>>>>>>> 5d8c4809778abca623285086c9c8e91046f04d18
     <!-- End of Sidebar -->
 
     <!-- Content Wrapper -->
@@ -59,7 +125,107 @@ $obj = new DowGroup();
       <div id="content">
 
         <!-- Topbar -->
+<<<<<<< HEAD
        <?php include 'header.php' ;?>
+=======
+       <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+
+          <!-- Sidebar Toggle (Topbar) -->
+          <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+            <i class="fa fa-bars"></i>
+          </button>
+
+          <!-- Topbar Search -->
+          
+
+          <!-- Topbar Navbar -->
+          <ul class="navbar-nav ml-auto">
+
+            <!-- Nav Item - Search Dropdown (Visible Only XS) -->
+            
+
+            
+
+            <!-- Nav Item - Messages -->
+            <li class="nav-item dropdown no-arrow mx-1">
+              <a class="nav-link dropdown-toggle" href="#" id="messagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="fas fa-envelope fa-fw"></i>
+                <!-- Counter - Messages -->
+                <span class="badge badge-danger badge-counter">7</span>
+              </a>
+              <!-- Dropdown - Messages -->
+              <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="messagesDropdown">
+                <h6 class="dropdown-header">
+                  Message Center
+                </h6>
+                <a class="dropdown-item d-flex align-items-center" href="#">
+                  <div class="dropdown-list-image mr-3">
+                    <img class="rounded-circle" src="https://source.unsplash.com/fn_BT9fwg_E/60x60" alt="">
+                    <div class="status-indicator bg-success"></div>
+                  </div>
+                  <div class="font-weight-bold">
+                    <div class="text-truncate">Hi there! I am wondering if you can help me with a problem I've been having.</div>
+                    <div class="small text-gray-500">Emily Fowler · 58m</div>
+                  </div>
+                </a>
+                <a class="dropdown-item d-flex align-items-center" href="#">
+                  <div class="dropdown-list-image mr-3">
+                    <img class="rounded-circle" src="https://source.unsplash.com/AU4VPcFN4LE/60x60" alt="">
+                    <div class="status-indicator"></div>
+                  </div>
+                  <div>
+                    <div class="text-truncate">I have the photos that you ordered last month, how would you like them sent to you?</div>
+                    <div class="small text-gray-500">Jae Chun · 1d</div>
+                  </div>
+                </a>
+                <a class="dropdown-item d-flex align-items-center" href="#">
+                  <div class="dropdown-list-image mr-3">
+                    <img class="rounded-circle" src="https://source.unsplash.com/CS2uCrpNzJY/60x60" alt="">
+                    <div class="status-indicator bg-warning"></div>
+                  </div>
+                  <div>
+                    <div class="text-truncate">Last month's report looks great, I am very happy with the progress so far, keep up the good work!</div>
+                    <div class="small text-gray-500">Morgan Alvarez · 2d</div>
+                  </div>
+                </a>
+                <a class="dropdown-item d-flex align-items-center" href="#">
+                  <div class="dropdown-list-image mr-3">
+                    <img class="rounded-circle" src="https://source.unsplash.com/Mv9hjnEUHR4/60x60" alt="">
+                    <div class="status-indicator bg-success"></div>
+                  </div>
+                  <div>
+                    <div class="text-truncate"></div>
+                    <div class="small text-gray-500">Chicken the Dog · 2w</div>
+                  </div>
+                </a>
+                <a class="dropdown-item text-center small text-gray-500" href="#">Read More Messages</a>
+              </div>
+            </li>
+
+            <div class="topbar-divider d-none d-sm-block"></div>
+
+            <!-- Nav Item - User Information -->
+            <li class="nav-item dropdown no-arrow">
+              <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Administrator</span>
+                <img class="img-profile rounded-circle" src="https://source.unsplash.com/QAB-WJcbgJk/60x60">
+              </a>
+              <!-- Dropdown - User Information -->
+              
+              <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
+                
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
+                  <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                  Logout
+                </a>
+              </div>
+            </li>
+
+          </ul>
+
+        </nav>
+>>>>>>> 5d8c4809778abca623285086c9c8e91046f04d18
         <!-- End of Topbar -->
 
         <!-- Begin Page Content -->
@@ -70,6 +236,7 @@ $obj = new DowGroup();
          
 
           <p class="mb-4"></a>.</p>
+<<<<<<< HEAD
           
 
 
@@ -78,6 +245,16 @@ $obj = new DowGroup();
 
 <form action = "<?= $_SERVER['PHP_SELF'].'?'.$_SERVER['QUERY_STRING'] ?>" method = "POST">
                <?php if(isset($_POST['assign-files'])) :?>
+=======
+
+          <!-- DataTales Example -->
+          <div class="card shadow mb-4">
+            <div class="card-header py-3">
+              <h6 class="m-0 font-weight-bold text-primary">Documents</h6>
+            </div>
+
+            <?php if(isset($_POST['submit'])) :?>
+>>>>>>> 5d8c4809778abca623285086c9c8e91046f04d18
 
             <?php if($obj->assignDoc() === true) :?>
 
@@ -87,6 +264,7 @@ $obj = new DowGroup();
             <?php endif ;?>
 
             <?php endif; ?>
+<<<<<<< HEAD
           <div class="card shadow mb-4">
 
             <div class="card-header py-3">
@@ -98,11 +276,18 @@ $obj = new DowGroup();
            
             <div class="card-body" style = "height: 300px; overflow: scroll;">
               <div class="table-responsive">
+=======
+           
+            <div class="card-body">
+              <div class="table-responsive">
+               <form action = "<?= $_SERVER['PHP_SELF'].'?'.$_SERVER['QUERY_STRING'] ?>" method = "POST">
+>>>>>>> 5d8c4809778abca623285086c9c8e91046f04d18
                  
 
                  <div class="list-group">
   
                
+<<<<<<< HEAD
               
 
                  </div>
@@ -146,11 +331,39 @@ $obj = new DowGroup();
 
                 
 
+=======
+               
+               <?php if(count($obj->GetFiles()) > 0 ):?>
+
+                  <?php foreach($obj->GetFiles() as $each) :?>
+                    
+                    <a href="#" class="list-group-item"><?= $each['name']; ?>
+                      <input  type = "checkbox" name = "assign_file[]" value = "<?= $each['id']; ?>"/>
+                      
+                  </a>
+
+
+                <?php endforeach ;?>
+
+                <?php endif; ?>
+
+                 </div>
+<br/>
+<br/>
+                 <div clas = "form-control">
+                   <button name="submit" type="submit" class="btn btn-primary">Assign</button> 
+
+                 </div>
+
+                
+</form>
+>>>>>>> 5d8c4809778abca623285086c9c8e91046f04d18
 
               </div>
             </div>
           </div>
 
+<<<<<<< HEAD
 <div class = "card shadow mb-4" >
   
   
@@ -180,6 +393,8 @@ $obj = new DowGroup();
 
                  </div>
 </form>
+=======
+>>>>>>> 5d8c4809778abca623285086c9c8e91046f04d18
         </div>
         <!-- /.container-fluid -->
 
@@ -220,7 +435,11 @@ $obj = new DowGroup();
         <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
         <div class="modal-footer">
           <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+<<<<<<< HEAD
           <a class="btn btn-primary" href="login.php">Logout</a>
+=======
+          <a class="btn btn-primary" href="login.html">Logout</a>
+>>>>>>> 5d8c4809778abca623285086c9c8e91046f04d18
         </div>
       </div>
     </div>
@@ -243,6 +462,7 @@ $obj = new DowGroup();
   <!-- Page level custom scripts -->
   <script src="js/demo/datatables-demo.js"></script>
 
+<<<<<<< HEAD
   <script src="https://cdn.jsdelivr.net/gh/mar10/fancytree@2/dist/jquery.fancytree-all-deps.min.js"></script>
   
   <?php
@@ -305,6 +525,8 @@ $obj = new DowGroup();
     
     </script>
 
+=======
+>>>>>>> 5d8c4809778abca623285086c9c8e91046f04d18
 </body>
 
 </html>
