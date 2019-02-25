@@ -8,7 +8,9 @@
                            <div class="row">
                               <div class="col-lg-4 col-md-4">
                                  <div class="socials-wrap">
-                                    <div class="title-follow">Follow Us</div>
+                                    <div class="title-follow">
+
+                                    <?php $translate->__('Follow Us'); ?></div>
                                     <ul>
                                        <li class="li-social facebook-social"><a title="Facebook" href="http://www.facebook.com/#" target="_blank"><span class="fa fa-facebook icon-social"></span><span class="name-social">Facebook</span></a></li>
                                        <li class="li-social twitter-social"><a title="Twitter" href="https://twitter.com/#" target="_blank"><span class="fa fa-twitter icon-social"></span> <span class="name-social">Twitter</span></a></li>
@@ -20,13 +22,13 @@
                               </div>
                               <div class="col-lg-8 col-md-8">
                                  <div class="block-subscribe-footer">
-                                    <div class="title-middle-footer">Sign Up For Newsletter</div>
+                                    <div class="title-middle-footer"><?php $translate->__('Sign Up For Newsletter'); ?> </div>
                                     <form class="form subscribe"  method="post" data-mage-init='{"validation": {"errorClass": "mage-error"}}' id="newsletter-footer-validate-detail">
                                        <div class="newsletter-content">
                                           <div class="input-box">
 											 
-											 <input name="email" type="email" id="newsletter-footer" onfocus="if(this.value=='Your email address') this.value='';" onblur="if(this.value=='') this.value='Your email address';" value="Your email address" data-validate="{required:true, 'validate-email':true}"/></div>
-                                          <div class="action-button"><button class="action subscribe primary" title="Subscribe" type="submit"><span>Subscribe</span></button></div>
+											 <input name="email" type="email" id="newsletter-footer" onfocus="if(this.value=='Your email address') this.value='';" onblur="if(this.value=='') this.value='Your email address';" value="<?php $translate->__('Sign Up For Newsletter'); ?>" data-validate="{required:true, 'validate-email':true}"/></div>
+                                          <div class="action-button"><button class="action subscribe primary" title="Subscribe" type="submit"><span><?php $translate->__('Subscribe'); ?> </span></button></div>
                                        </div>
                                     </form>
                                  </div>
@@ -41,13 +43,19 @@
                                  <div class="contact-col">
                                     <div class="footer-block">
                                        <div class="footer-block-title">
-                                          <h3>Contact Us</h3>
+                                          <h3><?php $translate->__('Contact Us'); ?></h3>
                                        </div>
                                        <div class="footer-block-content">
                                           <ul class="links-contact">
-                                             <li class="add-icon">Address: Building No.8, M3 Floor U.A.E, <br/>Al Qusaily Tower, Al Falah Street, Abu Dhabi, UAE  </li>
-                                             <li class="email-icon middle-content">Email: info@sindhbad.com</li>
-                                             <li class="phone-icon">Phone  : +97126424668<br /></li>
+                                             <li class="add-icon">
+                                                <?php $translate->__('Address: Building No.8, M3 Floor,'); ?>
+                                                 <br/> 
+
+                                                 <?php $translate->__('Al Qusaily Tower, Al Falah Street, Abu Dhabi, UAE'); ?></li>
+                                             <li class="email-icon middle-content">
+                                              <?php $translate->__('Email: info@sindhbad.com'); ?> </li>
+                                             
+                                             <li class="phone-icon"><?php $translate->__('Phone : +97126424668'); ?><br /></li>
                                           </ul>
                                       
                                       
@@ -61,15 +69,19 @@
                                     <div class="col-lg-4 col-md-4">
                                        <div class="footer-block">
                                           <div class="footer-block-title">
-                                             <h3>About Market</h3>
+                                             <h3><?php $translate->__('About Market'); ?></h3>
                                           </div>
                                           <div class="footer-block-content">
                                              <ul class="links-footer">
-                                                <li><a title="About Us" href="http://localhost/themes/sm_market2/argentina/about-us.html">About Us</a></li>
-                                                <li><a title="Market Reviews" href="#">Market Reviews</a></li>
-                                                <li><a title="Terms of Use" href="#">Terms of Use</a></li>
-                                                <li><a title="Privacy Policy" href="#">Privacy Policy</a></li>
-                                                <li><a title="Site Map" href="#">Site Map</a></li>
+                                                <li><a title="About Us" href="http://localhost/themes/sm_market2/argentina/about-us.html"><?php $translate->__('About Us'); ?></a></li>
+                                                <li><a title="Market Reviews" href="#">
+                                                <?php $translate->__('Market Reviews'); ?></a></li>
+                                                <li><a title="Terms of Use" href="#">
+                                                <?php $translate->__('Terms of Use'); ?></a></li>
+                                                <li><a title="Privacy Policy" href="#">
+                                                <?php $translate->__('Privacy Policy'); ?></a></li>
+                                                <li><a title="Site Map" href="#">
+                                                <?php $translate->__('Site Map'); ?></a></li>
                                              </ul>
                                           </div>
                                        </div>
@@ -77,15 +89,28 @@
                                     <div class="col-lg-4 col-md-4">
                                        <div class="footer-block">
                                           <div class="footer-block-title">
-                                             <h3>Customer Service</h3>
+                                             <h3>
+                                              <?php $translate->__('Customer Service'); ?>
+                                             </h3>
                                           </div>
                                           <div class="footer-block-content">
                                              <ul class="links-footer">
-                                                <li><a title="Shipping Policy" href="#">Shipping Policy</a></li>
-                                                <li><a title="Compensation First" href="#">Compensation First</a></li>
-                                                <li><a title="My Account" href="http://localhost/themes/sm_market2/argentina/customer/account">My Account</a></li>
-                                                <li><a title="Return Policy" href="#">Return Policy</a></li>
-                                                <li><a title="Contact Us" href="http://localhost/themes/sm_market2/argentina/contact-us.html">Contact Us</a></li>
+                                                <li><a title="Shipping Policy" href="#">
+
+                                                <?php $translate->__('Shipping Policy'); ?></a></li>
+                                                <li><a title="Compensation First" href="#">
+
+                                                <?php $translate->__('Compensation First'); ?></a></li>
+                                                <li><a title="My Account" href="http://localhost/themes/sm_market2/argentina/customer/account">
+
+                                               <?php $translate->__('My Account'); ?> </a></li>
+                                                <li><a title="Return Policy" href="#">
+                                                <?php $translate->__('Return Policy'); ?>
+
+                                              </a></li>
+                                                <li><a title="Contact Us" href="http://localhost/themes/sm_market2/argentina/contact-us.html">
+                                                <?php $translate->__('Contact Us'); ?>
+                                              </a></li>
                                              </ul>
                                           </div>
                                        </div>
@@ -93,15 +118,37 @@
                                     <div class="col-lg-4 col-md-4">
                                        <div class="footer-block">
                                           <div class="footer-block-title">
-                                             <h3>Payment &amp; Shipping</h3>
+                                             <h3>
+                                              <?php $translate->__('Payment & Shipping'); ?>
+                                            </h3>
                                           </div>
                                           <div class="footer-block-content">
                                              <ul class="links-footer">
-                                                <li><a title="Terms of Use" href="#">Terms of Use</a></li>
-                                                <li><a title="Payment Methods" href="#">Payment Methods</a></li>
-                                                <li><a title="Shipping Guide" href="#">Shipping Guide</a></li>
-                                                <li><a title="Locations We Ship To" href="#">Locations We Ship To</a></li>
-                                                <li><a title="Estimated Delivery Time" href="#">Estimated Delivery Time</a></li>
+                                                <li><a title="Terms of Use" href="#">
+                                                <?php $translate->__('Terms of Use'); ?> 
+
+                                              </a></li>
+                                                <li><a title="Payment Methods" href="#">
+                                                
+                                                 <?php $translate->__('Payment Methods'); ?> 
+
+                                              </a></li>
+                                                <li><a title="Shipping Guide" href="#">
+                                                
+                                               <?php $translate->__('Shipping Guide'); ?> 
+
+                                              </a></li>
+                                                <li><a title="Locations We Ship To" href="#">
+
+                                                  <?php $translate->__('Locations We Ship To'); ?> 
+                                                
+
+                                              </a></li>
+                                                <li><a title="Estimated Delivery Time" href="#">
+
+                                                 <?php $translate->__('Estimated Delivery Time'); ?>  
+
+                                              </a></li>
                                              </ul>
                                           </div>
                                        </div>

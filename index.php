@@ -8,6 +8,8 @@ date_default_timezone_set ('Asia/Dubai');
 $obj = new MarketPlace();
 
 
+
+
 ?>
 
 <!doctype html>
@@ -44,7 +46,19 @@ $obj = new MarketPlace();
 
 <div class="page-wrapper">
 
+<?php
+// We will check cookie  <?php include 'header-arabic.php'; 
+if(isset($_COOKIE['lanSindhbad']) && $_COOKIE['lanSindhbad'] == 'ar')  :?>
+
+<?php include 'header-arabic.php'; ?> 
+
+<?php else :?>
+
 <?php include 'header.php'; ?> 
+
+<?php endif; ?>
+
+
 
  
  <main id="maincontent" class="page-main">
@@ -187,7 +201,142 @@ $obj = new MarketPlace();
 					  <body>
 						 <div class="home-style home-page-4">
 							<div class="row">
-							   <div class="col-lg-9 image-slideshow">
+							   
+							<?php if($language === 'ar') :?>
+								<div class="col-lg-3 slider-deal">
+								  <div id="sm_filterproducts_1525586868683927063" class="block products-single">
+									 <div class="block-content block-content-products products-grid">
+										<div class="item product product-item">
+										   <div class="item-inner clearfix">
+											  <div class="product details product-item-details box-info">
+												 <h2 class="product name product-item-name product-name"><a class="product-item-link" href="http://localhost/themes/sm_market2/argentina/electrolux-efls61-washing-machine.html">Philips HR1861 Whole Fruit Juicer</a></h2>
+												 <div class="product-reviews-summary short">
+													<div class="rating-summary">
+													   <span class="label"><span>Rating:</span></span> 
+													   <div class="rating-result" title="80%"><span style="width:80%"><span>80%</span></span></div>
+													</div>
+													<div class="reviews-actions"><a class="action view" href="http://localhost/themes/sm_market2/argentina/electrolux-efls61-washing-machine.html#reviews">1 <span>Review</span></a></div>
+												 </div>
+												 <div class="price-box price-final_price" data-role="priceBox" data-product-id="2275">   <span class="special-price">  <span class="price-container price-final_price tax weee"> <span class="price-label">Special Price</span>  <span id="product-price-2275" data-price-amount="170" data-price-type="finalPrice" class="price-wrapper "><span class="price">$170.00</span></span>  </span></span> <span class="old-price">  <span class="price-container price-final_price tax weee"> <span class="price-label">Regular Price</span>  <span id="old-price-2275" data-price-amount="180" data-price-type="oldPrice" class="price-wrapper "><span class="price">$180.00</span></span>  </span></span>  </div>
+											  </div>
+											  <div class="box-image"><a href="http://localhost/themes/sm_market2/argentina/electrolux-efls61-washing-machine.html" class="product photo product-item-photo" tabindex="-1">  <span class="product-image-container"><span class="product-image-wrapper">
+												  
+												  <img class="product-image-photo lazyload" src="http://localhost/img/blank.png" data-src="http://localhost/img/philips_hr1861_whole_fruit_juicer.jpg" width="300" height="300" alt="Philips HR1861 Whole Fruit Juicer"></span></span></a></div>
+											  
+											  
+											  <div class="deals-countdown" data-timer="2019/03/29 00:00:00">
+												 <div class="deals-time time-day">
+													<div class="num-time"></div>
+													<div class="title-time"></div>
+												 </div>
+												 <div class="deals-time time-hours">
+													<div class="num-time"></div>
+													<div class="title-time"></div>
+												 </div>
+												 <div class="deals-time time-mins">
+													<div class="num-time"></div>
+													<div class="title-time"></div>
+												 </div>
+												 <div class="deals-time time-secs">
+													<div class="num-time"></div>
+													<div class="title-time"></div>
+												 </div>
+											  </div>
+										   </div>
+										</div>
+									 </div>
+								  </div>
+								 
+								 
+								 
+								  <script type="text/javascript">
+									 require([
+										 'jquery'
+									 ], function ($) {
+									 var $element = $('#sm_filterproducts_1525586868683927063');
+									 
+									 function CountDown(date,id){
+									 dateNow = new Date();
+									 amount = date.getTime() - dateNow.getTime();
+									 delete dateNow;
+									 if(amount < 0){
+									 id.html("Now!");
+									 } else{
+									 days=0;hours=0;mins=0;secs=0;out="";
+									 amount = Math.floor(amount/1000);
+									 days=Math.floor(amount/86400);
+									 amount=amount%86400;
+									 hours=Math.floor(amount/3600);
+									 amount=amount%3600;
+									 mins=Math.floor(amount/60);
+									 amount=amount%60;
+									 secs=Math.floor(amount);
+									 $(".time-day .num-time" , id).text(days);
+									 $(".time-day .title-time" , id).text(((days <= 1)? "Day" : "Days"));
+									 $(".time-hours .num-time" , id).text(hours);
+									 $(".time-hours .title-time" , id).text(((hours <= 1)? "Hour" : "Hours"));
+									 $(".time-mins .num-time" , id).text(mins);
+									 $(".time-mins .title-time" , id).text(((mins <= 1)? "Min" : "Mins"));
+									 $(".time-secs .num-time" , id).text(secs);
+									 $(".time-secs .title-time" , id).text(((secs <= 1)? "Sec" : "Secs"));
+									 setTimeout(function(){CountDown(date,id)}, 1000);
+									 }
+									 }
+									 $( ".deals-countdown",$element).each(function() {
+									 var timer = $(this).data('timer');
+									 var data = new Date(timer);
+									 CountDown(data,$(this));
+									 });
+									 });
+								  </script>
+							
+							   </div>
+								<div class="col-lg-9 image-slideshow">
+								  <div class="image-slider-home">
+									 <div class="sm-imageslider">
+										<div class="sm-imageslider-inner">
+										   <div class="sm-imageslider-content owl-carousel owl-theme">
+											  <div class="item"><a title="title" href="#"><img src="http://localhost/img/id4-slide-1.jpg" alt="Slider Image"></a></div>
+											  <div class="item"><a title="title" href="#"><img src="http://localhost/img/id4-slide-2.jpg" alt="Slider Image"></a></div>
+											  <div class="item"><a title="title" href="#"><img src="http://localhost/img/id4-slide-3.jpg" alt="Slider Image"></a></div>
+										   </div>
+										</div>
+									 </div>
+								   
+								   
+								   
+									 <script type="text/javascript">
+										require([
+											'jquery',
+											'owlcarousel'
+										], function ($) {
+											$(".sm-imageslider-content").owlCarousel({
+												items:1,
+												autoplay:true,
+												loop:true,
+												nav : true, 
+												dots: false,
+												autoplaySpeed : 500,
+												navSpeed : 500,
+												dotsSpeed : 500,
+												autoplayHoverPause: true,
+												margin:1,
+											});	  
+										});	
+																		
+													
+									 </script>
+								  
+								  
+								  
+								  
+								  
+								  </div>
+							   </div>
+							   
+
+							<?php else  :?>
+							<div class="col-lg-9 image-slideshow">
 								  <div class="image-slider-home">
 									 <div class="sm-imageslider">
 										<div class="sm-imageslider-inner">
@@ -315,11 +464,15 @@ $obj = new MarketPlace();
 									 });
 									 });
 								  </script>
-								  
-								  
-							   
-							  
+							
 							   </div>
+
+							<?php endif;?>
+							   
+
+
+
+
 							</div>
 							
 							 
@@ -327,10 +480,36 @@ $obj = new MarketPlace();
 							<div class="services-home">
 							   <div class="banner-policy">
 								  <div class="inner">
-									 <div class="policy"><a title="90 days money back" href="#"><em class="fa fa-truck"></em><span>FREE SHIPPING<br>ON ALL ORDER</span></a></div>
-									 <div class="policy"><a title="free shipping on all orders" href="#"><em class="fa fa-recycle"></em><span>Money Back<br>Guarantee</span></a></div>
-									 <div class="policy"><a title="lowest price guarantee" href="#"><em class="fa fa-umbrella"></em><span>SAFE SHOPPING<br>GUARANTEE</span></a></div>
-									 <div class="policy"><a title="Online Support 24h on day" href="#"><em class="fa fa-medkit"></em><span>Online Support<br>24h on day</span></a></div>
+									 <div class="policy"><a title="90 days money back" href="#"><em class="fa fa-truck"></em><span>
+									 	<?php $translate->__('FREE SHIPPING'); ?>
+									 	
+									 	<?php $translate->__('ON ALL ORDER'); ?>
+
+									 </span></a></div>
+									 <div class="policy"><a title="free shipping on all orders" href="#"><em class="fa fa-recycle"></em><span>
+									 	
+									 	<?php $translate->__('Money Back'); ?>
+									 	
+									 	<br>
+									 	<?php $translate->__('Guarantee'); ?>
+
+									 </span>
+
+									 </a></div>
+									 <div class="policy"><a title="lowest price guarantee" href="#"><em class="fa fa-umbrella"></em><span>
+									 	
+									 	<?php $translate->__('SAFE SHOPPING'); ?>
+									 
+									 	<?php $translate->__('GUARANTEE'); ?>
+
+									 </span></a></div>
+									 <div class="policy"><a title="Online Support 24h on day" href="#"><em class="fa fa-medkit"></em><span>
+									 	
+									 	<?php $translate->__('Online Support'); ?>
+									 	<br>
+
+									 	<?php $translate->__('24h on day'); ?>
+									 </span></a></div>
 								  </div>
 							   </div>
 							</div>
@@ -339,7 +518,9 @@ $obj = new MarketPlace();
 								  <div class="ltabs-loading-css">
 									 <div class="loading-content"></div>
 								  </div>
-								  <div class="title-home-page"><span>Mobile Phones</span></div>
+								  <div class="title-home-page"><span>
+
+								  	<?php $translate->__('MOBILE PHONES'); ?></span></div>
 								  <div class="ltabs-wrap">
 									 <!--Begin Tabs-->
 									 <div class="ltabs-tabs-container">
@@ -425,9 +606,28 @@ $obj = new MarketPlace();
 																	<span class="price-container price-final_price tax weee"> 
 																		
 
+
 <span id="product-price-2245" data-price-amount="470" data-price-type="finalPrice" class="price-wrapper ">
-	
-	<span class="price"><?= $row['discount'] == '0' ? $obj->getPriceFormate($row['regular_price']) : $obj->getPriceFormate($row['special_price']);?> AED</span></span>  
+	<?php if($language === 'ar') :?>
+
+		<?php $translate->__('AED'); ?>
+
+		<span class="price"><?= $row['discount'] == '0' ? $obj->getPriceFormate($row['regular_price']) : $obj->getPriceFormate($row['special_price']);?> 
+
+
+<?php else :?>
+	<span class="price"><?= $row['discount'] == '0' ? $obj->getPriceFormate($row['regular_price']) : $obj->getPriceFormate($row['special_price']);?> 
+	<?php $translate->__('AED'); ?>
+<?php endif; ?>
+
+
+		
+
+
+
+	</span>
+
+	</span>  
 	
 	
 	
@@ -477,7 +677,7 @@ $obj = new MarketPlace();
 																	   
 																	   
 																   
-<button type="submit" title="Add to Cart" class="action tocart primary btn-action btn-cart" data-cart = '{"name" : "<?= $row['name']?>", "sku": "<?= $row['sku']?>", "image": "<?= $img_src_link ?>", "qty": "1", "price" : "<?= $row['discount'] == '0' ? $row['regular_price'] : $row['special_price'];?> ", "id" : <?= $row['id']?>, "seller_email":"<?=base64_encode($row['seller_email']);?>"}' onclick = "SendItemToCart(this)"><span>Add to Cart</span></button>
+<button type="submit" title="<?php $translate->__('Add to Cart'); ?>" class="action tocart primary btn-action btn-cart" data-cart = '{"name" : "<?= $row['name']?>", "sku": "<?= $row['sku']?>", "image": "<?= $img_src_link ?>", "qty": "1", "price" : "<?= $row['discount'] == '0' ? $row['regular_price'] : $row['special_price'];?> ", "id" : <?= $row['id']?>, "seller_email":"<?=base64_encode($row['seller_email']);?>"}' onclick = "SendItemToCart(this)"><span><?php $translate->__('Add to Cart'); ?></span></button>
 
 																   
 																   
@@ -785,7 +985,11 @@ $obj = new MarketPlace();
 								  <div class="ltabs-loading-css">
 									 <div class="loading-content"></div>
 								  </div>
-								  <div class="title-home-page"><span>New Arrivals</span></div>
+								  <div class="title-home-page"><span>
+
+								  <?php $translate->__('NEW ARRIVALS'); ?>
+
+								</span></div>
 								  <div class="ltabs-wrap">
 									 <!--Begin Tabs-->
 									 <div class="ltabs-tabs-container">
@@ -866,7 +1070,17 @@ $obj = new MarketPlace();
 																		
 																		<span id="product-price-2245" data-price-amount="470" data-price-type="finalPrice" class="price-wrapper ">
 																			
-																			<span class="price"><?= $row['discount'] == '0' ? $obj->getPriceFormate($row['regular_price']) : $obj->getPriceFormate($row['special_price']);?> AED</span></span>  
+																			<?php if($language === 'ar') :?>
+
+		<?php $translate->__('AED'); ?>
+
+		<span class="price"><?= $row['discount'] == '0' ? $obj->getPriceFormate($row['regular_price']) : $obj->getPriceFormate($row['special_price']);?> 
+
+
+<?php else :?>
+	<span class="price"><?= $row['discount'] == '0' ? $obj->getPriceFormate($row['regular_price']) : $obj->getPriceFormate($row['special_price']);?> 
+	<?php $translate->__('AED'); ?>
+<?php endif; ?>  
 																			
 																			
 																			
@@ -897,11 +1111,11 @@ $obj = new MarketPlace();
 																      
 																	   
 																   
-																   <button type="submit" title="Add to Cart" class="action tocart primary btn-action btn-cart" data-cart = '{"name" : "<?= $row['name']?>", "sku": "<?= $row['sku']?>", "image": "<?= $img_src_link ?>", "qty": "1", "price" : "<?= $row['discount'] == '0' ? $row['regular_price'] : $row['special_price'];?> ", "id" : <?= $row['id']?>}' onclick = "SendItemToCart(this)"><span>Add to Cart</span></button>
+<button type="submit" title="<?php $translate->__('Add to Cart'); ?>" class="action tocart primary btn-action btn-cart" data-cart = '{"name" : "<?= $row['name']?>", "sku": "<?= $row['sku']?>", "image": "<?= $img_src_link ?>", "qty": "1", "price" : "<?= $row['discount'] == '0' ? $row['regular_price'] : $row['special_price'];?> ", "id" : <?= $row['id']?>}' onclick = "SendItemToCart(this)"><span><?php $translate->__('Add to Cart'); ?></span></button>
+
 																   
 																   
-																   
-																   <a href="#" class="action tocompare btn-action link-compare" title="Add to Compare" aria-label="Add to Compare" data-post='{"action":"http:\/\/magento2.flytheme.net\/themes\/sm_market2\/argentina\/catalog\/product_compare\/add\/","data":{"product":"2245","uenc":"aHR0cDovL21hZ2VudG8yLmZseXRoZW1lLm5ldC90aGVtZXMvc21fbWFya2V0Mi9hcmdlbnRpbmEv"}}' role="button"><span>Add to Compare</span></a> 
+																   <a href="#" class="action tocompare btn-action link-compare" title="Add to Compare" aria-label="Add to Compare" data-post='{"action":"http:\/\/magento2.flytheme.net\/themes\/sm_market2\/argentina\/catalog\/product_compare\/add\/","data":{"product":"2245","uenc":"aHR0cDovL21hZ2VudG8yLmZseXRoZW1lLm5ldC90aGVtZXMvc21fbWFya2V0Mi9hcmdlbnRpbmEv"}}' role="button"><span><?php $translate->__('Add to Compare'); ?></span></a> 
 																</div>
 															 </div>
 														 
@@ -1195,16 +1409,55 @@ $obj = new MarketPlace();
 							</div>
 							<div class="home-collection">
 							   <div class="collections-wrap">
-								  <div class="title-home-page"><span>Collections</span></div>
+								  <div class="title-home-page"><span>
+
+								  	<?php $translate->__('COLLECTIONS'); ?>
+
+								  	 </span></div>
 								  <div class="collections">
 									 <div class="owl-carousel">
-										<div class="item"><a title="FURNITURE" href="#"> <img src="http://localhost/themes/sm_market2/pub/media/wysiwyg/collection/item-1.png" alt="Collection Image"><span>FURNITURE</span> </a></div>
-										<div class="item"><a title="GIFT IDEA" href="#"> <img src="http://localhost/themes/sm_market2/pub/media/wysiwyg/collection/item-2.png" alt="Collection Image"><span>GIFT IDEA</span> </a></div>
-										<div class="item"><a title="COOL GADGETS" href="#"> <img src="http://localhost/themes/sm_market2/pub/media/wysiwyg/collection/item-3.png" alt="Collection Image"><span>COOL GADGETS</span> </a></div>
-										<div class="item"><a title="OUTDOOR" href="#"> <img src="http://localhost/themes/sm_market2/pub/media/wysiwyg/collection/item-4.png" alt="Collection Image"><span>OUTDOOR</span> </a></div>
-										<div class="item"><a title="Jewelry" href="#"> <img src="http://localhost/themes/sm_market2/pub/media/wysiwyg/collection/item-5.png" alt="Collection Image"><span>Jewelry</span> </a></div>
-										<div class="item"><a title="Men's Fashion" href="#"> <img src="http://localhost/themes/sm_market2/pub/media/wysiwyg/collection/item-6.png" alt="Collection Image"><span>Men's Fashion</span> </a></div>
-										<div class="item"><a title="FURNITURE" href="#"> <img src="http://localhost/themes/sm_market2/pub/media/wysiwyg/collection/item-1.png" alt="Collection Image"><span>FURNITURE</span> </a></div>
+										<div class="item"><a title="FURNITURE" href="#"> <img src="http://localhost/themes/sm_market2/pub/media/wysiwyg/collection/item-1.png" alt="Collection Image"><span>
+										
+										<?php $translate->__('FURNITURE'); ?>
+
+									</span> </a></div>
+										<div class="item"><a title="GIFT IDEA" href="#"> <img src="http://localhost/themes/sm_market2/pub/media/wysiwyg/collection/item-2.png" alt="Collection Image"><span>
+
+										<?php $translate->__('GIFT IDEA'); ?>
+										
+
+									</span> </a></div>
+										<div class="item"><a title="COOL GADGETS" href="#"> <img src="http://localhost/themes/sm_market2/pub/media/wysiwyg/collection/item-3.png" alt="Collection Image"><span>
+
+										<?php $translate->__('Cool Gadgets'); ?>
+
+									</span> </a></div>
+										<div class="item"><a title="OUTDOOR" href="#"> <img src="http://localhost/themes/sm_market2/pub/media/wysiwyg/collection/item-4.png" alt="Collection Image">
+
+											<span>
+											<?php $translate->__('OUTDOOR'); ?>
+												
+
+											</span> 
+
+										</a></div>
+										<div class="item"><a title="Jewelry" href="#"> <img src="http://localhost/themes/sm_market2/pub/media/wysiwyg/collection/item-5.png" alt="Collection Image">
+
+											<span>
+
+											<?php $translate->__('Jewelry'); ?></span> </a>
+
+										</div>
+										<div class="item"><a title="Men's Fashion" href="#"> <img src="http://localhost/themes/sm_market2/pub/media/wysiwyg/collection/item-6.png" alt="Collection Image"><span>
+
+										<?php $translate->__('Mens Fashion'); ?>
+
+									</span> </a></div>
+										<div class="item"><a title="FURNITURE" href="#"> <img src="http://localhost/themes/sm_market2/pub/media/wysiwyg/collection/item-1.png" alt="Collection Image"><span>
+
+										<?php $translate->__('FURNITURE'); ?> 
+
+									</span> </a></div>
 									 </div>
 								  </div>
 								  
@@ -1252,7 +1505,9 @@ $obj = new MarketPlace();
 							</div>
 							<div class="full-categories">
 							   <div class="hot-categories-home">
-								  <div class="title-home-page"><span>Hot categories</span></div>
+								  <div class="title-home-page"><span>
+
+								  	<?php $translate->__('Hot categories'); ?></span></div>
 								  <div class="sm-categories">
 									 <div class="cat-wrap">
 										<div class="item">

@@ -1,43 +1,49 @@
 <?php
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
-$cards   = [
+//echo $_COOKIE['lanSindhbad'];
 
-["from" => "Barcelona", "to" =>  "New York", "instruction" => "a"], // 3
-["from"=> "Barcelona", "to" => "Gerona", "instruction" => "d" ], // 1
-["from" =>  "Madrid",    "to" => "Barcelona", "instruction" => "c"], // 0
-["from" => "Gerona",    "to" => "Barcelona", "instruction" => "m"] // 2
-];
 
 echo "<pre>";
+print_R($_SERVER);
+echo "</pre>";
+/*
+// Open the file 
+$en = fopen('languages/categories/categories.txt', 'r');
+$ar = fopen('languages/categories/arabic-category.txt', 'r');
+$enar = fopen('languages/categories/english-to-arabic.txt', 'a+');
 
-print_R($cards);
+$enlen = 0;
+$arlen = 0;
 
-foreach($cards as $card) {
-    usort($cards, function ($a, $b) {
-                      return ( $a["to"] === $b["from"] ) ? 0 : 1;
-                  });
+$data = '';
+
+if($en) {
+	while(($enline = fgets($en)) !== false && ($arline = fgets($ar)) !== false) {
+
+		$arline = preg_replace( "/\r|\n/", "", $arline);
+		$enline = preg_replace( "/\r|\n/", "", $enline);
+		//echo "$enline=$arline<br/>";
+		$data .= "$enline=$arline".PHP_EOL;
+
+		
+	}
 }
 
 
+fwrite($enar, $data);
+
+
+
+
+fclose($en);
+fclose($ar);
+*/
+
+//echo $enlen;
+//echo "<br/>";
+//echo $arlen
+
+
+
 //echo "<pre>";
-
-//print_R($cards);
+//print_r($_SERVER);
 //echo "</pre>";
-
-
-// Testing 
-
-$newarray = array_slice($cards, 1, -1);
-
-
-//echo "<pre>";
-
-print_R($newarray);
-//echo "</pre>";
-
-foreach($newarray as $key => $value) {
-	
-		
-	}

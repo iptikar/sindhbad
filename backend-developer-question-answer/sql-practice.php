@@ -278,17 +278,3 @@ It's pretty simple, you're writing an SQL file with one command, and loading/exe
 
 You can find the docs for select into outfile here (just search the page for outfile). LOAD DATA INFILE is essentially the reverse of this. See here for the docs
    
-/* Alter table if not exists */
-
-
-/*
-IF NOT EXISTS( SELECT NULL
-            FROM INFORMATION_SCHEMA.COLUMNS
-           WHERE table_name = 'tablename'
-             AND table_schema = 'db_name'
-             AND column_name = 'columnname')  THEN
-
-  ALTER TABLE `TableName` ADD `ColumnName` int(1) NOT NULL default '0';
-
-END IF;
-*/

@@ -29,77 +29,13 @@ $obj = new MarketPlace();
 	
 	body{
 
+
 		
 	}
 
-	/*
- .col-lg-3 {
-    f
-*/
-
-/*
-.header-style-4 .header-bottom .sidebar-megamenu .megamenu-content-sidebar .menu-ver-content {
-    visibility:visible !important;
-    opacity: 1 !important;
-    transition: all 0.2s ease-in-out 0s;
-    -webkit-transition: all 0.2s ease-in-out 0s;
-    position: absolute;
-    left: 0;
-    top: 130%;
-    width: 100%;
-    background-color: #fff;
-    z-index: 666666;
-    direction: rtl !important;
-}
-
-*/
-
-.btn-mobile{
-
-
-}
-
-/*
-
-.navigation-mobile-container {
-
-	display: block !important;
-}
-
-.header-container .navigation-mobile .sm_megamenu_menu>li {
-
-
-}
-
-.header-container .navigation-mobile .sm_megamenu_menu >li{
-    padding:8px 0;
-    border-bottom:1px solid #ddd;
-    
-    position:relative
-}
-
-*/
-
-
-/*
- .header-style-4 .sidebar-megamenu {
-
- 	display: none !important;
- }
-
-*/
-
-.header-style-4 .sidebar-megamenu {
-
-	display: none !important;
-}
 
 
 
-.navigation-mobile-container {
-
-	display: block !important;
-}
 
 
 
@@ -426,7 +362,7 @@ $obj = new MarketPlace();
 								  <div class="ltabs-loading-css">
 									 <div class="loading-content"></div>
 								  </div>
-								  <div class="title-home-page"><span>Mobile Phones</span></div>
+								  <div class="title-home-page" ><span>Mobile Phones</span></div>
 								  <div class="ltabs-wrap">
 									 <!--Begin Tabs-->
 									 <div class="ltabs-tabs-container">

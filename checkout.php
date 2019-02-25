@@ -155,7 +155,7 @@ Client ID
                               
                               
                               
-                              
+                              <!--
                               <ul class="opc-progress-bar">
                                  
                                  <li class="opc-progress-bar-item _active" data-bind="css: item.isVisible() ? '_active' : ($parent.isProcessed(item) ? '_complete' : '')">
@@ -166,6 +166,7 @@ Client ID
                                  </li>
                                  
                               </ul>
+                            -->
                               
                               
                               
