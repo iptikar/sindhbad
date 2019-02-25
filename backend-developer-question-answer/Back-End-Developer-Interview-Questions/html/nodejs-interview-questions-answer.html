@@ -1,0 +1,825 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8">
+	<title></title>
+	<meta name="generator" content="LibreOffice 4.2.3.3 (Linux)">
+	<meta name="created" content="0;0">
+	<meta name="changed" content="0;0">
+	<style type="text/css">
+	<!--
+		@page { margin: 0.79in }
+		p { margin-bottom: 0.1in; line-height: 120% }
+		pre.cjk { font-family: "Droid Sans Fallback", monospace }
+	-->
+	</style>
+</head>
+<body lang="en-US" dir="ltr">
+<pre class="western"><br>
+</pre>
+<pre class="western">What are closures and how are they useful?</pre>
+<pre class="western">A closure is the combination of a function and
+the lexical environment within which that function was declared.</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western">function init() {</pre>
+<pre class="western">  var name = 'Mozilla'; // name is a local
+variable created by init</pre>
+<pre class="western">  function displayName() { // displayName() is
+the inner function, a closure</pre>
+<pre class="western">    alert(name); // use variable declared in the
+parent function    
+</pre>
+<pre class="western">  }</pre>
+<pre class="western">  displayName();    
+</pre>
+<pre class="western">}</pre>
+<pre class="western">init();</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western">init() creates a local variable called name and
+a function called displayName(). The displayName() function is an
+inner function that is defined inside init() and is only available
+within the body of the  init() function. The displayName() function
+has no local variables of its own. However, because inner functions
+have access to the variables of outer functions, displayName() can
+access the variable name declared in the parent function, init().
+However, the same local variables in displayName() will be used if
+they exist.</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western">When would I use closures (retention) over
+classes?</pre>
+<pre class="western">The closure pattern is more lintable than the
+class pattern.</pre>
+<pre class="western">The class pattern tends to perform better than
+the closure pattern.</pre>
+<pre class="western">The class pattern is more monkey-patchable than
+the the closure pattern.</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western">Class Patern 
+</pre>
+<pre class="western">const Earth   = require('earth')</pre>
+<pre class="western">const Society = require('society')</pre>
+<pre class="western">// An ES6 class!</pre>
+<pre class="western">class Bourgeoisie {</pre>
+<pre class="western">    constructor (land, capital) {</pre>
+<pre class="western">        this.land = land</pre>
+<pre class="western">        this.capital = capital</pre>
+<pre class="western">    }</pre>
+<pre class="western">    exploitForProfit (proletariat) {</pre>
+<pre class="western">        const labor = proletariat.employ()</pre>
+<pre class="western">        const goods =
+this.capitol.produce(labor)</pre>
+<pre class="western">        return goods.sellTo(proletariat) +
+this.land.rentTo(proletariat)</pre>
+<pre class="western">    }</pre>
+<pre class="western">}</pre>
+<pre class="western">// Usage</pre>
+<pre class="western">function initClassStruggle () {</pre>
+<pre class="western">    const land = Earth.getLand()</pre>
+<pre class="western">    const capital = Society.industrialize()</pre>
+<pre class="western">    const bourgeoisie = new Bourgeoisie(land,
+capital)</pre>
+<pre class="western">    Society.on('workday', () =&gt; {</pre>
+<pre class="western">       
+bourgeoisie.exploitForProfit(Society.getProletariat())</pre>
+<pre class="western">    })</pre>
+<pre class="western">}</pre>
+<pre class="western">initClassStruggle()</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western">Clousere Pattern</pre>
+<pre class="western">const Earth       = require('earth')</pre>
+<pre class="western">const Society     = require('society')</pre>
+<pre class="western">// A closure.</pre>
+<pre class="western">function Bourgeoisie (land, capital) {</pre>
+<pre class="western">    function exploitForProfit (proletariat) {</pre>
+<pre class="western">        const labor = proletariat.employ()</pre>
+<pre class="western">        const goods = capitol.produce(labor)</pre>
+<pre class="western">        return goods.sellTo(proletariat) +
+land.rentTo(proletariat)</pre>
+<pre class="western">    }</pre>
+<pre class="western">    return {</pre>
+<pre class="western">        exploitForProfit: exploitForProfit</pre>
+<pre class="western">    }</pre>
+<pre class="western">}</pre>
+<pre class="western">// Usage</pre>
+<pre class="western">function initClassStruggle () {</pre>
+<pre class="western">    const land = Earth.getLand()</pre>
+<pre class="western">    const capital = Society.industrialize()</pre>
+<pre class="western">    const bourgeoisie = Bourgeoisie(land,
+capital)</pre>
+<pre class="western">    Society.on('workday', () =&gt; {</pre>
+<pre class="western">       
+bourgeoisie.exploitForProfit(Society.getProletariat())</pre>
+<pre class="western">    })</pre>
+<pre class="western">}</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western">What does ‘this’ refer to? What’s the deal
+with ‘self’?</pre>
+<pre class="western">In what you've shown in this particular code
+example, there is no reason to even have the self variable because
+there are no other function scopes that might need access to the
+original value of this.</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western">Some developers have a consistent methodology or
+convention to create a local variable like self and assign it the
+value of this just so that they have it to use, if needed, in
+closures. The self variable can also be minimized smaller than this
+because it can be renamed to a one character variable name, but this
+cannot be renamed.</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western">In any case, the functionality here would not be
+affected if self was removed and only this was used in this
+particular method.</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western">My own personal convention is to only define
+self if it is actually needed which is the same logic I use for other
+local variables and then I only use it inside the closure where it is
+needed.</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western">When does javascript compile? What might slow it
+down?</pre>
+<pre class="western">Yes, in 2014, everyone compiles JavaScript to
+native code using various strategies to optimize the code. There are
+even standards like asm.js to allow to compile JavaScript in such a
+way that the resulting code is at least as fast as code written in
+C/C++ or Java.</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western">As always, the performance that you get in the
+end really depends on the optimizations and your code. Just as it's
+easy to write slow code in Java or C++, you can also write something
+that no automatic optimizer in the world can fix.</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western">What is a callback? What is the advantage? Cons?</pre>
+<pre class="western">The main browser process is a single threaded
+event loop. If you execute a long-running operation within a
+single-threaded event loop, the process &quot;blocks&quot;. This is
+bad because the process stops processing other events while waiting
+for your operation to complete. 'alert' is one of the few blocking
+browser methods: if you call alert('test'), you can no longer click
+links, perform ajax queries, or interact with the browser UI.</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western">In order to prevent blocking on long-running
+operations, the XMLHttpRequest provides an asynchronous interface.
+You pass it a callback to run after the operation is complete, and
+while it is processing it cedes control back to the main event loop
+instead of blocking.</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western">There's no reason to use a callback unless you
+want to bind something to an event handler, or your operation is
+potentially blocking and therefore requires an asynchronous
+programming interface.</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western">This is an excellent video discussing more about
+the event loop used in the browser, as well as on the server side in
+node.js.</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western">EDIT: that convoluted line from the jQuery
+documentation just means that the callback executes asynchronously as
+control is ceded back to the main event loop.</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western">parent_function(function () {
+console.log('Callback'); });</pre>
+<pre class="western">parent_doesnt_block(); // &lt;-- function
+appears after &quot;parent&quot;</pre>
+<pre class="western">therefore_execution_continues();</pre>
+<pre class="western">// Maybe we get 'Callback' in the console here?
+or maybe later...</pre>
+<pre class="western">execution_still_continues();</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western">What’s the difference between object literal
+and new?</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western">99</pre>
+<pre class="western">down vote</pre>
+<pre class="western">accepted</pre>
+<pre class="western">They both do the same thing (unless someone's
+done something unusual), other than that your second one creates an
+object and adds a property to it. But literal notation takes less
+space in the source code. It's clearly recognizable as to what is
+happening, so using new Object(), you are really just typing more and
+(in theory, if not optimized out by the JavaScript engine) doing an
+unnecessary function call.</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western">These</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western">person = new Object() /*You should put a
+semicolon here too.  
+</pre>
+<pre class="western">It's not required, but it is good practice.*/ 
+</pre>
+<pre class="western">-or-</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western">person = {</pre>
+<pre class="western">    property1 : &quot;Hello&quot;</pre>
+<pre class="western">};</pre>
+<pre class="western">technically do not do the same thing. The first
+just creates an object. The second creates one and assigns a
+property. For the first one to be the same you then need a second
+step to create and assign the property.</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western">The &quot;something unusual&quot; that someone
+could do would be to shadow or assign to the default Object global:</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western">// Don't do this</pre>
+<pre class="western">Object = 23;</pre>
+<pre class="western">In that highly-unusual case, new Object will
+fail but {} will work.</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western">In practice, there's never a reason to use new
+Object rather than {} (unless you've done that very unusual thing).</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western">Why not just assign function to properties
+instead of protoype for an object?</pre>
+<pre class="western">Methods that inherit via the prototype chain can
+be changed universally for all instances, for example:</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western">function Class () {}</pre>
+<pre class="western">Class.prototype.calc = function (a, b) {</pre>
+<pre class="western">    return a + b;</pre>
+<pre class="western">}</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western">// Create 2 instances:</pre>
+<pre class="western">var ins1 = new Class(),</pre>
+<pre class="western">    ins2 = new Class();</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western">// Test the calc method:</pre>
+<pre class="western">console.log(ins1.calc(1,1), ins2.calc(1,1));</pre>
+<pre class="western">// -&gt; 2, 2</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western">// Change the prototype method</pre>
+<pre class="western">Class.prototype.calc = function () {</pre>
+<pre class="western">    var args =
+Array.prototype.slice.apply(arguments),</pre>
+<pre class="western">        res = 0, c;</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western">    while (c = args.shift())</pre>
+<pre class="western">        res += c;</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western">    return res; 
+</pre>
+<pre class="western">}</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western">// Test the calc method:</pre>
+<pre class="western">console.log(ins1.calc(1,1,1), ins2.calc(1,1,1));</pre>
+<pre class="western">// -&gt; 3, 3</pre>
+<pre class="western">Notice how changing the method applied to both
+instances? This is because ins1 and ins2 share the same calc()
+function. In order to do this with public methods created during
+construction, you'd have to assign the new method to each instance
+that has been created, which is an awkward task. This is because ins1
+and ins2 would have their own, individually created calc() functions.</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western">Another side effect of creating methods inside
+the constructor is poorer performance. Each method has to be created
+every time the constructor function runs. Methods on the prototype
+chain are created once and then &quot;inherited&quot; by each
+instance. On the flip side of the coin, public methods have access to
+&quot;private&quot; variables, which isn't possible with inherited
+methods.</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western">As for your function Class() {} vs var Class =
+function () {} question, the former is &quot;hoisted&quot; to the top
+of the current scope before execution. For the latter, the variable
+declaration is hoisted, but not the assignment. For example:</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western">// Error, fn is called before the function is
+assigned!</pre>
+<pre class="western">fn();</pre>
+<pre class="western">var fn = function () { alert(&quot;test!&quot;);
+} 
+</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western">// Works as expected: the fn2 declaration is
+hoisted above the call</pre>
+<pre class="western">fn2();</pre>
+<pre class="western">function fn2() { alert(&quot;test!&quot;); }</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western">How do I implement modules natively in
+javascript?</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western">Native ES Modules in NodeJS</pre>
+<pre class="western">To create an ES Module, just create a file with
+the mjs extension that includes the module code. For example:</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western">01-kettle.mjs hosted with ❤ by GitHub</pre>
+<pre class="western">export const spout = 'the spout'</pre>
+<pre class="western">export const handle = 'the handle'</pre>
+<pre class="western">export const tea = 'hot tea'</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western">01-main.mjs hosted with ❤ by GitHub</pre>
+<pre class="western">import {handle, spout, tea} from
+'./01-kettle.mjs'</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western">console.log(handle) // ==&gt; the handle</pre>
+<pre class="western">console.log(spout) // ==&gt; the spout</pre>
+<pre class="western">console.log(tea) // ==&gt; hot tea</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western">When is angular a bad option?</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western">How do I deal with scope collisions (especially
+in Node)?</pre>
+<pre class="western">hey do not have global scope.</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western">Route</pre>
+<pre class="western">The route takes a handler function for each
+route. That route is passed the req and res objects.</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western">app.get('/my-route', myHandler);</pre>
+<pre class="western">Handler</pre>
+<pre class="western">Your handler receives those objects and uses
+them.</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western">exports.myHandler = function(req, res) {</pre>
+<pre class="western">    res.send(&quot;Hello world&quot;);</pre>
+<pre class="western">);</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western">Closures</pre>
+<pre class="western">When you make a database call (or any other io
+bound call) you pass it a callback. The req and res objects live in
+that callback as a closure.</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western">exports.myHandler = function(req, res) {</pre>
+<pre class="western">  var weekday = req.query.weekday || &quot;today&quot;;</pre>
+<pre class="western">  db.getWeather(weekday, function(err, result) {</pre>
+<pre class="western">    // `res` here is a closure</pre>
+<pre class="western">    if(err) { res.send(500,&quot;Server Error&quot;);
+return; }</pre>
+<pre class="western">    res.send(result);</pre>
+<pre class="western">  });</pre>
+<pre class="western">};</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western">What are some common design patterns in OO
+Javascript?</pre>
+<pre class="western">some people don't realize that JS is fully
+object oriented. You can create something that works just like a
+class:</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western">function Car() {</pre>
+<pre class="western">    this.publicField = &quot;bad&quot;;</pre>
+<pre class="western">    var privateField = &quot;good&quot;;</pre>
+<pre class="western">    var self = this;</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western">    this.publicMethod = function() {</pre>
+<pre class="western">        alert(&quot;I can access &quot; +
+this.publicField + &quot; and &quot; + privateField);</pre>
+<pre class="western">    }</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western">    function privateMethod() {</pre>
+<pre class="western">        alert(&quot;I can access &quot; +
+self.publicField + &quot; and &quot; + privateField);</pre>
+<pre class="western">    }</pre>
+<pre class="western">}</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western">you can instantiate those classes:</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western">var car = new Car();</pre>
+<pre class="western">and it supports inheritance:</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western">function Vehicle() { /* define class */ }</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western">function Truck() { /* define class */ }</pre>
+<pre class="western">Truck.prototype = new Vehicle();</pre>
+<pre class="western">and can even add methods to existing classes:</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western">Array.prototype.remove = function() {</pre>
+<pre class="western">}</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western">If you'd like to learn more about JavaScript's
+OO support, I highly recommend the Rhino book.</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western">Difference between o = Object() vs o = new
+Object() ?</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western">They both do the same thing (unless someone's
+done something unusual), other than that your second one creates an
+object and adds a property to it. But literal notation takes less
+space in the source code. It's clearly recognizable as to what is
+happening, so using new Object(), you are really just typing more and
+(in theory, if not optimized out by the JavaScript engine) doing an
+unnecessary function call.</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western">These</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western">person = new Object() /*You should put a
+semicolon here too.  
+</pre>
+<pre class="western">It's not required, but it is good practice.*/ 
+</pre>
+<pre class="western">-or-</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western">person = {</pre>
+<pre class="western">    property1 : &quot;Hello&quot;</pre>
+<pre class="western">};</pre>
+<pre class="western">technically do not do the same thing. The first
+just creates an object. The second creates one and assigns a
+property. For the first one to be the same you then need a second
+step to create and assign the property.</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western">The &quot;something unusual&quot; that someone
+could do would be to shadow or assign to the default Object global:</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western">// Don't do this</pre>
+<pre class="western">Object = 23;</pre>
+<pre class="western">In that highly-unusual case, new Object will
+fail but {} will work.</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western">In practice, there's never a reason to use new
+Object rather than {} (unless you've done that very unusual thing).</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western">How do promises work? What are the advantages
+over traditonal callbacks?</pre>
+<pre class="western">What is a promise?</pre>
+<pre class="western">The core idea behind promises is that a promise
+represents the result of an asynchronous operation. A promise is in
+one of three different states:</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western">pending - The initial state of a promise.</pre>
+<pre class="western">fulfilled - The state of a promise representing
+a successful operation.</pre>
+<pre class="western">rejected - The state of a promise representing a
+failed operation.</pre>
+<pre class="western">Once a promise is fulfilled or rejected, it is
+immutable (i.e. it can never change again).</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western">Constructing a promise</pre>
+<pre class="western">Once all of the APIs return promises, it should
+be relatively rare that you need to construct one by hand. In the
+meantime, we need a way to polyfill existing APIs. For example:</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western">function readFile(filename, enc){</pre>
+<pre class="western">  return new Promise(function (fulfill, reject){</pre>
+<pre class="western">    fs.readFile(filename, enc, function (err,
+res){</pre>
+<pre class="western">      if (err) reject(err);</pre>
+<pre class="western">      else fulfill(res);</pre>
+<pre class="western">    });</pre>
+<pre class="western">  });</pre>
+<pre class="western">}</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western">Awaiting a promise</pre>
+<pre class="western">function readJSON(filename){</pre>
+<pre class="western">  return new Promise(function (fulfill, reject){</pre>
+<pre class="western">    readFile(filename, 'utf8').done(function
+(res){</pre>
+<pre class="western">      try {</pre>
+<pre class="western">        fulfill(JSON.parse(res));</pre>
+<pre class="western">      } catch (ex) {</pre>
+<pre class="western">        reject(ex);</pre>
+<pre class="western">      }</pre>
+<pre class="western">    }, reject);</pre>
+<pre class="western">  });</pre>
+<pre class="western">}</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western">What are the advantage of directives? What role
+do they play in MVC?</pre>
+<pre class="western">Model-View-Controller (or MVC) is probably one
+of the most popular architectures for applications. As with a lot of
+other cool things in computer history, the MVC model was conceived at
+PARC for the Smalltalk language as a solution to the problem of
+organizing applications with graphical user interfaces. It was
+created for desktop applications, but since then, the idea has been
+adapted to other mediums including the web.</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western">We can describe the MVC architecture in simple
+words:</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western">Model: The part of our application that will
+deal with the database or any data-related functionality.</pre>
+<pre class="western">View: Everything the user will see. Basically
+the pages that we’re going to send to the client.</pre>
+<pre class="western">Controller: The logic of our site, and the glue
+between models and views. Here we call our models to get the data,
+then we put that data on our views to be sent to the users.</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western">How do I handle scope issues in angular
+(especially with lots of controllers)?</pre>
+<pre class="western">1. Controllers Should Be Classes</pre>
+<pre class="western">2. Keep Controllers Skinny With Services</pre>
+<pre class="western">3. Eliminate Scope Using The 'Controller As'
+Syntax</pre>
+<pre class="western">4. Eliminate Watches Using 'ng-change' And ES5
+Properties</pre>
+<pre class="western">5. Don't Use Scope To Pass Data Around</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western">Explain your process for testing? Framework?
+Which do you prefer? Why?</pre>
+<pre class="western">Automation</pre>
+<pre class="western">There are many ways you can integrate a linter
+in your workflow.</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western">Prettier</pre>
+<pre class="western">Linters like standard let you keep a uniform
+coding style. But recently there’s another project that lets you go
+one step further: prettier. This pretty formatter understands the
+print-width. So for example this code is fine:</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western">foo(arg1, arg2, arg3, arg4);</pre>
+<pre class="western">foo(reallyLongArg(), omgSoManyParameters(),
+IShouldRefactorThis(), isThereSeriouslyAnotherOne());</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western">Become like this 
+</pre>
+<pre class="western">foo(</pre>
+<pre class="western">  reallyLongArg(),</pre>
+<pre class="western">  omgSoManyParameters(),</pre>
+<pre class="western">  IShouldRefactorThis(),</pre>
+<pre class="western">  isThereSeriouslyAnotherOne()</pre>
+<pre class="western">);</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western">How is ‘require’ implemented in Node?</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western">http://fredkschott.com/post/2014/06/require-and-the-module-system/</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western">Expalin the role of middleware in Node?</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western">down vote</pre>
+<pre class="western">accepted</pre>
+<pre class="western">middleware</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western">I'm halfway through separating the concept of
+middleware in a new project.</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western">Middleware allows you to define a stack of
+actions that you should flow through. Express servers themselves are
+a stack of middlewares.</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western">// express</pre>
+<pre class="western">var app = express();</pre>
+<pre class="western">// middleware</pre>
+<pre class="western">var stack = middleware();</pre>
+<pre class="western">Then you can add layers to the middleware stack
+by calling .use</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western">// express</pre>
+<pre class="western">app.use(express.static(..));</pre>
+<pre class="western">// middleware</pre>
+<pre class="western">stack.use(function(data, next) {</pre>
+<pre class="western">  next();</pre>
+<pre class="western">});</pre>
+<pre class="western">A layer in the middleware stack is a function,
+which takes n parameters (2 for express, req &amp; res) and a next
+function.</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western">Middleware expects the layer to do some
+computation, augment the parameters and then call next.</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western">A stack doesn't do anything unless you handle
+it. Express will handle the stack every time an incoming HTTP request
+is caught on the server. With middleware you handle the stack
+manually.</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western">// express, you need to do nothing</pre>
+<pre class="western">// middleware</pre>
+<pre class="western">stack.handle(someData);</pre>
+<pre class="western">A more complete example :</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western">var middleware =
+require(&quot;../src/middleware.js&quot;);</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western">var stack = middleware(function(data, next) {</pre>
+<pre class="western">    data.foo = data.data*2;</pre>
+<pre class="western">    next();</pre>
+<pre class="western">}, function(data, next) {</pre>
+<pre class="western">    setTimeout(function() {</pre>
+<pre class="western">        data.async = true;</pre>
+<pre class="western">        next();</pre>
+<pre class="western">    }, 100)</pre>
+<pre class="western">}, function(data) {</pre>
+<pre class="western">    console.log(data);</pre>
+<pre class="western">});</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western">stack.handle({</pre>
+<pre class="western">    &quot;data&quot;: 42</pre>
+<pre class="western">})</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western">What’s the difference between call and apply?</pre>
+<pre class="western">The difference is that apply lets you invoke the
+function with arguments as an array; call requires the parameters be
+listed explicitly. A useful mnemonic is &quot;A for array and C for
+comma.&quot;</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western">See MDN's documentation on apply and call.</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western">Pseudo syntax:</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western">theFunction.apply(valueForThis, arrayOfArgs)</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western">theFunction.call(valueForThis, arg1, arg2, ...)</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western">There is also, as of ES6, the possibility to
+spread the array for use with the call function, you can see the
+compatibilities here.</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western">Sample code:</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western">function theFunction(name, profession) {</pre>
+<pre class="western">    console.log(&quot;My name is &quot; + name +
+&quot; and I am a &quot; + profession +&quot;.&quot;);</pre>
+<pre class="western">}</pre>
+<pre class="western">theFunction(&quot;John&quot;, &quot;fireman&quot;);</pre>
+<pre class="western">theFunction.apply(undefined, [&quot;Susan&quot;,
+&quot;school teacher&quot;]);</pre>
+<pre class="western">theFunction.call(undefined, &quot;Claude&quot;,
+&quot;mathematician&quot;);</pre>
+<pre class="western">theFunction.call(undefined, ...[&quot;Matthew&quot;,
+&quot;physicist&quot;]); // used with the spread operator</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western">Why would you ever use call/apply?</pre>
+<pre class="western">You use call or apply when you want to pass a
+different this value to the function. In essence, this means that you
+want to execute a function as if it were a method of a particular
+object. The only difference between the two is that call expects
+parameters separated by commas, while apply expects parameters in an
+array.</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western">An example from Mozilla's apply page, where
+constructors are chained:</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western">function Product(name, price) {</pre>
+<pre class="western">    this.name = name;</pre>
+<pre class="western">    this.price = price;</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western">    if (price &lt; 0)</pre>
+<pre class="western">        throw RangeError('Cannot create product
+&quot;' + name + '&quot; with a negative price');</pre>
+<pre class="western">    return this;</pre>
+<pre class="western">}</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western">function Food(name, price) {</pre>
+<pre class="western">    Product.apply(this, arguments);</pre>
+<pre class="western">    this.category = 'food';</pre>
+<pre class="western">}</pre>
+<pre class="western">Food.prototype = new Product();</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western">function Toy(name, price) {</pre>
+<pre class="western">    Product.apply(this, arguments);</pre>
+<pre class="western">    this.category = 'toy';</pre>
+<pre class="western">}</pre>
+<pre class="western">Toy.prototype = new Product();</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western">var cheese = new Food('feta', 5);</pre>
+<pre class="western">var fun = new Toy('robot', 40);</pre>
+<pre class="western">What Product.apply(this, arguments) does is the
+following: The Product constructor is applied as a function within
+each of the Food and Toy constructors, and each of these object
+instances are being passed as this. Thus, each of Food and Toy now
+have this.name and this.category properties.</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western">sd</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western">Hope this helps. Much comes from personal
+experience with interviewers.</pre>
+</body>
+</html>

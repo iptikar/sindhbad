@@ -1,0 +1,5 @@
+// To check the all document 
+http://127.0.0.1:9200/my_index/_search/?size=1000&pretty=true
+
+// Check that wich index is create and which index in you are saving the data 
+http://127.0.0.1:9200/articles/_search/?size=1000&pretty=true

@@ -1,0 +1,367 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8">
+	<title></title>
+	<meta name="generator" content="LibreOffice 4.2.3.3 (Linux)">
+	<meta name="created" content="0;0">
+	<meta name="changed" content="0;0">
+	<style type="text/css">
+	<!--
+		@page { margin: 0.79in }
+		p { margin-bottom: 0.1in; direction: ltr; color: #00000a; line-height: 120%; text-align: left; widows: 0; orphans: 0 }
+		p.western { font-family: "Liberation Serif", serif; font-size: 12pt; so-language: en-US }
+		p.cjk { font-family: "Droid Sans Fallback"; font-size: 12pt; so-language: zh-CN }
+		p.ctl { font-family: "FreeSans"; font-size: 12pt; so-language: hi-IN }
+		pre { direction: ltr; color: #00000a; text-align: left; widows: 0; orphans: 0 }
+		pre.western { font-family: "Liberation Mono", serif; so-language: en-US }
+		pre.cjk { font-family: "Droid Sans Fallback"; so-language: zh-CN }
+		pre.ctl { font-family: "Liberation Mono"; so-language: hi-IN }
+	-->
+	</style>
+</head>
+<body lang="en-US" text="#00000a" dir="ltr">
+<pre class="western"><b>What is singleton design pattern?</b></pre>
+<pre class="western"><br>
+</pre>
+<pre class="western">A singleton is a particular kind of class that,
+as you correctly said, can be instantiated only once.</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western">First point: it isn't a PHP related concept but
+an OOP concept.</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western">What &quot;instantiated only once means?&quot;
+It simply means that if an object of that class was already
+instantiated, the system will return it instead of creating new one.
+Why? Because, sometimes, you need a &quot;common&quot; instance
+(global one) or because instantiating a &quot;copy&quot; of an
+already existent object is useless.</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western">Let's consider for first case a framework: on
+bootstrap operation you need to instantiate an object but you can
+(you have to) share it with other that request for a framework
+bootstrap.</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western">For the second case let's consider a class that
+has only methods and no members (so basically no internal state).
+Maybe you could implement it as a static class, but if you want to
+follow design patterns, consider AbstractFactory) you should use
+objects. So, having some copy of the same object that has only
+methods isn't necessary and is also memory-wasting.</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western">Those are two main reason to use singleton to
+me.</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><span dir="ltr" style="float: left; width: 6.33in; height: 4.22in; border: none; padding: 0.05in 0.1in; background: #ffffff">
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#bc7a00">&lt;?php</font></p>
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000">
+	   </font><font color="#008000">class</font><font color="#000000">
+	</font><font color="#0000ff">DBConn</font><font color="#000000"> {</font></p>
+	<p style="margin-bottom: 0in; line-height: 100%"><br>
+	</p>
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000">
+	       </font><font color="#008000">private</font><font color="#000000">
+	</font><font color="#008000">static</font><font color="#000000">
+	</font><font color="#19177c">$obj</font><font color="#000000">;</font></p>
+	<p style="margin-bottom: 0in; line-height: 100%"><br>
+	</p>
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000">
+	       </font><font color="#008000">private</font><font color="#000000">
+	</font><font color="#008000">final</font><font color="#000000">
+	</font><font color="#008000">function</font><font color="#000000"> 
+	</font><font color="#0000ff">__construct</font><font color="#000000">()
+	{</font></p>
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000">
+	           </font><font color="#008000">echo</font><font color="#000000">
+	</font><font color="#880000">__CLASS__</font><font color="#000000">
+	</font><font color="#666666">.</font><font color="#000000"> </font><font color="#ba2121">&quot;
+	initializes only once</font><font color="#bb6622">\n</font><font color="#ba2121">&quot;</font><font color="#000000">;</font></p>
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000">
+	       }</font></p>
+	<p style="margin-bottom: 0in; line-height: 100%"><br>
+	</p>
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000">
+	       </font><font color="#008000">public</font><font color="#000000">
+	</font><font color="#008000">static</font><font color="#000000">
+	</font><font color="#008000">function</font><font color="#000000">
+	</font><font color="#0000ff">getConn</font><font color="#000000">()
+	{</font></p>
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000">
+	           </font><font color="#008000">if</font><font color="#000000">(</font><font color="#666666">!</font><font color="#008000">isset</font><font color="#000000">(self</font><font color="#666666">::</font><font color="#19177c">$obj</font><font color="#000000">))
+	{</font></p>
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000">
+	               self</font><font color="#666666">::</font><font color="#19177c">$obj</font><font color="#000000">
+	</font><font color="#666666">=</font><font color="#000000"> </font><font color="#008000">new</font><font color="#000000">
+	DBConn();</font></p>
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000">
+	           }</font></p>
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000">
+	           </font><font color="#008000">return</font><font color="#000000">
+	self</font><font color="#666666">::</font><font color="#19177c">$obj</font><font color="#000000">;</font></p>
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000">
+	       }</font></p>
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000">
+	   }</font></p>
+	<p style="margin-bottom: 0in; line-height: 100%"><br>
+	</p>
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000">
+	   </font><font color="#19177c">$obj1</font><font color="#000000"> </font><font color="#666666">=</font><font color="#000000">
+	DBConn</font><font color="#666666">::</font><font color="#7d9029">getConn</font><font color="#000000">();</font></p>
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000">
+	   </font><font color="#19177c">$obj2</font><font color="#000000"> </font><font color="#666666">=</font><font color="#000000">
+	DBConn</font><font color="#666666">::</font><font color="#7d9029">getConn</font><font color="#000000">();</font></p>
+	<p style="margin-bottom: 0in; line-height: 100%"><br>
+	</p>
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000">
+	   </font><font color="#008000">var_dump</font><font color="#000000">(</font><font color="#19177c">$obj1</font><font color="#000000">
+	</font><font color="#666666">==</font><font color="#000000"> </font><font color="#19177c">$obj2</font><font color="#000000">);</font></p>
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#bc7a00">?&gt;</font></p>
+</span><br>
+</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><b>What is Inversion of Control?</b></pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><span dir="ltr" style="float: left; width: 7.82in; height: 7.98in; border: none; padding: 0.05in 0.1in; background: #ffffff">
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000">The
+	Inversion of Control (IoC) and Dependency Injection (DI) patterns
+	are all about removing dependencies from your code.</font></p>
+	<p style="margin-bottom: 0in; line-height: 100%"><br>
+	</p>
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000">For
+	example, say your application has a text editor component and you
+	want to provide spell checking. Your standard code would look
+	something like this:</font></p>
+	<p style="margin-bottom: 0in; line-height: 100%"><br>
+	</p>
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000">public
+	class TextEditor {</font></p>
+	<p style="margin-bottom: 0in; line-height: 100%"><br>
+	</p>
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000">
+	   private SpellChecker checker;</font></p>
+	<p style="margin-bottom: 0in; line-height: 100%"><br>
+	</p>
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000">
+	   public TextEditor() {</font></p>
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000">
+	       this.checker = new SpellChecker();</font></p>
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000">
+	   }</font></p>
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000">}</font></p>
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000">What
+	we've done here creates a dependency between the TextEditor and the
+	SpellChecker. In an IoC scenario we would instead do something like
+	this:</font></p>
+	<p style="margin-bottom: 0in; line-height: 100%"><br>
+	</p>
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000">public
+	class TextEditor {</font></p>
+	<p style="margin-bottom: 0in; line-height: 100%"><br>
+	</p>
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000">
+	   private IocSpellChecker checker;</font></p>
+	<p style="margin-bottom: 0in; line-height: 100%"><br>
+	</p>
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000">
+	   public TextEditor(IocSpellChecker checker) {</font></p>
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000">
+	       this.checker = checker;</font></p>
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000">
+	   }</font></p>
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000">}</font></p>
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000">In
+	the first code example we are instantiating SpellChecker
+	(this.checker = new SpellChecker();), which means the TextEditor
+	class directly depends on the SpellChecker class.</font></p>
+	<p style="margin-bottom: 0in; line-height: 100%"><br>
+	</p>
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000">In
+	the second code example we are creating an abstraction by having the
+	SpellChecker dependency class in TextEditor constructor signature
+	(not initializing dependency in class). This allows us to call the
+	dependency then pass it to the TextEditor class like so:</font></p>
+	<p style="margin-bottom: 0in; line-height: 100%"><br>
+	</p>
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000">SpellChecker
+	sc = new SpellChecker; // dependency</font></p>
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000">TextEditor
+	textEditor = new TextEditor(sc);</font></p>
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000">Now
+	the client creating the TextEditor class has the control over which
+	SpellChecker implementation to use because we're injecting the
+	dependency to the TextEditor signature.</font></p>
+	<p style="margin-bottom: 0in; line-height: 100%"><br>
+	</p>
+	<p style="margin-bottom: 0in; line-height: 100%"><font color="#000000">This
+	is just a simple example, there's a good series of articles by
+	Simone Busoli that explains it in greater detail.</font></p>
+	<p style="margin-bottom: 0in; line-height: 100%"><br>
+	</p>
+	<p style="margin-bottom: 0in; line-height: 100%"><br>
+	</p>
+</span><br>
+</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><br>
+</pre>
+</body>
+</html>

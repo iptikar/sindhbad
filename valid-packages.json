@@ -1,0 +1,22 @@
+{
+  "name": "npm-example",
+  "version": "1.0.0",
+  "license": "MIT",
+  "description": "This project describes the package.json file in detail and explains what goes inside it.",
+  "keywords": ["npm", "package.json", "node.js"],
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/skyshader/example.git"
+  },
+  "scripts": {
+    "build": "...",
+    "test": "..."
+  },
+  "dependencies": {
+    
+  },
+  "devDependencies": {
+    
+  }
+}

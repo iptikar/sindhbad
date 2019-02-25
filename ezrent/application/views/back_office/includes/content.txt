@@ -1,0 +1,19 @@
+<div id="content">
+<div id="content-top">
+<h2><?= $title; ?></h2>
+<a href="<?= base_url(); ?>back_office/control/add" id="topLink">Add Attribute</a>
+<span class="clearFix">&nbsp;</span>
+</div>
+<? $this->load->view('back_office/includes/left_box'); ?>
+<div class="full-col">
+<div id="result"></div>
+<div class="box">      
+<h4 class="white" ><?= $title; ?></h4>
+<div class="box-container">
+
+</div>
+</div>
+</div>
+<span class="clearFix">&nbsp;</span>     
+</div>
+

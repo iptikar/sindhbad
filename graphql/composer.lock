@@ -1,0 +1,101 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
+        "This file is @generated automatically"
+    ],
+    "content-hash": "e67e3e7cd03f292cf36a899546bd8171",
+    "packages": [
+        {
+            "name": "youshido/graphql",
+            "version": "v1.5.5",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/youshido-php/GraphQL.git",
+                "reference": "5235d34f8bb96d0a15f02f5c502298ebc816a7c7"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/youshido-php/GraphQL/zipball/5235d34f8bb96d0a15f02f5c502298ebc816a7c7",
+                "reference": "5235d34f8bb96d0a15f02f5c502298ebc816a7c7",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.5,<8.0-DEV"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^4.8"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Youshido\\GraphQL\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Alexandr Viniychuk",
+                    "email": "a@viniychuk.com"
+                },
+                {
+                    "name": "Portey Vasil",
+                    "email": "portey@gmail.com"
+                }
+            ],
+            "description": "Pure PHP GraphQL",
+            "time": "2018-09-25T19:59:55+00:00"
+        },
+        {
+            "name": "youshido/graphql-extensions",
+            "version": "v0.0.6",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Youshido/GraphQLExtensions.git",
+                "reference": "0780565a8b6374a4e0d2413a34e91d82efac31d4"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Youshido/GraphQLExtensions/zipball/0780565a8b6374a4e0d2413a34e91d82efac31d4",
+                "reference": "0780565a8b6374a4e0d2413a34e91d82efac31d4",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.5,<8.0-DEV",
+                "youshido/graphql": "^1.4.2.19"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^4.8"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Youshido\\GraphQLExtension\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Alexandr Viniychuk",
+                    "email": "a@viniychuk.com"
+                }
+            ],
+            "description": "GraphQL Extensions",
+            "time": "2017-03-02T04:13:14+00:00"
+        }
+    ],
+    "packages-dev": [],
+    "aliases": [],
+    "minimum-stability": "stable",
+    "stability-flags": [],
+    "prefer-stable": false,
+    "prefer-lowest": false,
+    "platform": [],
+    "platform-dev": []
+}

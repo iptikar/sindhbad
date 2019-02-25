@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+
+<html lang="en">	
+		
+	<head>		
+				
+		<!-- Global site tag (gtag.js) - Google Analytics -->		
+				
+		<script async src="https://www.googletagmanager.com/gtag/js?id=UA-45285701-7"></script>		
+				
+		<script>			
+						
+			window.dataLayer = window.dataLayer || [];			
+						
+			function gtag(){dataLayer.push(arguments);}			
+						
+			gtag('js', new Date());			
+						
+						
+						
+			gtag('config', 'UA-45285701-7');			
+						
+		</script>		
+				
+		<meta charset="utf-8">		
+				
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">		
+				
+		<meta name="description" content="">		
+				
+		<meta name="keywords" content="">		
+				
+				
+				
+		<title>House and Residential Cleaning Software | Brilion.net</title>		
+				
+				
+				
+		<!-- Styles -->		
+				
+		<link href="assets/css/core.min.css" rel="stylesheet">		
+				
+		<link href="assets/css/thesaas.min.css" rel="stylesheet">		
+				
+		<link href="assets/css/style.css" rel="stylesheet">		
+				
+				
+				
+				
+				
+		<!-- Favicons -->		
+				
+		<link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">		
+				
+		<link rel="icon" href="assets/img/favico.png">		
+				<script language="JavaScript" src="http://www.geoplugin.net/javascript.gp" type="text/javascript"></script>
+	</head>	
+		
+		
+		
+	<body>		
+				
+				
+				
+				
+				
+		<!-- Topbar -->		
+				
+		<nav class="topbar topbar-inverse topbar-expand-md topbar-sticky">			
+						
+			<div class="container">				
+								
+								
+								
+				<div class="topbar-left">					
+										
+					<button class="topbar-toggler">&#9776;</button>					
+										
+					<a class="topbar-brand" href="http://brilion.net/">						
+												
+												
+												
+						<img class="logo-inverse" src="assets/img/logo-light.png" alt="logo">						
+												
+						<img class="logo-default" src="assets/img/logo.png" alt="logo">						
+												
+					</a>					
+										
+				</div>				
+								
+				<div class="topbar-right">					
+										
+					<ul class="topbar-nav nav">						
+												
+						<li class="nav-item">							<a class="nav-link" href="tel:+971 50 397 0896" style="font-size:15px;"><i class="fa fa-lg fa-phone" aria-hidden="true" style="font-size:15px;"></i>								<span id='phone_number'></span>							</a>						</li>						
+												
+					</ul>					
+										
+				</div>				
+								
+								
+								
+				<div class="topbar-right">					
+										
+					<ul class="topbar-nav nav">						
+												
+												
+												
+						<li class="nav-item"><a class="nav-link" href="http://brilion.net/">Home</a></li>						
+												
+						<li class="nav-item">							
+							<a class="nav-link" href="features-of-maid-service-software">Features<i class="fa fa-caret-down"></i></a>							
+							<div class="nav-submenu">								
+								<a class="nav-link" href="http://brilion.net/admin-features-for-house-cleaning-software">Admin Features</a>								
+								<a class="nav-link" href="http://brilion.net/online-booking-house-maids-software">Guest Booking</a>								
+								<a class="nav-link" href="http://brilion.net/customer-login-for-residential-cleaning-software">Customer Login</a>								
+							</div>							
+						</li>						
+												
+						<li class="nav-item"><a class="nav-link" href="house-cleaning-software">Pricing</a></li>						
+												
+						<li class="nav-item"><a class="nav-link" href="housekeeping-software">Demo</a></li>						
+												
+						<!--	<li class="nav-item">							
+														
+							<a class="nav-link" href="#">Blog<i class="fa fa-caret-down"></i></a>							
+														
+							<div class="nav-submenu">							
+														
+							<a class="nav-link" href="http://blog.brilion.net/">Blog</a>							
+														
+							<a class="nav-link" href="http://version-update.brilion.net/">Version Update</a>							
+														
+							</div>							
+														
+						</li> -->						
+												
+						<li class="nav-item"><a class="nav-link" href="contact-us">Contact Us</a></li>						
+												
+						<li class="nav-item hidden-md-up"><a class="nav-link" href="tel:+9714-4462010" style="font-size:15px;"><i class="fa fa-lg fa-phone" aria-hidden="true" style="font-size:15px;"></i><b>+9714-4462010</b></a></li>						
+												
+												
+												
+					</ul>					
+										
+					<a class=" btn get login topbar-sticky" href="http://client-booking.com/index.php/admin/home/login" target="_blank">Login</a>					
+										
+				</div>				
+								
+								
+								
+			</div>			
+						
+		</nav>		
+				
+		<!-- END Topbar -->		
+				
+		<!-- Header -->		
+				
+		<header class="header header-inverse bg-fixed" style="background-image: url(assets/img/banner.jpg)" data-overlay="8">			
+						
+			<div class="container text-center">				
+								
+								
+								
+				<div class="row">					
+										
+					<div class="col-12 col-lg-8 offset-lg-2">						
+												
+												
+												
+						<h1>Guest Booking </h1>						
+												
+												
+												
+					</div>					
+										
+				</div>				
+								
+								
+								
+			</div>			
+						
+		</header>		
+				
+		<!-- END Header -->		
+				
+				
+		<!-- Main container -->		
+				
+		<main class="main-content">			
+						
+						
+						
+						
+						
+						
+						
+						
+						
+			<!--				
+								
+				|??????????????????????????????????????????????????????????????????????????				
+								
+				| How it work steps				
+								
+				|??????????????????????????????????????????????????????????????????????????				
+								
+			!-->			
+						
+			<!-- |‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒      | How it work steps      |‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒      !-->    			
+						
+			<section class="section" style="padding-bottom: 0px;">       				
+								
+				<div class="container">					
+										
+					<div class="row gap-y align-items-center mb-90">            						
+												
+						<div class="col-12 col-md-6 text-center hidden-sm-down">              							
+														
+							<div class="swiper-container swiper-pagination-outside">								
+								<div class="swiper-wrapper">									
+									<div class="swiper-slide"><img src="assets/img/Multiple-Design-2-for-online-booking-maids-software.jpg" alt="..."></div>									
+									<div class="swiper-slide"><img src="assets/img/Multiple-Design-1-for-online-booking-maids-software.jpg" alt="..."></div>									
+								</div>								
+								<div class="swiper-pagination"></div>								
+							</div>           							
+														
+						</div>            						
+												
+						<div class="col-12 col-md-5 offset-md-1 text-center text-md-left">                  							
+														
+							<h3 class="fw-300">Multiple Designs</h3>              							
+														
+							<p>Currently we have two designs to choose from. We also exclusively custom design your online booking.</p>            							
+														
+						</div>          						
+												
+					</div>					
+										
+				</div>				
+								
+			</section>			
+						
+			<section class="section bg-grey" style="padding-bottom: 0px;">				
+								
+				<div class="container">					
+										
+					<div class="row gap-y align-items-center mb-90">            						
+												
+						<div class="col-12 col-md-5 text-center text-md-left">                							
+														
+							<h3 class="fw-300">Link it in 2 minutes</h3>              							
+														
+							<p>Link it to your company website in just two minutes. With your logo, branding and URL. </p>  							
+														
+						</div>            						
+												
+						<div class="col-12 col-md-6 offset-md-1 text-center hidden-sm-down">  							
+														
+							<img class="shadow-3" src="assets/img/Link-online-booking-in-2-minutes.jpg" alt="...">  							
+														
+						</div>          						
+												
+					</div>						
+										
+				</div>						
+								
+			</section>			
+						
+			<section class="section" style="padding-bottom: 0px;">       				
+								
+				<div class="container">  					
+										
+					<div class="row gap-y align-items-center mb-90">            						
+												
+						<div class="col-12 col-md-6 text-center hidden-sm-down">              							
+														
+							<img class="shadow-3" src="assets/img/Dynamic-Cleaner-allocation-from-website.jpg" alt="...">            							
+														
+						</div>            						
+												
+						<div class="col-12 col-md-5 offset-md-1 text-center text-md-left">                        							
+														
+							<h3 class="fw-300">Dynamic Cleaner allocation</h3>              							
+														
+							<p>Brilion will allocate the closest cleaner to the booking for efficient logistics.</p>            							
+														
+						</div>          						
+												
+					</div>						
+										
+				</div>				
+								
+			</section>			
+						
+			<section class="section bg-grey" style="padding-bottom: 0px;">				
+								
+				<div class="container"> 					
+										
+					<div class="row gap-y align-items-center mb-90">            						
+												
+						<div class="col-12 col-md-5 text-center text-md-left">            							
+														
+							<h3 class="fw-300">Real time Booking</h3>              							
+														
+							<p>Customers can book only if you have available staff, Or if you serve in selected location.</p>							
+														
+						</div>            						
+												
+						<div class="col-12 col-md-6 offset-md-1 text-center hidden-sm-down">              							
+														
+							<img class="shadow-3" src="assets/img/Real-time-Booking-online.jpg" alt="...">            							
+														
+						</div>          						
+												
+					</div>						
+										
+				</div>						
+								
+			</section>			
+						
+			<section class="section" style="padding-bottom: 0px;">       				
+								
+				<div class="container"> 					
+										
+					<div class="row gap-y align-items-center mb-90">            						
+												
+						<div class="col-12 col-md-6 text-center hidden-sm-down">              							
+														
+							<img class="shadow-3" src="assets/img/Online-payment-residential-cleaning-software.jpg" alt="...">            							
+														
+						</div>            						
+												
+						<div class="col-12 col-md-5 offset-md-1 text-center text-md-left">           							
+														
+							<h3 class="fw-300">Online Payment</h3>              							
+														
+							<p>Get paid online and notified on Brilion for successful payment</p>           							
+														
+						</div>          						
+												
+					</div>        		 					
+										
+					<ul id="social_side_links">						
+						<li><a style="background-color: #3c5a96;" href="https://www.facebook.com/BrilionMaidsSoftware/" target="_blank"><img src="https://www.dropbox.com/s/xk5pdj8nks1ymdh/facebook-icon.png?raw=1" alt="" /></a></li>						
+						<li><a style="background-color: #1dadeb;" href="https://twitter.com/brilionsoftware" target="_blank"><img src="https://www.dropbox.com/s/c8in3qcf1uqsqrb/twitter-icon.png?raw=1" alt="" /></a></li>						
+						<li><a style="background-color: #1178b3;" href="https://www.linkedin.com/company/brilion-net-software/" target="_blank"><img src="https://www.dropbox.com/s/pb0a0p7p1pwprue/linkedin-icon.png?raw=1" alt="" /></a></li>						
+						<!--<li><a style="background-color: #1dadeb;" href="https://www.instagram.com/brilionsoftware/" target="_blank"><img src="https://www.ditech.com/wp-content/uploads/2016/08/instagram-1.png" alt="" /></a></li>-->						
+						<li><a style="background-color: #1dadeb;" href="https://www.youtube.com/channel/UC671QnbzwiZj9oIK9YGLo_Q" target="_blank"><img src="https://cdn1.iconfinder.com/data/icons/logotypes/32/youtube-256.png" alt="" /></a></li>						
+					</ul> 					
+										
+				</div>      				
+								
+			</section>       			
+						
+		</main>   		
+				
+		<!-- END Main container -->    		
+				
+		<!-- Footer -->    		
+				
+		<footer class="site-footer">      			
+						
+			<div class="container">        				
+								
+				<div class="row gap-y align-items-center">          					
+										
+					<div class="col-12 col-lg-6">            						
+												
+						<p class="text-center text-lg-left">              							
+														
+							Copyright © 2017, Brilion Cleaning All Rights Reserved | Powered by <a href="http://www.adtechsolution.net/" target="_blank" style="color: #c04d30;">AdTech Solution</a>           							
+														
+						</p>          						
+												
+					</div>          					
+										
+					<div class="col-12 col-lg-2">            						
+												
+						<p class="text-center">Contact: <a href="tel:+9714-4462010" style="color: #c04d30;">+9714-4462010</a></p>                      						
+												
+					</div>          					
+										
+					<div class="col-12 col-lg-3">            						
+												
+						<div class="social text-center text-lg-right">              							
+														
+							<a class="social-facebook" href="https://www.facebook.com/BrilionMaidsSoftware/" target="_blank"><i class="fa fa-facebook"></i></a>							
+														
+							<a class="social-twitter" href="https://twitter.com/brilionsoftware" target="_blank"><i class="fa fa-twitter"></i></a>              							
+														
+							<a class="social-linkedin" href="http://www.linkedin.com/company/brilion-net-software" target="_blank"><i class="fa fa-linkedin-square"></i></a> 							
+														
+							<a class="social-youtube" href="https://www.youtube.com/channel/UC671QnbzwiZj9oIK9YGLo_Q" target="_blank"><i class="fa fa-youtube"></i></a>							
+						</div>          						
+												
+					</div>        					
+										
+				</div>      				
+								
+			</div>    			
+						
+		</footer>    		
+				
+		<!-- END Footer -->    		
+				
+		<!-- Scripts -->    		
+				
+		<script src="assets/js/core.min.js"></script>    		
+				
+		<script src="assets/js/thesaas.min.js"></script>   		
+				
+		<script src="assets/js/script.js"></script>  		
+		<script>			
+			window.$zopim||(function(d,s){var z=$zopim=function(c){z._.push(c)},$=z.s=				
+				d.createElement(s),e=d.getElementsByTagName(s)[0];z.set=function(o){z.set.					
+				_.push(o)};z._=[];z.set._=[];$.async=!0;$.setAttribute("charset","utf-8");				
+				$.src="//v2.zopim.com/?1y4rU9R4i2rhft8O8HBQHosPLVkCO3dy";z.t=+new Date;$.				
+			type="text/javascript";e.parentNode.insertBefore($,e)})(document,"script");			
+			$zopim(function(){				
+				window.setTimeout(function() {					
+					$zopim.livechat.window.hide();					
+				}, 500); //time in milliseconds				
+			});			
+		</script>				<script language="Javascript">			document.write(geoplugin_countryName());	 			var country = geoplugin_countryName();			switch(country) {				case 'India':				$('#phone_number').text('+9714-4462010');				break;				case 'Saudi Arabia':				$('#phone_number').text('+971 50 397 0896');				break;				default:				$('#phone_number').text('+971 50 397 0896');			}					</script>		
+		<style>			
+			video {			
+			webkit-box-shadow: 0 0 25px rgba(0,0,0,0.08);			
+			box-shadow: 0 0 25px rgba(0,0,0,0.08);			
+			}			
+		</style>		
+				
+	</body>	
+		
+</html> 

@@ -1,0 +1,43 @@
+This is ApacheBench, Version 2.3 <$Revision: 1528965 $>
+Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
+Licensed to The Apache Software Foundation, http://www.apache.org/
+
+Benchmarking www.sindhbad.com (be patient).....done
+
+
+Server Software:        Apache
+Server Hostname:        www.sindhbad.com
+Server Port:            80
+
+Document Path:          /index.php
+Document Length:        231 bytes
+
+Concurrency Level:      10
+Time taken for tests:   5.685 seconds
+Complete requests:      100
+Failed requests:        0
+Non-2xx responses:      100
+Total transferred:      43800 bytes
+HTML transferred:       23100 bytes
+Requests per second:    17.59 [#/sec] (mean)
+Time per request:       568.508 [ms] (mean)
+Time per request:       56.851 [ms] (mean, across all concurrent requests)
+Transfer rate:          7.52 [Kbytes/sec] received
+
+Connection Times (ms)
+              min  mean[+/-sd] median   max
+Connect:      273  281   5.1    280     297
+Processing:   274  283   5.0    282     298
+Waiting:      274  283   5.0    282     298
+Total:        548  564  10.0    563     595
+
+Percentage of the requests served within a certain time (ms)
+  50%    563
+  66%    566
+  75%    569
+  80%    570
+  90%    579
+  95%    588
+  98%    594
+  99%    595
+ 100%    595 (longest request)

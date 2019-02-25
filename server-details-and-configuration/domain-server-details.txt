@@ -1,0 +1,9 @@
+ns1.justhost.com
+162.88.60.33
+ns2.justhost.com
+162.88.61.33
+
+old config
+============================================
+ns14.aeserver.com
+ns15.aeserver.com

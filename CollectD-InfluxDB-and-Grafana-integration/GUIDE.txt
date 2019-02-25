@@ -1,0 +1,5 @@
+dpkg: error processing package influxdb (--configure):
+ subprocess installed post-installation script returned error exit status 1
+Errors were encountered while processing:
+ influxdb
+E: Sub-process /usr/bin/dpkg returned an error code (1)

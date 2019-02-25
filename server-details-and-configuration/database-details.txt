@@ -1,0 +1,4 @@
+DBname: iptikarc_iptikar-marketplace
+Password: 123@husABIDjust
+User: iptikarc_buynsel
+Host : sindhbad.com

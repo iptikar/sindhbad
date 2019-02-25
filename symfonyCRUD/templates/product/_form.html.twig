@@ -1,0 +1,30 @@
+
+
+{{ form_start(form) }}
+
+  {{ form_errors(form) }}
+  
+  
+  <div class = "col-md-5">
+        {{ form_label(form.name) }}
+        {{ form_errors(form.name) }}
+        {{ form_widget(form.name) }}
+        
+    </div>
+    
+    
+    <div class = "col-md-5">
+        {{ form_label(form.discription) }}
+        {{ form_errors(form.discription) }}
+        {{ form_widget(form.discription) }}
+        
+    </div>
+    
+    <div class = "col-md-6">
+    <button class="btn">{{ button_label|default('Save') }}</button>
+  
+    </div>
+    
+    
+
+{{ form_end(form) }}

@@ -1,0 +1,16 @@
+================================================================
+First Change 
+================================================================
+
+1. Update index.php page with the javascript function 
+2. In Cart page update jquery code to window.location.reload() and some element and write the function for index page to send ajax post request 
+3. Update header mini cart
+4. create minicart.phtml and include to header 
+
+
+
+Updating first chagne 
+==================================================================
+1.  Add to cart from the first page /js/custom.js update 
+2. Mini cart has been updated 
+

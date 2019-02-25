@@ -1,0 +1,2586 @@
+<!doctype html>
+<html lang="en">
+    <head >
+        <script>
+    var require = {
+        "baseUrl": "http://magento2.flytheme.net/themes/sm_shiny/pub/static/version1522225191/frontend/Sm/shiny/en_US"
+    };
+</script>
+        <meta charset="utf-8"/>
+<meta name="robots" content="INDEX,FOLLOW"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<meta name="format-detection" content="telephone=no"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+<title>Home Appliancces</title>
+<link  rel="stylesheet" type="text/css"  media="all" href="http://magento2.flytheme.net/themes/sm_shiny/pub/static/version1522225191/_cache/merged/9a53925d08725d348f44ead487682cf5.min.css" />
+<link  rel="stylesheet" type="text/css"  media="screen and (min-width: 768px)" href="http://magento2.flytheme.net/themes/sm_shiny/pub/static/version1522225191/frontend/Sm/shiny/en_US/css/styles-l.min.css" />
+<link  rel="stylesheet" type="text/css"  media="print" href="http://magento2.flytheme.net/themes/sm_shiny/pub/static/version1522225191/frontend/Sm/shiny/en_US/css/print.min.css" />
+<link  rel="icon" type="image/x-icon" href="http://magento2.flytheme.net/themes/sm_shiny/pub/static/version1522225191/frontend/Sm/shiny/en_US/Magento_Theme/favicon.ico" />
+<link  rel="shortcut icon" type="image/x-icon" href="http://magento2.flytheme.net/themes/sm_shiny/pub/static/version1522225191/frontend/Sm/shiny/en_US/Magento_Theme/favicon.ico" />
+<script  type="text/javascript"  src="http://magento2.flytheme.net/themes/sm_shiny/pub/static/version1522225191/_cache/merged/2ffc7ef4b0daa74eddd3efd9fa634fba.min.js"></script>
+        
+<link  rel="stylesheet" type="text/css"  media="all" href="http://magento2.flytheme.net/themes/sm_shiny/pub/static/version1522225191/frontend/Sm/shiny/en_US/css/config_1.css" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" />
+
+<!--CUSTOM CSS-->
+<style>
+	</style>
+
+<script type="text/javascript">
+	require([
+		'domReady!',
+		'jquerybootstrap',
+		'yttheme'
+	], function ($) {
+		//console.log('Test Done');
+	});
+</script>
+
+
+<!--CUSTOM JS-->
+
+<script type="text/javascript">
+	require([
+		'jquery',
+		'domReady!'
+	], function ($) {
+		if($('.breadcrumbs').length == 0){
+			$('body').addClass("no-breadcrumbs");
+		}
+	});
+
+</script>
+
+<!--LISTING CONFIG-->
+<style>
+
+
+
+	
+@media (min-width: 1200px) {
+
+    .layout-boxed .page-wrapper {
+        max-width: 1680px;
+    }
+
+    .cms-index-index.header-1-style.home-1-style .page.messages,
+    .cms-index-index.header-1-style.home-1-style .page.messages .messages .message > div,
+	.container{
+		width: 95%;
+		max-width: 1650px;
+	}
+
+
+	/*==1 COLUMN==*/
+	
+	.col1-layout .category-product.products-grid .item{
+		width: 16.666666666667%;
+	}
+	
+	.col1-layout .category-product.products-grid .item:nth-child(6n+1){
+		clear:both;
+	}
+	
+	/*==2 COLUMNS==*/
+	
+	.col2-layout .category-product.products-grid .item{
+		width: 25%;
+	}
+	
+	.col2-layout .category-product.products-grid .item:nth-child(4n+1){
+		clear:both;
+	}
+
+	/*==3 COLUMNS==*/
+	
+	.col3-layout .category-product.products-grid .item{
+		width: 33.333333333333%;
+	}
+	
+	.col3-layout .category-product.products-grid .item:nth-child(3n+1){
+		clear:both;
+	}
+}
+
+@media (min-width: 992px) and (max-width: 1199px) {
+
+	/*==1 COLUMN==*/
+	
+	.col1-layout .category-product.products-grid .item{
+		width: 25%;
+	}
+	
+	.col1-layout .category-product.products-grid .item:nth-child(4n+1){
+		clear:both;
+	}
+
+	/*==2 COLUMNS==*/
+	
+	.col2-layout .category-product.products-grid .item{
+		width: 33.333333333333%;
+	}
+	
+	.col2-layout .category-product.products-grid .item:nth-child(3n+1){
+		clear:both;
+	}
+
+	/*==3 COLUMNS==*/
+	
+	.col3-layout .category-product.products-grid .item{
+		width: 100%;
+	}
+	
+	.col3-layout .category-product.products-grid .item:nth-child(1n+1){
+		clear:both;
+	}
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+
+	/*==1 COLUMN==*/
+	
+	.col1-layout .category-product.products-grid .item{
+		width: 33.333333333333%;
+	}
+	
+	.col1-layout .category-product.products-grid .item:nth-child(3n+1){
+		clear:both;
+	}
+
+	/*==2 COLUMNS==*/
+	
+	.col2-layout .category-product.products-grid .item{
+		width: 33.333333333333%;
+	}
+	
+	.col2-layout .category-product.products-grid .item:nth-child(3n+1){
+		clear:both;
+	}
+
+	/*==3 COLUMNS==*/
+	
+	.col3-layout .category-product.products-grid .item{
+		width: 100%;
+	}
+	
+	.col3-layout .category-product.products-grid .item:nth-child(1n+1){
+		clear:both;
+	}
+}
+
+@media (min-width: 481px) and (max-width: 767px) {
+
+	/*==1 COLUMN==*/
+	
+	.col1-layout .category-product.products-grid .item{
+		width: 50%;
+	}
+	
+	.col1-layout .category-product.products-grid .item:nth-child(2n+1){
+		clear:both;
+	}
+
+	/*==2 COLUMNS==*/
+	
+	.col2-layout .category-product.products-grid .item{
+		width: 50%;
+	}
+	
+	.col2-layout .category-product.products-grid .item:nth-child(2n+1){
+		clear:both;
+	}
+
+	/*==3 COLUMNS==*/
+	
+	.col3-layout .category-product.products-grid .item{
+		width: 100%;
+	}
+	
+	.col3-layout .category-product.products-grid .item:nth-child(1n+1){
+		clear:both;
+	}
+}
+
+@media (max-width: 480px) {
+
+	/*==1 COLUMN==*/
+	
+	.col1-layout .category-product.products-grid .item{
+		width: 100%;
+	}
+	
+	.col1-layout .category-product.products-grid .item:nth-child(1n+1){
+		clear:both;
+	}
+
+	/*==2 COLUMNS==*/
+	
+	.col2-layout .category-product.products-grid .item{
+		width: 100%;
+	}
+	
+	.col2-layout .category-product.products-grid .item:nth-child(1n+1){
+		clear:both;
+	}
+
+	/*==3 COLUMNS==*/
+	
+	.col3-layout .category-product.products-grid .item{
+		width: 100%;
+	}
+	
+	.col3-layout .category-product.products-grid .item:nth-child(1n+1){
+		clear:both;
+	}
+}
+
+</style>
+    </head>
+    <body data-container="body" data-mage-init='{"loaderAjax": {}, "loader": { "icon": "http://magento2.flytheme.net/themes/sm_shiny/pub/static/version1522225191/frontend/Sm/shiny/en_US/images/loader-2.gif"}}' class="page-with-filter header-1-style home-1-style footer-1-style layout-full-width  page-products categorypath-home-appliancces category-home-appliancces catalog-category-view page-layout-2columns-left">
+        
+<script>
+    try {
+        if (!window.localStorage || !window.sessionStorage) {
+            throw new Error();
+        }
+
+        localStorage.setItem('storage_test', 1);
+        localStorage.removeItem('storage_test');
+    } catch(e) {
+        (function () {
+            var Storage = function (type) {
+                var data;
+
+                function createCookie(name, value, days) {
+                    var date, expires;
+
+                    if (days) {
+                        date = new Date();
+                        date.setTime(date.getTime()+(days * 24 * 60 * 60 * 1000));
+                        expires = '; expires=' + date.toGMTString();
+                    } else {
+                        expires = '';
+                    }
+                    document.cookie = name + '=' + value+expires+'; path=/';
+                }
+
+                function readCookie(name) {
+                    var nameEQ = name + '=',
+                        ca = document.cookie.split(';'),
+                        i = 0,
+                        c;
+
+                    for (i=0; i < ca.length; i++) {
+                        c = ca[i];
+
+                        while (c.charAt(0) === ' ') {
+                            c = c.substring(1,c.length);
+                        }
+
+                        if (c.indexOf(nameEQ) === 0) {
+                            return c.substring(nameEQ.length, c.length);
+                        }
+                    }
+
+                    return null;
+                }
+
+                function setData(data) {
+                    data = encodeURIComponent(JSON.stringify(data));
+                    createCookie(type === 'session' ? getSessionName() : 'localStorage', data, 365);
+                }
+
+                function clearData() {
+                    createCookie(type === 'session' ? getSessionName() : 'localStorage', '', 365);
+                }
+
+                function getData() {
+                    var data = type === 'session' ? readCookie(getSessionName()) : readCookie('localStorage');
+
+                    return data ? JSON.parse(decodeURIComponent(data)) : {};
+                }
+
+                function getSessionName() {
+                    if (!window.name) {
+                        window.name = new Date().getTime();
+                    }
+
+                    return 'sessionStorage' + window.name;
+                }
+
+                data = getData();
+
+                return {
+                    length: 0,
+                    clear: function () {
+                        data = {};
+                        this.length = 0;
+                        clearData();
+                    },
+
+                    getItem: function (key) {
+                        return data[key] === undefined ? null : data[key];
+                    },
+
+                    key: function (i) {
+                        var ctr = 0,
+                            k;
+
+                        for (k in data) {
+                            if (ctr.toString() === i.toString()) {
+                                return k;
+                            } else {
+                                ctr++
+                            }
+                        }
+
+                        return null;
+                    },
+
+                    removeItem: function (key) {
+                        delete data[key];
+                        this.length--;
+                        setData(data);
+                    },
+
+                    setItem: function (key, value) {
+                        data[key] = value.toString();
+                        this.length++;
+                        setData(data);
+                    }
+                };
+            };
+
+            window.localStorage.__proto__ = window.localStorage = new Storage('local');
+            window.sessionStorage.__proto__ = window.sessionStorage = new Storage('session');
+        })();
+    }
+</script>
+    <script>
+        require.config({
+            deps: [
+                'jquery',
+                'mage/translate',
+                'jquery/jquery-storageapi'
+            ],
+            callback: function ($) {
+                'use strict';
+
+                var dependencies = [],
+                    versionObj;
+
+                $.initNamespaceStorage('mage-translation-storage');
+                $.initNamespaceStorage('mage-translation-file-version');
+                versionObj = $.localStorage.get('mage-translation-file-version');
+
+                
+                if (versionObj.version !== 'bd94f9100d50f523b74c85a9625af50b1e2740e6') {
+                    dependencies.push(
+                        'text!js-translation.json'
+                    );
+
+                }
+
+                require.config({
+                    deps: dependencies,
+                    callback: function (string) {
+                        if (typeof string === 'string') {
+                            $.mage.translate.add(JSON.parse(string));
+                            $.localStorage.set('mage-translation-storage', string);
+                            $.localStorage.set(
+                                'mage-translation-file-version',
+                                {
+                                    version: 'bd94f9100d50f523b74c85a9625af50b1e2740e6'
+                                }
+                            );
+                        } else {
+                            $.mage.translate.add($.localStorage.get('mage-translation-storage'));
+                        }
+                    }
+                });
+            }
+        });
+    </script>
+
+<script type="text/x-magento-init">
+    {
+        "*": {
+            "mage/cookies": {
+                "expires": null,
+                "path": "/themes/sm_shiny",
+                "domain": ".magento2.flytheme.net",
+                "secure": false,
+                "lifetime": "3600"
+            }
+        }
+    }
+</script>
+    <noscript>
+        <div class="message global noscript">
+            <div class="content">
+                <p>
+                    <strong>JavaScript seems to be disabled in your browser.</strong>
+                    <span>For the best experience on our site, be sure to turn on Javascript in your browser.</span>
+                </p>
+            </div>
+        </div>
+    </noscript>
+
+<script type="text/x-magento-init">
+    {
+        "*": {
+            "trackingCode": {
+                "isEnabled": ""
+            }
+        }
+    }
+</script>
+
+<div class="page-wrapper"><div class="header-container header-style-1">
+	<div class="twitter-slider-container">
+		<div class="container">
+			<div id="twitterslider" class="sm-twitter-slider">
+		<!-- Begin bs-items     -->
+	<script src="//platform.twitter.com/widgets.js" type="text/javascript"></script>
+	<!--Begin ts-wrap-->
+	<div class="ts-wrap ts-slider-wrap " >
+			</div>
+	<!-- End bs-items -->
+</div><!-- End Sm-twitter-products -->
+
+<script type="text/javascript">
+	 require(["jquery" , "twitterFetcher" , "owlcarousel"], function ($ , twitterFetcher, owlCarousel ) {
+		;(function (el){
+			var _element = $(el);
+			var _interval = setInterval(function() {
+				if(document.readyState === 'complete') {
+					clearInterval(_interval);
+					_runAllScriptTwitterSlider();
+				 }    
+			}, 500);
+			function _runAllScriptTwitterSlider () {
+				var config = {
+					 "id": '334892754301755392',
+					  "maxTweets": 5,
+					  "enableLinks": true,
+					  "showUser": false,
+					  "showTime": false,
+					  "showInteraction": false,
+					  "customCallback": handleTweets
+				};
+				
+				function handleTweets(tweets){
+					var x = tweets.length;
+					var n = 0;
+					var j = 0;
+					var element = document.getElementById('content-twiter');
+					var start = 0;
+					var html = '<ul class="owl-carousel list-item">';
+					while(n < x) {
+						var active_cls = (n == start) ? 'active' : '';
+						html += '<li class="ts-item item '+active_cls+'">' + tweets[n] + '</li>';
+						n++;
+					}
+					html += '</ul>';
+					$('.ts-slider-wrap', _element).prepend($(html));
+					_runOwlCarousel(_element);
+				}
+				
+				twitterFetcher.fetch(config);
+				
+				function _runOwlCarousel(el) {
+					$('.owl-carousel', el).owlCarousel({
+						loop:true,
+						nav:true,
+						dots: false,
+						autoplay: true,
+						autoplayHoverPause: true,
+						margin: 30,
+						items: 1
+					});
+				}
+			}
+			})('#twitterslider');
+
+    });
+</script>
+		</div>
+	</div>
+	<div class="header-top">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 option-left">
+                    <div class="header-top-left">
+						<div class="language-wrapper">
+	<div class="switcher language switcher-language" data-ui-id="language-switcher" id="switcher-language-nav">
+		<strong class="label switcher-label"><span>Language</span></strong>
+		<div class="actions dropdown options switcher-options">
+			<div class="action toggle switcher-trigger" id="switcher-language-trigger-nav">
+				<strong style="background-image:url('http://magento2.flytheme.net/themes/sm_shiny/pub/static/version1522225191/frontend/Sm/shiny/en_US/images/flags/flag_default.png');" class="view-default">
+					<span>English</span>
+				</strong>
+			</div>
+			<ul class="dropdown switcher-dropdown"
+				data-mage-init='{"dropdownDialog":{
+					"appendTo":"#switcher-language-nav > .options",
+					"triggerTarget":"#switcher-language-trigger-nav",
+					"closeOnMouseLeave": false,
+					"triggerClass":"active",
+					"parentClass":"active",
+					"buttons":null}}'>
+									
+														
+																	<li class="view-french switcher-option">
+							<a data-storecode="french" style="background-image:url('http://magento2.flytheme.net/themes/sm_shiny/pub/static/version1522225191/frontend/Sm/shiny/en_US/images/flags/flag_french.png');" href="#" data-post='{"action":"http:\/\/magento2.flytheme.net\/themes\/sm_shiny\/french\/home-appliancces.html?cat=115&amp;___from_store=default","data":{"uenc":"aHR0cDovL21hZ2VudG8yLmZseXRoZW1lLm5ldC90aGVtZXMvc21fc2hpbnkvZGVmYXVsdC9ob21lLWFwcGxpYW5jY2VzLmh0bWw,","___store":"french"}}'>
+								French</a>
+						</li>
+														
+																	<li class="view-german switcher-option">
+							<a data-storecode="german" style="background-image:url('http://magento2.flytheme.net/themes/sm_shiny/pub/static/version1522225191/frontend/Sm/shiny/en_US/images/flags/flag_german.png');" href="#" data-post='{"action":"http:\/\/magento2.flytheme.net\/themes\/sm_shiny\/german\/home-appliancces.html?cat=115&amp;___from_store=default","data":{"uenc":"aHR0cDovL21hZ2VudG8yLmZseXRoZW1lLm5ldC90aGVtZXMvc21fc2hpbnkvZGVmYXVsdC9ob21lLWFwcGxpYW5jY2VzLmh0bWw,","___store":"german"}}'>
+								German</a>
+						</li>
+														
+																	<li class="view-somaliland switcher-option">
+							<a data-storecode="somaliland" style="background-image:url('http://magento2.flytheme.net/themes/sm_shiny/pub/static/version1522225191/frontend/Sm/shiny/en_US/images/flags/flag_somaliland.png');" href="#" data-post='{"action":"http:\/\/magento2.flytheme.net\/themes\/sm_shiny\/somaliland\/home-appliancces.html?cat=115&amp;___from_store=default","data":{"uenc":"aHR0cDovL21hZ2VudG8yLmZseXRoZW1lLm5ldC90aGVtZXMvc21fc2hpbnkvZGVmYXVsdC9ob21lLWFwcGxpYW5jY2VzLmh0bWw,","___store":"somaliland"}}'>
+								Somaliland</a>
+						</li>
+														
+																	<li class="view-dominica switcher-option">
+							<a data-storecode="dominica" style="background-image:url('http://magento2.flytheme.net/themes/sm_shiny/pub/static/version1522225191/frontend/Sm/shiny/en_US/images/flags/flag_dominica.png');" href="#" data-post='{"action":"http:\/\/magento2.flytheme.net\/themes\/sm_shiny\/dominica\/home-appliancces.html?cat=115&amp;___from_store=default","data":{"uenc":"aHR0cDovL21hZ2VudG8yLmZseXRoZW1lLm5ldC90aGVtZXMvc21fc2hpbnkvZGVmYXVsdC9ob21lLWFwcGxpYW5jY2VzLmh0bWw,","___store":"dominica"}}'>
+								Dominica</a>
+						</li>
+												</ul>
+		</div>
+	</div>
+</div>                        <div class="currency-wrapper"><div class="switcher currency switcher-currency" id="switcher-currency-nav">
+    <strong class="label switcher-label"><span>Currency</span></strong>
+    <div class="actions dropdown options switcher-options">
+        <div class="action toggle switcher-trigger" id="switcher-currency-trigger-nav">
+            <strong class="language-USD">
+                <span>USD</span>
+            </strong>
+        </div>
+        <ul class="dropdown switcher-dropdown" data-mage-init='{"dropdownDialog":{
+            "appendTo":"#switcher-currency-nav > .options",
+            "triggerTarget":"#switcher-currency-trigger-nav",
+            "closeOnMouseLeave": false,
+            "triggerClass":"active",
+            "parentClass":"active",
+            "buttons":null}}'>
+                                                <li class="currency-EUR switcher-option">
+                        <a href="#" data-post='{"action":"http:\/\/magento2.flytheme.net\/themes\/sm_shiny\/default\/directory\/currency\/switch\/","data":{"currency":"EUR","uenc":"aHR0cDovL21hZ2VudG8yLmZseXRoZW1lLm5ldC90aGVtZXMvc21fc2hpbnkvZGVmYXVsdC9ob21lLWFwcGxpYW5jY2VzLmh0bWw_Y2F0PTExNQ,,"}}'>EUR - Euro</a>
+                    </li>
+                                                                </ul>
+    </div>
+</div>
+</div>                    </div>
+                </div>
+
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 option-right">
+                    <div class="header-top-right ">
+                        <ul class="header links">        <li class="greet welcome" data-bind="scope: 'customer'">
+            <!-- ko if: customer().fullname  -->
+            <span data-bind="text: new String('Welcome, %1!').replace('%1', customer().firstname)">
+            </span>
+            <!-- /ko -->
+            <!-- ko ifnot: customer().fullname  -->
+            <span data-bind="html:'Default welcome msg!'"></span>
+            <!-- /ko -->
+        </li>
+        <script type="text/x-magento-init">
+        {
+            "*": {
+                "Magento_Ui/js/core/app": {
+                    "components": {
+                        "customer": {
+                            "component": "Magento_Customer/js/view/customer"
+                        }
+                    }
+                }
+            }
+        }
+        </script>
+    <li>
+<a href="http://magento2.flytheme.net/themes/sm_shiny/default/marketplace/index/becomeseller/" title="Become Seller">
+Become Seller</a>
+</li>
+<li class="authorization-link" data-label="or">
+    <a href="http://magento2.flytheme.net/themes/sm_shiny/default/customer/account/login/referer/aHR0cDovL21hZ2VudG8yLmZseXRoZW1lLm5ldC90aGVtZXMvc21fc2hpbnkvZGVmYXVsdC9ob21lLWFwcGxpYW5jY2VzLmh0bWw_Y2F0PTExNQ%2C%2C/">
+        Sign In    </a>
+</li>
+<li><a href="http://magento2.flytheme.net/themes/sm_shiny/default/customer/account/create/" >Register</a></li></ul>                        <div class="item link compare" data-bind="scope: 'compareProducts'" data-role="compare-products-link">
+    <a class="action compare no-display" title="Compare Products"
+       data-bind="attr: {'href': compareProducts().listUrl}, css: {'no-display': !compareProducts().count}"
+    >
+        Compare        <span class="counter qty" data-bind="text: compareProducts().countCaption"></span>
+    </a>
+</div>
+<script type="text/x-magento-init">
+{"[data-role=compare-products-link]": {"Magento_Ui/js/core/app": {"components":{"compareProducts":{"component":"Magento_Catalog\/js\/view\/compare-products"}}}}}
+</script>
+                    </div>
+                </div>
+			</div>
+		</div>
+	</div>
+	
+    <div class="header-middle">
+        <div class="container">
+			<div class="row">
+				<div class="col-lg-2 col-md-3 col-sm-4 logo-header">
+					<div class="logo-wrapper"><h1 class="logo-content">
+    <strong class="logo">
+		<a class="logo" href="http://magento2.flytheme.net/themes/sm_shiny/default/" title="">
+			<img src="http://magento2.flytheme.net/themes/sm_shiny/pub/static/version1522225191/frontend/Sm/shiny/en_US/images/logo.svg"
+				 alt=""
+				 width="179"				 height="55"			/>
+
+		</a>
+	</strong>
+</h1>
+
+</div>				</div>
+
+				<div class="col-lg-10 col-md-9 col-sm-8 header-middle-right">
+					<div class="searchbox-header">
+                        <div class="search-wrapper">
+	<div id="sm_searchbox902769911527439791" class="sm-searchbox">
+		<div class="sm-searchbox-content">
+			<form class="form minisearch" id="searchbox_mini_form" action="http://magento2.flytheme.net/themes/sm_shiny/default/catalogsearch/result/" method="get">
+				<div class="field searchbox">
+					<div class="control">
+						<div class="input-content">
+                            <input id="searchbox"
+                                   data-mage-init='{"quickSearch":{
+									"formSelector":"#searchbox_mini_form",
+									"url":"http://magento2.flytheme.net/themes/sm_shiny/default/search/ajax/suggest/",
+									"destinationSelector":"#searchbox_autocomplete"}
+							   }'
+                                   type="text"
+                                   name="q"
+
+                                   onfocus="if(this.value=='Enter keywords to search...') this.value='';" onblur="if(this.value=='') this.value='Enter keywords to search...';" value="Enter keywords to search..."
+                                   class="input-text input-searchbox"
+                                   maxlength="128"
+                                   role="combobox"
+                                   aria-haspopup="false"
+                                   aria-expanded="true"
+                                   aria-autocomplete="both"
+                                   autocomplete="off"/>
+                        </div>
+
+                        <div class="select-cat">
+                            <select class="cat searchbox-cat" name="cat">
+                                <option value="">All Categories</option>
+								                                    <option value="3"  >- - SmartPhones & Tablets</option>
+								                                    <option value="4"  >- - Computers</option>
+								                                    <option value="14"  >- - - - Mobiles & Tablet</option>
+								                                    <option value="15"  >- - - - Computer</option>
+								                                    <option value="16"  >- - - - Laptop</option>
+								                                    <option value="17"  >- - - - TV & Audio</option>
+								                                    <option value="18"  >- - - - Heaphone</option>
+								                                    <option value="19"  >- - - - Home Appliancess</option>
+								                                    <option value="5"  >- - Laptops</option>
+								                                    <option value="61"  >- - - - Mobiles & Tablet</option>
+								                                    <option value="62"  >- - - - Computer</option>
+								                                    <option value="63"  >- - - - TV & Audio</option>
+								                                    <option value="6"  >- - Electronics</option>
+								                                    <option value="7"  >- - TV & Audio</option>
+								                                    <option value="83"  >- - - - Headphone</option>
+								                                    <option value="91"  >- - - - Home Appliancess</option>
+								                                    <option value="8"  >- - Cameras & Accessories</option>
+								                                    <option value="9"  >- - Headphones</option>
+								                                    <option value="10"  >- - Home Appliancces</option>
+								                                    <option value="112"  >- - - - Bar Table</option>
+								                                    <option value="113"  >- - - - Nightstand</option>
+								                                    <option value="114"  >- - - - Chair</option>
+								                                    <option value="115" selected >- - - - Bunk Bed</option>
+								                                    <option value="116"  >- - - - Bookcase</option>
+								                                    <option value="117"  >- - - - Ottoman</option>
+								                                    <option value="11"  >- - Video Games & Consoles</option>
+								                                    <option value="12"  >- - Books & Audible</option>
+								                                    <option value="13"  >- - Appstore for Android</option>
+								                                    <option value="59"  >- - About Us</option>
+								                                    <option value="60"  >- - Contact Us</option>
+								                                    <option value="99"  >- - Product Types</option>
+								                                    <option value="100"  >- - Fashion & Jewelry</option>
+								                                    <option value="106"  >- - - - Clothing‎</option>
+								                                    <option value="107"  >- - - - Costumes‎</option>
+								                                    <option value="108"  >- - - - Court Dress</option>
+								                                    <option value="109"  >- - - - Facial Care</option>
+								                                    <option value="110"  >- - - - Neckwear</option>
+								                                    <option value="111"  >- - - - Handbag</option>
+								                                    <option value="119"  >- - - - Jacket & Coats</option>
+								                                    <option value="120"  >- - - - Trousers</option>
+								                                    <option value="121"  >- - - - Shoes</option>
+								                                    <option value="122"  >- - - - Dresses</option>
+								                                    <option value="123"  >- - - - Sunglasses</option>
+								                                    <option value="124"  >- - - - Acessories</option>
+								                                    <option value="125"  >- - - - Glasses</option>
+								                                    <option value="101"  >- - Categories Demo</option>
+								                                    <option value="102"  >- - - - Without Sidebar</option>
+								                                    <option value="103"  >- - - - Left Sidebar</option>
+								                                    <option value="104"  >- - - - Right Sidebar</option>
+								                                    <option value="105"  >- - - - Left Right Sidebar</option>
+								                                    <option value="118"  >- - Food & Organic</option>
+								                            </select>
+                        </div>
+
+						<div id="searchbox_autocomplete" class="search-autocomplete"></div>
+												
+					</div>
+				</div>
+				<div class="actions">
+					<button type="submit" title="Search" class="btn-searchbox">
+						<span>Search</span>
+					</button>
+				</div>
+			</form>
+		</div>
+		
+					</div>
+
+
+<script type="text/javascript">
+	require([
+		'jquery'
+	], function ($) {
+			var searchbox = $('#sm_searchbox902769911527439791');
+			var firt_load = 5;
+
+			clickMore($('.sm-searchbox-more', searchbox));
+			function clickMore(more)
+			{
+				more.click(function () {
+					var that = $(this);
+					var sb_ajaxurl = that.attr('data-ajaxmore');
+					var count = that.attr('data-count');
+					count = parseInt(count);
+					if (firt_load >= count) {
+						count = count + parseInt(firt_load);
+					}
+					$.ajax({
+						type: 'POST',
+						url: sb_ajaxurl,
+						data: {
+							is_ajax: 1,
+							count_term: count
+						},
+						success: function (data) {
+							$('.sm-searchbox-keyword', searchbox).html(data.htm);
+							clickMore($('a.sm-searchbox-more',searchbox));
+							$('a.sm-searchbox-more', searchbox).attr({
+								'data-count': count + parseInt(firt_load)
+							});
+						},
+						dataType: 'json'
+					});
+				});
+			}
+
+	});
+</script></div>                    </div>
+					
+					<div class="middle-right-content">
+                        <div class="phone-header">
+							<p class="top-title">Call Us Free:</p>
+							<p class="phone-number">888 9436 6000</p>
+                        </div>
+                        <div class="minicart-header">
+                            <div class="cart-wrapper">
+<div data-block="minicart" class="minicart-wrapper">
+    <a class="action showcart" href="http://magento2.flytheme.net/themes/sm_shiny/default/checkout/cart/"
+       data-bind="scope: 'minicart_content'">
+        <span class="text"><span class="df-text">Your Cart</span></span>
+        <span class="counter qty empty"
+              data-bind="css: { empty: !!getCartParam('summary_count') == false }, blockLoader: isLoading">
+            <span class="counter-number"><!-- ko text: getCartParam('summary_count') --><!-- /ko --></span>
+            <span class="counter-label">
+			<!-- ko if: getCartParam('summary_count') -->
+                <!-- ko text: getCartParam('summary_count') --><!-- /ko -->
+                <!-- ko i18n: 'items' --><!-- /ko -->
+            <!-- /ko -->
+			
+			<!-- ko if: getCartParam('summary_count') == 0 -->
+                <!-- ko i18n: '0 item' --><!-- /ko -->
+            <!-- /ko -->
+            </span>
+			
+			<span class="price-minicart">
+				
+					<!-- ko foreach: getRegion('subtotalContainer') -->
+						<!-- ko template: getTemplate() --><!-- /ko -->
+					<!-- /ko -->
+				
+			</span>
+        </span>
+    </a>
+            <div class="block block-minicart empty"
+             data-role="dropdownDialog"
+             data-mage-init='{"dropdownDialog":{
+                "appendTo":"[data-block=minicart]",
+                "triggerTarget":".showcart",
+                "timeout": "2000",
+                "closeOnMouseLeave": false,
+                "closeOnEscape": true,
+                "triggerClass":"active",
+                "parentClass":"active",
+                "buttons":[]}}'>
+            <div id="minicart-content-wrapper" data-bind="scope: 'minicart_content'">
+                <!-- ko template: getTemplate() --><!-- /ko -->
+            </div>
+                    </div>
+        <script>
+        window.checkout = {"shoppingCartUrl":"http:\/\/magento2.flytheme.net\/themes\/sm_shiny\/default\/checkout\/cart\/","checkoutUrl":"http:\/\/magento2.flytheme.net\/themes\/sm_shiny\/default\/checkout\/","updateItemQtyUrl":"http:\/\/magento2.flytheme.net\/themes\/sm_shiny\/default\/checkout\/sidebar\/updateItemQty\/","removeItemUrl":"http:\/\/magento2.flytheme.net\/themes\/sm_shiny\/default\/checkout\/sidebar\/removeItem\/","imageTemplate":"Magento_Catalog\/product\/image_with_borders","baseUrl":"http:\/\/magento2.flytheme.net\/themes\/sm_shiny\/default\/","minicartMaxItemsVisible":5,"websiteId":"1","maxItemsToDisplay":10,"customerLoginUrl":"http:\/\/magento2.flytheme.net\/themes\/sm_shiny\/default\/customer\/account\/login\/","isRedirectRequired":false,"autocomplete":"off","captcha":{"user_login":{"isCaseSensitive":false,"imageHeight":50,"imageSrc":"","refreshUrl":"http:\/\/magento2.flytheme.net\/themes\/sm_shiny\/default\/captcha\/refresh\/","isRequired":false},"guest_checkout":{"isCaseSensitive":false,"imageHeight":50,"imageSrc":"","refreshUrl":"http:\/\/magento2.flytheme.net\/themes\/sm_shiny\/default\/captcha\/refresh\/","isRequired":false}}};
+    </script>
+    <script type="text/x-magento-init">
+    {
+        "[data-block='minicart']": {
+            "Magento_Ui/js/core/app": {"components":{"minicart_content":{"children":{"subtotal.container":{"children":{"subtotal":{"children":{"subtotal.totals":{"config":{"display_cart_subtotal_incl_tax":0,"display_cart_subtotal_excl_tax":1,"template":"Magento_Tax\/checkout\/minicart\/subtotal\/totals"},"children":{"subtotal.totals.msrp":{"component":"Magento_Msrp\/js\/view\/checkout\/minicart\/subtotal\/totals","config":{"displayArea":"minicart-subtotal-hidden","template":"Magento_Msrp\/checkout\/minicart\/subtotal\/totals"}}},"component":"Magento_Tax\/js\/view\/checkout\/minicart\/subtotal\/totals"}},"component":"uiComponent","config":{"template":"Magento_Checkout\/minicart\/subtotal"}}},"component":"uiComponent","config":{"displayArea":"subtotalContainer"}},"item.renderer":{"component":"uiComponent","config":{"displayArea":"defaultRenderer","template":"Magento_Checkout\/minicart\/item\/default"},"children":{"item.image":{"component":"Magento_Catalog\/js\/view\/image","config":{"template":"Magento_Catalog\/product\/image","displayArea":"itemImage"}},"checkout.cart.item.price.sidebar":{"component":"uiComponent","config":{"template":"Magento_Checkout\/minicart\/item\/price","displayArea":"priceSidebar"}}}},"extra_info":{"component":"uiComponent","config":{"displayArea":"extraInfo"}},"promotion":{"component":"uiComponent","config":{"displayArea":"promotion"}}},"config":{"itemRenderer":{"default":"defaultRenderer","simple":"defaultRenderer","virtual":"defaultRenderer"},"template":"Magento_Checkout\/minicart\/content"},"component":"Magento_Checkout\/js\/view\/minicart"}},"types":[]}        },
+        "*": {
+            "Magento_Ui/js/block-loader": "http://magento2.flytheme.net/themes/sm_shiny/pub/static/version1522225191/frontend/Sm/shiny/en_US/images/loader-1.gif"
+        }
+    }
+    </script>
+</div>
+
+
+</div>                        </div>
+					</div>
+				</div>
+			</div>
+		</div>
+    </div>
+
+    <div class="header-bottom">
+        <div class="container">
+			<div class="bottom-content">
+				<div class="larger-navigation">
+					<div class="row">
+						<div class="col-lg-2 col-md-3 vermenu">
+							<div class="megamenu-content-sidebar">
+								<div class="btn-megamenu">
+									<a href="javascript:void(0)" title="All Categories">All Categories</a>
+								</div>
+
+								<div class="menu-ver-content">
+													<nav class="sm_megamenu_wrapper_vertical_menu sambar" id="sm_megamenu_menu5b0ae1af1c725" data-sam="12616601851527439791">
+		<div class="sambar-inner">
+					<span class="btn-sambar" data-sapi="collapse" data-href="#sm_megamenu_menu5b0ae1af1c725">
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</span>
+			<ul class="sm-megamenu-hover sm_megamenu_menu sm_megamenu_menu_black" data-jsapi="on">
+														<li class="other-toggle 							sm_megamenu_lv1 sm_megamenu_drop parent    ">
+						<a class="sm_megamenu_head sm_megamenu_drop " href="http://magento2.flytheme.net/themes/sm_shiny/default/smartphones-tablets.html"  id="sm_megamenu_116">
+																<span class="sm_megamenu_icon sm_megamenu_nodesc">
+																								<span class="sm_megamenu_title">SmartPhones & Tablets</span>
+																			</span>
+						</a>
+																													<li class="other-toggle 							sm_megamenu_lv1 sm_megamenu_drop parent    ">
+						<a class="sm_megamenu_head sm_megamenu_drop sm_megamenu_haschild" href="http://magento2.flytheme.net/themes/sm_shiny/default/computers.html"  id="sm_megamenu_117">
+																<span class="sm_megamenu_icon sm_megamenu_nodesc">
+																								<span class="sm_megamenu_title">Computers</span>
+																			</span>
+						</a>
+																				<div class="sm-megamenu-child sm_megamenu_dropdown_6columns ">
+									<div data-link="http://magento2.flytheme.net/themes/sm_shiny/default/home-appliancces.html?cat=115" class="sm_megamenu_col_6 sm_megamenu_firstcolumn    "><div data-link="" class="sm_megamenu_col_6    drop-4-columns"><div class="sm_megamenu_head_item"><div class="sm_megamenu_title  "><div data-link="" class="sm_megamenu_col_2    "><div class="sm_megamenu_head_item"><div class="sm_megamenu_title  "><div data-link="" class="sm_megamenu_col_6 sm_megamenu_firstcolumn    "><div class="sm_megamenu_head_item"><div class="sm_megamenu_title  "><div class="sm_megamenu_content"><div class="banner-image"><a href="#" title="Category Image"><img src="http://magento2.flytheme.net/themes/sm_shiny/pub/media/wysiwyg/megamenu/cat-6.jpg" alt="Category Image" /></a></div></div></div></div></div><div data-link="http://magento2.flytheme.net/themes/sm_shiny/default/home-appliancces.html?cat=115" class="sm_megamenu_col_6 sm_megamenu_firstcolumn    "><div class="sm_megamenu_head_item"><div class="sm_megamenu_title  "><a  class="sm_megamenu_nodrop " href="http://magento2.flytheme.net/themes/sm_shiny/default/computers/mobiles-tablet.html"  ><span class="sm_megamenu_title_lv-4">Mobiles & Tablet</span></a><div class="sm_megamenu_title "><a class="sm_megamenu_nodrop" href="http://magento2.flytheme.net/themes/sm_shiny/default/computers/mobiles-tablet/apple.html" ><span class="sm_megamenu_title_lv-4">Apple</span></a></div><div class="sm_megamenu_title "><a class="sm_megamenu_nodrop" href="http://magento2.flytheme.net/themes/sm_shiny/default/computers/mobiles-tablet/samsung.html" ><span class="sm_megamenu_title_lv-4">Samsung</span></a></div><div class="sm_megamenu_title "><a class="sm_megamenu_nodrop" href="http://magento2.flytheme.net/themes/sm_shiny/default/computers/mobiles-tablet/lg.html" ><span class="sm_megamenu_title_lv-4">LG</span></a></div><div class="sm_megamenu_title "><a class="sm_megamenu_nodrop" href="http://magento2.flytheme.net/themes/sm_shiny/default/computers/mobiles-tablet/nokia.html" ><span class="sm_megamenu_title_lv-4">Nokia</span></a></div><div class="sm_megamenu_title "><a class="sm_megamenu_nodrop" href="http://magento2.flytheme.net/themes/sm_shiny/default/computers/mobiles-tablet/sony.html" ><span class="sm_megamenu_title_lv-4">Sony</span></a></div><div class="sm_megamenu_title "><a class="sm_megamenu_nodrop" href="http://magento2.flytheme.net/themes/sm_shiny/default/computers/mobiles-tablet/zenphone.html" ><span class="sm_megamenu_title_lv-4">Zenphone</span></a></div></div></div></div></div></div></div><div data-link="" class="sm_megamenu_col_2    "><div class="sm_megamenu_head_item"><div class="sm_megamenu_title  "><div data-link="" class="sm_megamenu_col_6 sm_megamenu_firstcolumn    "><div class="sm_megamenu_head_item"><div class="sm_megamenu_title  "><div class="sm_megamenu_content"><div class="banner-image"><a href="#" title="Category Image"><img src="http://magento2.flytheme.net/themes/sm_shiny/pub/media/wysiwyg/megamenu/cat-3.jpg" alt="Category Image" /></a></div></div></div></div></div><div data-link="http://magento2.flytheme.net/themes/sm_shiny/default/home-appliancces.html?cat=115" class="sm_megamenu_col_6 sm_megamenu_firstcolumn    "><div class="sm_megamenu_head_item"><div class="sm_megamenu_title  "><a  class="sm_megamenu_nodrop " href="http://magento2.flytheme.net/themes/sm_shiny/default/computers/computer.html"  ><span class="sm_megamenu_title_lv-4">Computer</span></a><div class="sm_megamenu_title "><a class="sm_megamenu_nodrop" href="http://magento2.flytheme.net/themes/sm_shiny/default/computers/computer/all-in-one.html" ><span class="sm_megamenu_title_lv-4">All In One</span></a></div><div class="sm_megamenu_title "><a class="sm_megamenu_nodrop" href="http://magento2.flytheme.net/themes/sm_shiny/default/computers/computer/office.html" ><span class="sm_megamenu_title_lv-4">Office</span></a></div><div class="sm_megamenu_title "><a class="sm_megamenu_nodrop" href="http://magento2.flytheme.net/themes/sm_shiny/default/computers/computer/keyboard.html" ><span class="sm_megamenu_title_lv-4">Keyboard</span></a></div><div class="sm_megamenu_title "><a class="sm_megamenu_nodrop" href="http://magento2.flytheme.net/themes/sm_shiny/default/computers/computer/ram-chip.html" ><span class="sm_megamenu_title_lv-4">Ram & Chip</span></a></div><div class="sm_megamenu_title "><a class="sm_megamenu_nodrop" href="http://magento2.flytheme.net/themes/sm_shiny/default/computers/computer/mouse.html" ><span class="sm_megamenu_title_lv-4">Mouse</span></a></div><div class="sm_megamenu_title "><a class="sm_megamenu_nodrop" href="http://magento2.flytheme.net/themes/sm_shiny/default/computers/computer/driver-card.html" ><span class="sm_megamenu_title_lv-4">Driver Card</span></a></div><div class="sm_megamenu_title "><a class="sm_megamenu_nodrop" href="http://magento2.flytheme.net/themes/sm_shiny/default/computers/computer/accessories.html" ><span class="sm_megamenu_title_lv-4">Accessories</span></a></div></div></div></div></div></div></div><div data-link="" class="sm_megamenu_col_2    "><div class="sm_megamenu_head_item"><div class="sm_megamenu_title  "><div data-link="" class="sm_megamenu_col_6 sm_megamenu_firstcolumn    "><div class="sm_megamenu_head_item"><div class="sm_megamenu_title  "><div class="sm_megamenu_content"><div class="banner-image"><a href="#" title="Category Image"><img src="http://magento2.flytheme.net/themes/sm_shiny/pub/media/wysiwyg/megamenu/cat-5.jpg" alt="Category Image" /></a></div></div></div></div></div><div data-link="http://magento2.flytheme.net/themes/sm_shiny/default/home-appliancces.html?cat=115" class="sm_megamenu_col_6 sm_megamenu_firstcolumn    "><div class="sm_megamenu_head_item"><div class="sm_megamenu_title  "><a  class="sm_megamenu_nodrop " href="http://magento2.flytheme.net/themes/sm_shiny/default/computers/laptop.html"  ><span class="sm_megamenu_title_lv-4">Laptop</span></a><div class="sm_megamenu_title "><a class="sm_megamenu_nodrop" href="http://magento2.flytheme.net/themes/sm_shiny/default/computers/laptop/dell.html" ><span class="sm_megamenu_title_lv-4">Dell</span></a></div><div class="sm_megamenu_title "><a class="sm_megamenu_nodrop" href="http://magento2.flytheme.net/themes/sm_shiny/default/computers/laptop/samsung.html" ><span class="sm_megamenu_title_lv-4">Samsung</span></a></div><div class="sm_megamenu_title "><a class="sm_megamenu_nodrop" href="http://magento2.flytheme.net/themes/sm_shiny/default/computers/laptop/sony-vaio.html" ><span class="sm_megamenu_title_lv-4">Sony Vaio</span></a></div><div class="sm_megamenu_title "><a class="sm_megamenu_nodrop" href="http://magento2.flytheme.net/themes/sm_shiny/default/computers/laptop/one-click.html" ><span class="sm_megamenu_title_lv-4">One Click</span></a></div><div class="sm_megamenu_title "><a class="sm_megamenu_nodrop" href="http://magento2.flytheme.net/themes/sm_shiny/default/computers/laptop/acer.html" ><span class="sm_megamenu_title_lv-4">Acer</span></a></div><div class="sm_megamenu_title "><a class="sm_megamenu_nodrop" href="http://magento2.flytheme.net/themes/sm_shiny/default/computers/laptop/hp.html" ><span class="sm_megamenu_title_lv-4">HP</span></a></div><div class="sm_megamenu_title "><a class="sm_megamenu_nodrop" href="http://magento2.flytheme.net/themes/sm_shiny/default/computers/laptop/accessories.html" ><span class="sm_megamenu_title_lv-4">Accessories</span></a></div></div></div></div></div></div></div><div data-link="" class="sm_megamenu_col_2 sm_megamenu_firstcolumn    "><div class="sm_megamenu_head_item"><div class="sm_megamenu_title  "><div data-link="" class="sm_megamenu_col_6 sm_megamenu_firstcolumn    "><div class="sm_megamenu_head_item"><div class="sm_megamenu_title  "><div class="sm_megamenu_content"><div class="banner-image"><a href="#" title="Category Image"><img src="http://magento2.flytheme.net/themes/sm_shiny/pub/media/wysiwyg/megamenu/cat-1.jpg" alt="Category Image" /></a></div></div></div></div></div><div data-link="http://magento2.flytheme.net/themes/sm_shiny/default/home-appliancces.html?cat=115" class="sm_megamenu_col_6 sm_megamenu_firstcolumn    "><div class="sm_megamenu_head_item"><div class="sm_megamenu_title  "><a  class="sm_megamenu_nodrop " href="http://magento2.flytheme.net/themes/sm_shiny/default/computers/tv-audio.html"  ><span class="sm_megamenu_title_lv-4">TV & Audio</span></a><div class="sm_megamenu_title "><a class="sm_megamenu_nodrop" href="http://magento2.flytheme.net/themes/sm_shiny/default/computers/tv-audio/apple.html" ><span class="sm_megamenu_title_lv-4">Apple</span></a></div><div class="sm_megamenu_title "><a class="sm_megamenu_nodrop" href="http://magento2.flytheme.net/themes/sm_shiny/default/computers/tv-audio/samsung.html" ><span class="sm_megamenu_title_lv-4">Samsung</span></a></div><div class="sm_megamenu_title "><a class="sm_megamenu_nodrop" href="http://magento2.flytheme.net/themes/sm_shiny/default/computers/tv-audio/lg.html" ><span class="sm_megamenu_title_lv-4">LG</span></a></div><div class="sm_megamenu_title "><a class="sm_megamenu_nodrop" href="http://magento2.flytheme.net/themes/sm_shiny/default/computers/tv-audio/nokia.html" ><span class="sm_megamenu_title_lv-4">Nokia</span></a></div><div class="sm_megamenu_title "><a class="sm_megamenu_nodrop" href="http://magento2.flytheme.net/themes/sm_shiny/default/computers/tv-audio/sony.html" ><span class="sm_megamenu_title_lv-4">Sony</span></a></div><div class="sm_megamenu_title "><a class="sm_megamenu_nodrop" href="http://magento2.flytheme.net/themes/sm_shiny/default/computers/tv-audio/zenphone.html" ><span class="sm_megamenu_title_lv-4">Zenphone</span></a></div></div></div></div></div></div></div></div></div></div></div>								</div>
+												</li>
+														<li class="other-toggle 							sm_megamenu_lv1 sm_megamenu_drop parent    ">
+						<a class="sm_megamenu_head sm_megamenu_drop sm_megamenu_haschild" href="http://magento2.flytheme.net/themes/sm_shiny/default/laptops.html"  id="sm_megamenu_119">
+																<span class="sm_megamenu_icon sm_megamenu_nodesc">
+																								<span class="sm_megamenu_title">Laptops</span>
+																			</span>
+						</a>
+																				<div class="sm-megamenu-child sm_megamenu_dropdown_5columns ">
+									<div data-link="http://magento2.flytheme.net/themes/sm_shiny/default/home-appliancces.html?cat=115" class="sm_megamenu_col_5 sm_megamenu_firstcolumn    "><div data-link="" class="sm_megamenu_col_2    "><div class="sm_megamenu_head_item"><div class="sm_megamenu_title  "><div data-link="http://magento2.flytheme.net/themes/sm_shiny/default/home-appliancces.html?cat=115" class="sm_megamenu_col_6 sm_megamenu_firstcolumn    "><div class="sm_megamenu_head_item"><div class="sm_megamenu_title  "><a  class="sm_megamenu_nodrop " href="http://magento2.flytheme.net/themes/sm_shiny/default/laptops/mobiles-tablet.html"  ><span class="sm_megamenu_title_lv-3">Mobiles & Tablet</span></a><div class="sm_megamenu_title "><a class="sm_megamenu_nodrop" href="http://magento2.flytheme.net/themes/sm_shiny/default/laptops/mobiles-tablet/apple.html" ><span class="sm_megamenu_title_lv-3">Apple</span></a></div><div class="sm_megamenu_title "><a class="sm_megamenu_nodrop" href="http://magento2.flytheme.net/themes/sm_shiny/default/laptops/mobiles-tablet/samsung.html" ><span class="sm_megamenu_title_lv-3">Samsung</span></a></div><div class="sm_megamenu_title "><a class="sm_megamenu_nodrop" href="http://magento2.flytheme.net/themes/sm_shiny/default/laptops/mobiles-tablet/lg.html" ><span class="sm_megamenu_title_lv-3">LG</span></a></div><div class="sm_megamenu_title "><a class="sm_megamenu_nodrop" href="http://magento2.flytheme.net/themes/sm_shiny/default/laptops/mobiles-tablet/nokia.html" ><span class="sm_megamenu_title_lv-3">Nokia</span></a></div><div class="sm_megamenu_title "><a class="sm_megamenu_nodrop" href="http://magento2.flytheme.net/themes/sm_shiny/default/laptops/mobiles-tablet/sony.html" ><span class="sm_megamenu_title_lv-3">Sony</span></a></div><div class="sm_megamenu_title "><a class="sm_megamenu_nodrop" href="http://magento2.flytheme.net/themes/sm_shiny/default/laptops/mobiles-tablet/zenphone.html" ><span class="sm_megamenu_title_lv-3">Zenphone</span></a></div></div></div></div></div></div></div><div data-link="" class="sm_megamenu_col_2    "><div class="sm_megamenu_head_item"><div class="sm_megamenu_title  "><div data-link="http://magento2.flytheme.net/themes/sm_shiny/default/home-appliancces.html?cat=115" class="sm_megamenu_col_6 sm_megamenu_firstcolumn    "><div class="sm_megamenu_head_item"><div class="sm_megamenu_title  "><a  class="sm_megamenu_nodrop " href="http://magento2.flytheme.net/themes/sm_shiny/default/laptops/computer.html"  ><span class="sm_megamenu_title_lv-3">Computer</span></a><div class="sm_megamenu_title "><a class="sm_megamenu_nodrop" href="http://magento2.flytheme.net/themes/sm_shiny/default/laptops/computer/all-in-one.html" ><span class="sm_megamenu_title_lv-3">All In One</span></a></div><div class="sm_megamenu_title "><a class="sm_megamenu_nodrop" href="http://magento2.flytheme.net/themes/sm_shiny/default/laptops/computer/office.html" ><span class="sm_megamenu_title_lv-3">Office</span></a></div><div class="sm_megamenu_title "><a class="sm_megamenu_nodrop" href="http://magento2.flytheme.net/themes/sm_shiny/default/laptops/computer/keyboard.html" ><span class="sm_megamenu_title_lv-3">Keyboard</span></a></div><div class="sm_megamenu_title "><a class="sm_megamenu_nodrop" href="http://magento2.flytheme.net/themes/sm_shiny/default/laptops/computer/ram-chip.html" ><span class="sm_megamenu_title_lv-3">Ram & Chip</span></a></div><div class="sm_megamenu_title "><a class="sm_megamenu_nodrop" href="http://magento2.flytheme.net/themes/sm_shiny/default/laptops/computer/mouse.html" ><span class="sm_megamenu_title_lv-3">Mouse</span></a></div><div class="sm_megamenu_title "><a class="sm_megamenu_nodrop" href="http://magento2.flytheme.net/themes/sm_shiny/default/laptops/computer/driver-card.html" ><span class="sm_megamenu_title_lv-3">Driver Card</span></a></div><div class="sm_megamenu_title "><a class="sm_megamenu_nodrop" href="http://magento2.flytheme.net/themes/sm_shiny/default/laptops/computer/accessories.html" ><span class="sm_megamenu_title_lv-3">Accessories</span></a></div></div></div></div></div></div></div><div data-link="" class="sm_megamenu_col_2 sm_megamenu_firstcolumn    "><div class="sm_megamenu_head_item"><div class="sm_megamenu_title  "><div data-link="http://magento2.flytheme.net/themes/sm_shiny/default/home-appliancces.html?cat=115" class="sm_megamenu_col_6 sm_megamenu_firstcolumn    "><div class="sm_megamenu_head_item"><div class="sm_megamenu_title  "><a  class="sm_megamenu_nodrop " href="http://magento2.flytheme.net/themes/sm_shiny/default/laptops/tv-audio.html"  ><span class="sm_megamenu_title_lv-3">TV & Audio</span></a><div class="sm_megamenu_title "><a class="sm_megamenu_nodrop" href="http://magento2.flytheme.net/themes/sm_shiny/default/laptops/tv-audio/apple.html" ><span class="sm_megamenu_title_lv-3">Apple</span></a></div><div class="sm_megamenu_title "><a class="sm_megamenu_nodrop" href="http://magento2.flytheme.net/themes/sm_shiny/default/laptops/tv-audio/samsung.html" ><span class="sm_megamenu_title_lv-3">Samsung</span></a></div><div class="sm_megamenu_title "><a class="sm_megamenu_nodrop" href="http://magento2.flytheme.net/themes/sm_shiny/default/laptops/tv-audio/lg.html" ><span class="sm_megamenu_title_lv-3">LG</span></a></div><div class="sm_megamenu_title "><a class="sm_megamenu_nodrop" href="http://magento2.flytheme.net/themes/sm_shiny/default/laptops/tv-audio/nokia.html" ><span class="sm_megamenu_title_lv-3">Nokia</span></a></div><div class="sm_megamenu_title "><a class="sm_megamenu_nodrop" href="http://magento2.flytheme.net/themes/sm_shiny/default/laptops/tv-audio/sony.html" ><span class="sm_megamenu_title_lv-3">Sony</span></a></div><div class="sm_megamenu_title "><a class="sm_megamenu_nodrop" href="http://magento2.flytheme.net/themes/sm_shiny/default/laptops/tv-audio/zenphone.html" ><span class="sm_megamenu_title_lv-3">Zenphone</span></a></div></div></div></div></div></div></div></div>								</div>
+												</li>
+														<li class="other-toggle 							sm_megamenu_lv1 sm_megamenu_drop parent    ">
+						<a class="sm_megamenu_head sm_megamenu_drop " href="http://magento2.flytheme.net/themes/sm_shiny/default/electronics.html"  id="sm_megamenu_120">
+																<span class="sm_megamenu_icon sm_megamenu_nodesc">
+																								<span class="sm_megamenu_title">Electronics</span>
+																			</span>
+						</a>
+																													<li class="other-toggle 							sm_megamenu_lv1 sm_megamenu_drop parent    ">
+						<a class="sm_megamenu_head sm_megamenu_drop sm_megamenu_haschild" href="http://magento2.flytheme.net/themes/sm_shiny/default/tv-audio.html"  id="sm_megamenu_121">
+																<span class="sm_megamenu_icon sm_megamenu_nodesc">
+																								<span class="sm_megamenu_title">TV & Audio</span>
+																			</span>
+						</a>
+																				<div class="sm-megamenu-child sm_megamenu_dropdown_3columns ">
+									<div data-link="http://magento2.flytheme.net/themes/sm_shiny/default/home-appliancces.html?cat=115" class="sm_megamenu_col_3 sm_megamenu_firstcolumn    "><div data-link="" class="sm_megamenu_col_3    "><div class="sm_megamenu_head_item"><div class="sm_megamenu_title  "><div data-link="http://magento2.flytheme.net/themes/sm_shiny/default/home-appliancces.html?cat=115" class="sm_megamenu_col_6 sm_megamenu_firstcolumn    "><div class="sm_megamenu_head_item"><div class="sm_megamenu_title  "><a  class="sm_megamenu_nodrop " href="http://magento2.flytheme.net/themes/sm_shiny/default/tv-audio/heaphone.html"  ><span class="sm_megamenu_title_lv-3">Headphone</span></a><div class="sm_megamenu_title "><a class="sm_megamenu_nodrop" href="http://magento2.flytheme.net/themes/sm_shiny/default/tv-audio/heaphone/beat-solo.html" ><span class="sm_megamenu_title_lv-3">Beat Solo</span></a></div><div class="sm_megamenu_title "><a class="sm_megamenu_nodrop" href="http://magento2.flytheme.net/themes/sm_shiny/default/tv-audio/heaphone/sony.html" ><span class="sm_megamenu_title_lv-3">Sony</span></a></div><div class="sm_megamenu_title "><a class="sm_megamenu_nodrop" href="http://magento2.flytheme.net/themes/sm_shiny/default/tv-audio/heaphone/samsung.html" ><span class="sm_megamenu_title_lv-3">Samsung</span></a></div><div class="sm_megamenu_title "><a class="sm_megamenu_nodrop" href="http://magento2.flytheme.net/themes/sm_shiny/default/tv-audio/heaphone/ferrari.html" ><span class="sm_megamenu_title_lv-3">Ferrari</span></a></div><div class="sm_megamenu_title "><a class="sm_megamenu_nodrop" href="http://magento2.flytheme.net/themes/sm_shiny/default/tv-audio/heaphone/lamborghini.html" ><span class="sm_megamenu_title_lv-3">Lamborghini</span></a></div><div class="sm_megamenu_title "><a class="sm_megamenu_nodrop" href="http://magento2.flytheme.net/themes/sm_shiny/default/tv-audio/heaphone/toyota.html" ><span class="sm_megamenu_title_lv-3">Toyota</span></a></div><div class="sm_megamenu_title "><a class="sm_megamenu_nodrop" href="http://magento2.flytheme.net/themes/sm_shiny/default/tv-audio/heaphone/north-face.html" ><span class="sm_megamenu_title_lv-3">North Face</span></a></div></div></div></div></div></div></div><div data-link="" class="sm_megamenu_col_3 sm_megamenu_firstcolumn    "><div class="sm_megamenu_head_item"><div class="sm_megamenu_title  "><div data-link="http://magento2.flytheme.net/themes/sm_shiny/default/home-appliancces.html?cat=115" class="sm_megamenu_col_6 sm_megamenu_firstcolumn    "><div class="sm_megamenu_head_item"><div class="sm_megamenu_title  "><a  class="sm_megamenu_nodrop " href="http://magento2.flytheme.net/themes/sm_shiny/default/tv-audio/home-appliancess.html"  ><span class="sm_megamenu_title_lv-3">Home Appliancess</span></a><div class="sm_megamenu_title "><a class="sm_megamenu_nodrop" href="http://magento2.flytheme.net/themes/sm_shiny/default/tv-audio/home-appliancess/washing-machine.html" ><span class="sm_megamenu_title_lv-3">Washing Machine</span></a></div><div class="sm_megamenu_title "><a class="sm_megamenu_nodrop" href="http://magento2.flytheme.net/themes/sm_shiny/default/tv-audio/home-appliancess/rice-cooker.html" ><span class="sm_megamenu_title_lv-3">Rice Cooker</span></a></div><div class="sm_megamenu_title "><a class="sm_megamenu_nodrop" href="http://magento2.flytheme.net/themes/sm_shiny/default/tv-audio/home-appliancess/bags.html" ><span class="sm_megamenu_title_lv-3">Bags</span></a></div><div class="sm_megamenu_title "><a class="sm_megamenu_nodrop" href="http://magento2.flytheme.net/themes/sm_shiny/default/tv-audio/home-appliancess/equiqment.html" ><span class="sm_megamenu_title_lv-3">Equiqment</span></a></div><div class="sm_megamenu_title "><a class="sm_megamenu_nodrop" href="http://magento2.flytheme.net/themes/sm_shiny/default/tv-audio/home-appliancess/headphone.html" ><span class="sm_megamenu_title_lv-3">Headphone</span></a></div><div class="sm_megamenu_title "><a class="sm_megamenu_nodrop" href="http://magento2.flytheme.net/themes/sm_shiny/default/tv-audio/home-appliancess/office.html" ><span class="sm_megamenu_title_lv-3">Office</span></a></div></div></div></div></div></div></div></div>								</div>
+												</li>
+														<li class="other-toggle 							sm_megamenu_lv1 sm_megamenu_drop parent    ">
+						<a class="sm_megamenu_head sm_megamenu_drop " href="http://magento2.flytheme.net/themes/sm_shiny/default/cameras-accessories.html"  id="sm_megamenu_122">
+																<span class="sm_megamenu_icon sm_megamenu_nodesc">
+																								<span class="sm_megamenu_title">Cameras & Accessories</span>
+																			</span>
+						</a>
+																													<li class="other-toggle 							sm_megamenu_lv1 sm_megamenu_drop parent    ">
+						<a class="sm_megamenu_head sm_megamenu_drop " href="http://magento2.flytheme.net/themes/sm_shiny/default/headphones.html"  id="sm_megamenu_123">
+																<span class="sm_megamenu_icon sm_megamenu_nodesc">
+																								<span class="sm_megamenu_title">Headphones</span>
+																			</span>
+						</a>
+																													<li class="other-toggle 							sm_megamenu_lv1 sm_megamenu_drop parent    ">
+						<a class="sm_megamenu_head sm_megamenu_drop " href="http://magento2.flytheme.net/themes/sm_shiny/default/home-appliancces.html"  id="sm_megamenu_124">
+																<span class="sm_megamenu_icon sm_megamenu_nodesc">
+																								<span class="sm_megamenu_title">Home Appliancces</span>
+																			</span>
+						</a>
+																													<li class="other-toggle 							sm_megamenu_lv1 sm_megamenu_drop parent    ">
+						<a class="sm_megamenu_head sm_megamenu_drop " href="http://magento2.flytheme.net/themes/sm_shiny/default/video-games-consoles.html"  id="sm_megamenu_125">
+																<span class="sm_megamenu_icon sm_megamenu_nodesc">
+																								<span class="sm_megamenu_title">Video Games & Consoles</span>
+																			</span>
+						</a>
+																													<li class="other-toggle 							sm_megamenu_lv1 sm_megamenu_drop parent    ">
+						<a class="sm_megamenu_head sm_megamenu_drop " href="http://magento2.flytheme.net/themes/sm_shiny/default/books-audible.html"  id="sm_megamenu_126">
+																<span class="sm_megamenu_icon sm_megamenu_nodesc">
+																								<span class="sm_megamenu_title">Books & Audible</span>
+																			</span>
+						</a>
+																													<li class="other-toggle 							sm_megamenu_lv1 sm_megamenu_drop parent    ">
+						<a class="sm_megamenu_head sm_megamenu_drop " href="http://magento2.flytheme.net/themes/sm_shiny/default/appstore-for-android.html"  id="sm_megamenu_127">
+																<span class="sm_megamenu_icon sm_megamenu_nodesc">
+																								<span class="sm_megamenu_title">Appstore for Android</span>
+																			</span>
+						</a>
+																						</ul>
+		</div>
+	</nav>
+
+
+<script type="text/javascript">
+	require([
+		'jquery',
+		'domReady!'
+	], function ($) {
+		$('.sm_megamenu_menu .home-item-parent > a').attr("href", "http://magento2.flytheme.net/themes/sm_shiny/default/");
+
+				var limit;
+		limit = 9;
+		var i;
+		i=0;
+		var items;
+		items = $('.sm_megamenu_wrapper_vertical_menu .sm_megamenu_menu > li').length;
+		
+		if(items > limit){
+			$('.sm_megamenu_wrapper_vertical_menu .sambar-inner').append('<div class="more-w"><span class="more-view">More Categories</span></div>');
+			
+			$('.sm_megamenu_wrapper_vertical_menu .sm_megamenu_menu > li').each(function(){
+				i++;
+				if( i > limit ){
+					$(this).css('display', 'none');
+				}
+			});
+			
+			$('.sm_megamenu_wrapper_vertical_menu .sambar-inner .more-w > .more-view').click(function(){
+				if($(this).hasClass('open')){
+					i=0;
+					$('.sm_megamenu_wrapper_vertical_menu .sm_megamenu_menu > li').each(function(){
+						i++;
+						if(i>limit){
+							$(this).slideUp(200);
+						}
+					});
+					$(this).removeClass('open');
+					$('.more-w').removeClass('active-i');
+					$(this).text('More Categories');
+				}else{
+					i=0;
+					$('.sm_megamenu_wrapper_vertical_menu ul.sm_megamenu_menu > li').each(function(){
+						i++;
+						if(i>limit){
+							$(this).slideDown(200);
+						}
+					});
+					$(this).addClass('open');
+					$('.more-w').addClass('active-i');
+					$(this).text('Close Menu');
+				}
+			});
+
+		}
+		
+			});
+</script>
+								</div>
+							</div>
+						</div>
+					
+						<div class="col-lg-10 col-md-9 hozmenu">
+							<div class="navigation-megamenu-wrapper">				<nav class="sm_megamenu_wrapper_horizontal_menu sambar" id="sm_megamenu_menu5b0ae1b031156" data-sam="13814799291527439792">
+		<div class="sambar-inner">
+					<span class="btn-sambar" data-sapi="collapse" data-href="#sm_megamenu_menu5b0ae1b031156">
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</span>
+			<ul class="sm-megamenu-hover sm_megamenu_menu sm_megamenu_menu_black" data-jsapi="on">
+														<li class="home-item-parent other-toggle 							sm_megamenu_lv1 sm_megamenu_drop parent    ">
+						<a class="sm_megamenu_head sm_megamenu_drop " href="javascript:void(0)"  id="sm_megamenu_146">
+																<span class="sm_megamenu_icon sm_megamenu_nodesc">
+																								<span class="sm_megamenu_title">Home</span>
+																			</span>
+						</a>
+																													<li class="other-toggle 							sm_megamenu_lv1 sm_megamenu_drop parent    ">
+						<a class="sm_megamenu_head sm_megamenu_drop sm_megamenu_haschild" href="javascript:void(0)"  id="sm_megamenu_176">
+																<span class="sm_megamenu_icon sm_megamenu_nodesc">
+																								<span class="sm_megamenu_title">Features</span>
+																			</span>
+						</a>
+																											<div class="sm_megamenu_dropdown_6columns  ">
+																		<div class="sm_megamenu_content"><div class="mega-featured">
+<div class="row">
+<div class="col-lg-3 col-md-3 feature-column">
+<h3 class="feature-title">Layouts</h3>
+<ul>
+<li><a href="http://magento2.flytheme.net/themes/sm_shiny/default">Homepage Style 1</a></li>
+<li><a href="http://magento2.flytheme.net/themes/sm_shiny/french">Homepage Style 2</a></li>
+<li><a href="http://magento2.flytheme.net/themes/sm_shiny/german">Homepage Style 3</a></li>
+<li><a href="http://magento2.flytheme.net/themes/sm_shiny/somaliland">Homepage Style 4</a></li>
+<li><a href="http://magento2.flytheme.net/themes/sm_shiny/dominica">Boxed Layout</a></li>
+</ul>
+</div>
+<div class="col-lg-3 col-md-3 feature-column">
+<h3 class="feature-title">Headers</h3>
+<ul>
+<li><a href="http://magento2.flytheme.net/themes/sm_shiny/default">Header Style 1</a></li>
+<li><a href="http://magento2.flytheme.net/themes/sm_shiny/french">Header Style 2</a></li>
+<li><a href="http://magento2.flytheme.net/themes/sm_shiny/german">Header Style 3</a></li>
+<li><a href="http://magento2.flytheme.net/themes/sm_shiny/somaliland">Header Style 4</a></li>
+</ul>
+</div>
+<div class="col-lg-3 col-md-3 feature-column">
+<h3 class="feature-title">Footers</h3>
+<ul style="margin-bottom: 30px;">
+<li><a href="http://magento2.flytheme.net/themes/sm_shiny/default">Footer Style 1</a></li>
+<li><a href="http://magento2.flytheme.net/themes/sm_shiny/french">Footer Style 2</a></li>
+<li><a href="http://magento2.flytheme.net/themes/sm_shiny/german">Footer Style 3</a></li>
+<li><a href="http://magento2.flytheme.net/themes/sm_shiny/somaliland">Footer Style 4</a></li>
+</ul>
+</div>
+<div class="col-lg-3 col-md-3 feature-column">
+<h3 class="feature-title">Listing Layouts</h3>
+<ul>
+<li><a href="http://magento2.flytheme.net/themes/sm_shiny/categories-demo/without-sidebar.html">Without Sidebar</a></li>
+<li><a href="http://magento2.flytheme.net/themes/sm_shiny/categories-demo/left-sidebar.html">Left Sidebar</a></li>
+<li><a href="http://magento2.flytheme.net/themes/sm_shiny/categories-demo/right-sidebar.html">Right Sidebar</a></li>
+<li><a href="http://magento2.flytheme.net/themes/sm_shiny/categories-demo/left-right-sidebar.html">Left - Right Sidebar</a></li>
+</ul>
+</div>
+</div>
+<div class="row" style="margin-top: 20px;">
+<div class="col-lg-3 col-md-3 feature-column">
+<h3 class="feature-title">Detail Layouts</h3>
+<ul>
+<li><a href="http://magento2.flytheme.net/themes/sm_shiny/electro-6-5-washing-machine.html">Product Detail - Full</a></li>
+<li><a href="http://magento2.flytheme.net/themes/sm_shiny/philips-rice-cookers-hd3128.html">Product Detail - Left Sidebar</a></li>
+<li><a href="http://magento2.flytheme.net/themes/sm_shiny/camera-wireless-ip-security.html">Product Detail - Right Sidebar</a></li>
+<li><a href="http://magento2.flytheme.net/themes/sm_shiny/default/apple-iphone-7-plus-128gb.html">Thumb Horizontal</a></li>
+<li><a href="http://magento2.flytheme.net/themes/sm_shiny/french/hitachi-kc18-18volt-cordless.html">Thumb Vertical</a></li>
+</ul>
+</div>
+<div class="col-lg-3 col-md-3 feature-column">
+<h3 class="feature-title">Product Types</h3>
+<ul>
+<li><a href="http://magento2.flytheme.net/themes/sm_shiny/simple-product.html">Simple Product</a></li>
+<li><a href="http://magento2.flytheme.net/themes/sm_shiny/virtual-product.html">Virtual Product</a></li>
+<li><a href="http://magento2.flytheme.net/themes/sm_shiny/configurable-product.html">Configurable Product</a></li>
+<li><a href="http://magento2.flytheme.net/themes/sm_shiny/grouped-product.html">Grouped Product</a></li>
+<li><a href="http://magento2.flytheme.net/themes/sm_shiny/bundle-product.html">Bundle Product</a></li>
+<li><a href="http://magento2.flytheme.net/themes/sm_shiny/downloadable-product.html">Downloadable Product</a></li>
+</ul>
+</div>
+<div class="col-lg-3 col-md-3 feature-column">
+<h3 class="feature-title">Tab Types</h3>
+<ul>
+<li><a href="http://magento2.flytheme.net/themes/sm_shiny/french/logitech-z906-surround-sound.html">Vertical</a></li>
+<li><a href="http://magento2.flytheme.net/themes/sm_shiny/default/logitech-z906-surround-sound.html">Horizontal</a></li>
+<li><a href="http://magento2.flytheme.net/themes/sm_shiny/german/logitech-z906-surround-sound.html">Accordion</a></li>
+</ul>
+</div>
+</div>
+</div></div>
+								</div>
+																	<li class="other-toggle 							sm_megamenu_lv1 sm_megamenu_drop parent    ">
+						<a class="sm_megamenu_head sm_megamenu_drop sm_megamenu_haschild" href="http://magento2.flytheme.net/themes/sm_shiny/default/computers.html"  id="sm_megamenu_142">
+														<span class="icon_items"><img src='http://magento2.flytheme.net/themes/sm_shiny/pub/media/wysiwyg/megamenu/icon/hot-icon.png' alt="icon items"></span>
+								<span class="sm_megamenu_icon sm_megamenu_nodesc">
+																								<span class="sm_megamenu_title">Collection</span>
+																			</span>
+						</a>
+																				<div class="sm-megamenu-child sm_megamenu_dropdown_6columns ">
+									<div data-link="http://magento2.flytheme.net/themes/sm_shiny/default/home-appliancces.html?cat=115" class="sm_megamenu_col_6 sm_megamenu_firstcolumn    "><div data-link="" class="sm_megamenu_col_1    "><div class="sm_megamenu_head_item"><div class="sm_megamenu_title  "><div data-link="" class="sm_megamenu_col_6 sm_megamenu_firstcolumn    "><div class="sm_megamenu_head_item"><div class="sm_megamenu_title  "><div class="sm_megamenu_content"><div class="banner-image"><a href="#" title="Category Image"><img src="http://magento2.flytheme.net/themes/sm_shiny/pub/media/wysiwyg/megamenu/cat-6.jpg" alt="Category Image" /></a></div></div></div></div></div><div data-link="http://magento2.flytheme.net/themes/sm_shiny/default/home-appliancces.html?cat=115" class="sm_megamenu_col_6 sm_megamenu_firstcolumn    "><div class="sm_megamenu_head_item"><div class="sm_megamenu_title  "><a  class="sm_megamenu_nodrop " href="http://magento2.flytheme.net/themes/sm_shiny/default/computers/mobiles-tablet.html"  ><span class="sm_megamenu_title_lv-3">Mobiles & Tablet</span></a><div class="sm_megamenu_title "><a class="sm_megamenu_nodrop" href="http://magento2.flytheme.net/themes/sm_shiny/default/computers/mobiles-tablet/apple.html" ><span class="sm_megamenu_title_lv-3">Apple</span></a></div><div class="sm_megamenu_title "><a class="sm_megamenu_nodrop" href="http://magento2.flytheme.net/themes/sm_shiny/default/computers/mobiles-tablet/samsung.html" ><span class="sm_megamenu_title_lv-3">Samsung</span></a></div><div class="sm_megamenu_title "><a class="sm_megamenu_nodrop" href="http://magento2.flytheme.net/themes/sm_shiny/default/computers/mobiles-tablet/lg.html" ><span class="sm_megamenu_title_lv-3">LG</span></a></div><div class="sm_megamenu_title "><a class="sm_megamenu_nodrop" href="http://magento2.flytheme.net/themes/sm_shiny/default/computers/mobiles-tablet/nokia.html" ><span class="sm_megamenu_title_lv-3">Nokia</span></a></div><div class="sm_megamenu_title "><a class="sm_megamenu_nodrop" href="http://magento2.flytheme.net/themes/sm_shiny/default/computers/mobiles-tablet/sony.html" ><span class="sm_megamenu_title_lv-3">Sony</span></a></div><div class="sm_megamenu_title "><a class="sm_megamenu_nodrop" href="http://magento2.flytheme.net/themes/sm_shiny/default/computers/mobiles-tablet/zenphone.html" ><span class="sm_megamenu_title_lv-3">Zenphone</span></a></div></div></div></div></div></div></div><div data-link="" class="sm_megamenu_col_1    "><div class="sm_megamenu_head_item"><div class="sm_megamenu_title  "><div data-link="" class="sm_megamenu_col_6 sm_megamenu_firstcolumn    "><div class="sm_megamenu_head_item"><div class="sm_megamenu_title  "><div class="sm_megamenu_content"><div class="banner-image"><a href="#" title="Category Image"><img src="http://magento2.flytheme.net/themes/sm_shiny/pub/media/wysiwyg/megamenu/cat-3.jpg" alt="Category Image" /></a></div></div></div></div></div><div data-link="http://magento2.flytheme.net/themes/sm_shiny/default/home-appliancces.html?cat=115" class="sm_megamenu_col_6 sm_megamenu_firstcolumn    "><div class="sm_megamenu_head_item"><div class="sm_megamenu_title  "><a  class="sm_megamenu_nodrop " href="http://magento2.flytheme.net/themes/sm_shiny/default/computers/computer.html"  ><span class="sm_megamenu_title_lv-3">Computer</span></a><div class="sm_megamenu_title "><a class="sm_megamenu_nodrop" href="http://magento2.flytheme.net/themes/sm_shiny/default/computers/computer/all-in-one.html" ><span class="sm_megamenu_title_lv-3">All In One</span></a></div><div class="sm_megamenu_title "><a class="sm_megamenu_nodrop" href="http://magento2.flytheme.net/themes/sm_shiny/default/computers/computer/office.html" ><span class="sm_megamenu_title_lv-3">Office</span></a></div><div class="sm_megamenu_title "><a class="sm_megamenu_nodrop" href="http://magento2.flytheme.net/themes/sm_shiny/default/computers/computer/keyboard.html" ><span class="sm_megamenu_title_lv-3">Keyboard</span></a></div><div class="sm_megamenu_title "><a class="sm_megamenu_nodrop" href="http://magento2.flytheme.net/themes/sm_shiny/default/computers/computer/ram-chip.html" ><span class="sm_megamenu_title_lv-3">Ram & Chip</span></a></div><div class="sm_megamenu_title "><a class="sm_megamenu_nodrop" href="http://magento2.flytheme.net/themes/sm_shiny/default/computers/computer/mouse.html" ><span class="sm_megamenu_title_lv-3">Mouse</span></a></div><div class="sm_megamenu_title "><a class="sm_megamenu_nodrop" href="http://magento2.flytheme.net/themes/sm_shiny/default/computers/computer/driver-card.html" ><span class="sm_megamenu_title_lv-3">Driver Card</span></a></div><div class="sm_megamenu_title "><a class="sm_megamenu_nodrop" href="http://magento2.flytheme.net/themes/sm_shiny/default/computers/computer/accessories.html" ><span class="sm_megamenu_title_lv-3">Accessories</span></a></div></div></div></div></div></div></div><div data-link="" class="sm_megamenu_col_1    "><div class="sm_megamenu_head_item"><div class="sm_megamenu_title  "><div data-link="" class="sm_megamenu_col_6 sm_megamenu_firstcolumn    "><div class="sm_megamenu_head_item"><div class="sm_megamenu_title  "><div class="sm_megamenu_content"><div class="banner-image"><a href="#" title="Category Image"><img src="http://magento2.flytheme.net/themes/sm_shiny/pub/media/wysiwyg/megamenu/cat-5.jpg" alt="Category Image" /></a></div></div></div></div></div><div data-link="http://magento2.flytheme.net/themes/sm_shiny/default/home-appliancces.html?cat=115" class="sm_megamenu_col_6 sm_megamenu_firstcolumn    "><div class="sm_megamenu_head_item"><div class="sm_megamenu_title  "><a  class="sm_megamenu_nodrop " href="http://magento2.flytheme.net/themes/sm_shiny/default/computers/laptop.html"  ><span class="sm_megamenu_title_lv-3">Laptop</span></a><div class="sm_megamenu_title "><a class="sm_megamenu_nodrop" href="http://magento2.flytheme.net/themes/sm_shiny/default/computers/laptop/dell.html" ><span class="sm_megamenu_title_lv-3">Dell</span></a></div><div class="sm_megamenu_title "><a class="sm_megamenu_nodrop" href="http://magento2.flytheme.net/themes/sm_shiny/default/computers/laptop/samsung.html" ><span class="sm_megamenu_title_lv-3">Samsung</span></a></div><div class="sm_megamenu_title "><a class="sm_megamenu_nodrop" href="http://magento2.flytheme.net/themes/sm_shiny/default/computers/laptop/sony-vaio.html" ><span class="sm_megamenu_title_lv-3">Sony Vaio</span></a></div><div class="sm_megamenu_title "><a class="sm_megamenu_nodrop" href="http://magento2.flytheme.net/themes/sm_shiny/default/computers/laptop/one-click.html" ><span class="sm_megamenu_title_lv-3">One Click</span></a></div><div class="sm_megamenu_title "><a class="sm_megamenu_nodrop" href="http://magento2.flytheme.net/themes/sm_shiny/default/computers/laptop/acer.html" ><span class="sm_megamenu_title_lv-3">Acer</span></a></div><div class="sm_megamenu_title "><a class="sm_megamenu_nodrop" href="http://magento2.flytheme.net/themes/sm_shiny/default/computers/laptop/hp.html" ><span class="sm_megamenu_title_lv-3">HP</span></a></div><div class="sm_megamenu_title "><a class="sm_megamenu_nodrop" href="http://magento2.flytheme.net/themes/sm_shiny/default/computers/laptop/accessories.html" ><span class="sm_megamenu_title_lv-3">Accessories</span></a></div></div></div></div></div></div></div><div data-link="" class="sm_megamenu_col_1    "><div class="sm_megamenu_head_item"><div class="sm_megamenu_title  "><div data-link="" class="sm_megamenu_col_6 sm_megamenu_firstcolumn    "><div class="sm_megamenu_head_item"><div class="sm_megamenu_title  "><div class="sm_megamenu_content"><div class="banner-image"><a href="#" title="Category Image"><img src="http://magento2.flytheme.net/themes/sm_shiny/pub/media/wysiwyg/megamenu/cat-1.jpg" alt="Category Image" /></a></div></div></div></div></div><div data-link="http://magento2.flytheme.net/themes/sm_shiny/default/home-appliancces.html?cat=115" class="sm_megamenu_col_6 sm_megamenu_firstcolumn    "><div class="sm_megamenu_head_item"><div class="sm_megamenu_title  "><a  class="sm_megamenu_nodrop " href="http://magento2.flytheme.net/themes/sm_shiny/default/computers/tv-audio.html"  ><span class="sm_megamenu_title_lv-3">TV & Audio</span></a><div class="sm_megamenu_title "><a class="sm_megamenu_nodrop" href="http://magento2.flytheme.net/themes/sm_shiny/default/computers/tv-audio/apple.html" ><span class="sm_megamenu_title_lv-3">Apple</span></a></div><div class="sm_megamenu_title "><a class="sm_megamenu_nodrop" href="http://magento2.flytheme.net/themes/sm_shiny/default/computers/tv-audio/samsung.html" ><span class="sm_megamenu_title_lv-3">Samsung</span></a></div><div class="sm_megamenu_title "><a class="sm_megamenu_nodrop" href="http://magento2.flytheme.net/themes/sm_shiny/default/computers/tv-audio/lg.html" ><span class="sm_megamenu_title_lv-3">LG</span></a></div><div class="sm_megamenu_title "><a class="sm_megamenu_nodrop" href="http://magento2.flytheme.net/themes/sm_shiny/default/computers/tv-audio/nokia.html" ><span class="sm_megamenu_title_lv-3">Nokia</span></a></div><div class="sm_megamenu_title "><a class="sm_megamenu_nodrop" href="http://magento2.flytheme.net/themes/sm_shiny/default/computers/tv-audio/sony.html" ><span class="sm_megamenu_title_lv-3">Sony</span></a></div><div class="sm_megamenu_title "><a class="sm_megamenu_nodrop" href="http://magento2.flytheme.net/themes/sm_shiny/default/computers/tv-audio/zenphone.html" ><span class="sm_megamenu_title_lv-3">Zenphone</span></a></div></div></div></div></div></div></div><div data-link="" class="sm_megamenu_col_1    "><div class="sm_megamenu_head_item"><div class="sm_megamenu_title  "><div data-link="" class="sm_megamenu_col_6 sm_megamenu_firstcolumn    "><div class="sm_megamenu_head_item"><div class="sm_megamenu_title  "><div class="sm_megamenu_content"><div class="banner-image"><a href="#" title="Category Image"><img src="http://magento2.flytheme.net/themes/sm_shiny/pub/media/wysiwyg/megamenu/cat-4.jpg" alt="Category Image" /></a></div></div></div></div></div><div data-link="http://magento2.flytheme.net/themes/sm_shiny/default/home-appliancces.html?cat=115" class="sm_megamenu_col_6 sm_megamenu_firstcolumn    "><div class="sm_megamenu_head_item"><div class="sm_megamenu_title  "><a  class="sm_megamenu_nodrop " href="http://magento2.flytheme.net/themes/sm_shiny/default/computers/heaphone.html"  ><span class="sm_megamenu_title_lv-3">Heaphone</span></a><div class="sm_megamenu_title "><a class="sm_megamenu_nodrop" href="http://magento2.flytheme.net/themes/sm_shiny/default/computers/heaphone/beat-solo.html" ><span class="sm_megamenu_title_lv-3">Beat Solo</span></a></div><div class="sm_megamenu_title "><a class="sm_megamenu_nodrop" href="http://magento2.flytheme.net/themes/sm_shiny/default/computers/heaphone/sony.html" ><span class="sm_megamenu_title_lv-3">Sony</span></a></div><div class="sm_megamenu_title "><a class="sm_megamenu_nodrop" href="http://magento2.flytheme.net/themes/sm_shiny/default/computers/heaphone/samsung.html" ><span class="sm_megamenu_title_lv-3">Samsung</span></a></div><div class="sm_megamenu_title "><a class="sm_megamenu_nodrop" href="http://magento2.flytheme.net/themes/sm_shiny/default/computers/heaphone/ferrari.html" ><span class="sm_megamenu_title_lv-3">Ferrari</span></a></div><div class="sm_megamenu_title "><a class="sm_megamenu_nodrop" href="http://magento2.flytheme.net/themes/sm_shiny/default/computers/heaphone/lamborghini.html" ><span class="sm_megamenu_title_lv-3">Lamborghini</span></a></div><div class="sm_megamenu_title "><a class="sm_megamenu_nodrop" href="http://magento2.flytheme.net/themes/sm_shiny/default/computers/heaphone/toyota.html" ><span class="sm_megamenu_title_lv-3">Toyota</span></a></div><div class="sm_megamenu_title "><a class="sm_megamenu_nodrop" href="http://magento2.flytheme.net/themes/sm_shiny/default/computers/heaphone/north-face.html" ><span class="sm_megamenu_title_lv-3">North Face</span></a></div></div></div></div></div></div></div><div data-link="" class="sm_megamenu_col_1    "><div class="sm_megamenu_head_item"><div class="sm_megamenu_title  "><div data-link="" class="sm_megamenu_col_6 sm_megamenu_firstcolumn    "><div class="sm_megamenu_head_item"><div class="sm_megamenu_title  "><div class="sm_megamenu_content"><div class="banner-image"><a href="#" title="Category Image"><img src="http://magento2.flytheme.net/themes/sm_shiny/pub/media/wysiwyg/megamenu/cat-2.jpg" alt="Category Image" /></a></div></div></div></div></div><div data-link="http://magento2.flytheme.net/themes/sm_shiny/default/home-appliancces.html?cat=115" class="sm_megamenu_col_6 sm_megamenu_firstcolumn    "><div class="sm_megamenu_head_item"><div class="sm_megamenu_title  "><a  class="sm_megamenu_nodrop " href="http://magento2.flytheme.net/themes/sm_shiny/default/computers/home-appliancess.html"  ><span class="sm_megamenu_title_lv-3">Home Appliancess</span></a><div class="sm_megamenu_title "><a class="sm_megamenu_nodrop" href="http://magento2.flytheme.net/themes/sm_shiny/default/computers/home-appliancess/washing-machine.html" ><span class="sm_megamenu_title_lv-3">Washing Machine</span></a></div><div class="sm_megamenu_title "><a class="sm_megamenu_nodrop" href="http://magento2.flytheme.net/themes/sm_shiny/default/computers/home-appliancess/rice-cooker.html" ><span class="sm_megamenu_title_lv-3">Rice Cooker</span></a></div><div class="sm_megamenu_title "><a class="sm_megamenu_nodrop" href="http://magento2.flytheme.net/themes/sm_shiny/default/computers/home-appliancess/bags.html" ><span class="sm_megamenu_title_lv-3">Bags</span></a></div><div class="sm_megamenu_title "><a class="sm_megamenu_nodrop" href="http://magento2.flytheme.net/themes/sm_shiny/default/computers/home-appliancess/equiqment.html" ><span class="sm_megamenu_title_lv-3">Equiqment</span></a></div><div class="sm_megamenu_title "><a class="sm_megamenu_nodrop" href="http://magento2.flytheme.net/themes/sm_shiny/default/computers/home-appliancess/headphone.html" ><span class="sm_megamenu_title_lv-3">Headphone</span></a></div><div class="sm_megamenu_title "><a class="sm_megamenu_nodrop" href="http://magento2.flytheme.net/themes/sm_shiny/default/computers/home-appliancess/office.html" ><span class="sm_megamenu_title_lv-3">Office</span></a></div></div></div></div></div></div></div></div>								</div>
+												</li>
+														<li class="other-toggle 							sm_megamenu_lv1 sm_megamenu_drop parent    ">
+						<a class="sm_megamenu_head sm_megamenu_drop " href="http://magento2.flytheme.net/themes/sm_shiny/default/marketplace/index/storeview/store/rosssi"  id="sm_megamenu_143">
+																<span class="sm_megamenu_icon sm_megamenu_nodesc">
+																								<span class="sm_megamenu_title">Marketplace</span>
+																			</span>
+						</a>
+																													<li class="other-toggle 							sm_megamenu_lv1 sm_megamenu_drop parent    ">
+						<a class="sm_megamenu_head sm_megamenu_drop " href="http://magento2.flytheme.net/themes/sm_shiny/default/blogs"  id="sm_megamenu_141">
+														<span class="icon_items"><img src='http://magento2.flytheme.net/themes/sm_shiny/pub/media/wysiwyg/megamenu/icon/new-icon.png' alt="icon items"></span>
+								<span class="sm_megamenu_icon sm_megamenu_nodesc">
+																								<span class="sm_megamenu_title">Blog</span>
+																			</span>
+						</a>
+																													<li class="other-toggle 							sm_megamenu_lv1 sm_megamenu_drop parent    ">
+						<a class="sm_megamenu_head sm_megamenu_drop " href="http://magento2.flytheme.net/themes/sm_shiny/default/about-us.html"  id="sm_megamenu_144">
+																<span class="sm_megamenu_icon sm_megamenu_nodesc">
+																								<span class="sm_megamenu_title">About Us</span>
+																			</span>
+						</a>
+																													<li class="other-toggle 							sm_megamenu_lv1 sm_megamenu_drop parent    ">
+						<a class="sm_megamenu_head sm_megamenu_drop " href="http://magento2.flytheme.net/themes/sm_shiny/default/contact-us.html"  id="sm_megamenu_145">
+																<span class="sm_megamenu_icon sm_megamenu_nodesc">
+																								<span class="sm_megamenu_title">Contact Us</span>
+																			</span>
+						</a>
+																						</ul>
+		</div>
+	</nav>
+
+<script type="text/javascript">
+	require(["jquery", "mage/template"], function($) {
+		var menu_width = $('.sm_megamenu_wrapper_horizontal_menu').width();
+		$('.sm_megamenu_wrapper_horizontal_menu .sm_megamenu_menu > li > div').each(function () {
+			$this = $(this);
+			var lv2w = $this.width();
+			var lv2ps = $this.position();
+			var lv2psl = $this.position().left;
+			var sw = lv2w + lv2psl;
+			if (sw > menu_width) {
+				$this.css({'right': '0'});
+			}
+		});
+		var _item_active = $('div.sm_megamenu_actived');
+		if(_item_active.length){
+			_item_active.each(function(){
+				var _self = $(this), _parent_active =  _self.parents('.sm_megamenu_title') ,_level1 = _self.parents('.sm_megamenu_lv1');
+				if(_parent_active.length  ){
+					_parent_active.each(function(){
+						if(!$(this).hasClass('sm_megamenu_actived'))
+							$(this).addClass('sm_megamenu_actived');
+					});
+				}
+
+				if(_level1.length && !_level1.hasClass('sm_megamenu_actived')){
+					_level1.addClass('sm_megamenu_actived');
+				}
+			});
+		}
+	});
+</script>
+
+<script type="text/javascript">
+	require([
+		'jquery',
+		'domReady!'
+	], function ($) {
+		$('.sm_megamenu_menu .home-item-parent > a').attr("href", "http://magento2.flytheme.net/themes/sm_shiny/default/");
+
+			});
+</script>
+</div>						</div>
+					</div>
+				</div>
+				
+				<div class="navigation-mobile-container">
+					
+
+<!--COLLAPSE-->
+
+<!--SIDEBAR-->
+	<div class="nav-mobile-container sidebar-type">
+		<div class="btn-mobile">
+			<a id="sidebar-button" class="button-mobile sidebar-nav" title="Categories"><i class="fa fa-bars"></i><span class="hidden">Categories</span></a>
+		</div>
+		<nav class="navigation-mobile">
+			<ul>
+				<li  class="level0 nav-1 first level-top"><a href="http://magento2.flytheme.net/themes/sm_shiny/default/smartphones-tablets.html"  class="level-top" ><span>SmartPhones &amp; Tablets</span></a></li><li  class="level0 nav-2 level-top parent"><a href="http://magento2.flytheme.net/themes/sm_shiny/default/computers.html"  class="level-top" ><span>Computers</span></a><ul class="level0 submenu"><li  class="level1 nav-2-1 first parent"><a href="http://magento2.flytheme.net/themes/sm_shiny/default/computers/mobiles-tablet.html" ><span>Mobiles &amp; Tablet</span></a><ul class="level1 submenu"><li  class="level2 nav-2-1-1 first"><a href="http://magento2.flytheme.net/themes/sm_shiny/default/computers/mobiles-tablet/apple.html" ><span>Apple</span></a></li><li  class="level2 nav-2-1-2"><a href="http://magento2.flytheme.net/themes/sm_shiny/default/computers/mobiles-tablet/samsung.html" ><span>Samsung</span></a></li><li  class="level2 nav-2-1-3"><a href="http://magento2.flytheme.net/themes/sm_shiny/default/computers/mobiles-tablet/lg.html" ><span>LG</span></a></li><li  class="level2 nav-2-1-4"><a href="http://magento2.flytheme.net/themes/sm_shiny/default/computers/mobiles-tablet/nokia.html" ><span>Nokia</span></a></li><li  class="level2 nav-2-1-5"><a href="http://magento2.flytheme.net/themes/sm_shiny/default/computers/mobiles-tablet/sony.html" ><span>Sony</span></a></li><li  class="level2 nav-2-1-6 last"><a href="http://magento2.flytheme.net/themes/sm_shiny/default/computers/mobiles-tablet/zenphone.html" ><span>Zenphone</span></a></li></ul></li><li  class="level1 nav-2-2 parent"><a href="http://magento2.flytheme.net/themes/sm_shiny/default/computers/computer.html" ><span>Computer</span></a><ul class="level1 submenu"><li  class="level2 nav-2-2-1 first"><a href="http://magento2.flytheme.net/themes/sm_shiny/default/computers/computer/all-in-one.html" ><span>All In One</span></a></li><li  class="level2 nav-2-2-2"><a href="http://magento2.flytheme.net/themes/sm_shiny/default/computers/computer/office.html" ><span>Office</span></a></li><li  class="level2 nav-2-2-3"><a href="http://magento2.flytheme.net/themes/sm_shiny/default/computers/computer/keyboard.html" ><span>Keyboard</span></a></li><li  class="level2 nav-2-2-4"><a href="http://magento2.flytheme.net/themes/sm_shiny/default/computers/computer/ram-chip.html" ><span>Ram &amp; Chip</span></a></li><li  class="level2 nav-2-2-5"><a href="http://magento2.flytheme.net/themes/sm_shiny/default/computers/computer/mouse.html" ><span>Mouse</span></a></li><li  class="level2 nav-2-2-6"><a href="http://magento2.flytheme.net/themes/sm_shiny/default/computers/computer/driver-card.html" ><span>Driver Card</span></a></li><li  class="level2 nav-2-2-7 last"><a href="http://magento2.flytheme.net/themes/sm_shiny/default/computers/computer/accessories.html" ><span>Accessories</span></a></li></ul></li><li  class="level1 nav-2-3 parent"><a href="http://magento2.flytheme.net/themes/sm_shiny/default/computers/laptop.html" ><span>Laptop</span></a><ul class="level1 submenu"><li  class="level2 nav-2-3-1 first"><a href="http://magento2.flytheme.net/themes/sm_shiny/default/computers/laptop/dell.html" ><span>Dell</span></a></li><li  class="level2 nav-2-3-2"><a href="http://magento2.flytheme.net/themes/sm_shiny/default/computers/laptop/samsung.html" ><span>Samsung</span></a></li><li  class="level2 nav-2-3-3"><a href="http://magento2.flytheme.net/themes/sm_shiny/default/computers/laptop/sony-vaio.html" ><span>Sony Vaio</span></a></li><li  class="level2 nav-2-3-4"><a href="http://magento2.flytheme.net/themes/sm_shiny/default/computers/laptop/one-click.html" ><span>One Click</span></a></li><li  class="level2 nav-2-3-5"><a href="http://magento2.flytheme.net/themes/sm_shiny/default/computers/laptop/acer.html" ><span>Acer</span></a></li><li  class="level2 nav-2-3-6"><a href="http://magento2.flytheme.net/themes/sm_shiny/default/computers/laptop/hp.html" ><span>HP</span></a></li><li  class="level2 nav-2-3-7 last"><a href="http://magento2.flytheme.net/themes/sm_shiny/default/computers/laptop/accessories.html" ><span>Accessories</span></a></li></ul></li><li  class="level1 nav-2-4 parent"><a href="http://magento2.flytheme.net/themes/sm_shiny/default/computers/tv-audio.html" ><span>TV &amp; Audio</span></a><ul class="level1 submenu"><li  class="level2 nav-2-4-1 first"><a href="http://magento2.flytheme.net/themes/sm_shiny/default/computers/tv-audio/apple.html" ><span>Apple</span></a></li><li  class="level2 nav-2-4-2"><a href="http://magento2.flytheme.net/themes/sm_shiny/default/computers/tv-audio/samsung.html" ><span>Samsung</span></a></li><li  class="level2 nav-2-4-3"><a href="http://magento2.flytheme.net/themes/sm_shiny/default/computers/tv-audio/lg.html" ><span>LG</span></a></li><li  class="level2 nav-2-4-4"><a href="http://magento2.flytheme.net/themes/sm_shiny/default/computers/tv-audio/nokia.html" ><span>Nokia</span></a></li><li  class="level2 nav-2-4-5"><a href="http://magento2.flytheme.net/themes/sm_shiny/default/computers/tv-audio/sony.html" ><span>Sony</span></a></li><li  class="level2 nav-2-4-6 last"><a href="http://magento2.flytheme.net/themes/sm_shiny/default/computers/tv-audio/zenphone.html" ><span>Zenphone</span></a></li></ul></li><li  class="level1 nav-2-5 parent"><a href="http://magento2.flytheme.net/themes/sm_shiny/default/computers/heaphone.html" ><span>Heaphone</span></a><ul class="level1 submenu"><li  class="level2 nav-2-5-1 first"><a href="http://magento2.flytheme.net/themes/sm_shiny/default/computers/heaphone/beat-solo.html" ><span>Beat Solo</span></a></li><li  class="level2 nav-2-5-2"><a href="http://magento2.flytheme.net/themes/sm_shiny/default/computers/heaphone/sony.html" ><span>Sony</span></a></li><li  class="level2 nav-2-5-3"><a href="http://magento2.flytheme.net/themes/sm_shiny/default/computers/heaphone/samsung.html" ><span>Samsung</span></a></li><li  class="level2 nav-2-5-4"><a href="http://magento2.flytheme.net/themes/sm_shiny/default/computers/heaphone/ferrari.html" ><span>Ferrari</span></a></li><li  class="level2 nav-2-5-5"><a href="http://magento2.flytheme.net/themes/sm_shiny/default/computers/heaphone/lamborghini.html" ><span>Lamborghini</span></a></li><li  class="level2 nav-2-5-6"><a href="http://magento2.flytheme.net/themes/sm_shiny/default/computers/heaphone/toyota.html" ><span>Toyota</span></a></li><li  class="level2 nav-2-5-7 last"><a href="http://magento2.flytheme.net/themes/sm_shiny/default/computers/heaphone/north-face.html" ><span>North Face</span></a></li></ul></li><li  class="level1 nav-2-6 last parent"><a href="http://magento2.flytheme.net/themes/sm_shiny/default/computers/home-appliancess.html" ><span>Home Appliancess</span></a><ul class="level1 submenu"><li  class="level2 nav-2-6-1 first"><a href="http://magento2.flytheme.net/themes/sm_shiny/default/computers/home-appliancess/washing-machine.html" ><span>Washing Machine</span></a></li><li  class="level2 nav-2-6-2"><a href="http://magento2.flytheme.net/themes/sm_shiny/default/computers/home-appliancess/rice-cooker.html" ><span>Rice Cooker</span></a></li><li  class="level2 nav-2-6-3"><a href="http://magento2.flytheme.net/themes/sm_shiny/default/computers/home-appliancess/bags.html" ><span>Bags</span></a></li><li  class="level2 nav-2-6-4"><a href="http://magento2.flytheme.net/themes/sm_shiny/default/computers/home-appliancess/equiqment.html" ><span>Equiqment</span></a></li><li  class="level2 nav-2-6-5"><a href="http://magento2.flytheme.net/themes/sm_shiny/default/computers/home-appliancess/headphone.html" ><span>Headphone</span></a></li><li  class="level2 nav-2-6-6 last"><a href="http://magento2.flytheme.net/themes/sm_shiny/default/computers/home-appliancess/office.html" ><span>Office</span></a></li></ul></li></ul></li><li  class="level0 nav-3 level-top parent"><a href="http://magento2.flytheme.net/themes/sm_shiny/default/laptops.html"  class="level-top" ><span>Laptops</span></a><ul class="level0 submenu"><li  class="level1 nav-3-1 first parent"><a href="http://magento2.flytheme.net/themes/sm_shiny/default/laptops/mobiles-tablet.html" ><span>Mobiles &amp; Tablet</span></a><ul class="level1 submenu"><li  class="level2 nav-3-1-1 first"><a href="http://magento2.flytheme.net/themes/sm_shiny/default/laptops/mobiles-tablet/apple.html" ><span>Apple</span></a></li><li  class="level2 nav-3-1-2"><a href="http://magento2.flytheme.net/themes/sm_shiny/default/laptops/mobiles-tablet/samsung.html" ><span>Samsung</span></a></li><li  class="level2 nav-3-1-3"><a href="http://magento2.flytheme.net/themes/sm_shiny/default/laptops/mobiles-tablet/lg.html" ><span>LG</span></a></li><li  class="level2 nav-3-1-4"><a href="http://magento2.flytheme.net/themes/sm_shiny/default/laptops/mobiles-tablet/nokia.html" ><span>Nokia</span></a></li><li  class="level2 nav-3-1-5"><a href="http://magento2.flytheme.net/themes/sm_shiny/default/laptops/mobiles-tablet/sony.html" ><span>Sony</span></a></li><li  class="level2 nav-3-1-6 last"><a href="http://magento2.flytheme.net/themes/sm_shiny/default/laptops/mobiles-tablet/zenphone.html" ><span>Zenphone</span></a></li></ul></li><li  class="level1 nav-3-2 parent"><a href="http://magento2.flytheme.net/themes/sm_shiny/default/laptops/computer.html" ><span>Computer</span></a><ul class="level1 submenu"><li  class="level2 nav-3-2-1 first"><a href="http://magento2.flytheme.net/themes/sm_shiny/default/laptops/computer/all-in-one.html" ><span>All In One</span></a></li><li  class="level2 nav-3-2-2"><a href="http://magento2.flytheme.net/themes/sm_shiny/default/laptops/computer/office.html" ><span>Office</span></a></li><li  class="level2 nav-3-2-3"><a href="http://magento2.flytheme.net/themes/sm_shiny/default/laptops/computer/keyboard.html" ><span>Keyboard</span></a></li><li  class="level2 nav-3-2-4"><a href="http://magento2.flytheme.net/themes/sm_shiny/default/laptops/computer/ram-chip.html" ><span>Ram &amp; Chip</span></a></li><li  class="level2 nav-3-2-5"><a href="http://magento2.flytheme.net/themes/sm_shiny/default/laptops/computer/mouse.html" ><span>Mouse</span></a></li><li  class="level2 nav-3-2-6"><a href="http://magento2.flytheme.net/themes/sm_shiny/default/laptops/computer/driver-card.html" ><span>Driver Card</span></a></li><li  class="level2 nav-3-2-7 last"><a href="http://magento2.flytheme.net/themes/sm_shiny/default/laptops/computer/accessories.html" ><span>Accessories</span></a></li></ul></li><li  class="level1 nav-3-3 last parent"><a href="http://magento2.flytheme.net/themes/sm_shiny/default/laptops/tv-audio.html" ><span>TV &amp; Audio</span></a><ul class="level1 submenu"><li  class="level2 nav-3-3-1 first"><a href="http://magento2.flytheme.net/themes/sm_shiny/default/laptops/tv-audio/apple.html" ><span>Apple</span></a></li><li  class="level2 nav-3-3-2"><a href="http://magento2.flytheme.net/themes/sm_shiny/default/laptops/tv-audio/samsung.html" ><span>Samsung</span></a></li><li  class="level2 nav-3-3-3"><a href="http://magento2.flytheme.net/themes/sm_shiny/default/laptops/tv-audio/lg.html" ><span>LG</span></a></li><li  class="level2 nav-3-3-4"><a href="http://magento2.flytheme.net/themes/sm_shiny/default/laptops/tv-audio/nokia.html" ><span>Nokia</span></a></li><li  class="level2 nav-3-3-5"><a href="http://magento2.flytheme.net/themes/sm_shiny/default/laptops/tv-audio/sony.html" ><span>Sony</span></a></li><li  class="level2 nav-3-3-6 last"><a href="http://magento2.flytheme.net/themes/sm_shiny/default/laptops/tv-audio/zenphone.html" ><span>Zenphone</span></a></li></ul></li></ul></li><li  class="level0 nav-4 level-top"><a href="http://magento2.flytheme.net/themes/sm_shiny/default/electronics.html"  class="level-top" ><span>Electronics</span></a></li><li  class="level0 nav-5 level-top parent"><a href="http://magento2.flytheme.net/themes/sm_shiny/default/tv-audio.html"  class="level-top" ><span>TV &amp; Audio</span></a><ul class="level0 submenu"><li  class="level1 nav-5-1 first parent"><a href="http://magento2.flytheme.net/themes/sm_shiny/default/tv-audio/heaphone.html" ><span>Headphone</span></a><ul class="level1 submenu"><li  class="level2 nav-5-1-1 first"><a href="http://magento2.flytheme.net/themes/sm_shiny/default/tv-audio/heaphone/beat-solo.html" ><span>Beat Solo</span></a></li><li  class="level2 nav-5-1-2"><a href="http://magento2.flytheme.net/themes/sm_shiny/default/tv-audio/heaphone/sony.html" ><span>Sony</span></a></li><li  class="level2 nav-5-1-3"><a href="http://magento2.flytheme.net/themes/sm_shiny/default/tv-audio/heaphone/samsung.html" ><span>Samsung</span></a></li><li  class="level2 nav-5-1-4"><a href="http://magento2.flytheme.net/themes/sm_shiny/default/tv-audio/heaphone/ferrari.html" ><span>Ferrari</span></a></li><li  class="level2 nav-5-1-5"><a href="http://magento2.flytheme.net/themes/sm_shiny/default/tv-audio/heaphone/lamborghini.html" ><span>Lamborghini</span></a></li><li  class="level2 nav-5-1-6"><a href="http://magento2.flytheme.net/themes/sm_shiny/default/tv-audio/heaphone/toyota.html" ><span>Toyota</span></a></li><li  class="level2 nav-5-1-7 last"><a href="http://magento2.flytheme.net/themes/sm_shiny/default/tv-audio/heaphone/north-face.html" ><span>North Face</span></a></li></ul></li><li  class="level1 nav-5-2 last parent"><a href="http://magento2.flytheme.net/themes/sm_shiny/default/tv-audio/home-appliancess.html" ><span>Home Appliancess</span></a><ul class="level1 submenu"><li  class="level2 nav-5-2-1 first"><a href="http://magento2.flytheme.net/themes/sm_shiny/default/tv-audio/home-appliancess/washing-machine.html" ><span>Washing Machine</span></a></li><li  class="level2 nav-5-2-2"><a href="http://magento2.flytheme.net/themes/sm_shiny/default/tv-audio/home-appliancess/rice-cooker.html" ><span>Rice Cooker</span></a></li><li  class="level2 nav-5-2-3"><a href="http://magento2.flytheme.net/themes/sm_shiny/default/tv-audio/home-appliancess/bags.html" ><span>Bags</span></a></li><li  class="level2 nav-5-2-4"><a href="http://magento2.flytheme.net/themes/sm_shiny/default/tv-audio/home-appliancess/equiqment.html" ><span>Equiqment</span></a></li><li  class="level2 nav-5-2-5"><a href="http://magento2.flytheme.net/themes/sm_shiny/default/tv-audio/home-appliancess/headphone.html" ><span>Headphone</span></a></li><li  class="level2 nav-5-2-6 last"><a href="http://magento2.flytheme.net/themes/sm_shiny/default/tv-audio/home-appliancess/office.html" ><span>Office</span></a></li></ul></li></ul></li><li  class="level0 nav-6 level-top"><a href="http://magento2.flytheme.net/themes/sm_shiny/default/cameras-accessories.html"  class="level-top" ><span>Cameras &amp; Accessories</span></a></li><li  class="level0 nav-7 level-top"><a href="http://magento2.flytheme.net/themes/sm_shiny/default/headphones.html"  class="level-top" ><span>Headphones</span></a></li><li  class="level0 nav-8 active level-top parent"><a href="http://magento2.flytheme.net/themes/sm_shiny/default/home-appliancces.html"  class="level-top" ><span>Home Appliancces</span></a><ul class="level0 submenu"><li  class="level1 nav-8-1 first"><a href="http://magento2.flytheme.net/themes/sm_shiny/default/home-appliancces/bar-table.html" ><span>Bar Table</span></a></li><li  class="level1 nav-8-2"><a href="http://magento2.flytheme.net/themes/sm_shiny/default/home-appliancces/nightstand.html" ><span>Nightstand</span></a></li><li  class="level1 nav-8-3"><a href="http://magento2.flytheme.net/themes/sm_shiny/default/home-appliancces/chair.html" ><span>Chair</span></a></li><li  class="level1 nav-8-4"><a href="http://magento2.flytheme.net/themes/sm_shiny/default/home-appliancces/bunk-bed.html" ><span>Bunk Bed</span></a></li><li  class="level1 nav-8-5"><a href="http://magento2.flytheme.net/themes/sm_shiny/default/home-appliancces/bookcase.html" ><span>Bookcase</span></a></li><li  class="level1 nav-8-6 last"><a href="http://magento2.flytheme.net/themes/sm_shiny/default/home-appliancces/ottoman.html" ><span>Ottoman</span></a></li></ul></li><li  class="level0 nav-9 level-top"><a href="http://magento2.flytheme.net/themes/sm_shiny/default/video-games-consoles.html"  class="level-top" ><span>Video Games &amp; Consoles</span></a></li><li  class="level0 nav-10 level-top"><a href="http://magento2.flytheme.net/themes/sm_shiny/default/books-audible.html"  class="level-top" ><span>Books &amp; Audible</span></a></li><li  class="level0 nav-11 level-top parent"><a href="http://magento2.flytheme.net/themes/sm_shiny/default/fashion-jewelry.html"  class="level-top" ><span>Fashion &amp; Jewelry</span></a><ul class="level0 submenu"><li  class="level1 nav-11-1 first"><a href="http://magento2.flytheme.net/themes/sm_shiny/default/fashion-jewelry/clothing.html" ><span>Clothing‎</span></a></li><li  class="level1 nav-11-2"><a href="http://magento2.flytheme.net/themes/sm_shiny/default/fashion-jewelry/costumes.html" ><span>Costumes‎</span></a></li><li  class="level1 nav-11-3"><a href="http://magento2.flytheme.net/themes/sm_shiny/default/fashion-jewelry/court-dress.html" ><span>Court Dress</span></a></li><li  class="level1 nav-11-4"><a href="http://magento2.flytheme.net/themes/sm_shiny/default/fashion-jewelry/facial-care.html" ><span>Facial Care</span></a></li><li  class="level1 nav-11-5"><a href="http://magento2.flytheme.net/themes/sm_shiny/default/fashion-jewelry/neckwear.html" ><span>Neckwear</span></a></li><li  class="level1 nav-11-6"><a href="http://magento2.flytheme.net/themes/sm_shiny/default/fashion-jewelry/handbag.html" ><span>Handbag</span></a></li><li  class="level1 nav-11-7"><a href="http://magento2.flytheme.net/themes/sm_shiny/default/fashion-jewelry/jacket-coats.html" ><span>Jacket &amp; Coats</span></a></li><li  class="level1 nav-11-8"><a href="http://magento2.flytheme.net/themes/sm_shiny/default/fashion-jewelry/trousers.html" ><span>Trousers</span></a></li><li  class="level1 nav-11-9"><a href="http://magento2.flytheme.net/themes/sm_shiny/default/fashion-jewelry/shoes.html" ><span>Shoes</span></a></li><li  class="level1 nav-11-10"><a href="http://magento2.flytheme.net/themes/sm_shiny/default/fashion-jewelry/dresses.html" ><span>Dresses</span></a></li><li  class="level1 nav-11-11"><a href="http://magento2.flytheme.net/themes/sm_shiny/default/fashion-jewelry/sunglasses.html" ><span>Sunglasses</span></a></li><li  class="level1 nav-11-12"><a href="http://magento2.flytheme.net/themes/sm_shiny/default/fashion-jewelry/acessories.html" ><span>Acessories</span></a></li><li  class="level1 nav-11-13 last parent"><a href="http://magento2.flytheme.net/themes/sm_shiny/default/fashion-jewelry/glasses.html" ><span>Glasses</span></a><ul class="level1 submenu"><li  class="level2 nav-11-13-1 first"><a href="http://magento2.flytheme.net/themes/sm_shiny/default/fashion-jewelry/glasses/men.html" ><span>Men</span></a></li><li  class="level2 nav-11-13-2 last"><a href="http://magento2.flytheme.net/themes/sm_shiny/default/fashion-jewelry/glasses/women.html" ><span>Women</span></a></li></ul></li></ul></li><li  class="level0 nav-12 level-top"><a href="http://magento2.flytheme.net/themes/sm_shiny/default/appstore-for-android.html"  class="level-top" ><span>Appstore for Android</span></a></li><li  class="level0 nav-13 level-top"><a href="http://magento2.flytheme.net/themes/sm_shiny/default/food-organic.html"  class="level-top" ><span>Food &amp; Organic</span></a></li><li  class="level0 nav-14 level-top"><a href="http://magento2.flytheme.net/themes/sm_shiny/default/product-types.html"  class="level-top" ><span>Product Types</span></a></li><li  class="level0 nav-15 level-top"><a href="http://magento2.flytheme.net/themes/sm_shiny/default/about-us.html"  class="level-top" ><span>About Us</span></a></li><li  class="level0 nav-16 level-top"><a href="http://magento2.flytheme.net/themes/sm_shiny/default/contact-us.html"  class="level-top" ><span>Contact Us</span></a></li><li  class="level0 nav-17 level-top"><a href="http://magento2.flytheme.net/themes/sm_shiny/default/blog/"  class="level-top" ><span>Blog</span></a></li>			</ul>
+		</nav>
+		
+		<script type="text/javascript">
+			require([
+				'jquery'
+			], function ($) {
+				$('#sidebar-button').click(function(){
+					$('body').toggleClass('navbar-active');
+					$(this).toggleClass('active');
+				});
+				
+				$('.navigation-mobile > ul li').has('ul').append( '<span class="touch-button"><span>open</span></span>' );
+
+				$('.touch-button').click(function(){
+					$(this).prev().slideToggle(200);
+					$(this).toggleClass('active');
+					$(this).parent().toggleClass('parent-active');
+				});
+
+			});
+		</script>
+		
+	</div>
+				</div>
+			</div>
+        </div>
+    </div>
+
+</div>
+
+
+<div class="display-popup" style="display:none;">
+	<div id="newsletter-popup">
+		<div class="promotional-popup">
+			<div class="pop-subscribe">
+				<form class="form subscribe"
+					novalidate
+					action="http://magento2.flytheme.net/themes/sm_shiny/default/newsletter/subscriber/new/"
+					method="post"
+					data-mage-init='{"validation": {"errorClass": "mage-error"}}'
+					id="newsletter-popup-validate-detail">
+					<div class="w-newsletter">
+						<div class="image-newsletter">
+							<img src="http://magento2.flytheme.net/themes/sm_shiny/pub/media/wysiwyg/newsletter/img-newsletter-popup.jpg" alt="" />						</div>
+						
+						<div class="newsletter-info">
+							<div class="short-description">
+								<div class="top-title-newsletter">Daily Promotion</div>
+								<div class="bottom-title-newsletter">SIGN UP FOR NEWSLETTER</div>
+							</div>
+							
+							<div class="form-newsletter-popup">
+								<div class="input-box">
+									<input name="email" type="email" id="newsletter-popup" class="input-text" onfocus="if(this.value=='Your email address') this.value='';" onblur="if(this.value=='') this.value='Your email address';" value="Your email address" data-validate="{required:true, 'validate-email':true}"/>
+								</div>
+								
+								<div class="action-newsletter">
+									<button class="action subscribe primary" title="Subscribe" type="submit">
+										<span>Subscribe</span>
+									</button>
+								</div>
+							</div>
+
+							<div class="subscribe-bottom"><div id="uniform-dont-show-again" class="checker"><span><input id="dont-show-again" type="checkbox"></span></div><label for="dont-show-again">Don't show this popup again</label></div>
+						
+							<div class="socials-popup">
+															</div>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>      
+	</div>
+</div>
+
+<script type="text/javascript">
+	require([
+		'jquery',
+		'mage/cookies',
+		'jqueryfancyboxpack'
+	], function ($) {
+		var check_cookie = jQuery.cookie('newsletter_popup');
+		if(check_cookie == null || check_cookie == 'shown') {
+			 popupNewsletter();
+		 }
+		jQuery('#newsletter-popup .subscribe-bottom input').on('click', function(){
+			if(jQuery(this).parent().find('input:checked').length){
+				var check_cookie = jQuery.cookie('newsletter_popup');
+			   if(check_cookie == null || check_cookie == 'shown') {
+					jQuery.cookie('newsletter_popup','dontshowitagain');
+				}
+				else
+				{
+					jQuery.cookie('newsletter_popup','shown');
+					popupNewsletter();
+				}
+			} else {
+				jQuery.cookie('newsletter_popup','shown');
+			}
+		}); 
+	});
+
+	function popupNewsletter() {
+		jQuery(document).ready(function($) {
+			$.fancybox.open('#newsletter-popup');
+		});		
+	};
+</script>
+<div class="container"><div class="top-content-theme"><div class="page-title-wrapper">
+    <h2 class="page-title"
+         id="page-title-heading"                     aria-labelledby="page-title-heading toolbar-amount"
+        >
+        <span class="base" data-ui-id="page-title-wrapper" >Home Appliancces</span>    </h2>
+    </div>
+<div class="breadcrumbs">
+	<div class="container">
+		<ul class="items">
+							<li class="item home">
+									<a href="http://magento2.flytheme.net/themes/sm_shiny/default/" title="Go to Home Page">
+						Home					</a>
+								</li>
+							<li class="item category10">
+									<strong>Home Appliancces</strong>
+								</li>
+					</ul>
+	</div>
+</div>
+</div></div><main id="maincontent" class="page-main"><a id="contentarea" tabindex="-1"></a>
+<div class="columns col2-layout"><div class="container"><div class="row"><div class="col-lg-9 col-md-9 col-right-main"><div class="page messages"><div data-placeholder="messages"></div>
+<div data-bind="scope: 'messages'">
+    <!-- ko if: cookieMessages && cookieMessages.length > 0 -->
+    <div role="alert" data-bind="foreach: { data: cookieMessages, as: 'message' }" class="messages">
+        <div data-bind="attr: {
+            class: 'message-' + message.type + ' ' + message.type + ' message',
+            'data-ui-id': 'message-' + message.type
+        }">
+            <div data-bind="html: message.text"></div>
+        </div>
+    </div>
+    <!-- /ko -->
+    <!-- ko if: messages().messages && messages().messages.length > 0 -->
+    <div role="alert" data-bind="foreach: { data: messages().messages, as: 'message' }" class="messages">
+        <div data-bind="attr: {
+            class: 'message-' + message.type + ' ' + message.type + ' message',
+            'data-ui-id': 'message-' + message.type
+        }">
+            <div data-bind="html: message.text"></div>
+        </div>
+    </div>
+    <!-- /ko -->
+</div>
+<script type="text/x-magento-init">
+    {
+        "*": {
+            "Magento_Ui/js/core/app": {
+                "components": {
+                        "messages": {
+                            "component": "Magento_Theme/js/view/messages"
+                        }
+                    }
+                }
+            }
+    }
+</script>
+</div><div class="column main"><input name="form_key" type="hidden" value="pF8ySpyOoicktLZh" /><div id="authenticationPopup" data-bind="scope:'authenticationPopup'" style="display: none;">
+    <script>
+        window.authenticationPopup = {"autocomplete":"off","customerRegisterUrl":"http:\/\/magento2.flytheme.net\/themes\/sm_shiny\/default\/customer\/account\/create\/","customerForgotPasswordUrl":"http:\/\/magento2.flytheme.net\/themes\/sm_shiny\/default\/customer\/account\/forgotpassword\/","baseUrl":"http:\/\/magento2.flytheme.net\/themes\/sm_shiny\/default\/"};
+    </script>
+    <!-- ko template: getTemplate() --><!-- /ko -->
+    <script type="text/x-magento-init">
+        {
+            "#authenticationPopup": {
+                "Magento_Ui/js/core/app": {"components":{"authenticationPopup":{"component":"Magento_Customer\/js\/view\/authentication-popup","children":{"messages":{"component":"Magento_Ui\/js\/view\/messages","displayArea":"messages"},"captcha":{"component":"Magento_Captcha\/js\/view\/checkout\/loginCaptcha","displayArea":"additional-login-form-fields","formId":"user_login","configSource":"checkout"},"social-buttons":{"component":"Sm_SocialLogin\/js\/view\/social-buttons","displayArea":"before"}}}}}            },
+            "*": {
+                "Magento_Ui/js/block-loader": "http\u003A\u002F\u002Fmagento2.flytheme.net\u002Fthemes\u002Fsm_shiny\u002Fpub\u002Fstatic\u002Fversion1522225191\u002Ffrontend\u002FSm\u002Fshiny\u002Fen_US\u002Fimages\u002Floader\u002D1.gif"
+            }
+        }
+    </script>
+</div>
+<script type="text/x-magento-init">
+{"*":{"Magento_Customer\/js\/section-config":{"sections":{"stores\/store\/switch":"*","directory\/currency\/switch":"*","*":["messages"],"customer\/account\/logout":["recently_viewed_product","recently_compared_product"],"customer\/account\/loginpost":"*","customer\/account\/createpost":"*","customer\/account\/editpost":"*","customer\/ajax\/login":["checkout-data","cart"],"catalog\/product_compare\/add":["compare-products"],"catalog\/product_compare\/remove":["compare-products"],"catalog\/product_compare\/clear":["compare-products"],"sales\/guest\/reorder":["cart"],"sales\/order\/reorder":["cart"],"checkout\/cart\/add":["cart"],"checkout\/cart\/delete":["cart"],"checkout\/cart\/updatepost":["cart"],"checkout\/cart\/updateitemoptions":["cart"],"checkout\/cart\/couponpost":["cart"],"checkout\/cart\/estimatepost":["cart"],"checkout\/cart\/estimateupdatepost":["cart"],"checkout\/onepage\/saveorder":["cart","checkout-data","last-ordered-items","checkout-fields"],"checkout\/sidebar\/removeitem":["cart"],"checkout\/sidebar\/updateitemqty":["cart"],"rest\/*\/v1\/carts\/*\/payment-information":["cart","checkout-data","last-ordered-items","instant-purchase"],"rest\/*\/v1\/guest-carts\/*\/payment-information":["cart","checkout-data"],"rest\/*\/v1\/guest-carts\/*\/selected-payment-method":["cart","checkout-data"],"rest\/*\/v1\/carts\/*\/selected-payment-method":["cart","checkout-data","instant-purchase"],"customer\/address\/*":["instant-purchase"],"customer\/account\/*":["instant-purchase"],"vault\/cards\/deleteaction":["instant-purchase"],"multishipping\/checkout\/overviewpost":["cart"],"paypal\/express\/placeorder":["cart","checkout-data"],"paypal\/payflowexpress\/placeorder":["cart","checkout-data"],"review\/product\/post":["review"],"authorizenet\/directpost_payment\/place":["cart","checkout-data"],"braintree\/paypal\/placeorder":["cart","checkout-data"],"wishlist\/index\/add":["wishlist"],"wishlist\/index\/remove":["wishlist"],"wishlist\/index\/updateitemoptions":["wishlist"],"wishlist\/index\/update":["wishlist"],"wishlist\/index\/cart":["wishlist","cart"],"wishlist\/index\/fromcart":["wishlist","cart"],"wishlist\/index\/allcart":["wishlist","cart"],"wishlist\/shared\/allcart":["wishlist","cart"],"wishlist\/shared\/cart":["cart"],"cartquickpro\/cart\/add":["cart"],"cartquickpro\/cart\/delete":["cart"],"cartquickpro\/sidebar\/removeitem":["cart"],"cartquickpro\/sidebar\/updateitemqty":["cart"],"cartquickpro\/cart\/updateitemoptions":["cart"],"cartquickpro\/product_compare\/add":["compare-products"],"cartquickpro\/product_compare\/remove":["compare-products"],"cartquickpro\/product_compare\/clear":["compare-products"],"cartquickpro\/wishlist_index\/add":["wishlist"],"cartquickpro\/wishlist_index\/remove":["wishlist"],"cartquickpro\/wishlist_index\/updateitemoptions":["wishlist"],"cartquickpro\/wishlist_index\/update":["wishlist"],"cartquickpro\/wishlist_index\/cart":["wishlist","cart"],"cartquickpro\/wishlist_index\/fromcart":["cart","checkout-data","wishlist"],"cartquickpro\/wishlist_index\/allcart":["wishlist","cart"],"sociallogin\/popup\/create":["checkout-data","cart"]},"clientSideSections":["checkout-data","cart-data"],"baseUrls":["http:\/\/magento2.flytheme.net\/themes\/sm_shiny\/default\/"]}}}</script>
+<script type="text/x-magento-init">
+{"*":{"Magento_Customer\/js\/customer-data":{"sectionLoadUrl":"http:\/\/magento2.flytheme.net\/themes\/sm_shiny\/default\/customer\/section\/load\/","expirableSectionLifetime":60,"expirableSectionNames":["cart"],"cookieLifeTime":"3600","updateSessionUrl":"http:\/\/magento2.flytheme.net\/themes\/sm_shiny\/default\/customer\/account\/updateSession\/"}}}</script>
+<script type="text/x-magento-init">
+{"*":{"Magento_Customer\/js\/invalidation-processor":{"invalidationRules":{"website-rule":{"Magento_Customer\/js\/invalidation-rules\/website-rule":{"scopeConfig":{"websiteId":1}}}}}}}</script>
+<script type="text/x-magento-init">
+    {
+        "body": {
+            "pageCache": {"url":"http:\/\/magento2.flytheme.net\/themes\/sm_shiny\/default\/page_cache\/block\/render\/id\/10\/?cat=115","handles":["default","catalog_category_view","catalog_category_view_type_layered","catalog_category_view_id_10"],"originalRequest":{"route":"catalog","controller":"category","action":"view","uri":"\/themes\/sm_shiny\/default\/home-appliancces.html?cat=115"},"versionCookieName":"private_content_version"}        }
+    }
+</script>
+    	<div class="toolbar-top">
+        <div class="toolbar toolbar-products" data-mage-init='{"productListToolbarForm":{"mode":"product_list_mode","direction":"product_list_dir","order":"product_list_order","limit":"product_list_limit","modeDefault":"grid","directionDefault":"asc","orderDefault":"position","limitDefault":"9","url":"http:\/\/magento2.flytheme.net\/themes\/sm_shiny\/default\/home-appliancces.html?cat=115"}}'>
+                    <div class="modes">
+            <strong class="modes-label" id="modes-label">View as</strong>
+                        <strong title="Grid"
+                class="modes-mode active mode-grid"
+                data-value="grid">
+                <span>Grid</span>
+            </strong>
+                                    <a class="modes-mode mode-list"
+               title="List"
+               href="#"
+               data-role="mode-switcher"
+               data-value="list"
+               id="mode-list"
+               aria-labelledby="modes-label mode-list">
+                <span>List</span>
+            </a>
+                        </div>
+        
+        <p class="toolbar-amount" id="toolbar-amount">
+            <span class="toolbar-number">4</span> Items    </p>
+		
+		            <div class="toolbar-sorter sorter">
+    <label class="sorter-label" for="sorter">Sort By</label>
+    <select id="sorter" data-role="sorter" class="sorter-options">
+                    <option value="position"
+                                    selected="selected"
+                                >
+                Position            </option>
+                    <option value="name"
+                                >
+                Name            </option>
+                    <option value="price"
+                                >
+                Price            </option>
+                    <option value="manufacturer"
+                                >
+                Manufacturer            </option>
+            </select>
+            <a title="Set Descending Direction" href="#" class="action sorter-action sort-asc" data-role="direction-switcher" data-value="desc">
+            <span>Set Descending Direction</span>
+        </a>
+    </div>
+        		
+		<div class="field limiter">
+    <label class="label" for="limiter">
+        <span>Show</span>
+    </label>
+    <div class="control">
+        <select id="limiter" data-role="limiter" class="limiter-options">
+                            <option value="9"                    selected="selected">
+                    9                </option>
+                            <option value="15">
+                    15                </option>
+                            <option value="30">
+                    30                </option>
+                    </select>
+    </div>
+    <span class="limiter-text">per page</span>
+</div>
+
+        
+    
+        
+        
+    
+    
+ 
+    </div>
+	</div>
+    <script type="text/x-magento-init">
+    {
+        "body": {
+            "addToWishlist": {"productType":["simple"]}        }
+    }
+</script>
+        <div class="category-product products wrapper grid products-grid">
+        		
+				
+        <ol class="products list items product-items row">
+                                        <li class="item product product-item">
+					<div class="product-item-info" data-container="product-grid">
+						<div class="item-inner">
+							<div class="box-image">
+								
+								<!--LABEL PRODUCT-->
+																
+																<!--END LABEL PRODUCT-->
+
+								<a href="http://magento2.flytheme.net/themes/sm_shiny/default/microsuede-slipcover-furniture.html" class="product photo product-item-photo" tabindex="-1">
+									
+<span class="product-image-container">
+    <span class="product-image-wrapper">
+        <img class="product-image-photo"
+                          src="http://magento2.flytheme.net/themes/sm_shiny/pub/media/catalog/product/cache/d73a5018306142840707bd616a4ef293/8/_/8_9.jpg"
+             width="300"
+             height="300"
+             alt="Microsuede Slipcover Furniture"/>
+	</span>
+</span>
+								</a>
+
+																<div class="button-action">
+																														<a href="#" class="action towishlist btn-action link-wishlist" title="Add to Wish List"  aria-label="Add to Wish List" data-post='{"action":"http:\/\/magento2.flytheme.net\/themes\/sm_shiny\/default\/wishlist\/index\/add\/","data":{"product":"52","uenc":"aHR0cDovL21hZ2VudG8yLmZseXRoZW1lLm5ldC90aGVtZXMvc21fc2hpbnkvZGVmYXVsdC9ob21lLWFwcGxpYW5jY2VzLmh0bWw_Y2F0PTExNQ,,"}}' data-action="add-to-wishlist"  role="button">
+												<span>Add to Wish List</span>
+											</a>
+																												
+																													<a href="#"  class="action tocompare btn-action link-compare"  title="Add to Compare" aria-label="Add to Compare"  data-post='{"action":"http:\/\/magento2.flytheme.net\/themes\/sm_shiny\/default\/catalog\/product_compare\/add\/","data":{"product":"52","uenc":"aHR0cDovL21hZ2VudG8yLmZseXRoZW1lLm5ldC90aGVtZXMvc21fc2hpbnkvZGVmYXVsdC9ob21lLWFwcGxpYW5jY2VzLmh0bWw_Y2F0PTExNQ,,"}}' role="button">
+											<span>Add to Compare</span>
+										</a>
+																	</div>
+																
+																
+															</div>
+							
+							<div class="product details product-item-details box-info">
+								<div class="product-reviews-summary short empty">
+    <div class="reviews-actions">
+        <a class="action add" href="http://magento2.flytheme.net/themes/sm_shiny/default/microsuede-slipcover-furniture.html#review-form">
+            Be the first to review this product        </a>
+    </div>
+</div>
+								
+																<h2 class="product name product-item-name product-name">
+									<a class="product-item-link" href="http://magento2.flytheme.net/themes/sm_shiny/default/microsuede-slipcover-furniture.html">
+										Microsuede Slipcover Furniture									</a>
+								</h2>
+
+								<div class="price-box price-final_price" data-role="priceBox" data-product-id="52">
+    
+
+<span class="price-container price-final_price tax weee"
+        >
+        <span  id="product-price-52"                data-price-amount="345"
+        data-price-type="finalPrice"
+        class="price-wrapper ">
+        <span class="price">$345.00</span>    </span>
+        </span>
+
+</div>																
+																<div class="bottom-action">
+																																									<form data-role="tocart-form" action="http://magento2.flytheme.net/themes/sm_shiny/default/checkout/cart/add/uenc/aHR0cDovL21hZ2VudG8yLmZseXRoZW1lLm5ldC90aGVtZXMvc21fc2hpbnkvZGVmYXVsdC9ob21lLWFwcGxpYW5jY2VzLmh0bWw_Y2F0PTExNQ%2C%2C/product/52/" method="post">
+												<input type="hidden" name="product" value="52">
+												<input type="hidden" name="uenc" value="aHR0cDovL21hZ2VudG8yLmZseXRoZW1lLm5ldC90aGVtZXMvc21fc2hpbnkvZGVmYXVsdC9jaGVja291dC9jYXJ0L2FkZC91ZW5jL2FIUjBjRG92TDIxaFoyVnVkRzh5TG1ac2VYUm9aVzFsTG01bGRDOTBhR1Z0WlhNdmMyMWZjMmhwYm5rdlpHVm1ZWFZzZEM5b2IyMWxMV0Z3Y0d4cFlXNWpZMlZ6TG1oMGJXd19ZMkYwUFRFeE5RJTJDJTJDL3Byb2R1Y3QvNTIv">
+												<input name="form_key" type="hidden" value="pF8ySpyOoicktLZh" />												<button type="submit"
+														title="Add to Cart"
+														class="action tocart primary btn-action btn-cart">
+													<span>Add to Cart</span>
+												</button>
+											</form>
+																											</div>
+																
+															</div>
+						</div>
+					</div>
+                </li>
+                            <li class="item product product-item">
+					<div class="product-item-info" data-container="product-grid">
+						<div class="item-inner">
+							<div class="box-image">
+								
+								<!--LABEL PRODUCT-->
+																														<div class="label-product label-sale">
+												<span class="sale-product-icon">
+													-2%												</span>
+											</div>
+																													
+																<!--END LABEL PRODUCT-->
+
+								<a href="http://magento2.flytheme.net/themes/sm_shiny/default/slipcover-furniture-protector.html" class="product photo product-item-photo" tabindex="-1">
+									
+<span class="product-image-container">
+    <span class="product-image-wrapper">
+        <img class="product-image-photo"
+                          src="http://magento2.flytheme.net/themes/sm_shiny/pub/media/catalog/product/cache/d73a5018306142840707bd616a4ef293/6/_/6_17.jpg"
+             width="300"
+             height="300"
+             alt="Slipcover Furniture Protector"/>
+	</span>
+</span>
+								</a>
+
+																<div class="button-action">
+																														<a href="#" class="action towishlist btn-action link-wishlist" title="Add to Wish List"  aria-label="Add to Wish List" data-post='{"action":"http:\/\/magento2.flytheme.net\/themes\/sm_shiny\/default\/wishlist\/index\/add\/","data":{"product":"50","uenc":"aHR0cDovL21hZ2VudG8yLmZseXRoZW1lLm5ldC90aGVtZXMvc21fc2hpbnkvZGVmYXVsdC9ob21lLWFwcGxpYW5jY2VzLmh0bWw_Y2F0PTExNQ,,"}}' data-action="add-to-wishlist"  role="button">
+												<span>Add to Wish List</span>
+											</a>
+																												
+																													<a href="#"  class="action tocompare btn-action link-compare"  title="Add to Compare" aria-label="Add to Compare"  data-post='{"action":"http:\/\/magento2.flytheme.net\/themes\/sm_shiny\/default\/catalog\/product_compare\/add\/","data":{"product":"50","uenc":"aHR0cDovL21hZ2VudG8yLmZseXRoZW1lLm5ldC90aGVtZXMvc21fc2hpbnkvZGVmYXVsdC9ob21lLWFwcGxpYW5jY2VzLmh0bWw_Y2F0PTExNQ,,"}}' role="button">
+											<span>Add to Compare</span>
+										</a>
+																	</div>
+																
+																
+															</div>
+							
+							<div class="product details product-item-details box-info">
+								<div class="product-reviews-summary short empty">
+    <div class="reviews-actions">
+        <a class="action add" href="http://magento2.flytheme.net/themes/sm_shiny/default/slipcover-furniture-protector.html#review-form">
+            Be the first to review this product        </a>
+    </div>
+</div>
+								
+																<h2 class="product name product-item-name product-name">
+									<a class="product-item-link" href="http://magento2.flytheme.net/themes/sm_shiny/default/slipcover-furniture-protector.html">
+										Slipcover Furniture Protector									</a>
+								</h2>
+
+								<div class="price-box price-final_price" data-role="priceBox" data-product-id="50">
+    <span class="special-price">
+        
+
+<span class="price-container price-final_price tax weee"
+        >
+            <span class="price-label">Special Price</span>
+        <span  id="product-price-50"                data-price-amount="540"
+        data-price-type="finalPrice"
+        class="price-wrapper ">
+        <span class="price">$540.00</span>    </span>
+        </span>
+    </span>
+    <span class="old-price">
+        
+
+<span class="price-container price-final_price tax weee"
+        >
+            <span class="price-label">Regular Price</span>
+        <span  id="old-price-50"                data-price-amount="550"
+        data-price-type="oldPrice"
+        class="price-wrapper ">
+        <span class="price">$550.00</span>    </span>
+        </span>
+    </span>
+
+</div>																
+																<div class="bottom-action">
+																																									<form data-role="tocart-form" action="http://magento2.flytheme.net/themes/sm_shiny/default/checkout/cart/add/uenc/aHR0cDovL21hZ2VudG8yLmZseXRoZW1lLm5ldC90aGVtZXMvc21fc2hpbnkvZGVmYXVsdC9ob21lLWFwcGxpYW5jY2VzLmh0bWw_Y2F0PTExNQ%2C%2C/product/50/" method="post">
+												<input type="hidden" name="product" value="50">
+												<input type="hidden" name="uenc" value="aHR0cDovL21hZ2VudG8yLmZseXRoZW1lLm5ldC90aGVtZXMvc21fc2hpbnkvZGVmYXVsdC9jaGVja291dC9jYXJ0L2FkZC91ZW5jL2FIUjBjRG92TDIxaFoyVnVkRzh5TG1ac2VYUm9aVzFsTG01bGRDOTBhR1Z0WlhNdmMyMWZjMmhwYm5rdlpHVm1ZWFZzZEM5b2IyMWxMV0Z3Y0d4cFlXNWpZMlZ6TG1oMGJXd19ZMkYwUFRFeE5RJTJDJTJDL3Byb2R1Y3QvNTAv">
+												<input name="form_key" type="hidden" value="pF8ySpyOoicktLZh" />												<button type="submit"
+														title="Add to Cart"
+														class="action tocart primary btn-action btn-cart">
+													<span>Add to Cart</span>
+												</button>
+											</form>
+																											</div>
+																
+															</div>
+						</div>
+					</div>
+                </li>
+                            <li class="item product product-item">
+					<div class="product-item-info" data-container="product-grid">
+						<div class="item-inner">
+							<div class="box-image">
+								
+								<!--LABEL PRODUCT-->
+																
+																<!--END LABEL PRODUCT-->
+
+								<a href="http://magento2.flytheme.net/themes/sm_shiny/default/cotton-down-alterna-decorative.html" class="product photo product-item-photo" tabindex="-1">
+									
+<span class="product-image-container">
+    <span class="product-image-wrapper">
+        <img class="product-image-photo"
+                          src="http://magento2.flytheme.net/themes/sm_shiny/pub/media/catalog/product/cache/d73a5018306142840707bd616a4ef293/4/_/4_14.jpg"
+             width="300"
+             height="300"
+             alt="Cotton Down Alterna Decorative"/>
+	</span>
+</span>
+								</a>
+
+																<div class="button-action">
+																														<a href="#" class="action towishlist btn-action link-wishlist" title="Add to Wish List"  aria-label="Add to Wish List" data-post='{"action":"http:\/\/magento2.flytheme.net\/themes\/sm_shiny\/default\/wishlist\/index\/add\/","data":{"product":"48","uenc":"aHR0cDovL21hZ2VudG8yLmZseXRoZW1lLm5ldC90aGVtZXMvc21fc2hpbnkvZGVmYXVsdC9ob21lLWFwcGxpYW5jY2VzLmh0bWw_Y2F0PTExNQ,,"}}' data-action="add-to-wishlist"  role="button">
+												<span>Add to Wish List</span>
+											</a>
+																												
+																													<a href="#"  class="action tocompare btn-action link-compare"  title="Add to Compare" aria-label="Add to Compare"  data-post='{"action":"http:\/\/magento2.flytheme.net\/themes\/sm_shiny\/default\/catalog\/product_compare\/add\/","data":{"product":"48","uenc":"aHR0cDovL21hZ2VudG8yLmZseXRoZW1lLm5ldC90aGVtZXMvc21fc2hpbnkvZGVmYXVsdC9ob21lLWFwcGxpYW5jY2VzLmh0bWw_Y2F0PTExNQ,,"}}' role="button">
+											<span>Add to Compare</span>
+										</a>
+																	</div>
+																
+																
+															</div>
+							
+							<div class="product details product-item-details box-info">
+								<div class="product-reviews-summary short empty">
+    <div class="reviews-actions">
+        <a class="action add" href="http://magento2.flytheme.net/themes/sm_shiny/default/cotton-down-alterna-decorative.html#review-form">
+            Be the first to review this product        </a>
+    </div>
+</div>
+								
+																<h2 class="product name product-item-name product-name">
+									<a class="product-item-link" href="http://magento2.flytheme.net/themes/sm_shiny/default/cotton-down-alterna-decorative.html">
+										Cotton Down Alterna Decorative									</a>
+								</h2>
+
+								<div class="price-box price-final_price" data-role="priceBox" data-product-id="48">
+    
+
+<span class="price-container price-final_price tax weee"
+        >
+        <span  id="product-price-48"                data-price-amount="210"
+        data-price-type="finalPrice"
+        class="price-wrapper ">
+        <span class="price">$210.00</span>    </span>
+        </span>
+
+</div>																
+																<div class="bottom-action">
+																																									<form data-role="tocart-form" action="http://magento2.flytheme.net/themes/sm_shiny/default/checkout/cart/add/uenc/aHR0cDovL21hZ2VudG8yLmZseXRoZW1lLm5ldC90aGVtZXMvc21fc2hpbnkvZGVmYXVsdC9ob21lLWFwcGxpYW5jY2VzLmh0bWw_Y2F0PTExNQ%2C%2C/product/48/" method="post">
+												<input type="hidden" name="product" value="48">
+												<input type="hidden" name="uenc" value="aHR0cDovL21hZ2VudG8yLmZseXRoZW1lLm5ldC90aGVtZXMvc21fc2hpbnkvZGVmYXVsdC9jaGVja291dC9jYXJ0L2FkZC91ZW5jL2FIUjBjRG92TDIxaFoyVnVkRzh5TG1ac2VYUm9aVzFsTG01bGRDOTBhR1Z0WlhNdmMyMWZjMmhwYm5rdlpHVm1ZWFZzZEM5b2IyMWxMV0Z3Y0d4cFlXNWpZMlZ6TG1oMGJXd19ZMkYwUFRFeE5RJTJDJTJDL3Byb2R1Y3QvNDgv">
+												<input name="form_key" type="hidden" value="pF8ySpyOoicktLZh" />												<button type="submit"
+														title="Add to Cart"
+														class="action tocart primary btn-action btn-cart">
+													<span>Add to Cart</span>
+												</button>
+											</form>
+																											</div>
+																
+															</div>
+						</div>
+					</div>
+                </li>
+                            <li class="item product product-item">
+					<div class="product-item-info" data-container="product-grid">
+						<div class="item-inner">
+							<div class="box-image">
+								
+								<!--LABEL PRODUCT-->
+																
+																<!--END LABEL PRODUCT-->
+
+								<a href="http://magento2.flytheme.net/themes/sm_shiny/default/chaise-lounge-cover-replacement.html" class="product photo product-item-photo" tabindex="-1">
+									
+<span class="product-image-container">
+    <span class="product-image-wrapper">
+        <img class="product-image-photo"
+                          src="http://magento2.flytheme.net/themes/sm_shiny/pub/media/catalog/product/cache/d73a5018306142840707bd616a4ef293/1/_/1_4.jpg"
+             width="300"
+             height="300"
+             alt="Chaise Lounge Cover Replacement"/>
+	</span>
+</span>
+								</a>
+
+																<div class="button-action">
+																														<a href="#" class="action towishlist btn-action link-wishlist" title="Add to Wish List"  aria-label="Add to Wish List" data-post='{"action":"http:\/\/magento2.flytheme.net\/themes\/sm_shiny\/default\/wishlist\/index\/add\/","data":{"product":"45","uenc":"aHR0cDovL21hZ2VudG8yLmZseXRoZW1lLm5ldC90aGVtZXMvc21fc2hpbnkvZGVmYXVsdC9ob21lLWFwcGxpYW5jY2VzLmh0bWw_Y2F0PTExNQ,,"}}' data-action="add-to-wishlist"  role="button">
+												<span>Add to Wish List</span>
+											</a>
+																												
+																													<a href="#"  class="action tocompare btn-action link-compare"  title="Add to Compare" aria-label="Add to Compare"  data-post='{"action":"http:\/\/magento2.flytheme.net\/themes\/sm_shiny\/default\/catalog\/product_compare\/add\/","data":{"product":"45","uenc":"aHR0cDovL21hZ2VudG8yLmZseXRoZW1lLm5ldC90aGVtZXMvc21fc2hpbnkvZGVmYXVsdC9ob21lLWFwcGxpYW5jY2VzLmh0bWw_Y2F0PTExNQ,,"}}' role="button">
+											<span>Add to Compare</span>
+										</a>
+																	</div>
+																
+																
+															</div>
+							
+							<div class="product details product-item-details box-info">
+								<div class="product-reviews-summary short empty">
+    <div class="reviews-actions">
+        <a class="action add" href="http://magento2.flytheme.net/themes/sm_shiny/default/chaise-lounge-cover-replacement.html#review-form">
+            Be the first to review this product        </a>
+    </div>
+</div>
+								
+																<h2 class="product name product-item-name product-name">
+									<a class="product-item-link" href="http://magento2.flytheme.net/themes/sm_shiny/default/chaise-lounge-cover-replacement.html">
+										Chaise Lounge Cover Replacement									</a>
+								</h2>
+
+								<div class="price-box price-final_price" data-role="priceBox" data-product-id="45">
+    
+
+<span class="price-container price-final_price tax weee"
+        >
+        <span  id="product-price-45"                data-price-amount="785"
+        data-price-type="finalPrice"
+        class="price-wrapper ">
+        <span class="price">$785.00</span>    </span>
+        </span>
+
+</div>																
+																<div class="bottom-action">
+																																									<form data-role="tocart-form" action="http://magento2.flytheme.net/themes/sm_shiny/default/checkout/cart/add/uenc/aHR0cDovL21hZ2VudG8yLmZseXRoZW1lLm5ldC90aGVtZXMvc21fc2hpbnkvZGVmYXVsdC9ob21lLWFwcGxpYW5jY2VzLmh0bWw_Y2F0PTExNQ%2C%2C/product/45/" method="post">
+												<input type="hidden" name="product" value="45">
+												<input type="hidden" name="uenc" value="aHR0cDovL21hZ2VudG8yLmZseXRoZW1lLm5ldC90aGVtZXMvc21fc2hpbnkvZGVmYXVsdC9jaGVja291dC9jYXJ0L2FkZC91ZW5jL2FIUjBjRG92TDIxaFoyVnVkRzh5TG1ac2VYUm9aVzFsTG01bGRDOTBhR1Z0WlhNdmMyMWZjMmhwYm5rdlpHVm1ZWFZzZEM5b2IyMWxMV0Z3Y0d4cFlXNWpZMlZ6TG1oMGJXd19ZMkYwUFRFeE5RJTJDJTJDL3Byb2R1Y3QvNDUv">
+												<input name="form_key" type="hidden" value="pF8ySpyOoicktLZh" />												<button type="submit"
+														title="Add to Cart"
+														class="action tocart primary btn-action btn-cart">
+													<span>Add to Cart</span>
+												</button>
+											</form>
+																											</div>
+																
+															</div>
+						</div>
+					</div>
+                </li>
+                    </ol>
+		
+		    </div>
+	<div class="toolbar-bottom">
+        <div class="toolbar toolbar-products" data-mage-init='{"productListToolbarForm":{"mode":"product_list_mode","direction":"product_list_dir","order":"product_list_order","limit":"product_list_limit","modeDefault":"grid","directionDefault":"asc","orderDefault":"position","limitDefault":"9","url":"http:\/\/magento2.flytheme.net\/themes\/sm_shiny\/default\/home-appliancces.html?cat=115"}}'>
+                    <div class="modes">
+            <strong class="modes-label" id="modes-label">View as</strong>
+                        <strong title="Grid"
+                class="modes-mode active mode-grid"
+                data-value="grid">
+                <span>Grid</span>
+            </strong>
+                                    <a class="modes-mode mode-list"
+               title="List"
+               href="#"
+               data-role="mode-switcher"
+               data-value="list"
+               id="mode-list"
+               aria-labelledby="modes-label mode-list">
+                <span>List</span>
+            </a>
+                        </div>
+        
+        <p class="toolbar-amount" id="toolbar-amount">
+            <span class="toolbar-number">4</span> Items    </p>
+		
+		            <div class="toolbar-sorter sorter">
+    <label class="sorter-label" for="sorter">Sort By</label>
+    <select id="sorter" data-role="sorter" class="sorter-options">
+                    <option value="position"
+                                    selected="selected"
+                                >
+                Position            </option>
+                    <option value="name"
+                                >
+                Name            </option>
+                    <option value="price"
+                                >
+                Price            </option>
+                    <option value="manufacturer"
+                                >
+                Manufacturer            </option>
+            </select>
+            <a title="Set Descending Direction" href="#" class="action sorter-action sort-asc" data-role="direction-switcher" data-value="desc">
+            <span>Set Descending Direction</span>
+        </a>
+    </div>
+        		
+		<div class="field limiter">
+    <label class="label" for="limiter">
+        <span>Show</span>
+    </label>
+    <div class="control">
+        <select id="limiter" data-role="limiter" class="limiter-options">
+                            <option value="9"                    selected="selected">
+                    9                </option>
+                            <option value="15">
+                    15                </option>
+                            <option value="30">
+                    30                </option>
+                    </select>
+    </div>
+    <span class="limiter-text">per page</span>
+</div>
+
+        
+    
+        
+        
+    
+    
+ 
+    </div>
+	</div>
+            <script type="text/x-magento-init">
+        {
+            "[data-role=tocart-form], .form.map.checkout": {
+                "catalogAddToCart": {}
+            }
+        }
+        </script>
+    <script type="text/x-magento-init">
+    {
+        "body": {
+            "requireCookie": {"noCookieUrl":"http:\/\/magento2.flytheme.net\/themes\/sm_shiny\/default\/cookie\/index\/noCookies\/","triggers":[".action.towishlist"]}        }
+    }
+</script>
+</div></div><div class="col-lg-3 col-md-3 col-left-sidebar"><div class="sidebar sidebar-main">
+    <div class="block filter">
+        <div class="block-title filter-title">
+            <strong>Shop By</strong>
+        </div>
+
+        <div class="block-content filter-content">
+            <div class="filter-current">
+    <strong class="block-subtitle filter-current-subtitle"
+            role="heading"
+            aria-level="2"
+            data-count="1">Now Shopping by</strong>
+    <ol class="items">
+                    <li class="item">
+                <span class="filter-label">Category</span>
+                <span class="filter-value">Bunk Bed</span>
+                                    <a class="action remove" href="http://magento2.flytheme.net/themes/sm_shiny/default/home-appliancces.html"
+                       title="Remove Category Bunk Bed">
+                        <span>Remove This Item</span>
+                    </a>
+                            </li>
+            </ol>
+</div>
+
+                            <div class="block-actions filter-actions">
+                    <a href="http://magento2.flytheme.net/themes/sm_shiny/default/home-appliancces.html" class="action clear filter-clear"><span>Clear All</span></a>
+                </div>
+                                                                        <strong role="heading" aria-level="2" class="block-subtitle filter-subtitle">Shopping Options</strong>
+                    <dl class="filter-options" id="narrow-by-list">
+                                                                                                            <dt role="heading" aria-level="3" class="filter-options-title">Color</dt>
+                        <dd class="filter-options-content"><div class="swatch-attribute swatch-layered color"
+     attribute-code="color"
+     attribute-id="93">
+    <div class="swatch-attribute-options clearfix">
+                    <a href="http://magento2.flytheme.net/themes/sm_shiny/default/home-appliancces.html?cat=115&color=6"
+               aria-label="Blue"
+               class="swatch-option-link-layered">
+                                                                <div class="swatch-option color "
+                                 tabindex="-1"
+                                 option-type="1"
+                                 option-id="6"
+                                 option-label="Blue"
+                                 option-tooltip-thumb=""
+                                 option-tooltip-value="#0000ff"
+                                 style="background: #0000ff no-repeat center; background-size: initial;"></div>
+                                                        </a>
+                    <a href="http://magento2.flytheme.net/themes/sm_shiny/default/home-appliancces.html?cat=115&color=7"
+               aria-label="Orange"
+               class="swatch-option-link-layered">
+                                                                <div class="swatch-option color "
+                                 tabindex="-1"
+                                 option-type="1"
+                                 option-id="7"
+                                 option-label="Orange"
+                                 option-tooltip-thumb=""
+                                 option-tooltip-value="#ffbf00"
+                                 style="background: #ffbf00 no-repeat center; background-size: initial;"></div>
+                                                        </a>
+                    <a href="http://magento2.flytheme.net/themes/sm_shiny/default/home-appliancces.html?cat=115&color=8"
+               aria-label="Yellow"
+               class="swatch-option-link-layered">
+                                                                <div class="swatch-option color "
+                                 tabindex="-1"
+                                 option-type="1"
+                                 option-id="8"
+                                 option-label="Yellow"
+                                 option-tooltip-thumb=""
+                                 option-tooltip-value="#ffff00"
+                                 style="background: #ffff00 no-repeat center; background-size: initial;"></div>
+                                                        </a>
+                    <a href="http://magento2.flytheme.net/themes/sm_shiny/default/home-appliancces.html?cat=115&color=11"
+               aria-label="Brown"
+               class="swatch-option-link-layered">
+                                                                <div class="swatch-option color "
+                                 tabindex="-1"
+                                 option-type="1"
+                                 option-id="11"
+                                 option-label="Brown"
+                                 option-tooltip-thumb=""
+                                 option-tooltip-value="#a52a2a"
+                                 style="background: #a52a2a no-repeat center; background-size: initial;"></div>
+                                                        </a>
+            </div>
+</div>
+
+<script>
+    require(["jquery", "jquery/ui", "Magento_Swatches/js/swatch-renderer"], function ($) {
+        $('.swatch-layered.color')
+            .find('[option-type="1"], [option-type="2"], [option-type="0"], [option-type="3"]')
+            .SwatchRendererTooltip();
+    });
+</script>
+</dd>
+                                                                                                                                            <dt role="heading" aria-level="3" class="filter-options-title">Manufacturer</dt>
+                        <dd class="filter-options-content">
+<ol class="items">
+            <li class="my item">
+                            <a href="http://magento2.flytheme.net/themes/sm_shiny/default/home-appliancces.html?cat=115&amp;manufacturer=14">
+                    Ercol                                            <span class="count">1<span class="filter-count-label">
+                             item</span></span>
+                                    </a>
+                    </li>
+            <li class="my item">
+                            <a href="http://magento2.flytheme.net/themes/sm_shiny/default/home-appliancces.html?cat=115&amp;manufacturer=15">
+                    G Plan                                            <span class="count">1<span class="filter-count-label">
+                             item</span></span>
+                                    </a>
+                    </li>
+            <li class="my item">
+                            <a href="http://magento2.flytheme.net/themes/sm_shiny/default/home-appliancces.html?cat=115&amp;manufacturer=16">
+                    Parker Knoll                                            <span class="count">1<span class="filter-count-label">
+                             item</span></span>
+                                    </a>
+                    </li>
+            <li class="my item">
+                            <a href="http://magento2.flytheme.net/themes/sm_shiny/default/home-appliancces.html?cat=115&amp;manufacturer=17">
+                    Consequat mel                                            <span class="count">1<span class="filter-count-label">
+                             item</span></span>
+                                    </a>
+                    </li>
+    </ol>
+</dd>
+                                                                                            <dt role="heading" aria-level="3" class="filter-options-title">Price</dt>
+                        <dd class="filter-options-content">
+<div class="price-slider-wrap">
+	<div id="price-slider" data-rate="1" data-min-standard="146" data-max-standard="785" ></div>
+	<div class="price-slider-values">
+		<span class="filter-currency">$</span>
+		<input  name="price_minimum" id="price_minimum" value="146" type="text">
+		<span class="price-filter-separator">&nbsp;-&nbsp;</span>
+		<span class="filter-currency">$</span>
+		<input  name="price_maximum" id="price_maximum" value="785" type="text">
+	</div>
+</div>
+</dd>
+                                                                                                            </dl>
+                    </div>
+    </div>
+</div><div class="sidebar sidebar-additional"><div class="block block-compare" data-bind="scope: 'compareProducts'" data-role="compare-products-sidebar">
+    <div class="block-title">
+        <strong id="block-compare-heading" role="heading" aria-level="2">Compare Products</strong>
+        <span class="counter qty no-display" data-bind="text: compareProducts().countCaption, css: {'no-display': !compareProducts().count}"></span>
+    </div>
+    <!-- ko if: compareProducts().count -->
+    <div class="block-content no-display" aria-labelledby="block-compare-heading" data-bind="css: {'no-display': !compareProducts().count}">
+        <ol id="compare-items" class="product-items product-items-names" data-bind="foreach: compareProducts().items">
+                <li class="product-item">
+                    <input type="hidden" class="compare-item-id" data-bind="value: id"/>
+                    <strong class="product-item-name">
+                        <a data-bind="attr: {href: product_url}, html: name" class="product-item-link"></a>
+                    </strong>
+                    <a href="#" data-bind="attr: {'data-post': remove_url}" title="Remove This Item" class="action delete">
+                        <span>Remove This Item</span>
+                    </a>
+                </li>
+        </ol>
+        <div class="actions-toolbar">
+            <div class="primary">
+                <a data-bind="attr: {'href': compareProducts().listUrl}" class="action compare primary"><span>Compare</span></a>
+            </div>
+            <div class="secondary">
+                <a id="compare-clear-all" href="#" class="action clear" data-post="{&quot;action&quot;:&quot;http:\/\/magento2.flytheme.net\/themes\/sm_shiny\/default\/catalog\/product_compare\/clear\/&quot;,&quot;data&quot;:{&quot;uenc&quot;:&quot;&quot;,&quot;confirmation&quot;:true,&quot;confirmationMessage&quot;:&quot;Are you sure you want to remove all items from your Compare Products list?&quot;}}">
+                    <span>Clear All</span>
+                </a>
+            </div>
+        </div>
+    </div>
+    <!-- /ko -->
+    <!-- ko ifnot: compareProducts().count -->
+    <div class="empty">You have no items to compare.</div>
+    <!-- /ko -->
+</div>
+<script type="text/x-magento-init">
+{"[data-role=compare-products-sidebar]": {"Magento_Ui/js/core/app": {"components":{"compareProducts":{"component":"Magento_Catalog\/js\/view\/compare-products"}}}}}
+</script>
+<div class="banner-image">
+	<a title="Banner Image" href="#"><img src="http://magento2.flytheme.net/themes/sm_shiny/pub/media/wysiwyg/banner/banner-sidebar.jpg" alt="Banner Image" /></a>
+</div></div></div></div></div></div></main><footer class="page-footer"><div class="footer footer-wrapper">
+	<div class="footer-container footer-style-1">
+		<div class="footer-wrapper">
+			<div class="footer-top">
+			<div class="container">
+				<div class="top-content">
+					<div class="row">
+						<div class="col-lg-6 col-md-12">
+							<div class="social-container">
+								<div class="title-top-ft">Follow Socials</div>
+								<div class="socials-wrap">
+	<div class="title-follow">Follow Us</div>
+	<ul>
+				<li class="li-social facebook-social">
+			<a title="Facebook" href="https://www.facebook.com/MagenTech.Themes" target="_blank"> 
+				<span class="fa fa-facebook icon-social"></span><span class="name-social">Facebook</span> 
+			</a>
+		</li>
+				
+				<li class="li-social twitter-social">
+			<a title="Twitter" href="https://twitter.com/magentech" target="_blank"> 
+				<span class="fa fa-twitter icon-social"></span> <span class="name-social">Twitter</span> 
+			</a>
+		</li>
+				
+				<li class="li-social google-social">
+			<a title="Google+" href="https://plus.google.com/+MagenTech" target="_blank"> 
+				<span class="fa fa-google-plus icon-social"></span> <span class="name-social">Google+</span> 
+			</a>
+		</li>
+				
+				<li class="li-social linkedin-social">
+			<a title="Linkedin" href="https://www.linkedin.com/in/magentech" target="_blank"> 
+				<span class="fa fa-linkedin icon-social"></span> <span class="name-social">Linkedin</span> 
+			</a>
+		</li>
+				
+				<li class="li-social pinterest-social">
+			<a title="Pinterest" href="https://www.pinterest.com/magentech" target="_blank"> 
+				<span class="fa fa-pinterest icon-social"></span> <span class="name-social">Pinterest</span> 
+			</a>
+		</li>
+			</ul>
+</div>
+							</div>
+						</div>
+						
+						<div class="col-lg-6 col-md-12">
+							<div class="title-top-ft">Sign Up For Newsletter</div>
+
+							<div class="block-subscribe-footer">
+    <form class="form subscribe"
+		novalidate
+		action="http://magento2.flytheme.net/themes/sm_shiny/default/newsletter/subscriber/new/"
+		method="post"
+		data-mage-init='{"validation": {"errorClass": "mage-error"}}'
+		id="newsletter-footer-validate-detail">
+
+		<div class="input-box">
+			<input name="email" type="email" id="newsletter-footer" onfocus="if(this.value=='Your email address') this.value='';" onblur="if(this.value=='') this.value='Your email address';" value="Your email address" data-validate="{required:true, 'validate-email':true}"/>
+		</div>
+
+		<div class="action-button">
+			<button class="action subscribe primary" title="Subscribe" type="submit">
+				<span>Subscribe</span>
+			</button>
+		</div>
+    </form>
+</div>
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+        <div class="footer-middle">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-4 col-md-4">
+                        <div class="block-footer">
+                            <div class="title-block-footer">
+                                <h4>About Store</h4>
+                            </div>
+
+                            <div class="content-block-footer">
+                                <ul class="contact-list">
+                                    <li class="address-contact">No 40 Baria Sreet 133/2 NewYork City, NY, USD.</li>
+                                    <li class="email-contact">Hidesign@Magentech.com</li>
+                                    <li class="phone-contact">(800) 1234 8888 - (800) 1234 9999</li>
+                                    <li class="open-contact">Open Time: 8:00AM - 6:00PM</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-2 col-md-2">
+                        <div class="block-footer">
+                            <div class="title-block-footer">
+                                <h4>Our Services</h4>
+                            </div>
+
+                            <div class="content-block-footer">
+                                <ul class="footer-links">
+                                    <li><a href="#" title="About Store">About Store</a></li>
+                                    <li><a href="#" title="New Collection">New Collection</a></li>
+                                    <li><a href="#" title="Contact Us">Contact Us</a></li>
+                                    <li><a href="#" title="Latest News">Latest News</a></li>
+                                    <li><a href="#" title="Our Sitemap">Our Sitemap</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-2 col-md-2">
+                        <div class="block-footer">
+                            <div class="title-block-footer">
+                                <h4>Information</h4>
+                            </div>
+
+                            <div class="content-block-footer">
+                                <ul class="footer-links">
+                                    <li><a href="#" title="About Store">About Store</a></li>
+                                    <li><a href="#" title="New Collection">New Collection</a></li>
+                                    <li><a href="#" title="Contact Us">Contact Us</a></li>
+                                    <li><a href="#" title="Latest News">Latest News</a></li>
+                                    <li><a href="#" title="Our Sitemap">Our Sitemap</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-4">
+                        <div class="block-footer">
+                            <div class="title-block-footer">
+                                <h4>Popular Tags</h4>
+                            </div>
+
+							<ul class="tags-footer">
+								<li><a href="#" title="Iphone 6 Plus">Iphone 6 Plus</a></li>
+								<li><a href="#" title="Washing Machine">Washing Machine</a></li>
+								<li><a href="#" title="Galaxy S8+">Galaxy S8+</a></li>
+								<li><a href="#" title="Bestsellers">Bestsellers</a></li>
+								<li><a href="#" title="Ipad Mini 4">Ipad Mini 4</a></li>
+								<li><a href="#" title="Rice Cooker">Rice Cooker</a></li>
+								<li><a href="#" title="Sale Off">Sale Off</a></li>
+								<li><a href="#" title="Laptop Dell">Laptop Dell</a></li>
+								<li><a href="#" title="Camera Sony">Camera Sony</a></li>
+								<li><a href="#" title="New Arrivals">New Arrivals</a></li>
+								<li><a href="#" title="Computer">Computer</a></li>
+								<li><a href="#" title="Playstation 2">Playstation 2</a></li>
+								<li><a href="#" title="Headphone">Headphone</a></li>
+								<li><a href="#" title="Game">Game</a></li>
+								<li><a href="#" title="Washing Machine">Washing Machine</a></li>
+								<li><a href="#" title="Mackbook Air">Mackbook Air</a></li>
+							</ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+			<div class="footer-bottom">
+				<div class="container">
+					<div class="bottom-content">
+						<div class="row">
+							<div class="col-lg-6 col-md-6">
+								<div class="payment-content">
+									<img src="http://magento2.flytheme.net/themes/sm_shiny/pub/media/wysiwyg/payment/payment-footer.png" alt="Payment" />								</div>
+							</div>
+							
+							<div class="col-lg-6 col-md-6">
+								<div class="copyright-content">
+																			<address>SM Shiny &copy; 2018
+Demo Store. All Rights Reserved. Designed by
+<a title="MagenTech.Com" target="_blank" href="http://www.MagenTech.Com">MagenTech.Com</a>
+</address>
+																	</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<a id="yt-totop-fix" href="javascript:void(0)" title="Go to Top"></a>
+</div></footer><script type="text/x-magento-init">
+        {
+            "*": {
+                "Magento_Ui/js/core/app": {
+                    "components": {
+                        "storage-manager": {
+                            "component": "Magento_Catalog/js/storage-manager",
+                            "appendTo": "",
+                            "storagesConfiguration" :
+                                         {"recently_viewed_product":{"requestConfig":{"syncUrl":"http:\/\/magento2.flytheme.net\/themes\/sm_shiny\/default\/catalog\/product\/frontend_action_synchronize\/"},"lifetime":"1000","allowToSendRequest":null},"recently_compared_product":{"requestConfig":{"syncUrl":"http:\/\/magento2.flytheme.net\/themes\/sm_shiny\/default\/catalog\/product\/frontend_action_synchronize\/"},"lifetime":"1000","allowToSendRequest":null},"product_data_storage":{"updateRequestConfig":{"url":"http:\/\/magento2.flytheme.net\/themes\/sm_shiny\/default\/rest\/default\/V1\/products-render-info"},"allowToSendRequest":null}}                        }
+                    }
+                }
+            }
+        }
+</script>
+
+<script type="text/x-magento-init">
+{
+    "*": {
+        "Dotdigitalgroup_Email/js/emailCapture":{
+            "isEnabled":"",
+            "type":"newsletter",
+            "url":"http://magento2.flytheme.net/themes/sm_shiny/default/connector/ajax/emailcapture/"
+        }
+    }
+}
+</script>
+<script type="text/javascript">
+require([
+	'jquery',
+	'quickView',
+	'domReady!'
+], function ($, cartQuickView) {
+	var quickViewCf = {
+		isQuickView: true,
+		isAjaxCart: true,
+		product_container : '.product-item-info',
+		button_container :'.button-action',
+		label_button : 'Quick View',
+		base_url : 'http://magento2.flytheme.net/themes/sm_shiny/default/'
+	}
+	$(quickViewCf.product_container).cartQuickView(quickViewCf);
+	$( document ).on( "afterAjaxProductsLoaded", function( event) {
+		$(quickViewCf.product_container).cartQuickView(quickViewCf);
+	});
+});
+</script>	
+<script type="text/x-magento-init">
+{
+	"#maincontent": {
+		"Sm_CartQuickPro/js/custom-addtocart": {
+			"isEnabled": true,
+			"isAjaxCart": true,
+			"urlLogin": "http://magento2.flytheme.net/themes/sm_shiny/default/customer/account/login/",
+			"isLoggedIn": false,
+			"addUrl": "http://magento2.flytheme.net/themes/sm_shiny/default/cartquickpro/cart/add",
+			"isUpdateConfigure": false,
+			"isCompareIndex": false,
+			"isProductView": false,
+			"isCheckoutPage":  false,
+			"isWishlistPage": false,
+			"urlCurrent": "http://magento2.flytheme.net/themes/sm_shiny/default/home-appliancces.html?cat=115",
+			"countDownNumber": 5		}
+	}
+}
+</script>
+
+
+<div id="smcqp-container" style="display:none;">
+    <div data-role="loader" class="loading-mask" >
+        <div class="loader">
+            <img src="http://magento2.flytheme.net/themes/sm_shiny/pub/static/version1522225191/frontend/Sm/shiny/en_US/images/loader-1.gif"
+                 alt="Loading...">
+        </div>
+    </div>
+    <div id="smcqp-contents">
+    </div>
+	<div id="smcqp-report" style="display:none;">
+		<div class="smcqp-messages">
+		</div>
+		<div class="smcqp-actions">
+			<a class="smcqp-continue spcqp-count" data-count="5" href="#" title="Continue">
+				Continue			</a>
+			<a class="smcqp-btn smcqp-view-cart " href="http://magento2.flytheme.net/themes/sm_shiny/default/checkout/cart/" title="View Cart">
+				View Cart			</a>
+			<a class="smcqp-btn smcqp-view-compare " href="http://magento2.flytheme.net/themes/sm_shiny/default/catalog/product_compare/index/" title="Compare Products">
+				Compare Products			</a>
+			<a class="smcqp-btn smcqp-view-wishlist " href="http://magento2.flytheme.net/themes/sm_shiny/default/wishlist/" title="My Wishlist">
+				My Wishlist			</a>
+		</div>
+	</div>
+</div>
+<div id="recentlyviewed_footer" class="sm-recently-viewed viewed-right">
+	<div class="smrv-block-content-wrap">
+		<div class="smrv-handle">
+							<div class="smrv-icon"><i class="fa fa-eye" aria-hidden="true"></i></div>
+				<div class="smrv-text">Recently Viewed</div>
+					</div>
+		
+		<div class="smrv-block-content-inner">
+						<div  class="swiper-container products-wrapper grid products-grid">
+								<ol class="swiper-wrapper products grid items product-items slider">
+											<li class="swiper-slide item product product-item ">						<div class="product-item-info" data-container="product-grid">
+																					<a href="http://magento2.flytheme.net/themes/sm_shiny/default/iphone-6s-plus-mp.html" class="product photo product-item-photo" tabindex="-1">
+								
+<span class="product-image-container">
+    <span class="product-image-wrapper">
+        <img class="product-image-photo"
+                          src="http://magento2.flytheme.net/themes/sm_shiny/pub/media/catalog/product/cache/6633e7fcc9a7e88021adbe9a2450a512/1/_/1.jpg"
+             width="90"
+             height="90"
+             alt="iPhone 6s Plus MP"/>
+	</span>
+</span>
+							</a>
+						</div>
+																	</li><li class="swiper-slide item product product-item ">						<div class="product-item-info" data-container="product-grid">
+																					<a href="http://magento2.flytheme.net/themes/sm_shiny/default/canon-poweshort-mp.html" class="product photo product-item-photo" tabindex="-1">
+								
+<span class="product-image-container">
+    <span class="product-image-wrapper">
+        <img class="product-image-photo"
+                          src="http://magento2.flytheme.net/themes/sm_shiny/pub/media/catalog/product/cache/6633e7fcc9a7e88021adbe9a2450a512/9/_/9.jpg"
+             width="90"
+             height="90"
+             alt="Canon Poweshort MP"/>
+	</span>
+</span>
+							</a>
+						</div>
+																	</li><li class="swiper-slide item product product-item ">						<div class="product-item-info" data-container="product-grid">
+																					<a href="http://magento2.flytheme.net/themes/sm_shiny/default/digital-camera-kingear-mp.html" class="product photo product-item-photo" tabindex="-1">
+								
+<span class="product-image-container">
+    <span class="product-image-wrapper">
+        <img class="product-image-photo"
+                          src="http://magento2.flytheme.net/themes/sm_shiny/pub/media/catalog/product/cache/6633e7fcc9a7e88021adbe9a2450a512/1/6/16.jpg"
+             width="90"
+             height="90"
+             alt="Digital Camera KINGEAR MP"/>
+	</span>
+</span>
+							</a>
+						</div>
+																	</li><li class="swiper-slide item product product-item ">						<div class="product-item-info" data-container="product-grid">
+																					<a href="http://magento2.flytheme.net/themes/sm_shiny/default/electro-6-5-washing-machine-mp.html" class="product photo product-item-photo" tabindex="-1">
+								
+<span class="product-image-container">
+    <span class="product-image-wrapper">
+        <img class="product-image-photo"
+                          src="http://magento2.flytheme.net/themes/sm_shiny/pub/media/catalog/product/cache/6633e7fcc9a7e88021adbe9a2450a512/1/0/10.jpg"
+             width="90"
+             height="90"
+             alt="Electro 6.5 Washing Machine MP"/>
+	</span>
+</span>
+							</a>
+						</div>
+																	</li><li class="swiper-slide item product product-item ">						<div class="product-item-info" data-container="product-grid">
+																					<a href="http://magento2.flytheme.net/themes/sm_shiny/default/bluetooth-gaming-controller-mp.html" class="product photo product-item-photo" tabindex="-1">
+								
+<span class="product-image-container">
+    <span class="product-image-wrapper">
+        <img class="product-image-photo"
+                          src="http://magento2.flytheme.net/themes/sm_shiny/pub/media/catalog/product/cache/6633e7fcc9a7e88021adbe9a2450a512/3/0/30_1.jpg"
+             width="90"
+             height="90"
+             alt="Bluetooth Gaming Controller MP"/>
+	</span>
+</span>
+							</a>
+						</div>
+																	</li><li class="swiper-slide item product product-item ">						<div class="product-item-info" data-container="product-grid">
+																					<a href="http://magento2.flytheme.net/themes/sm_shiny/default/iphone-6s-plus-mpp.html" class="product photo product-item-photo" tabindex="-1">
+								
+<span class="product-image-container">
+    <span class="product-image-wrapper">
+        <img class="product-image-photo"
+                          src="http://magento2.flytheme.net/themes/sm_shiny/pub/media/catalog/product/cache/6633e7fcc9a7e88021adbe9a2450a512/1/_/1.jpg"
+             width="90"
+             height="90"
+             alt="IPhone 6s Plus MPP"/>
+	</span>
+</span>
+							</a>
+						</div>
+																	</li><li class="swiper-slide item product product-item ">						<div class="product-item-info" data-container="product-grid">
+																					<a href="http://magento2.flytheme.net/themes/sm_shiny/default/digital-camera-kingear-mpp.html" class="product photo product-item-photo" tabindex="-1">
+								
+<span class="product-image-container">
+    <span class="product-image-wrapper">
+        <img class="product-image-photo"
+                          src="http://magento2.flytheme.net/themes/sm_shiny/pub/media/catalog/product/cache/6633e7fcc9a7e88021adbe9a2450a512/1/6/16.jpg"
+             width="90"
+             height="90"
+             alt="Digital Camera KINGEAR MPP"/>
+	</span>
+</span>
+							</a>
+						</div>
+																	</li><li class="swiper-slide item product product-item ">						<div class="product-item-info" data-container="product-grid">
+																					<a href="http://magento2.flytheme.net/themes/sm_shiny/default/electro-6-5-washing-machine-mpp.html" class="product photo product-item-photo" tabindex="-1">
+								
+<span class="product-image-container">
+    <span class="product-image-wrapper">
+        <img class="product-image-photo"
+                          src="http://magento2.flytheme.net/themes/sm_shiny/pub/media/catalog/product/cache/6633e7fcc9a7e88021adbe9a2450a512/1/0/10.jpg"
+             width="90"
+             height="90"
+             alt="Electro 6.5 Washing Machine MPP"/>
+	</span>
+</span>
+							</a>
+						</div>
+																	</li><li class="swiper-slide item product product-item ">						<div class="product-item-info" data-container="product-grid">
+																					<a href="http://magento2.flytheme.net/themes/sm_shiny/default/bluetooth-gaming-controller-mpp.html" class="product photo product-item-photo" tabindex="-1">
+								
+<span class="product-image-container">
+    <span class="product-image-wrapper">
+        <img class="product-image-photo"
+                          src="http://magento2.flytheme.net/themes/sm_shiny/pub/media/catalog/product/cache/6633e7fcc9a7e88021adbe9a2450a512/2/1/21_1.jpg"
+             width="90"
+             height="90"
+             alt="Bluetooth Gaming Controller MPP"/>
+	</span>
+</span>
+							</a>
+						</div>
+																	</li><li class="swiper-slide item product product-item ">						<div class="product-item-info" data-container="product-grid">
+																					<a href="http://magento2.flytheme.net/themes/sm_shiny/default/digital-camera-28x-optical.html" class="product photo product-item-photo" tabindex="-1">
+								
+<span class="product-image-container">
+    <span class="product-image-wrapper">
+        <img class="product-image-photo"
+                          src="http://magento2.flytheme.net/themes/sm_shiny/pub/media/catalog/product/cache/6633e7fcc9a7e88021adbe9a2450a512/9/_/9_1.jpg"
+             width="90"
+             height="90"
+             alt="Digital Camera 28x Optical"/>
+	</span>
+</span>
+							</a>
+						</div>
+						</li>									</ol>
+			</div>
+			<a href="#" class="smrv-clear" >Delete All</a>
+			<script type="text/javascript">
+				require([
+					'jquery',
+					'swiperSlider'
+				], function ($ , Swiper) {
+					;(function (el){
+						var $element = $(el) , 
+							_content = $('.smrv-block-content-wrap', $element),
+							_smrv_clear = $('.smrv-clear', $element),
+							_ajax_url = "http://magento2.flytheme.net/themes/sm_shiny/default/recentlyviewed/viewed/clear";
+							
+							var swiper = new Swiper('.swiper-container', {
+								direction: 'vertical',
+								slidesPerView: 4,
+								spaceBetween: 8,
+								slidesPerGroup: 1,
+								loop: false,
+								loopFillGroupWithBlank: true,
+								pagination: {
+									clickable: true,
+								},
+								 breakpoints: {
+									1366: {
+									  slidesPerView: 3,
+									},
+									1024: {
+									  slidesPerView: 3,
+									},
+									768: {
+									  slidesPerView:  3,
+									},
+									640: {
+									  slidesPerView: 3,
+									},
+									320: {
+									  slidesPerView:  3,
+									}
+								  }
+							});  
+							$(window).on('resize', function(){
+								swiper.update();
+							});
+							$(document).on('click', function (e) {
+								var _target = $(e.target) , 
+								_parent = _target.parents('#recentlyviewed_footer .smrv-block-content-wrap');
+								if (_parent.length){
+									if (_parent.hasClass('smrv-over') || $('body').hasClass('smrv-overlay') ) {
+										_parent.removeClass('smrv-over');
+										$('body').removeClass('smrv-overlay');
+									}else{
+										$('body').addClass('smrv-overlay');
+										_parent.addClass('smrv-over');
+									}
+								}else{
+									if (_content.hasClass('smrv-over') || $('body').hasClass('smrv-overlay') ) {
+										$('body').removeClass('smrv-overlay');
+										_content.removeClass('smrv-over');
+									}
+								}
+								return true;
+							});
+							_smrv_clear.on('click.clear_viewed', function(e){
+								e.preventDefault();
+								_smrv_clear.hide();
+								$.ajax({
+									type: 'POST',
+									url: _ajax_url,
+									data: {
+										is_ajax_recently_viewed: 1,
+									},
+									success: function (data) {
+										if (data.success){
+											$element.remove();
+										}
+									},
+									dataType: 'json'
+								});
+							});	
+					})('#recentlyviewed_footer');
+				});
+			</script>
+		</div>
+	</div>	
+</div>
+
+<div data-role="loader" class="loading-mask-shopby" style="display:none" >
+	<div class="loader">
+		<img src="http://magento2.flytheme.net/themes/sm_shiny/pub/static/version1522225191/frontend/Sm/shiny/en_US/images/loader-1.gif"
+			 alt="Loading...">
+	</div>
+</div>  </div>    </body>
+</html>

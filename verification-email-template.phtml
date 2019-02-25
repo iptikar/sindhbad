@@ -1,0 +1,394 @@
+<?php if(isset($_GET['email']) && isset($_GET['when']) && isset($_GET['usertype'])) :?>
+
+<?php 
+$to = $_GET['email'] ?? '';
+$when = $_GET['when'] ?? '';
+$usertype = $_GET['usertype'] ?? '';
+
+
+?>
+<html>
+<head>
+	<title>Please verify you account</title>
+	</head>
+
+<body>
+<div id="email-template-wrapper">
+                <div id="email-template-container">
+					
+					<style type="text/css">
+		/* DAT ANIMATION DOE */
+	.fadeInDown {
+			animation-name: fadeInDown;
+			-webkit-animation-name: fadeInDown;
+			animation-duration: 1.2s;
+			-webkit-animation-duration: 1.2s;
+	}
+	@keyframes fadeInDown {
+			0% {opacity: 0;transform: translateY(-30px);}
+			40% {opacity: 0;transform: translateY(-30px);}
+			100% {opacity: 1;transform: translateY(0);}
+	}
+	@-webkit-keyframes fadeInDown {
+			0% {opacity: 0;-webkit-transform: translateY(-30px);}
+			40% {opacity: 0;-webkit-transform: translateY(-30px);}
+			100% {opacity: 1;-webkit-transform: translateY(0);}
+	}
+	.fadeInDown2 {
+			animation-name: fadeInDown2;
+			-webkit-animation-name: fadeInDown2;
+			animation-duration: 1.6s;
+			-webkit-animation-duration: 1.6s;
+	}
+	@keyframes fadeInDown2 {
+			0% {opacity: 0;transform: translateY(-30px);}
+			50% {opacity: 0;transform: translateY(-30px);}
+			100% {opacity: 1;transform: translateY(0);}
+	}
+	@-webkit-keyframes fadeInDown2 {
+			0% {opacity: 0;-webkit-transform: translateY(-30px);}
+			50% {opacity: 0;-webkit-transform: translateY(-30px);}
+			100% {opacity: 1;-webkit-transform: translateY(0);}
+	}
+	.fadeInDown3 {
+			animation-name: fadeInDown3;
+			-webkit-animation-name: fadeInDown3;
+			animation-duration: 2s;
+			-webkit-animation-duration: 2s;
+	}
+	@keyframes fadeInDown3 {
+			0% {opacity: 0;transform: translateY(-30px);}
+			60% {opacity: 0;transform: translateY(-30px);}
+			100% {opacity: 1;transform: translateY(0);}
+	}
+	@-webkit-keyframes fadeInDown3 {
+			0% {opacity: 0;-webkit-transform: translateY(-30px);}
+			60% {opacity: 0;-webkit-transform: translateY(-30px);}
+			100% {opacity: 1;-webkit-transform: translateY(0);}
+	}
+	.fadeInDown4 {
+			animation-name: fadeInDown4;
+			-webkit-animation-name: fadeInDown4;
+			animation-duration: 2.4s;
+			-webkit-animation-duration: 2.4s;
+	}
+	@keyframes fadeInDown4 {
+			0% {opacity: 0;transform: translateY(-30px);}
+			66% {opacity: 0;transform: translateY(-30px);}
+			100% {opacity: 1;transform: translateY(0);}
+	}
+	@-webkit-keyframes fadeInDown4 {
+			0% {opacity: 0;-webkit-transform: translateY(-30px);}
+			66% {opacity: 0;-webkit-transform: translateY(-30px);}
+			100% {opacity: 1;-webkit-transform: translateY(0);}
+	}
+	@-webkit-keyframes rotateIn {
+			0% {
+					-webkit-transform-origin: center center;
+					transform-origin: center center;
+					-webkit-transform: rotate(-360deg);
+					transform: rotate(-360deg);
+			}
+			100% {
+					-webkit-transform-origin: center center;
+					transform-origin: center center;
+					-webkit-transform: rotate(0);
+					transform: rotate(0);
+			}
+	}
+	@keyframes rotateIn {
+			0% {
+					-webkit-transform-origin: center center;
+					-ms-transform-origin: center center;
+					transform-origin: center center;
+					-webkit-transform: rotate(-360deg);
+					transform: rotate(-360deg);
+			}
+			100% {
+					-webkit-transform-origin: center center;
+					-ms-transform-origin: center center;
+					transform-origin: center center;
+					-webkit-transform: rotate(0);
+					-ms-transform: rotate(0);
+					transform: rotate(0);
+			}
+	}
+	.rotateIn {
+			-webkit-animation: rotateIn 14s linear infinite;
+			animation: rotateIn 14s linear infinite;
+	}
+
+	/*////// RESET STYLES //////*/
+	body{height:100% !important; margin:0; padding:0; width:100% !important;}
+	table{border-collapse:separate;}
+	img, a img{border:0; outline:none; text-decoration:none;}
+	h1, h2, h3, h4, h5, h6{margin:0; padding:0;}
+	p{margin: 1em 0;}
+
+	/*////// CLIENT-SPECIFIC STYLES //////*/
+	.ReadMsgBody{width:100%;} .ExternalClass{width:100%;}
+	.ExternalClass, .ExternalClass p, .ExternalClass span, .ExternalClass font, .ExternalClass td, .ExternalClass div{line-height:100%;}
+	table, td{mso-table-lspace:0pt; mso-table-rspace:0pt;}
+	#outlook a{padding:0;}
+	img{-ms-interpolation-mode: bicubic;}
+	body, table, td, p, a, li, blockquote{-ms-text-size-adjust:100%; -webkit-text-size-adjust:100%;}
+		
+	/*////// GENERAL STYLES //////*/
+	img{ max-width: 100%; height: auto; }
+
+	/*////// TABLET STYLES //////*/
+	@media only screen and (max-width: 620px) {
+		
+		/*////// GENERAL STYLES //////*/
+		#foxeslab-email .table1 { width: 90% !important;}
+		#foxeslab-email .table1-2 { width: 98% !important; margin-left: 1%; margin-right: 1%;}
+		#foxeslab-email .table1-3 { width: 98% !important; margin-left: 1%; margin-right: 1%;}
+		#foxeslab-email .table1-4 { width: 98% !important; margin-left: 1%; margin-right: 1%;}
+		#foxeslab-email .table1-5 { width: 90% !important; margin-left: 5%; margin-right: 5%;}
+
+		#foxeslab-email .tablet_no_float { clear: both; width: 100% !important; margin: 0 auto !important; text-align: center !important; }
+		#foxeslab-email .tablet_wise_float { clear: both; float: none !important; width: auto !important; margin: 0 auto !important; text-align: center !important; }
+
+		#foxeslab-email .tablet_hide { display: none !important; }
+
+		#foxeslab-email .image1 { width: 98% !important; }
+		#foxeslab-email .image1-290 { width: 100% !important; max-width: 290px !important; }
+
+		.center_content{ text-align: center !important; }
+		.center_image{ margin: 0 auto !important; }
+		.center_button{ width: 50% !important;margin-left: 25% !important;max-width: 250px !important; }
+		.centerize{margin: 0 auto !important;}
+	}
+
+
+	/*////// MOBILE STYLES //////*/
+	@media only screen and (max-width: 480px){
+		/*////// CLIENT-SPECIFIC STYLES //////*/
+		body{width:100% !important; min-width:100% !important;} /* Force iOS Mail to render the email at full width. */
+		table[class="flexibleContainer"]{ width: 100% !important; }/* to prevent Yahoo Mail from rendering media query styles on desktop */
+
+		/*////// GENERAL STYLES //////*/
+		img[class="flexibleImage"]{height:auto !important; width:100% !important;}
+
+		#foxeslab-email .table1 { width: 98% !important; }
+		#foxeslab-email .no_float { clear: both; width: 100% !important; margin: 0 auto !important; text-align: center !important; }
+		#foxeslab-email .wise_float {	clear: both;	float: none !important;	width: auto !important;	margin: 0 auto !important;	text-align: center !important;	}
+
+		#foxeslab-email .mobile_hide { display: none !important; }
+		.auto_height{height: auto !important;}
+		
+		
+	}
+</style>
+
+
+
+<ul id="foxeslab-template-elements" class="ui-sortable">
+
+<li class="ui-sortable-handle" style = "list-style:none;">
+<div class="action-buttons">
+<a href="#" title="Remove Section" class="foxeslab-remove-section">
+	<i class="icon-close"></i>
+</a>
+<a href="#" title="Duplicate Section" class="foxeslab-dublicate-section">
+	<i class="icon-copy"></i>
+</a>
+<a href="#" title="Change Background Image" class="foxeslab-change-bg-image" rel="editable-bg-image" data-remodal-target="bg-image-editor">
+	<i class="icon-photo"></i>
+</a>
+<a href="#" title="Change Background Color" class="foxeslab-change-bg-color" rel="editable-bg-color">
+	<i class="icon-color"></i>
+</a>
+</div>
+
+<!-- section-1 -->
+<table class="table_full editable-bg-color bg_color_282828 editable-bg-image" bgcolor="#282828" width="800px" align="center" mc:repeatable="castellab" mc:variant="Header" cellspacing="0" cellpadding="0" border="0" style="background-image: url(http://emails.castellab.com/christmas/images/bg-1.jpg); background-position: bottom center; background-repeat: no-repeat;background-size: cover; border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt;" background="http://emails.castellab.com/christmas/images/bg-1.jpg">
+<tbody><tr>
+	<td>
+		<table class="table_full editable-bg-color bg_color_282828 editable-bg-image" bgcolor="#282828" width="800px" align="center" mc:repeatable="castellab" mc:variant="Header" cellspacing="0" cellpadding="0" border="0" style="background: rgba(0,0,0,.6);background-image: url(#); background-position: top center; background-repeat: no-repeat;background-size: cover; border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt;" background="#">
+			<tbody><tr>
+				<td>
+					<table class="table1" width="600" align="center" border="0" cellspacing="0" cellpadding="0" style="margin: 0 auto;">
+						<tbody><tr><td height="30"></td></tr>
+						<tr>
+							<td>
+								<table class="no_float" width="33%" align="left" border="0" cellspacing="0" cellpadding="0">
+									<tbody><tr><td height="5"></td></tr>
+									<tr>
+										<td>
+											<table width="120" class="table1-2" align="left" cellpadding="0" cellspacing="0" border="0">
+												<tbody><tr>
+													<td>
+														<table align="center" border="0" cellspacing="0" cellpadding="0" style="width: 100%; max-width: 140px; margin: 0 auto;">
+															<tbody><tr>
+																<td align="left" width="30" class="editable-img">
+																	<a href="#" style="border-style: none !important; display: block; border: 0 !important;">
+																		<img editable="true" mc:edit="image101" src="http://emails.castellab.com/christmas/images/icon-dribbble.png" style="display:block; line-height:0; font-size:0; border:0;" border="0" alt="">
+																	</a>
+																</td>
+
+																<td align="left" width="30" class="editable-img">
+																	<a href="#" style="border-style: none !important; display: block; border: 0 !important">
+																		<img editable="true" mc:edit="image102" src="http://emails.castellab.com/christmas/images/icon-ox.png" style="display:block; line-height:0; font-size:0; border:0;" border="0" alt="">
+																	</a>
+																</td>
+
+																<td align="left" width="30" class="editable-img">
+																	<a href="#" style="border-style: none !important; display: block; border: 0 !important;">
+																		<img editable="true" mc:edit="image103" src="http://emails.castellab.com/christmas/images/icon-xing.png" style="display:block; line-height:0; font-size:0; border:0;" border="0" alt="">
+																	</a>
+																</td>
+
+																<td align="left" width="30" class="editable-img">
+																	<a href="#" style="border-style: none !important; display: block; border: 0 !important;">
+																		<img editable="true" mc:edit="image104" src="http://emails.castellab.com/christmas/images/icon-stackoverflow.png" style="display:block; line-height:0; font-size:0; border:0;" border="0" alt="">
+																	</a>
+																</td>
+															</tr>
+														</tbody></table>
+													</td>
+												</tr>
+											</tbody></table>
+										</td>
+									</tr>
+									<!--  margin-bottom -->
+									<tr><td height="30"></td></tr>
+								</tbody></table>
+
+								<!-- Logo -->
+								<table class="no_float" width="33%" align="left" border="0" cellspacing="0" cellpadding="0">
+									<tbody><tr>
+										<td class="editable-img" align="center">
+											
+												<h1 style = "color:#c7d6e2;">SINDHBAD</h1>
+											
+										</td>
+									</tr>
+									<!--  margin-bottom -->
+									<tr><td height="30"></td></tr>
+								</tbody></table><!-- END logo -->
+
+								<table class="no_float" width="33%" align="right" border="0" cellspacing="0" cellpadding="0">
+									<tbody><tr><td height="5"></td></tr>
+									<tr>
+										<td valign="middle" mc:edit="text101" align="right" class="text_color_ffffff center_content" style="color: #ffffff; font-size: 14px; font-weight: 400; font-family: 'Open Sans', Helvetica, sans-serif; mso-line-height-rule: exactly;">
+											<div class="editable-text">
+												<span class="text_container">+971-2642-466-8</span>
+											</div>
+										</td>
+									</tr>
+									<!--  margin-bottom -->
+									<tr><td height="30"></td></tr>
+								</tbody></table>
+							</td>
+						</tr>
+					</tbody></table>
+				</td>
+			</tr>
+		</tbody></table>
+	</td>
+</tr>
+
+<tr>
+	<td>
+		<table class="table1" width="600" align="center" border="0" cellspacing="0" cellpadding="0" style="margin: 0 auto;">
+			<!-- horizontal gap -->
+			<tbody><tr><td height="65"></td></tr>
+
+			<tr>
+				<td class=" editable-img" align="center">
+					<div style="border-style: none !important; display: block; border: 0 !important;">
+						<img editable="true" class="rotateIn centerize" mc:edit="image106" src="http://emails.castellab.com/christmas/images/icon-winter.png" style="display:block; line-height:0; font-size:0; border:0;" border="0" alt="">
+					</div>
+				</td>
+			</tr>
+			<!-- horizontal gap -->
+			<tr><td height="55"></td></tr>
+
+			<!-- text -->
+			<tr>
+				<td align="center">
+					<table width="100%" align="center" border="0" cellspacing="0" cellpadding="0">
+						<tbody><tr>
+							<td mc:edit="text102" align="center" class="text_color_ffffff" style="color: #ffffff; font-size: 12px;letter-spacing: 3px;font-weight: 500; font-family: 'Open Sans', verdana, Helvetica, sans-serif; mso-line-height-rule: exactly;">
+								<div class="editable-text">
+									
+								</div>
+							</td>
+						</tr>
+						<!-- horizontal gap -->
+						<tr><td height="20"></td></tr>
+						<tr>
+							<td mc:edit="text103" align="center" class="text_color_ffffff" style="color: #ffffff;letter-spacing: 4px; font-size: 48px;font-weight: 700; font-family: Raleway, verdana, Helvetica, sans-serif; mso-line-height-rule: exactly;">
+								<div class="editable-text">
+									<span class="text_container"><span style="color: #ff412d;">Thank You</span>Registering With Us</span>
+								</div>
+							</td>
+						</tr>
+						<!-- horizontal gap -->
+						<tr><td height="30"></td></tr>
+						<tr>
+							<td mc:edit="text104" align="center" class="text_color_ffffff" style="color: #ffffff;letter-spacing: 1px; font-size: 10px;font-weight: 500; font-family: 'Open Sans', verdana, Helvetica, sans-serif; mso-line-height-rule: exactly;">
+								<div class="editable-text">
+									<span class="text_container">Please click the link below to verify your account.</span>
+								</div>
+							</td>
+						</tr>
+					</tbody></table>
+				</td>
+			</tr><!-- END text -->
+
+			<!-- horizontal gap -->
+			<tr><td height="50"></td></tr>
+
+			<!-- buttons -->
+			<tr>
+				<td align="center">
+					<table border="0" cellspacing="0">
+						<tbody>
+							
+							<tr>
+							
+							
+							
+							<!-- VERTICAL GAP -->
+							<td width="20"></td>
+
+							<td>
+								<table class="button_bg_color_transparent bg_color_transparent" bgcolor="transparent" width="105" height="30" align="left" border="0" cellpadding="0" cellspacing="0" style="background-color: transparent;border: 1px solid #ffffff;border-radius:3px; border-collapse: separate">
+									<tbody><tr>
+										<td mc:edit="text106" class="text_color_ffffff" align="center" valign="middle" style="color: #ffffff; font-size: 12px; font-weight: 400; font-family: 'Open Sans', Helvetica, sans-serif; mso-line-height-rule: exactly;">
+											
+										
+										<a href = "http://localhost/verify?email=$to&when=$when&usertype=$usertype" class="text_color_ffffff" style="text-decoration: none; color: #ffffff;">Verify Now</a>			
+					
+										</td>
+									</tr>
+								</tbody></table>
+							</td>
+						</tr>
+					</tbody></table>
+				</td>
+			</tr><!-- END buttons -->
+			<!-- padding-bottom -->
+			<tr><td height="170"></td></tr>
+		</tbody></table><!-- END container -->
+	</td>
+</tr>
+</tbody></table><!-- END wrapper -->
+
+</li>
+
+
+
+
+
+
+</ul></div>
+            </div>
+</body>
+</html>
+
+<?php endif; ?>
+
+

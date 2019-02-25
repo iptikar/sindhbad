@@ -1,0 +1,9 @@
+User-agent: *
+Disallow: /.well-known/
+Disallow: /cgi-bin/
+Disallow: /export_files/
+Disallow: /fancybox/
+Disallow: /mailer/
+Disallow: /MobileDetect/
+Disallow: /template/
+Sitemap: http://www.ezrent.ae/sitemap.xml 

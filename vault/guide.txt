@@ -1,0 +1,25 @@
+I followed this toturial
+https://devopscube.com/setup-hashicorp-vault-beginners-guide/
+https://www.hashicorp.com/resources/getting-vault-enterprise-installed-running
+
+===================================================================
+THIS IS THE PLACE WHERE WE STORE SECURE DATA AND RETRIVE LETTER 
+===================================================================
+
+Unseal Key 1: rQCyOovxNoJngqDYJWUpXWnn2W9ELIMZGDp5tlXWEhhj
+Unseal Key 2: qBirNWw7UcIFMpJdnuktNhWsnnKsj3T9NO8VoqlpmxpB
+Unseal Key 3: I7pQ8k70QnSRQnThl7C+xNRfL5W1xc4HSD+7LxeW9LWa
+Unseal Key 4: ViWmMCHJhiWwv0d3yFP/NqlKBxQ9d+iBUMhu7SgIGjCj
+Unseal Key 5: FdW8rdgBuCiyz4lBJp8OSTtBcAdwVZ3jmX6j/AMp5Opu
+
+rQCyOovxNoJngqDYJWUpXWnn2W9ELIMZGDp5tlXWEhhj
+
+Initial Root Token: fb9c08b7-da48-10fe-04b1-1287f710eb2d
+
+
+Conclusion
+=======================================================
+It as not difficult for letter purpose please study in the mean time and just its simple 
+I am closing this topic on the 10 jan 2019
+Keep researching 
+

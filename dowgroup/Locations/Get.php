@@ -1,0 +1,11 @@
+<?php
+$a = '[{title: "Node 1"},
+{title: "Node 2", key: "id2"},
+{title: "Folder 3", folder: true, children: [
+    {title: "Node 3.1"},
+    {title: "Node 3.2"}
+]},
+{title: "Folder 2", folder: true}
+]';
+
+echo $a;

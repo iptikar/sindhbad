@@ -1,0 +1,43 @@
+1. Upload views to user-admin-14e1813e3d0cf9da1a9dafc6afadff37
+	> Products.phtml to admin 
+	> update-product.phtml
+2. Controller need to update(Done)
+	> SortProudctImages.php
+	> UpdateProductDetails.php
+	> UploadFileBySKU.php
+	> Orders.php
+	> Products.php
+	> RemoveImageFromProduct.php
+	> DeleteProductBySKU.php
+	> selectstoreprocedure.php
+	
+3. /user-admin-14e1813e3d0cf9da1a9dafc6afadff37/ajax upload all ajax folder files
+(Uploaded) 
+
+4. Add script to controller 
+
+
+/////////////////
+
+Development 						Production
+
+$mysqli->next_result() $mysqli->more_results() && $mysqli->next_result()
+
+
+http://sindhbad.com/user-admin-14e1813e3d0cf9da1a9dafc6afadff37/css/bootstrap.min.css
+
+modal-backdrop {
+    position: fixed;
+    z-index: 10049;
+    background-color: #000;
+}
+
+
+chagne z-index to : 10051
+
+
+
+Fatal error: Uncaught Error: Cannot access protected property MarketPlace::$category_seperator in /home/iptikarc/public_html/controller/UpdateProductDetails.php:554 Stack trace: #0 /home/iptikarc/public_html/user-admin-14e1813e3d0cf9da1a9dafc6afadff37/update-product.phtml(400): UpdateProductDetails::UpdatingNow(Object(MarketPlace)) #1 {main} thrown in /home/iptikarc/public_html/controller/UpdateProductDetails.php on line 554
+
+// Here we go 
+public $category_seperator ='#2e3615a020749';

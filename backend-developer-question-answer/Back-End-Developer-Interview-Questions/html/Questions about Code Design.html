@@ -1,0 +1,442 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8">
+	<title></title>
+	<meta name="generator" content="LibreOffice 4.2.3.3 (Linux)">
+	<meta name="created" content="0;0">
+	<meta name="changed" content="0;0">
+	<style type="text/css">
+	<!--
+		@page { margin: 0.79in }
+		p { margin-bottom: 0.1in; direction: ltr; color: #00000a; line-height: 120%; text-align: left; widows: 0; orphans: 0 }
+		p.western { font-family: "Liberation Serif", serif; font-size: 12pt; so-language: en-US }
+		p.cjk { font-family: "Droid Sans Fallback"; font-size: 12pt; so-language: zh-CN }
+		p.ctl { font-family: "FreeSans"; font-size: 12pt; so-language: hi-IN }
+		pre { direction: ltr; color: #00000a; text-align: left; widows: 0; orphans: 0 }
+		pre.western { font-family: "Liberation Mono", serif; so-language: en-US }
+		pre.cjk { font-family: "Droid Sans Fallback"; so-language: zh-CN }
+		pre.ctl { font-family: "Liberation Mono"; so-language: hi-IN }
+		a:link { so-language: zxx }
+	-->
+	</style>
+</head>
+<body lang="en-US" text="#00000a" dir="ltr">
+<pre class="western"><font face="Arial, serif"><b>It is often heard
+that one of the most important goals in Object-Oriented Design (and
+code design in general) is to have High Cohesion and Loose Coupling.
+What does it mean? Why is it that important and how is it achieved?</b></font></pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><font face="Arial, serif"><i><span style="font-weight: normal">What
+I believe is this:</span></i></font></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><font face="Arial, serif"><i><span style="font-weight: normal">Cohesion
+refers to the degree to which the elements of a module/class belong
+together, it is suggested that the related code should be close to
+each other, so we should strive for high cohesion and bind all
+related code together as close as possible. It has to do with the
+elements within the module/class.</span></i></font></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><font face="Arial, serif"><i><span style="font-weight: normal">Coupling
+refers to the degree to which the different modules/classes depend on
+each other, it is suggested that all modules should be independent as
+far as possible, that's why low coupling. It has to do with the
+elements among different modules/classes.</span></i></font></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><font face="Arial, serif"><i><span style="font-weight: normal">To
+visualize the whole picture will be helpful</span></i></font></pre>
+<pre class="western"><font color="#000080"><span lang="zxx"><u><a href="https://stackoverflow.com/questions/14000762/what-does-low-in-coupling-and-high-in-cohesion-mean"><font face="Arial, serif"><i><span style="font-weight: normal">https://stackoverflow.com/questions/14000762/what-does-low-in-coupling-and-high-in-cohesion-mean</span></i></font></a></u></span></font></pre>
+<pre class="western"><font color="#000080"><span lang="zxx"><u><a href="https://stackoverflow.com/questions/3085285/difference-between-cohesion-and-coupling"><font face="Arial, serif"><i><span style="font-weight: normal">https://stackoverflow.com/questions/3085285/difference-between-cohesion-and-coupling</span></i></font></a></u></span></font></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><font face="Arial, serif"><b>Why does array
+index start with '0' in most of languages?</b></font></pre>
+<pre class="western"><font face="Arial, serif"><i><span style="font-weight: normal">In
+C, the name of an array is essentially a pointer, a reference to a
+memory location, and so the expression array[n] refers to a memory
+location n-elements away from the starting element. This means that
+the index is used as an offset. The first element of the array is
+exactly contained in the memory location that array refers (0
+elements away), so it should be denoted as array[0].</span></i></font><font face="Arial, serif"><b><br></b></font><br>
+</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><font face="Arial, serif"><b>How do tests and
+TDD influence code design?</b></font></pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><font face="Arial, serif"><i><span style="font-weight: normal">Most
+people think that Test-Driven Development is tool to write code with
+lesser number of bugs. But ,in reality, that is the by-product of
+TDD. TDD is more of a tool for code designing.</span></i></font></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><font face="Arial, serif"><i><span style="font-weight: normal">Overall,
+TDD helps in quality code development in following ways:-</span></i></font></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><font face="Arial, serif"><i><span style="font-weight: normal">It
+makes you think about your code design and requirements at every
+stage, thereby ensuring that you are actually implementing what is
+required.</span></i></font></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><font face="Arial, serif"><i><span style="font-weight: normal">You
+are forced to write testable code, thereby ensuring that your code
+has loose coupling and high cohesion.</span></i></font></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><font face="Arial, serif"><i><span style="font-weight: normal">If
+your code is getting difficult to test, mostly is signifies that
+there is some issue with your design(Your code is too coupled or not
+isolated enough)</span></i></font></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><font face="Arial, serif"><i><span style="font-weight: normal">With
+that said, I tend to disagree with people that think if you follow
+TDD blindly you'd always end up with good code design(because that
+depends more on you and your knowledge of Sofware Design), but I
+believe there is a good chance you would.</span></i></font></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><font face="Arial, serif"><b>Write a snippet of
+code violating the Don't Repeat Yourself (DRY) principle. Then,
+explain why is it a bad design, and fix it.</b></font></pre>
+<pre class="western"><font face="Arial, serif"><i><span style="font-weight: normal">Short
+of a full framework, what I tend to do for content (even if it
+contains logic) is separate it out into files and use another logical
+evaluation to merge them together (mangle them) and then evaluate the
+templating logic after that. This chunkifies your content and makes
+chunks sharable / reusable on common state.</span></i></font></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><font face="Arial, serif"><i><span style="font-weight: normal">This
+way each final template buffer is a flattened tree of discrete
+re-usable content nuggets that you can store on disk or a database.
+Even something as simple as a little parser that replaces:</span></i></font></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><font face="Arial, serif"><i><span style="font-weight: normal">&lt;h1&gt;{{insert:shared_page_header}}&lt;/h1&gt;</span></i></font></pre>
+<pre class="western"><font face="Arial, serif"><i><span style="font-weight: normal">With
+shared_page_header.txt helps keep things separate. It also forces you
+to look at separation on concerns even in the logic that is embedded
+in your templates. Manageable, reusable chunks of anything (dynamic
+or not) are always the way to go. Your templates are just strings
+until evaluated, so treat them as shared components merged into a
+big-dirty-string(TM) and then evaluated.</span></i></font></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><font face="Arial, serif"><b>What's the
+difference between cohesion and coupling?</b></font></pre>
+<pre class="western"><font face="Arial, serif"><i><span style="font-weight: normal">Cohesion
+refers to what the class (or module) can do. Low cohesion would mean
+that the class does a great variety of actions - it is broad,
+unfocused on what it should do. High cohesion means that the class is
+focused on what it should be doing, i.e. only methods relating to the
+intention of the class.</span></i></font></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><font face="Arial, serif"><i><span style="font-weight: normal">Example
+of Low Cohesion:</span></i></font></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><font face="Arial, serif"><i><span style="font-weight: normal">-------------------</span></i></font></pre>
+<pre class="western"><font face="Arial, serif"><i><span style="font-weight: normal">|
+Staff           |</span></i></font></pre>
+<pre class="western"><font face="Arial, serif"><i><span style="font-weight: normal">-------------------</span></i></font></pre>
+<pre class="western"><font face="Arial, serif"><i><span style="font-weight: normal">|
+checkEmail()    |</span></i></font></pre>
+<pre class="western"><font face="Arial, serif"><i><span style="font-weight: normal">|
+sendEmail()     |</span></i></font></pre>
+<pre class="western"><font face="Arial, serif"><i><span style="font-weight: normal">|
+emailValidate() |</span></i></font></pre>
+<pre class="western"><font face="Arial, serif"><i><span style="font-weight: normal">|
+PrintLetter()   |</span></i></font></pre>
+<pre class="western"><font face="Arial, serif"><i><span style="font-weight: normal">-------------------</span></i></font></pre>
+<pre class="western"><font face="Arial, serif"><i><span style="font-weight: normal">Example
+of High Cohesion:</span></i></font></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><font face="Arial, serif"><i><span style="font-weight: normal">----------------------------</span></i></font></pre>
+<pre class="western"><font face="Arial, serif"><i><span style="font-weight: normal">|
+Staff                   |</span></i></font></pre>
+<pre class="western"><font face="Arial, serif"><i><span style="font-weight: normal">----------------------------</span></i></font></pre>
+<pre class="western"><font face="Arial, serif"><i><span style="font-weight: normal">|
+-salary                 |</span></i></font></pre>
+<pre class="western"><font face="Arial, serif"><i><span style="font-weight: normal">|
+-emailAddr              |</span></i></font></pre>
+<pre class="western"><font face="Arial, serif"><i><span style="font-weight: normal">----------------------------</span></i></font></pre>
+<pre class="western"><font face="Arial, serif"><i><span style="font-weight: normal">|
+setSalary(newSalary)    |</span></i></font></pre>
+<pre class="western"><font face="Arial, serif"><i><span style="font-weight: normal">|
+getSalary()             |</span></i></font></pre>
+<pre class="western"><font face="Arial, serif"><i><span style="font-weight: normal">|
+setEmailAddr(newEmail)  |</span></i></font></pre>
+<pre class="western"><font face="Arial, serif"><i><span style="font-weight: normal">|
+getEmailAddr()          |</span></i></font></pre>
+<pre class="western"><font face="Arial, serif"><i><span style="font-weight: normal">----------------------------</span></i></font></pre>
+<pre class="western"><font face="Arial, serif"><i><span style="font-weight: normal">As
+for coupling, it refers to how related or dependent two
+classes/modules are toward each other. For low coupled classes,
+changing something major in one class should not affect the other.
+High coupling would make it difficult to change and maintain your
+code; since classes are closely knit together, making a change could
+require an entire system revamp.</span></i></font></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><font face="Arial, serif"><i><span style="font-weight: normal">Good
+software design has high cohesion and low coupling.</span></i></font></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><font face="Arial, serif"><b>What is refactoring
+useful for?</b></font></pre>
+<pre class="western"><font face="Arial, serif"><i><span style="font-weight: normal">Refactoring
+is a controlled technique for improving the design of an existing
+code base. Its essence is applying a series of small
+behavior-preserving transformations, each of which &quot;too small to
+be worth doing&quot;. However the cumulative effect of each of these
+transformations is quite significant.Jun 22, 2009</span></i></font></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><font face="Arial, serif"><i><span style="font-weight: normal">Scisr
+is a simple, standalone refactoring tool for PHP.</span></i></font></pre>
+<pre class="western"><font color="#000080"><span lang="zxx"><u><a href="http://iangreenleaf.github.io/Scisr/"><font face="Arial, serif"><i><span style="font-weight: normal">http://iangreenleaf.github.io/Scisr/</span></i></font></a></u></span></font></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><font face="Arial, serif"><i><span style="font-weight: normal">I
+know this is an old question, but since it's one of the best rundowns
+of PHP refactoring tools, I thought I would add my new project to the
+list.</span></i></font></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><font face="Arial, serif"><i><span style="font-weight: normal">A
+lot of my design goals sprung out of the inadequacies of other items
+mentioned here - they are tied into certain IDEs, or try to dictate
+your testing practices, or require a whole bunch of rote manual
+labor. I am hoping to create an overall better experience in Scisr.
+It's simple to install and run. It tries to be clever, but not too
+clever. It does the tasks that I have found to lend themselves best
+to automation. Enjoy!</span></i></font></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><font face="Arial, serif"><b>Are comments in
+code useful? Some say they should be avoided as much as possible, and
+hopefully made unnecessary. Do you agree?</b></font></pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><font face="Arial, serif"><i><span style="font-weight: normal">Only
+if the comment describes what the code is doing.</span></i></font></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><font face="Arial, serif"><i><span style="font-weight: normal">If
+I wanted to know what was happening in a method or block, I would
+read the code. I would hope, anyway, that any developers working on a
+given project were at least familiar enough with the development
+language to read what is written and understand what it is doing.</span></i></font></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><font face="Arial, serif"><i><span style="font-weight: normal">In
+some cases of extreme optimization, you might be using techniques
+that makes it difficult for someone to follow what your code is
+doing. In these cases, comments can and should be used to not only
+explain why you have such optimizations, but what the code is doing.
+A good rule of thumb would be to have someone else (or multiple other
+people) familiar with the implementation language and project look at
+your code - if they can't understand both the why and the how, then
+you should comment both the why and the how.</span></i></font></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><font face="Arial, serif"><i><span style="font-weight: normal">However,
+what's not clear in the code is why you have done something. If you
+take an approach that might not be obvious to others, you should have
+a comment that explains why you made the decisions that you did. I
+would suspect that you might not even realize that a comment is
+needed until after something like a code review, where people want to
+know why you did X instead of Y - you can capture your answer in the
+code for everyone else who looks at it in the future.</span></i></font></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><font face="Arial, serif"><i><span style="font-weight: normal">The
+most important thing, though, is to change your comments when you
+change your code. If you change an algorithm, be sure to update the
+comments with why you went with algorithm X over Y. Stale comments
+are an even bigger code smell.</span></i></font></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><font face="Arial, serif"><b>What is the
+difference between design and architecture?</b></font></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><font face="Arial, serif"><i><span style="font-weight: normal">You're
+right yes. The architecture of a system is its 'skeleton'. It's the
+highest level of abstraction of a system. What kind of data storage
+is present, how do modules interact with each other, what recovery
+systems are in place. Just like design patterns, there are
+architectural patterns: MVC, 3-tier layered design, etc.</span></i></font></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><font face="Arial, serif"><i><span style="font-weight: normal">Software
+design is about designing the individual modules / components. What
+are the responsibilities, functions, of module x? Of class Y? What
+can it do, and what not? What design patterns can be used?</span></i></font></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><font face="Arial, serif"><i><span style="font-weight: normal">So
+in short, Software architecture is more about the design of the
+entire system, while software design emphasizes on module / component
+/ class level.</span></i></font></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><font face="Arial, serif"><b>Why in TDD are
+tests written before code?</b></font></pre>
+<pre class="western"><font face="Arial, serif"><i><span style="font-weight: normal">Some
+good comments here, but I think that one thing is getting ignored.</span></i></font></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><font face="Arial, serif"><i><span style="font-weight: normal">writing
+tests first drives your design. This is an important step. If you
+write the tests &quot;at the same time&quot; or &quot;soon after&quot;
+you might be missing some design benefits of doing TDD in micro
+steps.</span></i></font></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><font face="Arial, serif"><i><span style="font-weight: normal">It
+feels really cheesy at first, but it's amazing to watch things unfold
+before your eyes into a design that you didn't think of originally.
+I've seen it happen.</span></i></font></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><font face="Arial, serif"><i><span style="font-weight: normal">TDD
+is hard, and it's not for everybody. But if you already embrace unit
+testing, then try it out for a month and see what it does to your
+design and productivity.</span></i></font></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><font face="Arial, serif"><i><span style="font-weight: normal">You
+spend less time in the debugger and more time thinking about
+outside-in design. Those are two gigantic pluses in my book.</span></i></font></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><font face="Arial, serif"><b>Is there a
+difference between using delegation and using inheritance? [This
+question is from The Pragmatic Programmer, by Andrew Hunt and David
+Thomas]</b></font></pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><font face="Arial, serif"><b>Pros and cons of
+holding domain logic in Stored Procedures.</b></font></pre>
+<pre class="western"><font face="Arial, serif"><i><span style="font-weight: normal">In
+theory, the pros and cons are as so:</span></i></font></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><font face="Arial, serif"><i><span style="font-weight: normal">Pros:</span></i></font></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><font face="Arial, serif"><i><span style="font-weight: normal">One
+place to contain all of the business logic</span></i></font></pre>
+<pre class="western"><font face="Arial, serif"><i><span style="font-weight: normal">Possibly
+faster applications because multiple SQL queries and such can be
+performed in one &quot;round trip&quot; to the database</span></i></font></pre>
+<pre class="western"><font face="Arial, serif"><i><span style="font-weight: normal">Trivial
+to make use of the stored procedures from multiple applications</span></i></font></pre>
+<pre class="western"><font face="Arial, serif"><i><span style="font-weight: normal">Cons:</span></i></font></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><font face="Arial, serif"><i><span style="font-weight: normal">A
+DBA will be required for performance tuning</span></i></font></pre>
+<pre class="western"><font face="Arial, serif"><i><span style="font-weight: normal">All
+developers will have to be very well versed in your particular SQL
+dialect(T-SQL, Pl/SQL, etc)</span></i></font></pre>
+<pre class="western"><font face="Arial, serif"><i><span style="font-weight: normal">SQL
+code isn't as expressive and thus harder to write when covering
+higher level concepts that aren't really related to data</span></i></font></pre>
+<pre class="western"><font face="Arial, serif"><i><span style="font-weight: normal">A
+lot more unnecessary load on the database</span></i></font></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><font face="Arial, serif"><b>In your opinion,
+why have Object-Oriented Design dominated the market for so many
+years?</b></font></pre>
+<pre class="western"><font face="Arial, serif"><i><span style="font-weight: normal">Object
+Oriented Programming has great advantages over other programming
+styles: Code Reuse and Recycling: Objects created for Object Oriented
+Programs can easily be reused in other programs. Encapsulation (part
+1): Once an Object is created, knowledge of its implementation is not
+necessary for its use.</span></i></font></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><font face="Arial, serif"><b>What would you do
+to understand if your code has a bad design?</b></font></pre>
+<pre class="western"><font face="Arial, serif"><i><span style="font-weight: normal">The
+biggest clue for me is:</span></i></font></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><font face="Arial, serif"><i><span style="font-weight: normal">When
+you have to go back and add/modify a feature, is it difficult? Do you
+constantly break existing functionality when making changes?</span></i></font></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><font face="Arial, serif"><i><span style="font-weight: normal">If
+the answer to the above is &quot;yes&quot; then you probably have a
+poor overall design.</span></i></font></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><font face="Arial, serif"><i><span style="font-weight: normal">It
+is (for me at least) a bit difficult to judge a design until it is
+required to respond to change (within reason of course; some code is
+just bad and you can tell right away, but even that comes with
+experience.)</span></i></font></pre>
+</body>
+</html>

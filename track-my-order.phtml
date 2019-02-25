@@ -1,0 +1,376 @@
+<?php
+
+require('controller/controller.php');
+
+// Setting time to dubai
+date_default_timezone_set ('Asia/Dubai');
+// Get the object
+$obj = new MarketPlace();
+
+
+?>
+	<!doctype html>
+<html lang="en">
+   
+	<head >
+     
+      <meta charset="utf-8"/>
+      <meta name="description" content="Default Description"/>
+      <meta name="keywords" />
+      <meta name="robots" content="INDEX,FOLLOW"/>
+      <meta name="viewport" content="width=device-width, initial-scale=1"/>
+      <meta name="format-detection" content="telephone=no"/>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+      <title>Home - SM Market Layout 4</title> 
+      <?php include 'head-links.php'; ?>
+      <!--CUSTOM CSS-->
+      <style>
+     .nopadding. {
+   padding: 0 !important;
+   margin: 0 !important;
+}
+
+
+  
+      
+      i.fa {
+  display: inline-block;
+  border-radius: 60px;
+  box-shadow: 0px 0px 2px #888;
+  padding: 0.5em 0.6em;
+  font-size:35px;
+
+}
+
+.show-order-map div {
+		
+		text-align:center;
+		float:center !important;
+	}
+	
+	ol.progtrckr {
+    margin: 0;
+    padding: 0;
+    list-style-type none;
+}
+
+ol.progtrckr li {
+    display: inline-block;
+    text-align: center;
+    line-height: 3.5em;
+}
+
+ol.progtrckr[data-progtrckr-steps="2"] li { width: 49%; }
+ol.progtrckr[data-progtrckr-steps="3"] li { width: 33%; }
+ol.progtrckr[data-progtrckr-steps="4"] li { width: 24%; }
+ol.progtrckr[data-progtrckr-steps="5"] li { width: 15%; }
+ol.progtrckr[data-progtrckr-steps="6"] li { width: 16%; }
+ol.progtrckr[data-progtrckr-steps="7"] li { width: 14%; }
+ol.progtrckr[data-progtrckr-steps="8"] li { width: 12%; }
+ol.progtrckr[data-progtrckr-steps="9"] li { width: 11%; }
+
+ol.progtrckr li.progtrckr-done {
+    color: black;
+    border-bottom: 4px solid yellowgreen;
+}
+ol.progtrckr li.progtrckr-todo {
+    color: silver; 
+    border-bottom: 4px solid silver;
+}
+
+ol.progtrckr li:after {
+    content: "\00a0\00a0";
+}
+ol.progtrckr li:before {
+    position: relative;
+    bottom: -2.5em;
+    float: left;
+    left: 50%;
+    line-height: 1em;
+}
+ol.progtrckr li.progtrckr-done:before {
+    content: "\2713";
+    color: white;
+    background-color: yellowgreen;
+    height: 2.2em;
+    width: 2.2em;
+    line-height: 2.2em;
+    border: none;
+    border-radius: 2.2em;
+}
+ol.progtrckr li.progtrckr-todo:before {
+    content: "\039F";
+    color: silver;
+    background-color: white;
+    font-size: 2.2em;
+    bottom: -1.2em;
+}
+
+
+	   
+	   </style>
+	
+	   
+     </head>
+  
+
+
+
+
+
+	 <body data-container="body">
+      
+      
+     
+      
+      
+      
+      
+      <noscript>
+         <div class="message global noscript">
+            <div class="content">
+               <p><strong>JavaScript seems to be disabled in your browser.</strong> <span>For the best experience on our site, be sure to turn on Javascript in your browser.</span></p>
+            </div>
+         </div>
+      </noscript>
+      
+      
+     
+      
+      <div class="page-wrapper">
+      
+       <?php include 'header.php'; ?>
+			
+		<main id="maincontent" class="page-main">
+   <div class="columns col1-layout">
+      <div class="container">
+        
+           
+               <div class="col-md-12 nopadding">
+                  <div class="form create account form-create-account" >
+                     
+                     
+                     <fieldset class="fieldset" data-hasrequired="* Required Fields" style="width:100%;">
+                        
+                        <div class = "col-md-12">
+                        <legend class=""><span>Track Your Order.</span></legend>
+                        
+                         <hr/>
+                       </div>
+                       
+                     
+                       
+                       
+						   
+                       <form class="form create account form-create-account" action = "<?= basename($_SERVER['SCRIPT_NAME'], '.phtml')?>" method="post" >
+						<div class = "col-md-12 ">
+						   
+						   
+                                       <div class="newsletter-content">
+                                          <div class="input-box">
+											 
+				<input name="order_id" type="text"  placeholder = "Enter you order id here....."  pattern="[A-Za-z0-9]{12}" 
+														oninvalid="this.setCustomValidity('Please Enter order id...')"
+														oninput="setCustomValidity('')" required />
+														
+														
+					</div>
+                                          
+                                       </div>
+                                       
+                         </div>
+                        
+                        <div class = "col-md-12 ">
+                        <div class="action-button"><button name = "submit" style = "float:right; margin-top:10px;"class="action subscribe primary" title="Subscribe" type="submit"><span>Track Order</span></button></div>
+                        </div>
+                                    </form>
+                                    
+                         <hr />
+                         <?php
+                         	$getOrderStatus  = new GetOrderDetailsForClient('order_id');
+	
+                         ?>
+                     
+                     <?php if(isset($_POST['order_id'])) :?>
+                     
+                    <?php if(is_array($getOrderStatus->GetOrderStatusById()['result'])) :?>
+
+ <?php
+	// On the basis or order information 
+	$status = $getOrderStatus->GetOrderStatusById()['result'][0][0]['status'];
+	
+	$orderMap = '';
+	
+	switch($status) {
+		
+			case 'created':
+			$orderMap = '<li class="progtrckr-done">Created</li>
+ <li class="progtrckr-todo">Processing</li><!--
+ --><li class="progtrckr-todo">Confirmed</li><!--
+ --><li class="progtrckr-todo">Item Picked</li><!--
+ --><li class="progtrckr-todo">Ready For Dispatch</li><!--
+  --><li class="progtrckr-todo">Delivered</li>';
+			break;
+			
+			
+			
+			case 'processing':
+			
+			$orderMap = '<li class="progtrckr-done">Created</li>
+ <li class="progtrckr-done">Processing</li><!--
+ --><li class="progtrckr-todo">Confirmed</li><!--
+ --><li class="progtrckr-todo">Item Picked</li><!--
+ --><li class="progtrckr-todo">Ready For Dispatch</li><!--
+  --><li class="progtrckr-todo">Delivered</li>';
+  
+  
+			break;
+			
+			case 'confirmed':
+			
+				$orderMap = '<li class="progtrckr-done">Created</li>
+ <li class="progtrckr-done">Processing</li><!--
+ --><li class="progtrckr-done">Confirmed</li><!--
+ --><li class="progtrckr-todo">Item Picked</li><!--
+ --><li class="progtrckr-todo">Ready For Dispatch</li><!--
+  --><li class="progtrckr-todo">Delivered</li>';
+  
+			break;
+			
+			case 'item_picked':
+			
+			$orderMap = '<li class="progtrckr-done">Created</li>
+ <li class="progtrckr-done">Processing</li><!--
+ --><li class="progtrckr-done">Confirmed</li><!--
+ --><li class="progtrckr-done">Item Picked</li><!--
+ --><li class="progtrckr-todo">Ready For Dispatch</li><!--
+  --><li class="progtrckr-todo">Delivered</li>';
+			break;
+			
+			case 'Ready for dispatch':
+			break;
+			
+			case 'delivered':
+			$orderMap = '<li class="progtrckr-done">Created</li>
+ <li class="progtrckr-done">Processing</li><!--
+ --><li class="progtrckr-done">Confirmed</li><!--
+ --><li class="progtrckr-done">Item Picked</li><!--
+ --><li class="progtrckr-todo">Ready For Dispatch</li><!--
+  --><li class="progtrckr-todo">Delivered</li>';
+			break;
+			
+			case 'frad':
+			$orderMap = '<li class="progtrckr-done">Fradue</li>
+ <li class="progtrckr-todo">Processing</li><!--
+ --><li class="progtrckr-todo">Confirmed</li><!--
+ --><li class="progtrckr-todo">Item Picked</li><!--
+ --><li class="progtrckr-todo">Ready For Dispatch</li><!--
+  --><li class="progtrckr-todo">Delivered</li>';
+			break;
+			
+			case 'canceled':
+			$orderMap = '<li class="progtrckr-done">Canceled</li>
+ <li class="progtrckr-todo">Processing</li><!--
+ --><li class="progtrckr-todo">Confirmed</li><!--
+ --><li class="progtrckr-todo">Item Picked</li><!--
+ --><li class="progtrckr-todo">Ready For Dispatch</li><!--
+  --><li class="progtrckr-todo">Delivered</li>';
+  
+			break;
+			
+			default:
+			
+			break;
+	}
+?>
+					<div class = "col-md-12">
+					<div class = "map" style = "text-align:center;">
+					
+    <!--
+    
+ -->
+ 
+
+<ol class="progtrckr" data-progtrckr-steps="5">
+<?= $orderMap ?>
+</ol>
+					</div>
+                    </div>
+                    
+                    <div class = "col-md-12" style = "margin-top:50px;">
+                        <legend class=""><span>Your Order Details.</span></legend>
+                        
+                         <hr/>
+                    <?php if(is_array($getOrderStatus->GetOrderStatusDetailsById()['result']['0'])):?>
+  
+                   <table class="table responsive">
+  <caption>List of users</caption>
+  <thead>
+    <tr>
+      <th scope="col">SN</th>
+      <th scope="col">Date Time</th>
+      <th scope="col">Activities</th>
+      <th scope="col">Comments</th>
+    </tr>
+  </thead>
+  
+  
+  <tbody>
+	  <?php $i = 0; ?>
+	  <?php foreach($getOrderStatus->GetOrderStatusDetailsById()['result']['0'] as $item) :?>
+	  
+	 <tr>
+      <th scope="row"><?= $i?></th>
+      <td><?= date("F j, Y, g:i a", strtotime($item['updated_at']));  ?></td>
+      <td><?= $item['status']; ?></td>
+      <td><?= $item['comments']; ?></td>
+     </tr>
+	  
+	  <?php $i++; ?>
+	  <?php endforeach ;?>
+   
+   
+  
+  </tbody>
+</table>
+<?php endif;?>
+                    
+                     </div>
+                     
+                    <?php else: ?>
+                     
+                     <div class = "alert alert-danger">
+						We are unable to find the order details.
+                     </div>
+                     
+                     <?php endif;?>
+                     
+                     <?php endif;?>
+                   
+                     </fieldset>
+                    
+                    
+                  
+                  
+                  </div>
+               </div>
+            
+        
+      </div>
+   </div>
+</main>
+       
+        </div>
+		
+		</main>
+         
+         
+         <?php 
+			
+			include ('footer.php');
+         ?>
+      </div>
+      </body>
+     </html>
+
+	

@@ -1,0 +1,139 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8">
+	<title></title>
+	<meta name="generator" content="LibreOffice 4.2.3.3 (Linux)">
+	<meta name="created" content="0;0">
+	<meta name="changed" content="0;0">
+	<style type="text/css">
+	<!--
+		@page { margin: 0.79in }
+		p { margin-bottom: 0.1in; direction: ltr; color: #00000a; line-height: 120%; text-align: left; widows: 0; orphans: 0 }
+		p.western { font-family: "Liberation Serif", serif; font-size: 12pt; so-language: en-US }
+		p.cjk { font-family: "Droid Sans Fallback"; font-size: 12pt; so-language: zh-CN }
+		p.ctl { font-family: "FreeSans"; font-size: 12pt; so-language: hi-IN }
+		pre { direction: ltr; color: #00000a; text-align: left; widows: 0; orphans: 0 }
+		pre.western { font-family: "Liberation Mono", serif; so-language: en-US }
+		pre.cjk { font-family: "Droid Sans Fallback"; so-language: zh-CN }
+		pre.ctl { font-family: "Liberation Mono"; so-language: hi-IN }
+		a:link { so-language: zxx }
+	-->
+	</style>
+</head>
+<body lang="en-US" text="#00000a" dir="ltr">
+<pre class="western"><br>
+</pre>
+<pre class="western"><b>What is Eventual Consistency?</b></pre>
+<pre class="western"><i><span style="font-weight: normal">Eventual
+consistency:</span></i></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><i><span style="font-weight: normal">I watch the
+weather report and learn that it's going to rain tomorrow.</span></i></pre>
+<pre class="western"><i><span style="font-weight: normal">I tell you
+that it's going to rain tomorrow.</span></i></pre>
+<pre class="western"><i><span style="font-weight: normal">Your
+neighbor tells his wife that it's going to be sunny tomorrow.</span></i></pre>
+<pre class="western"><i><span style="font-weight: normal">You tell
+your neighbor that it is going to rain tomorrow.</span></i></pre>
+<pre class="western"><i><span style="font-weight: normal">Eventually,
+all of the servers (you, me, your neighbor) know the truth (that it's
+going to rain tomorrow), but in the meantime the client (his wife)
+came away thinking it is going to be sunny, even though she asked
+after one or more of the servers (you and me) had a more up-to-date
+value.</span></i></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><i><span style="font-weight: normal">As opposed
+to Strict Consistency / ACID compliance:</span></i></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><i><span style="font-weight: normal">Your bank
+balance is $50.</span></i></pre>
+<pre class="western"><i><span style="font-weight: normal">You deposit
+$100.</span></i></pre>
+<pre class="western"><i><span style="font-weight: normal">Your bank
+balance, queried from any ATM anywhere, is $150.</span></i></pre>
+<pre class="western"><i><span style="font-weight: normal">Your
+daughter withdraws $40 with your ATM card.</span></i></pre>
+<pre class="western"><i><span style="font-weight: normal">Your bank
+balance, queried from any ATM anywhere, is $110.</span></i></pre>
+<pre class="western"><i><span style="font-weight: normal">At no time
+can your balance reflect anything other than the actual sum of all of
+the transactions made on your account to that exact moment.</span></i></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><i><span style="font-weight: normal">The reason
+why so many NoSQL systems have eventual consistency is that virtually
+all of them are designed to be distributed, and with fully
+distributed systems there is super-linear overhead to maintaining
+strict consistency (meaning you can only scale so far before things
+start to slow down, and when they do you need to throw exponentially
+more hardware at the problem to keep scaling).</span></i></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><i><span style="font-weight: normal">https://stackoverflow.com/questions/10078540/eventual-consistency-in-plain-english</span></i></pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><b>The Brewer's Theorem, most commonly known as
+the CAP theorem, states that in the presence of a Network Partition
+(the P in CAP), a system's designer has to choose between Consistency
+(the C in CAP) and Availability (the A in CAP). Can you think about
+examples of CP, AP and CA systems?</b></pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><font color="#000080"><span lang="zxx"><u><a href="https://howtodoinjava.com/hadoop/brewers-cap-theorem-in-simple-words/"><span style="font-weight: normal">https://howtodoinjava.com/hadoop/brewers-cap-theorem-in-simple-words/</span></a></u></span></font></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><b>How would you explain the recent rise in
+interest for NoSQL?</b></pre>
+<pre class="western"><a name="__DdeLink__852_1541665242"></a><b><br></b><span style="font-weight: normal">https://support.rackspace.com/how-to/choosing-between-rdbms-and-nosql/</span></pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><b>How does NoSQL tackle scalability challenges?</b></pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><i><span style="font-weight: normal">noSQL
+databases give up a massive amount of functionality that a SQL
+database gives you by it's very nature.</span></i></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><i><span style="font-weight: normal">Things like
+automatic enforcement of referential integrity, transactions, etc.
+These are all things that are very handy to have for some problems,
+and which require some interesting techniques to scale outside of a
+single server (think about what happens if you need to lock two
+tables for an atomic transaction, and they are on different
+servers!).</span></i></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><i><span style="font-weight: normal">noSQL
+databases don't have all that. If you need that stuff, you need to do
+it yourself, but if you DON'T need it (and there are a lot of
+applications that don't), then boy howdy are you in luck. The DB
+doesn't have to do all of these complex operations and locking across
+much of the dataset, so it's really easy to partition the thing
+across many servers/disks/whatever and have it work really fast.</span></i></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><b>In which case would you use a document
+database like MongoDB instead of a relational database like MySQL or
+PostgreSQL?</b></pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><span style="font-weight: normal">https://support.rackspace.com/how-to/choosing-between-rdbms-and-nosql/</span></pre>
+</body>
+</html>

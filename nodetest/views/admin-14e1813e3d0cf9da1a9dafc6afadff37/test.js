@@ -1,0 +1,1 @@
+var billing_address = result[i]['billing_address'] == '' ? null : JSON.parse(result[i]['billing_address']);

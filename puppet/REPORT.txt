@@ -1,0 +1,117 @@
+====================================================
+BEFORE WRING ANYTHING IT'S NOT DIFFICULT ANY WAY JUST I HAVE NO RESOURCES THAT WAS THE REASON
+
+====================================================
+
+first i do not want to get made because i need to have two ip address where i can not 
+test this in docker as i do have two nginx container 
+
+http://172.17.0.3/
+
+http://172.17.0.5/
+
+After installing puppet on both client side and server side after going via the toturial 
+
+This is host file in puppet-master 
+
+Location: /etc/hosts
+
+127.0.0.1       localhost
+::1     localhost ip6-localhost ip6-loopback
+fe00::0 ip6-localnet
+ff00::0 ip6-mcastprefix
+ff02::1 ip6-allnodes
+ff02::2 ip6-allrouters
+172.17.0.2      docker1_php_1 e80677304b4c
+172.17.0.2      php e80677304b4c docker1_php_1
+172.17.0.2      php_1 e80677304b4c docker1_php_1
+
+
+172.17.0.6    7f330a80ee00
+172.17.0.3    22f40d583590
+
+you can see 172.17.0.3    22f40d583590 this part there sould be domain name so puppet client 
+can reach and we can not use this kind of id because 
+
+
+In 
+
+Puppet client configuration 
+
+Location: /etc/puppet/puppet.conf
+
+==================================
+[main]
+ssldir = /var/lib/puppet/ssl
+
+[master]
+vardir = /var/lib/puppet
+cadir  = /var/lib/puppet/ssl/ca
+dns_alt_names = puppet
+
+[agent]
+
+server = 172.17.0.3
+===================================
+
+You can see above i can not use ip adress in server block i must need to have domin name there
+for i can not use it but when i use it 
+
+I have configured both Puppet Server and Puppet Client then after configuration when i rung 
+
+Command 
+puppet agent --test --debuge 
+
+It send the request to the puppet server and i can list all the sign in request from the client 
+
+by using 
+
+puppet cert --list --all
+
+it's show all the list 
+
++ "22f40d583590" (SHA256) 00:FB:1C:4F:CE:5E:5F:49:4F:E8:FE:2B:D4:C9:D0:BE:EA:5D:6A:37:39:EA:E4:EB:F1:A4:C0:D8:D3:C9:46:AD (alt names: "DNS:22f40d583590", "DNS:puppet")
++ "7f330a80ee00" (SHA256) F0:9F:E2:66:AC:F3:36:35:DD:85:FE:10:51:28:B2:92:92:38:43:A2:30:A3:E6:38:83:8B:B2:53:51:FD:D2:A7
+
+You can see above there is sign in reqest from client now i used as well 
+puppet sign cert 7f330a80ee00
+puppet sign cert --all
+
+Of course it's give me message 
+
+Signing Certificate Request for:
+  "22f40d583590" (SHA256) 55:4F:5D:22:0A:C7:73:12:9C:58:BE:F2:84:3F:F5:06:78:3A:21:95:FB:FF:80:75:04:05:95:CF:6C:14:F0:0E
+Notice: Signed certificate request for 22f40d583590
+Notice: Removing file Puppet::SSL::CertificateRequest 22f40d583590 at '/var/lib/puppet/ssl/ca/requests/22f40d583590.pem'
+Signing Certificate Request for:
+  "7f330a80ee00" (SHA256) F1:50:2C:DE:80:3B:C1:4A:1B:59:98:DD:BB:95:34:00:D9:96:57:34:F0:E6:2B:AF:78:A8:BA:8A:64:6E:1B:B0
+Notice: Signed certificate request for 7f330a80ee00
+Notice: Removing file Puppet::SSL::CertificateRequest 7f330a80ee00 at '/var/lib/puppet/ssl/ca/requests/7f330a80ee00.pem'
+
+
+============================================================
+But when i tried from the client side puppet agent --test then i get error 
+
+Command 
+
+puppet agent --test --waitforcert=60
+
+Error 
+Error: /File[/var/cache/puppet/facts.d]: Failed to generate additional resources using 'eval_generate': Server hostname '172.17.0.3' did not match server certificate; expected one of 22f40d583590, DNS:22f40d583590, DNS:puppet
+Error: /File[/var/cache/puppet/facts.d]: Could not evaluate: Could not retrieve file metadata for puppet:///pluginfacts: Server hostname '172.17.0.3' did not match server certificate; expected one of 22f40d583590, DNS:22f40d583590, DNS:puppet
+
+
+Conclusion 
+Here it's do not work because puppet agent config file /etc/puppet/puppet.conf file server 
+= 172.17.0.3. When puppet master generate SSL key it's generate on the basis of domain name 
+which is 22f40d583590 therefore it does not match. Bottom line is if you have two ip address 
+then with domain then perhaps you can try it or else it's is weast of time any way you got 
+little bit knowledge about this.
+
+Cheers you can do any way do not worries about this.
+ 
+
+
+
+
+

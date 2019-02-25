@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>MY APP</title>
+  <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<div class = "container">
+	<div class = "row">
+	<% if ( sessionFlash && sessionFlash.message) { %>
+	
+<% if(sessionFlash.type == 'success'){  %>
+
+
+<div class="alert alert-success">
+	<strong>FLASH!</strong> <%= sessionFlash.message %>
+</div>
+
+<% } else {  %>
+	
+<div class="alert alert-danger">
+	<strong>FLASH!</strong> <%= sessionFlash.message %>
+</div>
+
+<% } %>
+
+<% } %>
+	</div>
+</div>
+
+ 
+  <div>
+  <div>
+	<h1>this is id<%=  quotes.id %></h1>
+</div>
+  <h2>Replace last quote written by Master Yoda with a quote written by Darth Vadar</h2>
+  
+  <form ref='uploadForm' 
+      id='uploadForm' 
+      action='http://localhost:8080/addtocart' 
+      method='post' 
+      encType="multipart/form-data">
+       <input type = "text" name = "sku" value = "<%=  quotes.sku %>" />
+       <input type = "text" name = "id" value = "<%=  quotes.id %>" />
+       <input type='submit' value='Add to cart' />
+    </form> 
+</div>
+
+<button id = "nextpage" data-sku = "<%=  quotes.sku %>"  data-id = "<%=  quotes.id %>" onclick = "SendData(this)">Get ajax </button>
+
+
+  <script>
+  function SendData(el) {
+	
+	
+	// Get get the data 
+	var id = $(el).attr('data-sku');
+	
+	var sku = $(el).attr('data-id');
+	
+	var url = 'http://localhost:8080/addtocart';
+
+	var data = {sku:sku, id:id};
+	
+$.ajax({
+      type: 'POST',
+      url: url,
+      data: data,
+      dataType: "text",
+      success: function(resultData) { 
+			
+			//location.reload();
+		 
+			alert(resultData);
+		}
+});
+
+	
+}
+
+  </script>
+
+<script src="main.js" type = "text/javascript"></script>
+
+</body>
+
+</html>

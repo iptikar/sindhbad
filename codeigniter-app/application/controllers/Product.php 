@@ -1,0 +1,10 @@
+<?php
+
+class Product extends  CI_Controller {
+ public function index(){
+ $this->load->model('product_model');
+ $data['product_list'] = $this->product_model->list_product()->result();
+ $data['title'] = "Product";
+ $this->load->view('product_list',$data);
+ }
+}

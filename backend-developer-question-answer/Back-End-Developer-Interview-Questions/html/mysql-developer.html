@@ -1,0 +1,271 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8">
+	<title></title>
+	<meta name="generator" content="LibreOffice 4.2.3.3 (Linux)">
+	<meta name="created" content="0;0">
+	<meta name="changed" content="0;0">
+	<style type="text/css">
+	<!--
+		@page { margin: 0.79in }
+		p { margin-bottom: 0.1in; direction: ltr; color: #00000a; line-height: 120%; text-align: left; widows: 0; orphans: 0 }
+		p.western { font-family: "Liberation Serif", serif; font-size: 12pt; so-language: en-US }
+		p.cjk { font-family: "Droid Sans Fallback"; font-size: 12pt; so-language: zh-CN }
+		p.ctl { font-family: "FreeSans"; font-size: 12pt; so-language: hi-IN }
+		pre { direction: ltr; color: #00000a; text-align: left; widows: 0; orphans: 0 }
+		pre.western { font-family: "Liberation Mono", serif; so-language: en-US }
+		pre.cjk { font-family: "Droid Sans Fallback"; so-language: zh-CN }
+		pre.ctl { font-family: "Liberation Mono"; so-language: hi-IN }
+		a:link { so-language: zxx }
+	-->
+	</style>
+</head>
+<body lang="en-US" text="#00000a" dir="ltr">
+<pre class="western"><b>(1) Show the total amount of storage being
+used by each database under MySQL… organized by owner.</b></pre>
+<pre class="western"><br>
+</pre>
+<pre class="western">mysql&gt; select table_schema,
+sum((data_length+index_length)/1024/1024) AS MB from
+information_schema.tables group by 1;</pre>
+<pre class="western">+--------------------+-----------------+</pre>
+<pre class="western">| table_schema       | MB              |</pre>
+<pre class="western">+--------------------+-----------------+</pre>
+<pre class="western">| prod               | 298025.72448921 |</pre>
+<pre class="western">| information_schema |      0.00781248 |</pre>
+<pre class="western">| maatkit            |     70.77330779 |</pre>
+<pre class="western">| mysql              |      0.66873168 |</pre>
+<pre class="western">| test               |   4752.31449127 |</pre>
+<pre class="western">+--------------------+-----------------+</pre>
+<pre class="western">5 rows in set (0.01 sec)</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western">(2) List the indexes for all tables in database
+“Sales”… and show me any tables which do not have indexes.</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western">(3) If MySQL database service is Not running,
+where do you look for problems/errors to correct.</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western">(4) If MySQL is not running, how do you find
+disk storage used by MySQL …storage FREE/avail for MySQL?</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western">(5) List all active connections to running MySQL
+DB… and what can you know about activity…</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western">(6) Discuss steps to move/copy a MySQL database
+from ServerA to ServerB ?</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western">(7) Comment on setup of ServerJ and ServerK for
+load balancing &amp; fail-over operation, so BOTH stay updated?</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western">(8) Describe steps to backup or restore
+data/tables/index for database “blue” with other databases still
+running?</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><font size="3" style="font-size: 12pt"><b>Why
+does InnoDB store all databases in one file?</b></font></pre>
+<pre class="western"><font color="#000080"><span lang="zxx"><u><a href="https://dba.stackexchange.com/questions/15531/why-does-innodb-store-all-databases-in-one-file?noredirect=1&amp;lq=1"><font size="1" style="font-size: 8pt"><span style="font-weight: normal">https://dba.stackexchange.com/questions/15531/why-does-innodb-store-all-databases-in-one-file?noredirect=1&amp;lq=1</span></font></a></u></span></font></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western">64</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western">The architecture of InnoDB demands the use of
+four basic types of info pages</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western">Table Data Pages</pre>
+<pre class="western">Table Index Pages</pre>
+<pre class="western">Table MetaData</pre>
+<pre class="western">MVCC Data (to support Transaction Isolation and
+ACID Compliance)</pre>
+<pre class="western">Rollback Segments</pre>
+<pre class="western">Undo Space</pre>
+<pre class="western">Double Write Buffer (background writing to
+prevent reliance on OS caching)</pre>
+<pre class="western">Insert Buffer (managing changes to non-unique
+secondary indexes)</pre>
+<pre class="western">See the Pictorial Representation of ibdata1</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western">By default, innodb_file_per_table is disabled.
+This causes all four info page types to land a single file called
+ibdata1. Many people try to spread out the data by making multiple
+ibdata files. This could lead to fragmentation of data and index
+pages.</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western">This is why I often recommend cleaning up the
+InnoDB infrastructure, using the default ibdata1 file and nothing
+more.</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western">Copying is very dangerous because of the
+infrastructure under which InnoDB works. There are two basic
+infrastructures</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western">innodb_file_per_table disabled</pre>
+<pre class="western">innodb_file_per_table enabled</pre>
+<pre class="western">InnoDB (innodb_file_per_table disabled)</pre>
+<pre class="western">With innodb_file_per_table disabled, all these
+types of InnoDB info live within ibdata1. The only manifestation of
+any InnoDB table outside of ibdata1 is the .frm file of the InnoDB
+table. Copying all InnoDB data at once requires copying all of
+/var/lib/mysql.</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western">Copying an individual InnoDB table is totally
+impossible. You must MySQL dump to extract a dump of the table as a
+logical representation of the data and its corresponding index
+definitions. You would then load that dump to another database on the
+same server or another server.</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western">InnoDB (innodb_file_per_table enabled)</pre>
+<pre class="western">With innodb_file_per_table enabled, table data
+and its indexes live in the database folder next to the .frm file.
+For example, for the table db1.mytable, the manifestation of that
+InnoDB table outside of ibdata1 would be:</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western">/var/lib/mysql/db1/mytable.frm</pre>
+<pre class="western">/var/lib/mysql/db1/mytable.ibd</pre>
+<pre class="western">System Tablespace ibdata1</pre>
+<pre class="western">All the metadata for db1.mytable still resides
+in ibdata1 and there is absolutely no way around that. Redo logs and
+MVCC data also still live with ibdata1.</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western">When it comes to table fragmentation, here is
+what happens to ibdata1:</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western">innodb_file_per_table enabled: you can shrink
+db1.mytables with ALTER TABLE db1.mytable ENGINE=InnoDB; or OPTIMIZE
+TABLE db1.mytable;. This results in /var/lib/mysql/db1/mytable.ibd
+being physically smaller with no fragmentation.</pre>
+<pre class="western">innodb_file_per_table disabled: you cannot
+shrink db1.mytables with ALTER TABLE db1.mytable ENGINE=InnoDB; or
+OPTIMIZE TABLE db1.mytable; because it resides with ibdata1. Running
+either command actually, make the table contiguous and faster to read
+and write to. Unfortunately, that occurs at the end of ibdata1. This
+makes ibdata1 grow rapidly. This is fully addressed in my InnoDB
+Cleanup Post.</pre>
+<pre class="western">WARNING (or DANGER as the Robot would say in
+Lost in Space)</pre>
+<pre class="western">If you are thinking of just copying the .frm and
+.ibd file, you are in line for the world of hurting. Copying the .frm
+and .ibd file of an InnoDB table is only good if and only if you can
+guarantee that the tablespace id of the .ibd file matches exactly
+with the tablespace id entry in the metadata of the ibdata1 file.</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western">I wrote two posts in DBA StackExchange about
+this tablespace id concept</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western">Table compression in InnoDB? (under the heading
+'Restoring Databases')</pre>
+<pre class="western">How to Recover an InnoDB table whose files were
+moved around</pre>
+<pre class="western">Here is an excellent link on how to reattach any
+.ibd file to ibdata1 in the event of mismatched tablespace ids :
+http://www.chriscalender.com/?tag=innodb-error-tablespace-id-in-file.
+After reading this, you should come to the immediate realization that
+copying .ibd files is just plain crazy.</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western">For InnoDB, you only need to something this to
+move</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western">CREATE TABLE db2.mytable LIKE db1.mytable;</pre>
+<pre class="western">INSERT INTO db2.mytable SELECT * FROM
+db1.mytable;</pre>
+<pre class="western">to make a copy of an InnoDB table.</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western">If you are migrating it to another DB server,
+use mysqldump.</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western">With regard to mixing all InnoDB tables from all
+databases, I can actually see the wisdom in doing so. At my
+employer's DB/Web hosting company, I have one MySQL Client that has a
+table in one database whose constraints are mapped to another table
+in another database within the same MySQL instance. With one common
+metadata repository, it makes transactional support and MVCC
+operability possible across multiple databases.</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><b>ERROR 1114 (HY000) the table … is full`
+with innodb_file_per_table set to autoextend</b></pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><font color="#000080"><span lang="zxx"><u><a href="https://dba.stackexchange.com/questions/43503/error-1114-hy000-the-table-is-full-with-innodb-file-per-table-set-to-aut?noredirect=1&amp;lq=1"><span style="font-weight: normal">https://dba.stackexchange.com/questions/43503/error-1114-hy000-the-table-is-full-with-innodb-file-per-table-set-to-aut?noredirect=1&amp;lq=1</span></a></u></span></font></pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><b>Scheduled optimization of tables in MySQL
+InnoDB</b></pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><font color="#000080"><span lang="zxx"><u><a href="https://dba.stackexchange.com/questions/12201/scheduled-optimization-of-tables-in-mysql-innodb?noredirect=1&amp;lq=1"><span style="font-weight: normal">https://dba.stackexchange.com/questions/12201/scheduled-optimization-of-tables-in-mysql-innodb?noredirect=1&amp;lq=1</span></a></u></span></font></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><b>MySQL: sysbench test - InnoDB vs Memory
+tables</b></pre>
+<pre class="western"><font color="#000080"><span lang="zxx"><u><a href="https://dba.stackexchange.com/questions/49839/mysql-sysbench-test-innodb-vs-memory-tables?rq=1"><span style="font-weight: normal">https://dba.stackexchange.com/questions/49839/mysql-sysbench-test-innodb-vs-memory-tables?rq=1</span></a></u></span></font></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><b>Mysql Server 5.6 high memory consumption</b></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><b>How do you backup a database in MySQl?</b></pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><b>https://dev.mysql.com/doc/mysql-backup-excerpt/5.7/en/mysqldump-sql-format.html</b></pre>
+</body>
+</html>

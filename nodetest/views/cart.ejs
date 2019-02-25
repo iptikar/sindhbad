@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+   
+	<head >
+     
+      <meta charset="utf-8"/>
+      <meta name="viewport" content="width=device-width, initial-scale=1"/>
+      <meta name="format-detection" content="telephone=no"/>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+      <title>Shopping Cart</title> 
+		
+	 <%- include('header-links.ejs') %>
+       <%- include('functions.ejs') %>
+      
+	   
+     </head>
+  
+
+	 <body data-container="body" data-mage-init='' class="header-4-style home-4-style footer-1-style layout-full-width  cms-home-demo-04 cms-index-index page-layout-1column">
+      <noscript>
+         <div class="message global noscript">
+            <div class="content">
+               <p><strong>JavaScript seems to be disabled in your browser.</strong> <span>For the best experience on our site, be sure to turn on Javascript in your browser.</span></p>
+            </div>
+         </div>
+      </noscript>
+     
+      <div class="page-wrapper">
+      
+       <%- include('header.ejs') %>
+			
+		<div class="breadcrumbs">
+            <div class="container">
+               <ul class="items">
+                  <li class="item home"> <a href="" title="Go to Home Page">Home</a> </li>
+                  <li class="item category97"> <strong>Cart</strong> </li>
+               </ul>
+            </div>
+         </div>
+		
+		
+		<main id="maincontent" class="page-main">
+		<div class="container">
+			<div class="row">
+      <div class="col-lg-12 col-md-12">
+         <div class="page-title-wrapper">
+			 <br/>
+			 
+			
+			<input type = "hidden" value = "<%= getToken%>" id = "csrf" />
+			 
+			 
+            <h2 class="page-title"><span class="base" data-ui-id="page-title-wrapper">Shopping Cart</span></h2>
+			
+			<div id = "cart-update-msg"></div>
+         </div>
+         
+         <div class = "container-cart" id = "container-cart">
+           <%- include('cart-template.ejs') %>
+
+         </div>
+         
+         
+         
+         
+         
+         </div>
+      </div>
+	</div>
+</div>
+		
+		</main>
+		
+		<script>
+			
+	
+			
+			
+		function editCart(el) {
+		
+			// Get the attribute value 
+			var pdetails = $(el).attr('data');
+			
+			// Parse json 
+			// This is each div id cart-item-$sku
+			// p-cart-id
+			var divId = 'cart-item-'+pdetails;
+			
+			// Go to div and get id 
+			var qty = $("#"+divId+" #"+"cart-1502-qty").val();
+			
+			// Get the id
+			var id = $("#"+divId+" #"+"p-cart-id").val();
+			
+			// Var sku 
+			var sku = pdetails;
+			
+			var csrf = $('#csrf').val();
+			
+			
+			
+			var data = {sku:sku, qty:qty, id:id, _csrf:csrf};
+			
+			// Url 
+			var url = 'http://localhost:8888/editcart';
+			
+			
+			
+			
+			
+			 $.ajax({
+			  type: 'POST',
+			  url: url,
+			  data: data,
+			  dataType: "text",
+			  success: function(resultData) { 
+				
+				var csrf = $('#csrf').val();
+	 
+		$.post( "http://localhost:8888/carttotal", {_csrf:csrf})
+		.done(function( data ) {
+		
+		location.reload();
+		
+	});
+  
+				
+				//var func = ejs.compile(template);
+				
+				//$("#cart-update-msg").html(resultData);
+				
+				//$("#cart-container-5656").load('cart-template.ejs');
+				
+ 				
+		  }
+});
+
+
+			//alert(sku);
+			
+		}
+
+
+			
+		function RemoveItems(el) {
+			
+			// Give the confirmation 
+			var removeItem = confirm("Are you sure to remove the item.");
+			
+			// Check if true 
+			if(removeItem != true ) {
+					
+					// Return false;
+					return false;
+				}
+			
+			// Get the attribute value 
+			var pdetails = $(el).attr('data');
+			
+			// Parse json 
+			// This is each div id cart-item-$sku
+			// p-cart-id
+			var divId = 'cart-item-'+pdetails;
+			
+			
+			
+			// Get the id
+			var id = $("#"+divId+" #"+"p-cart-id").val();
+			
+			// Var sku 
+			var sku = pdetails;
+			
+			// Send http request 
+			// 
+			var csrf = $('#csrf').val();
+			
+			var data = {id:id, _csrf:csrf};
+			
+			
+			// Url 
+			var url = 'http://localhost:8888/remove-item';
+			
+			
+			
+			// Ajax request 
+			$.ajax({
+			  type: 'POST',
+			  url: url,
+			  data: data,
+			  dataType: "text",
+			  success: function(resultData) { 
+				
+				
+				
+				var csrf = $('#csrf').val();
+	 
+			$.post( "http://localhost:8888/carttotal", {_csrf:csrf})
+			.done(function( data ) {
+		
+			location.reload();
+		
+	});
+  
+  
+				
+ 				
+		  }
+});
+
+			
+			
+				
+			}
+			
+			
+		function emptycart() {
+				
+			// Confirm first 
+			var removeItem = confirm("Are you sure to remove the item.");
+		
+			// Check if true 
+			if(removeItem != true ) {
+					
+					// Return false;
+					return false;
+				}
+			
+			
+				
+			var id = 'empty';
+			var csrf = $('#csrf').val();
+			
+			var data = {id:id, _csrf:csrf};
+			
+			
+			var url = 'http://localhost:8888/emptyCart';
+			
+		
+
+			// send the ajax request 
+			$.ajax({
+			  type: 'POST',
+			  url: url,
+			  data: data,
+			  dataType: "text",
+			  success: function(resultData) { 
+		
+				
+				location.reload();
+				
+
+  }
+});
+
+					
+}
+
+		function process_checkout() {
+			
+
+			var id = 'empty';
+			
+			var data = {id:id};
+			
+			var url = 'http://localhost/ajax/process-checkout.php';
+			
+			return;
+				// Send the http ajax request 
+				$.ajax({
+			  type: 'POST',
+			  url: url,
+			  data: data,
+			  dataType: "text",
+			  success: function(resultData) { 
+		
+				// here set the 
+				$("#cart-update-msg").html(resultData);
+				
+
+			}
+});
+
+				
+	}
+		
+	
+
+</script>
+         
+ <%- include('footer.ejs') %>        
+
+
+	

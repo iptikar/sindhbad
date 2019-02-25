@@ -1,0 +1,25 @@
+docker container ls [OPTIONS]
+
+
+docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' 7f330a80ee00
+
+
+docker exec -it <mycontainer> bash
+
+
+docker exec -it 22f40d583590 bash
+
+
+
+docker container exec 20bc8f12fdbb nginx -t
+
+
+docker container exec 2f4a59185778 nginx -s reload
+
+
+===============================================
+FUCK DOCKER WAST NOT WORKING THIS LINK HELPED inside the container apt-get update/ nginx bad request 
+But this link help
+===============================================
+
+https://stackoverflow.com/questions/24991136/docker-build-could-not-resolve-archive-ubuntu-com-apt-get-fails-to-install-a

@@ -1,0 +1,226 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8">
+	<title></title>
+	<meta name="generator" content="LibreOffice 4.2.3.3 (Linux)">
+	<meta name="created" content="0;0">
+	<meta name="changed" content="0;0">
+	<style type="text/css">
+	<!--
+		@page { margin: 0.79in }
+		p { margin-bottom: 0.1in; direction: ltr; color: #00000a; line-height: 120%; text-align: left; widows: 0; orphans: 0 }
+		p.western { font-family: "Liberation Serif", serif; font-size: 12pt; so-language: en-US }
+		p.cjk { font-family: "Droid Sans Fallback"; font-size: 12pt; so-language: zh-CN }
+		p.ctl { font-family: "FreeSans"; font-size: 12pt; so-language: hi-IN }
+		pre { direction: ltr; color: #00000a; text-align: left; widows: 0; orphans: 0 }
+		pre.western { font-family: "Liberation Mono", serif; so-language: en-US }
+		pre.cjk { font-family: "Droid Sans Fallback"; so-language: zh-CN }
+		pre.ctl { font-family: "Liberation Mono"; so-language: hi-IN }
+	-->
+	</style>
+</head>
+<body lang="en-US" text="#00000a" dir="ltr">
+<pre class="western"><b>Why do we need Concurrency, anyway? Explain.</b></pre>
+<pre class="western"><i><span style="font-weight: normal">Simple.
+Imagine two users try to modify same data in different ways at the
+same time, and then the other user wants to access the data. What
+happens afterwards is anyone’s guess.</span></i></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><i><span style="font-weight: normal">There is no
+way to apply their changes to the same data and same place. If DBMS
+allows both of their actions concurrently, it would be impossible to
+recognize which data is updated. Or, if DBMS choose one of the
+changes, the other one becomes meaningless. Then, it is sure to
+affect the results and confuses users as well since there is no error
+message or notification for this issue. Both of solutions make the
+database inconsistent and useless. This is why concurrency control is
+needed.</span></i></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><i><span style="font-weight: normal">Actually,
+there is no “same time actions” in Computer Science so DBMS
+accepts one request and blocks or rejects the other one. This is the
+simplest way to make database concurrent. Most relational DBMS
+supports this function.</span></i></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><i><span style="font-weight: normal">But it
+decrease performance of concurrent tasks because one task may be
+blocked by other one and in waiting status until it finished (and
+because it controls “concurrency”, literally!). Control of data
+concurrency and data consistency is critical as concurrent data
+execution need to produce meaningful and consistent results. If you
+don't need data to be updated consistently or you don't have any plan
+for UPDATE operation on that data but you want to do concurrent tasks
+quickly, you can choose DBMS product that supports disabling
+concurrency control or optimized only for concurrent</span></i></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><b>Why is testing multithreading / concurrent
+code so difficult?</b></pre>
+<pre class="western"><i><span style="font-weight: normal">If you can
+count on any mathematical experience, illustrate how a normal
+execution flow that is essentially deterministic becomes not just
+nondeterministic with several threads, but exponentially complex,
+because you have to make sure every possible interleaving of machine
+instructions will still do the right thing. A simple example of a
+lost update or dirty read situation is often an eye-opener.</span></i></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><i><span style="font-weight: normal">&quot;Slap
+a lock on it&quot; is the trivial solution... it solves all your
+problems if you're not concerned about performance. Try to illustrate
+how much of a performance hit it would be if, for instance, Amazon
+had to lock the entire east coast whenever someone in Atlanta orders
+one book!</span></i></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><b>What is a Race Condition? Code an example,
+using whatever language you like.</b></pre>
+<pre class="western"><i><span style="font-weight: normal">A race
+condition occurs when two or more threads can access shared data and
+they try to change it at the same time. Because the thread scheduling
+algorithm can swap between threads at any time, you don't know the
+order in which the threads will attempt to access the shared data.
+Therefore, the result of the change in data is dependent on the
+thread scheduling algorithm, i.e. both threads are &quot;racing&quot;
+to access/change the data.</span></i></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><i><span style="font-weight: normal">Problems
+often occur when one thread does a &quot;check-then-act&quot; (e.g.
+&quot;check&quot; if the value is X, then &quot;act&quot; to do
+something that depends on the value being X) and another thread does
+something to the value in between the &quot;check&quot; and the
+&quot;act&quot;. E.g:</span></i></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><i><span style="font-weight: normal">if (x == 5)
+// The &quot;Check&quot;</span></i></pre>
+<pre class="western"><i><span style="font-weight: normal">{</span></i></pre>
+<pre class="western">   <i><span style="font-weight: normal">y = x *
+2; // The &quot;Act&quot;</span></i></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western">   <i><span style="font-weight: normal">// If
+another thread changed x in between &quot;if (x == 5)&quot; and &quot;y
+= x * 2&quot; above,</span></i></pre>
+<pre class="western">   <i><span style="font-weight: normal">// y
+will not be equal to 10.</span></i></pre>
+<pre class="western"><i><span style="font-weight: normal">}</span></i></pre>
+<pre class="western"><i><span style="font-weight: normal">The point
+being, y could be 10, or it could be anything, depending on whether
+another thread changed x in between the check and act. You have no
+real way of knowing.</span></i></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><i><span style="font-weight: normal">In order to
+prevent race conditions from occurring, you would typically put a
+lock around the shared data to ensure only one thread can access the
+data at a time. This would mean something like this:</span></i></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><i><span style="font-weight: normal">// Obtain
+lock for x</span></i></pre>
+<pre class="western"><i><span style="font-weight: normal">if (x == 5)</span></i></pre>
+<pre class="western"><i><span style="font-weight: normal">{</span></i></pre>
+<pre class="western">   <i><span style="font-weight: normal">y = x *
+2; // Now, nothing can change x until the lock is released. </span></i>
+</pre>
+<pre class="western">              <i><span style="font-weight: normal">//
+Therefore y = 10</span></i></pre>
+<pre class="western"><i><span style="font-weight: normal">}</span></i></pre>
+<pre class="western"><i><span style="font-weight: normal">// release
+lock for x</span></i></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><i><span style="font-weight: normal">https://stackoverflow.com/questions/34510/what-is-a-race-condition</span></i></pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><b>What is a Deadlock? Would you be able to
+write some code that is affected by deadlocks?</b></pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><b>What is Process Starvation? If you need,
+let's review its definition.</b></pre>
+<pre class="western"><i><span style="font-weight: normal">A lock
+occurs when multiple processes try to access the same resource at the
+same time.</span></i></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><i><span style="font-weight: normal">One process
+loses out and must wait for the other to finish.</span></i></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><i><span style="font-weight: normal">A deadlock
+occurs when the waiting process is still holding on to another
+resource that the first needs before it can finish.</span></i></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><i><span style="font-weight: normal">So, an
+example:</span></i></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><i><span style="font-weight: normal">Resource A
+and resource B are used by process X and process Y</span></i></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><i><span style="font-weight: normal">X starts to
+use A.</span></i></pre>
+<pre class="western"><i><span style="font-weight: normal">X and Y try
+to start using B</span></i></pre>
+<pre class="western"><i><span style="font-weight: normal">Y 'wins'
+and gets B first</span></i></pre>
+<pre class="western"><i><span style="font-weight: normal">now Y needs
+to use A</span></i></pre>
+<pre class="western"><i><span style="font-weight: normal">A is locked
+by X, which is waiting for Y</span></i></pre>
+<pre class="western"><i><span style="font-weight: normal">The best
+way to avoid deadlocks is to avoid having processes cross over in
+this way. Reduce the need to lock anything as much as you can.</span></i></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><i><span style="font-weight: normal">In
+databases avoid making lots of changes to different tables in a
+single transaction, avoid triggers and switch to
+optimistic/dirty/nolock reads as much as possible.</span></i></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><br>
+</pre>
+<pre class="western"><b>What is a Wait Free algorithm</b></pre>
+<pre class="western"><i><span style="font-weight: normal">If a
+program is lock-free, it basically means that at least one of its
+threads is guaranteed to make progress over an arbitrary period of
+time. If a program deadlocks, none of its threads (and therefore the
+program as a whole) cannot make progress - we can say it's not
+lock-free. Since lock-free programs are guaranteed to make progress,
+they are guaranteed to complete (assuming finite execution without
+exceptions).</span></i></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><i><span style="font-weight: normal">Wait-free
+is a stronger condition which means that every thread is guaranteed
+to make progress over an arbitrary period of time, regardless of the
+timing/ordering of thread execution; and so we can say that the
+threads finish independently. All wait-free programs are lock-free.</span></i></pre>
+<pre class="western" style="font-weight: normal"><br>
+</pre>
+<pre class="western"><i><span style="font-weight: normal">I don't
+know offhand of any Java examples which illustrate this but I can
+tell you that lock-free/wait-free programs are typically implemented
+without locks, using low-level primitives such as CAS instructions.</span></i></pre>
+</body>
+</html>

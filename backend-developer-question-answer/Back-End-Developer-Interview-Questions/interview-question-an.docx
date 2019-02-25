@@ -1,0 +1,58 @@
+Whic of hte following is not an arthmetic operator?
+Answer: \
+
+Whic of the following options should replace the erroneous element in the give given code
+Answer: ?>
+
+What is the return type of the abs() function. if the number is not float type
+Ans: Integer
+
+Which of the folloing operator is used to access overridden properties and methods 
+Ans: ::
+
+While using Javascript in PHP, which of the following boxes is used by the user to often 
+input before entering into an entire page?
+=> Prompt
+
+
+Which of the following variable is are used in PHP to store information about the changes 
+in setting done by user while using an application
+> Session
+
+Anything declared using whic of the following keywords cannot be redeclared?
+final 
+
+
+<?php $str = "   Test ."
+echo ltrim($str); // "Test ."
+
+
+Which of the following statements produce a different output?
+<?PHP echo "This is php example"; php?>
+
+
+1. Stats.isDirectory();
+`
+2. Why put request used in Nodejs 
+To Post the data 
+
+3.Whic of the following directives is used to load the HTTP module and store return HTTP
+instances in HTTP variable when you are creating a node.js application
+=> Require 
+
+4. Whic of the following is not an attribute of package.json
+
+answer:position 
+
+5. Whic of the following types of streams can be used for both read and write operations in Node.js.
+=> Duplex
+
+6. Which of the following statements is corret or displaying the os name 
+=> os.type
+
+10. Whic of the following sources is ued for project packaging and encryption of source files and other assets 
+into JX packages?
+Ans; JXCore
+
+
+

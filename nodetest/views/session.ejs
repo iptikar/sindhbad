@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>MY APP</title>
+  <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<div class = "container">
+	<div class = "row">
+	<% if ( sessionFlash && sessionFlash.message) { %>
+	
+<% if(sessionFlash.type == 'success'){  %>
+
+
+<div class="alert alert-success">
+	<strong>FLASH!</strong> <%= sessionFlash.message %>
+</div>
+
+<% } else {  %>
+	
+<div class="alert alert-danger">
+	<strong>FLASH!</strong> <%= sessionFlash.message %>
+</div>
+
+<% } %>
+
+<% } %>
+	</div>
+</div>
+
+
+
+  
+
+ Session ID<%= quotes.userId %> <br/>
+ Username <%= quotes.username %>
+  
+  <div>
+  
+  <h2>Replace last quote written by Master Yoda with a quote written by Darth Vadar</h2>
+  <button id="update"> Darth Vadar invades! </button>
+</div>
+
+  
+<script src="main.js"></script>
+</body>
+
+</html>

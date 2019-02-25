@@ -1,0 +1,14 @@
+Need to enable rewrite module in centos to access file without the extension 
+1. sudo a2enmod rewrite
+
+Open apache configuration file and then just allowed /var/www/html directory to be overide 
+
+<Directory /var/www/html>
+	Options Indexes FollowSymLinks
+	AllowOverride ALL
+	Require all granted
+</Directory>
+
+
+// Check Server configuration 
+SimpleXMLElement weather installed or not 

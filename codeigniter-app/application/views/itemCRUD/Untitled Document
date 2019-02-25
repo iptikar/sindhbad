@@ -1,0 +1,3 @@
+<?php 
+
+echo "Yes i am from item curd";

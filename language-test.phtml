@@ -1,0 +1,43 @@
+<?php
+
+require 'controller/LanguageTranslator.php';
+
+if(isset($_GET['lang']))
+    $translate = new Translator($_GET['lang']);
+else
+    $translate = new Translator('en');
+
+?>
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lbang="en">
+    <head>
+        <title><?php $translate->__('CSS Registration Form'); ?></title>
+        <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-15"/>
+        <link rel="stylesheet" type="text/css" href="css/default.css"/>
+
+        <style>
+        	
+        body {
+  				direction: rtl;  /* Right to Left */
+		}
+
+        </style>
+    </head>
+    <body dir = "rtl">    
+
+        <form action="" class="register">
+            <h1><?php $translate->__('Registration'); ?><a class="flag_deutsch" title="deutsch" href="register1.php?lang=de"></a><a class="flag_english" title="english" href="register1.php"></a></h1>
+            <fieldset class="row1">
+                <legend><?php $translate->__('Account Details'); ?></legend>
+                <p>
+                    <label><?php $translate->__('Email'); ?> *</label>
+                    <input type="text"/>
+                    <label><?php $translate->__('Repeat email'); ?> *</label>
+                    <input type="text"/>
+                </p>
+            </fieldset>
+
+            <div><button class="button"><?php $translate->__('Register'); ?> &raquo;</button></div>
+        </form>
+    </body>
+</html>

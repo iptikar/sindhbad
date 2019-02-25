@@ -1,0 +1,21 @@
+1. While product list showing in mobile device product can not be able to see to show and not select 
+individual product
+
+2. We are getting 5 number of product in the page thefore if collection count is more then five then only show the pagination 
+Or else leave the pagination do not show but it's showing any way
+
+3. While inserting product specification_key need to be $mysqli->real_escape_string because it's creating proublem while encoding data to json 
+
+
+Link of the category 
+http://localhost/category/home-appliences-parts/794
+
+Front Endside 
+home appliences parts
+
+Backendside 
+home appliances parts
+
+String is not matching make backend side same as it is 
+
+
