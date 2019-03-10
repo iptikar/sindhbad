@@ -66,4 +66,4 @@ class Category {
 
 Category::addCategory();
 
-//Category::AlterTables();
+Category::AlterTables();

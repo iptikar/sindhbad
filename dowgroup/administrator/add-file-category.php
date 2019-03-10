@@ -81,8 +81,6 @@ $obj = new DowGroup();
                   
                 </div>
                 <!-- Card Body -->
-
-
                 <div class="card-body">
                   
                   <?php if(isset($_POST['submit'])) :?>
@@ -129,30 +127,6 @@ $obj = new DowGroup();
     <label for="firstname">Category Name</label>
     <input name="category-name" type="text" class="form-control" id="firstname" aria-describedby="emailHelp" placeholder="Category Name..." required="">
   </div>
-
-
-  <?php if(count($obj->getCategory()) > 0) :?>
-    <div class="form-group">
-    <label for="file-discription">Category</label>
-    <select class = "form-control" name = "parent">
-
-    <option value = "">Select Parent</option>
-<?php foreach($obj->getCategory() as $item) :?>
-
-<option value = "<?= $item['id']?>"><?= $item['name']?></option>
-
-<?php endforeach ;?>
-
-
-        
-    
-</select>
-  </div>
-
-<?php endif; ?>
-
-
-
                     <button name = "add-category" type="submit" class="btn btn-primary">Add Category</button>
 
 
@@ -237,7 +211,7 @@ $obj = new DowGroup();
     <option value = "">Select Category</option>
 <?php foreach($obj->getCategory() as $item) :?>
 
-<option value = "<?= $item['id']?>"><?= $item['name']?></option>
+<option value = "<?= $item['id']?>#78JB<?= $item['name']?>"><?= $item['name']?></option>
 
 <?php endforeach ;?>
 
@@ -258,27 +232,7 @@ $obj = new DowGroup();
 </div>
                 
 </form>
-
-<?php
-                  echo "<pre>";
-
-                  print_r($obj->GetCategories());
-                  echo "</pre>";
-
-                  $list = $obj->GetCategories();
-
-                  $tree = $obj->GetTreeCategory($list, '');
-
-                 
-                ?>
-
-
-
-<select id="inspector-select-control-0" class="form-control">
-    <?= $tree;?>
-</select>
-
-
+                  
 
                 </div>
               </div>

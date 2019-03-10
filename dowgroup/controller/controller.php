@@ -6,37 +6,22 @@ require 'SelectStoreProcedure.php';
 
 class DowGroup {
 
-<<<<<<< HEAD
     // Session key 
-	protected $key1 = '3vmigUCQdJGRrvG';
+    protected $key1 = '3vmigUCQdJGRrvG';
 
     // Director 
-	public $dir = 'public';
+    public $dir = 'public';
 
 
     // Adding something in the object 
-=======
+    public function __construct() {
 
-	protected $key1 = '3vmigUCQdJGRrvG';
-
-	public $dir = 'public';
-
-
->>>>>>> 5d8c4809778abca623285086c9c8e91046f04d18
-	public function __construct() {
-
-		$this->dir = $_SERVER['DOCUMENT_ROOT'].'/dowgroup/public';
-	}
+        $this->dir = $_SERVER['DOCUMENT_ROOT'].'/dowgroup/public';
+    }
 
 
-<<<<<<< HEAD
     // Method login paramaters username , password 
-	 public function login($username, $password)  {
-=======
-	 public function login($username, $password)
-	
-    {
->>>>>>> 5d8c4809778abca623285086c9c8e91046f04d18
+     public function login($username, $password)  {
         
         
         // If post the username and password
@@ -90,10 +75,10 @@ class DowGroup {
                 
                 
             // Get database instances 
-			$db = Database::getInstance();
+            $db = Database::getInstance();
             
-			// Get the instance of connection
-			$mysqli = $db->getConnection();
+            // Get the instance of connection
+            $mysqli = $db->getConnection();
             
             // Esacep the string
             $username = $mysqli->real_escape_string($username);
@@ -155,23 +140,15 @@ class DowGroup {
             } elseif ($usertype === 'agent') {
                 $_SESSION[$this->key1.'-username-agent'] = $username;
                 $_SESSION[$this->key1.'-password-agent'] = $password;
-<<<<<<< HEAD
                 
-=======
-                $_SESSION[$this->key1.'-usertype'] = 'agent';
-                $_SESSION[$this->key1.'-time-agent'] = time();
->>>>>>> 5d8c4809778abca623285086c9c8e91046f04d18
             
                 // Clean (erase) the output buffer and turn off output buffering
                 ob_end_clean();
                 
                 // Redirect to the user different interface
                 header('Location: http://'.$_SERVER['HTTP_HOST'].'/dowgroup/agent');
-<<<<<<< HEAD
 
                 //ob_end_clean();
-=======
->>>>>>> 5d8c4809778abca623285086c9c8e91046f04d18
             }
         }
     }
@@ -187,16 +164,9 @@ class DowGroup {
         if ($this->IsUserLoggedInSeller() === true) {
             
                 // Unset the all session from this broweser
-<<<<<<< HEAD
             unset($_SESSION['3vmigUCQdJGRrvG-username-agent']);
             unset($_SESSION['3vmigUCQdJGRrvG-password-agent']);
            
-=======
-            unset($_SESSION['3vmigUCQdJGRrvG-username']);
-            unset($_SESSION['3vmigUCQdJGRrvG-password']);
-            unset($_SESSION['3vmigUCQdJGRrvG-usertype']);
-            unset($_SESSION['3vmigUCQdJGRrvG-time']);
->>>>>>> 5d8c4809778abca623285086c9c8e91046f04d18
                 
             // Clean (erase) the output buffer and turn off output buffering
             ob_end_clean();
@@ -206,7 +176,6 @@ class DowGroup {
     }
 
 
-<<<<<<< HEAD
     public function LogOutAgent()
     {
         
@@ -229,8 +198,6 @@ class DowGroup {
     }
 
 
-=======
->>>>>>> 5d8c4809778abca623285086c9c8e91046f04d18
      public function IsUserLoggedInSeller()
     {
         if (isset($_SESSION['3vmigUCQdJGRrvG-username']) &&
@@ -246,37 +213,37 @@ class DowGroup {
    
     public function CreateUser($submit) {
 
-    	if(isset($_POST[$submit])) {
+        if(isset($_POST[$submit])) {
 
-    		// Empty password 
-    		if($_POST['password'] === '') {
+            // Empty password 
+            if($_POST['password'] === '') {
 
-    			return 'Password is requred.';
-    		}
+                return 'Password is requred.';
+            }
 
-    		if($_POST['password'] !== $_POST['confirm-password']) {
+            if($_POST['password'] !== $_POST['confirm-password']) {
 
-    			return 'Both password did not matched';
-    		}
-
-
-
-    		// Email 
-    		if(!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
-
-    			return 'Invalid email address';
-
-    		}
+                return 'Both password did not matched';
+            }
 
 
-    		$db = Database::getInstance();
 
-			// Get the instance of connection
+            // Email 
+            if(!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
 
-			$mysqli = $db->getConnection();
+                return 'Invalid email address';
 
-			/*
-			SelectRecordsByStoreProcedure(
+            }
+
+
+            $db = Database::getInstance();
+
+            // Get the instance of connection
+
+            $mysqli = $db->getConnection();
+
+            /*
+            SelectRecordsByStoreProcedure(
             mysqli $mysqli,
             string $tablename,
             string $proceurename,
@@ -294,75 +261,63 @@ class DowGroup {
             // Execute 
             if(!$mysqli->query($sql)) {
 
-            	return $msyqli->error;
+                return $msyqli->error;
             }
 
             // Chech num rows 
             if($result->num_rows > 0) {
 
-            	return "Email address $email already exists.";
+                return "Email address $email already exists.";
             }
 
 
 
-		            
+                    
 
 
-			if(isset($_POST['submit'])) {
+            if(isset($_POST['submit'])) {
 
-				unset($_POST['submit']);
+                unset($_POST['submit']);
 
-			}
+            }
 
-			if(isset($_POST['confirm-password'])) {
+            if(isset($_POST['confirm-password'])) {
 
-				unset($_POST['confirm-password']);
-			}
+                unset($_POST['confirm-password']);
+            }
 
-			foreach($_POST as $key => $value) {
+            foreach($_POST as $key => $value) {
 
-				$$key = $value;
-			}
+                $$key = $value;
+            }
 
-			$_POST['created'] = date('Y-m-d');
-			$_POST['updated'] = date('Y-m-d');
+            $_POST['created'] = date('Y-m-d');
+            $_POST['updated'] = date('Y-m-d');
 
 
-<<<<<<< HEAD
 
             $password = password_hash($password , PASSWORD_DEFAULT);
-			// Inser t
-			 $query = $mysqli->query("INSERT INTO users(firstname, lastname, phone,email, country, city, password, created, updated)VALUES('$firstname', '$lastname', '$phone', '$email', '$country', '$city
-			 	', '$password', NOW(), NOW())");
-=======
-			// Inser t
-			 $query = $mysqli->query("INSERT INTO users(firstname, lastname, phone,email, country, city, password)VALUES('$firstname', '$lastname', '$phone', '$email', '$country', '$city
-			 	', '$password')");
->>>>>>> 5d8c4809778abca623285086c9c8e91046f04d18
+            // Inser t
+             $query = $mysqli->query("INSERT INTO users(firstname, lastname, phone,email, country, city, password, created, updated)VALUES('$firstname', '$lastname', '$phone', '$email', '$country', '$city
+                ', '$password', NOW(), NOW())");
 
 
-			 if(!$query) {
+             if(!$query) {
 
-			 	return $mysqli->error;
-			 }
+                return $mysqli->error;
+             }
 
-			 // Send the notification to the user 
-<<<<<<< HEAD
-			  $headers = 'From: info@dowgroup.com' . "\r\n" .
+             // Send the notification to the user 
+              $headers = 'From: info@dowgroup.com' . "\r\n" .
             'Reply-To: info@dowgroup.com' . "\r\n" .
-=======
-			  $headers = 'From: info@sindhbad.com' . "\r\n" .
-            'Reply-To: info@sindhbad.com' . "\r\n" .
->>>>>>> 5d8c4809778abca623285086c9c8e91046f04d18
             'X-Mailer: PHP/' . phpversion();
             
-        	$headers .= "MIME-Version: 1.0\r\n";
-        	$headers .= "Content-Type: text/html; charset=ISO-8859-1\r\n";
+            $headers .= "MIME-Version: 1.0\r\n";
+            $headers .= "Content-Type: text/html; charset=ISO-8859-1\r\n";
 
-        	// Set the subject
-        	$subject = "User has been created.";
-<<<<<<< HEAD
-        	
+            // Set the subject
+            $subject = "User has been created.";
+            
 
              // Get template 
             $url = $_SERVER['HTTP_HOST'].'/dowgroup/template/createUser.phtml';
@@ -370,118 +325,22 @@ class DowGroup {
             $content = $this->GetEmailTemplate($url, $_POST);
 
             $message = $content;
-=======
-        	$message = "Username: $email <br/> Password: $password";
->>>>>>> 5d8c4809778abca623285086c9c8e91046f04d18
         
-        	// Check if mail failed then
-        	if (!mail($email, $subject, $message, $headers)) {
+            // Check if mail failed then
+            if (!mail($email, $subject, $message, $headers)) {
         
-            	// Return false
-            	//return false;
-       	 }
+                // Return false
+                //return false;
+         }
 
-       	 return true;
-
-
-    	}
-    }
+         return true;
 
 
-    public function uploadFiles($filename) {
-
-<<<<<<< HEAD
-        
-
-    	if(isset($_FILES[$filename]['name'])) {
-
-=======
-
-    	if(isset($_FILES[$filename]['name'])) {
-
-
->>>>>>> 5d8c4809778abca623285086c9c8e91046f04d18
-    		$name = $_FILES[$filename]["name"];
-            
-            /* Get the temporory file name */
-            $tmp = $_FILES[$filename]["tmp_name"];
-
-            $type = $_FILES[$filename]["type"];
-
-            $size = $_FILES[$filename]["size"];
-
-            $validsize = 100 * 512000;
-
-             $filetypes = ['image/jpg', 'image/jpeg', 'image/bmp', 'image/png', 'image/gif', 'application/pdf', 'image/vnd.adobe.photoshop', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document'];
-
-             // Check if all file set is valid
-       	 if (!in_array($type, $filetypes)) {
-            
-            // Return the message
-            return 'Only jpg, jpeg, bmp, png, gif files are supported. Max file size only supported 500 KB.';
-       	 }
-
-       	 if($size > $validsize) {
-
-       	 	return 'File size exceeds';
-
-       	 }
-
-		/* Get the random character */
-		$randchar = chr(rand(97, 122));
-
-		/* get the random number */
-		$number = rand(1, 100000);
-
-		$explodfname = explode('.', $name);
-
-		$newfilename = round(microtime(true)) .$number.'.' . end($explodfname);
-
-		$dir = $this->dir;
-
-		// Insert the filename to the database 
-
-		$db = Database::getInstance();
-
-			// Get the instance of connection
-
-		$mysqli = $db->getConnection();
-
-<<<<<<< HEAD
-        // Post discription 
-      
-        $about = $_POST['about'] ?? '';
-
-
-		$sql = "INSERT INTO files(name, about, created, updated) VALUES('$newfilename', '$about', NOW(), NOW())";
-=======
-		$sql = "INSERT INTO files(name, created, updated) VALUES('$newfilename', NOW(), NOW())";
->>>>>>> 5d8c4809778abca623285086c9c8e91046f04d18
-
-		$result = $mysqli->query($sql);
-
-		if(!$result) {
-
-			return $mysqli->error;
-		}
-<<<<<<< HEAD
-        
-=======
-
-
->>>>>>> 5d8c4809778abca623285086c9c8e91046f04d18
-        if(!move_uploaded_file($tmp, "$dir/$newfilename")) {
-
-        	return 'Can not upload the file';
         }
-                //$collection->remove();
-           
-        return true;
-
-    	}
-    	
-<<<<<<< HEAD
     }
+
+
+  
 
     public function FinalUploadFiles($filename)
     {
@@ -527,9 +386,14 @@ class DowGroup {
             $discription = $_POST['discription'] ?? '';
             $category = $_POST['category'] ?? '';
 
+            $expcat  = explode('#78JB', $category);
+
+            $category_id = $expcat[0];
+            $cagegory_name = $expcat[1];
+
             if($category !== '') {
 
-                $directory = $this->dir.'/'.$category;
+                $directory = $this->dir.'/'.$cagegory_name;
             } else {
 
                 $directory = $this->dir;
@@ -560,11 +424,16 @@ class DowGroup {
         $mysqli = $db->getConnection();
         
 
-        $category_id = $_POST['category'] ?? 0;
+       
         $names = json_encode($imgnames);
         $about = $_POST['about'] ?? '';
         $about = $mysqli->real_escape_string($about);
         $title = $_POST['title'] ?? '';
+
+        $expcat  = explode('#78JB', $_POST['category']);
+
+        $category_id = $expcat[0];
+        $cagegory_name = $expcat[1];
 
         
         // Select if id exits 
@@ -664,72 +533,60 @@ class DowGroup {
    
 
 
-=======
-
-
-    }
-
-
->>>>>>> 5d8c4809778abca623285086c9c8e91046f04d18
     public function GetUsers() {
 
-    	
+        
 
-    	// Insert the filename to the database 
+        // Insert the filename to the database 
 
-		$db = Database::getInstance();
+        $db = Database::getInstance();
 
-			// Get the instance of connection
+            // Get the instance of connection
 
-		$mysqli = $db->getConnection();
+        $mysqli = $db->getConnection();
 
-		$sql = "select * from users";
+        $sql = "select * from users";
 
-		$result = $mysqli->query($sql);
+        $result = $mysqli->query($sql);
 
-		if(!$result) {
+        if(!$result) {
 
-			return $mysqli->error;
-		}
+            return $mysqli->error;
+        }
 
-		return $result->fetch_all(1);
+        return $result->fetch_all(1);
 
     }
 
 
      public function GetFiles() {
 
-    	
+        
 
-    	// Insert the filename to the database 
+        // Insert the filename to the database 
 
-		$db = Database::getInstance();
+        $db = Database::getInstance();
 
-			// Get the instance of connection
+            // Get the instance of connection
 
-		$mysqli = $db->getConnection();
+        $mysqli = $db->getConnection();
 
-<<<<<<< HEAD
-		$sql = "select files.name as files, files.title as title, files.id, files.cagtegory_id, file_categories.name from files INNER JOIN file_categories ON files.cagtegory_id = file_categories.id";
-=======
-		$sql = "select * from files";
->>>>>>> 5d8c4809778abca623285086c9c8e91046f04d18
+        $sql = "select files.name as files, files.title as title, files.id, files.cagtegory_id, file_categories.name from files INNER JOIN file_categories ON files.cagtegory_id = file_categories.id";
 
-		$result = $mysqli->query($sql);
+        $result = $mysqli->query($sql);
 
-		if(!$result) {
+        if(!$result) {
 
-			return $mysqli->error;
-		}
+            return $mysqli->error;
+        }
 
-		return $result->fetch_all(1);
+        return $result->fetch_all(1);
 
     }
 
 
     public function assignDoc() {
 
-<<<<<<< HEAD
 
 if(!isset($_POST['assign-files'])) {
 
@@ -756,10 +613,10 @@ if(count($_POST['files']) < 1) {
 
 
 
-    	$values  = '';
+        $values  = '';
 
-    	// Multiple value 
-    	// Create link
+        // Multiple value 
+        // Create link
 
         $filelink = '';
 
@@ -767,10 +624,10 @@ if(count($_POST['files']) < 1) {
 
         foreach($_POST['assign_file'] as $key => $value) {
 
-    		$values .= "('".$_GET['email']."','$value', '".date('Y-m-d')."', '".date('Y-m-d')."'),";
+            $values .= "('".$_GET['email']."','$value', '".date('Y-m-d')."', '".date('Y-m-d')."'),";
 
             $link = $this->dir.'/'.$value;
-    	   
+           
            $filelink .= "<a href = '$link' download>Download</a>";
         }
 
@@ -778,54 +635,56 @@ if(count($_POST['files']) < 1) {
 
 
         echo $filelink;
-=======
-    	// Need email address and file id to assign 
 
-    	if(!isset($_GET['email'])) {
-
-    		return false;
-    	}
+        $values = rtrim($values, ',');
 
 
+        $db = Database::getInstance();
 
-    	$email = $_GET['email'];
+            // Get the instance of connection
+        
 
-    	if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        $mysqli = $db->getConnection();
 
-                return "Please enter valid email address.";
-            }
-
-
-
-    	if(!isset($_POST['assign_file'])) return false;
-    	// Check assignment 
-    	if(count($_POST['assign_file']) < 1) {
-
-    		return 'Please assign the file';
-    	}
-
-    	$values  = '';
-    	// Multiple value 
-    	foreach($_POST['assign_file'] as $key => $value) {
-
-    		$values .= "('".$_GET['email']."','$value', '".date('Y-m-d')."', '".date('Y-m-d')."'),";
-    	}
-
->>>>>>> 5d8c4809778abca623285086c9c8e91046f04d18
-
-    	$values = rtrim($values, ',');
-
-
-    	$db = Database::getInstance();
-
-			// Get the instance of connection
-    	
-
-		$mysqli = $db->getConnection();
-
-<<<<<<< HEAD
         $users = $_POST['users'] ?? '';
         $files = $_POST['files'] ?? '';
+
+
+        foreach($users as $emails => $email) {
+
+
+        
+        foreach($files as $key=>$value) {
+            
+            // Explode dirname 
+
+             $path = pathinfo($value);
+
+             $exp = explode('/', $path['dirname']);
+
+             // Remove two elements 
+             $id = array_slice($exp, 3);
+
+             $path['dirname'] = implode('/', $id);
+
+             // Dirname = 
+             $DirNeed = 'assign/'.$email.'/'.$path['dirname'];
+
+             // file to copy 
+
+             if(!is_dir($DirNeed )) {
+
+                mkdir($DirNeed, 0775, true);
+             }
+
+             copy("../public/".$exp[3]."/".$path['basename'], $DirNeed.'/'.$path['basename']);
+
+             
+        }
+
+        }
+
+       
 
         $fileAnchor  = '';
 
@@ -878,7 +737,7 @@ if(count($_POST['files']) < 1) {
     }
 
         return true;
-	}
+    }
 
 
         public function changePassword() {
@@ -1074,14 +933,11 @@ if(count($_POST['files']) < 1) {
                     return false;
                 }
 
-                // Parent 
-                $parent = $_POST['parent'] ?? '';
-
                 // Save to database 
                 $name = $mysqli->real_escape_string($name);
 
                 // Insert 
-                $sql = "INSERT INTO file_categories(name, parent, created, updated)VALUES('$name', '$parent', NOW(), NOW())";
+                $sql = "INSERT INTO file_categories(name, parent, created, updated)VALUES('$name',0,  NOW(), NOW())";
 
                 // Result 
                 $result = $mysqli->query($sql);
@@ -1090,7 +946,7 @@ if(count($_POST['files']) < 1) {
                 $id = $mysqli->insert_id;
 
                 // Check if directory exists 
-                $dir = $this->dir.'/'.$id;
+                $dir = $this->dir.'/'.$name;
 
                 if(!is_dir($dir)) {
 
@@ -1188,8 +1044,78 @@ if(count($_POST['files']) < 1) {
         
         }
 
-        // Get all category
-        public function GetAllCategories() {
+        public function getAssigndirectory() {
+
+
+
+            // Return value 
+            $return = [];
+
+
+          $dirname = '../administrator/assign';
+
+          // Get the email 
+          $email = $_SESSION['3vmigUCQdJGRrvG-username-agent'];
+
+          // full dir 
+          $fulldir = $dirname.'/'.$email;
+
+          $ffs = '';
+
+          if(is_dir($fulldir)) {
+
+            $ffs = scandir($fulldir, 1);
+
+            unset($ffs[array_search('.', $ffs, true)]);
+            unset($ffs[array_search('..', $ffs, true)]);
+
+
+            
+          }
+
+          return count($ffs) > 0 ? $ffs : $return;
+        }
+
+        // Get file from the folder 
+
+        public function getFilesFromFolder($name) {
+
+            $return = [];
+
+            if(isset($_GET[$name])) {
+
+                $name = urldecode($_GET['name']);
+
+                 $dirname = '../administrator/assign';
+
+                 // Get the email 
+                $email = $_SESSION['3vmigUCQdJGRrvG-username-agent'];
+
+                // full dir 
+                 $fulldir = $dirname.'/'.$email.'/'.$name;
+
+                 if(is_dir($fulldir)) {
+
+                    $ffs = scandir( $fulldir, 1);
+
+                     unset($ffs[array_search('.', $ffs, true)]);
+                    unset($ffs[array_search('..', $ffs, true)]);
+
+                    foreach($ffs as $key => $value) {
+
+                        $ffs[$key] = $fulldir.'/'.$value;
+                    }
+                    
+                    return  $ffs;
+
+
+                 }
+
+            }
+        }
+
+
+public function GetAllCategories() {
 
 
             // Sql 
@@ -1252,63 +1178,39 @@ if(count($_POST['files']) < 1) {
 
         }
 
-        public function GetTreeCategory($array, $nbsp) {
+        public function GetTreeCategory($array, $nbsp, $parents) {
 
 
 
             $option = '';
+
+            // Append parent 
+            
+
             
 
             // Count 
             foreach($array as $key => $value) {
 
-                $option .= '<option value="17">'.$nbsp.$value['name'].'</option>';
+                $option .= '<option value="'.$value['id'].$parents.'#parent#'.$value['parent'].'">'.$nbsp.$value['name'].'</option>';
 
                 if(count($value['children']) > 0) {
 
-                     $option .= $this->GetTreeCategory($value['children'], "$nbsp&nbsp;&nbsp;&nbsp;");
+                     $option .= $this->GetTreeCategory($value['children'], "$nbsp&nbsp;&nbsp;&nbsp;", '#parent#'.$value['parent']);
                 }
             }
 
             return $option;
 
         }
-=======
-		$sql = "INSERT INTO assignments(email, file_id, updated, created)VALUES 
-		$values";
 
-		$result = $mysqli->query($sql);
+        public function ScanDirectory() {
 
-		if(!$result) {
 
-			return $mysqli->error;
-		}
+            $dir    = '../public';
+            $scanned_directory = array_diff(scandir($dir), array('..', '.'));
 
-		// Send the notification to the user 
-			  $headers = 'From: info@sindhbad.com' . "\r\n" .
-            'Reply-To: info@sindhbad.com' . "\r\n" .
-            'X-Mailer: PHP/' . phpversion();
             
-        	$headers .= "MIME-Version: 1.0\r\n";
-        	$headers .= "Content-Type: text/html; charset=ISO-8859-1\r\n";
-
-        	// Set the subject
-        	$subject = "New Assignment.";
-        	$message = "Administrator has made new assigment to you.";
-
-
-			// Send mail to the user 
-			// Check if mail failed then
-			if (!mail($email, $subject, $message, $headers)) {
-
-				// Return false
-				//return false;
-			 }
-				return true;
-		}
-
-
-
-
->>>>>>> 5d8c4809778abca623285086c9c8e91046f04d18
+            return $scanned_directory;
+    }
 }

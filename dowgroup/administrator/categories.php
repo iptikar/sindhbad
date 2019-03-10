@@ -67,13 +67,34 @@ $obj = new DowGroup();
 
           <!-- Page Heading -->
           <h1 class="h3 mb-2 text-gray-800">Users</h1>
+
+             <?php
+        echo "<pre>";
+
+        print_R($obj->ScanDirectory());
+        echo "</pre>";
+
+        $public = '../public';
+
+
+        foreach($obj->ScanDirectory() as $key => $value) {
+
+          if(is_dir($public."/$value")) {
+
+            echo "$value is directory";
+          } 
+
+        }
+         
+      ?>
+          
          
 <?php 
 
-echo "<pre>";
+//echo "<pre>";
 
-print_R($obj->GetAllCategories());
-echo "</pre>";
+//print_R($obj->GetAllCategories());
+//echo "</pre>";
 ?>
           <p class="mb-4"></a>.</p>
 
@@ -150,6 +171,7 @@ echo "</pre>";
 
       </div>
       <!-- End of Main Content -->
+   
 
       <!-- Footer -->
       <footer class="sticky-footer bg-white">

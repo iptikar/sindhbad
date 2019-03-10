@@ -62,6 +62,7 @@ $obj = new DowGroup();
         <!-- Begin Page Content -->
         <div class="container-fluid">
 
+         
           <!-- Page Heading -->
           <h1 class="h3 mb-2 text-gray-800">Assignment </h1>
          
@@ -71,16 +72,22 @@ $obj = new DowGroup();
           <!-- DataTales Example -->
           <div class="card shadow mb-4">
             <div class="card-header py-3">
-              <h6 class="m-0 font-weight-bold text-primary">Assignment</h6>
+              <h6 class="m-0 font-weight-bold text-primary">Assignment
+
+              </h6>
             </div>
             <div class="card-body">
               <div class="table-responsive">
+
+
+                <?php if(count($obj->getAssigndirectory()) > 0 && is_array($obj->getAssigndirectory())) :?>
+
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                   <thead>
                     <tr>
                      <th>ID</th>
                       <th>Assignee</th>
-                      <th>Documents</th>
+                      <th>Direcotry</th>
                       
                     </tr>
                   </thead>
@@ -88,58 +95,50 @@ $obj = new DowGroup();
                     <tr>
                       <th>ID</th>
                       <th>Assignee</th>
-                      <th>Documents</th>
+                      <th>Direcotry</th>
                     </tr>
                   </tfoot>
-                
 
-                  <?php if(is_array ($obj->getAssignment() ) && count($obj->getAssignment() > 0)) :?>
+                  <tbody>
+
+
                    
-                   <?php foreach($obj->getAssignment() as $item ) :?>
-
-
-
-                    <?php 
-
-                    $files = json_decode($item['comments']);
-                    $doc = '';
-
-
                   
-                
 
-                    if($files !== false) {
-
-                        if(count($files) > 0) {
-
-                            foreach($files as $key => $value ) {
+                                        
 
 
 
-                              $doc .= '<button type="button" class="btn btn-success">
-                              <a href = "http://'.$value.'" download>Download</a></button> &nbsp ';
-                       
-                            }
-                          }
-
-                    }
-                    
-                    ?>
-                    <tr>
-                      <td><?= $item['id']; ?></td>
+                   
+                  <tr role="row" class="odd">
+                      <td class="sorting_1">1</td>
                       <td>Administrator</td>
-                      <td><?= $doc; ?></td>
+                      <td>
+
+                        
+
+
+                          <?php 
+
+                          foreach($obj->getAssigndirectory() as $key => $value) : ?>
+
+                            <button type="button" class="btn btn-success">
+  <a href="browse-file.php?name=<?=urlencode($value);?>"><?= $value; ?></a></button> &nbsp;
+
+                          <?php endforeach ;?>
+
+   
+
+
+
+
+                            </td>
 
 
                       
-                    </tr>
+                    </tr></tbody>
+                
 
-
-                   <?php endforeach; ?>
-
-                  
-
-                    <?php endif; ?>
                     
 
 
@@ -147,6 +146,8 @@ $obj = new DowGroup();
                    
                   </tbody>
                 </table>
+
+              <?php endif; ?>
               </div>
             </div>
           </div>
